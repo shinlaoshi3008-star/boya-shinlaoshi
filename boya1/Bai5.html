@@ -3,24 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>博雅汉语 · Bài 7 · 明天你有课吗</title>
+<title>博雅汉语 · Bài 5 · 在北京大学的东边</title>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --paper:#F4F1F9;
-  --paper-deep:#E7E2F1;
-  --ink:#2B2540;
-  --ink-soft:#6A6382;
+  --paper:#F2F3F6;
+  --paper-deep:#E2E5EC;
+  --ink:#232A38;
+  --ink-soft:#5C6577;
   --card:#FFFFFF;
-  --line:#DFD8EC;
-  --accent:#7B5EA7;
-  --accent-soft:#EBE3F7;
-  --jade:#2F7D5A;
-  --jade-soft:#DCEFE3;
-  --red:#C0554F;
-  --red-soft:#F7E0DD;
+  --line:#D6DAE4;
+  --accent:#2C3E63;
+  --accent-soft:#DEE3EF;
+  --jade:#3E7D6B;
+  --jade-soft:#DEEDE7;
+  --red:#B8564A;
+  --red-soft:#F5E0DC;
+  --night:#232A38;
+  --night-soft:#2C3E63;
+  --lime:#C97B8E;
+  --peach:#7D8794;
   --shadow: 0 10px 30px rgba(39,49,64,0.07);
 }
 *{box-sizing:border-box;}
@@ -81,7 +85,7 @@ main{flex:1;display:flex;flex-direction:column;}
 .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;filter:brightness(.75);}
 .slide h2{margin:0;font-family:'Noto Serif SC',serif;font-size:24px;}
 
-.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(158deg,#EFE7F8 0%,#F8E5EF 46%,#E2E6F8 100%);}
+.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(158deg,#DFE4F0 0%,#EAECF1 47%,#F8E5EA 100%);}
 .cover-lattice{position:absolute;width:200px;height:200px;opacity:.16;z-index:1;color:#273140;}
 .cover-lattice svg{width:100%;height:100%;}
 .corner-tl{top:-40px;left:-40px;}
@@ -239,7 +243,7 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 
 .vword-pos{display:flex;align-items:center;gap:8px;}
 .tag-new,.tag-old{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:2px 9px;border-radius:999px;text-transform:none;}
-.tag-new{background:var(--accent-soft);color:#6E4E96;border:1px solid var(--accent);}
+.tag-new{background:var(--accent-soft);color:#1B2436;border:1px solid var(--accent);}
 .tag-old{background:var(--jade-soft);color:var(--jade);border:1px solid var(--jade);}
 .expand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .expand-card{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
@@ -256,7 +260,98 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 .expand-model .p{font-size:11.5px;color:var(--jade);margin-top:2px;}
 .expand-model .vi{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
 @media(max-width:700px){.expand-grid{grid-template-columns:1fr;}}
-.fun-sticker{position:absolute;z-index:4;pointer-events:none;opacity:.92;filter:drop-shadow(0 5px 9px rgba(43,37,64,.18));}
+
+/* ===== Giao diện CUỘC GỌI cho trang bài khóa ===== */
+.callwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(35,42,56,.07);}
+.callbar{display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--night);color:#F1F1EC;flex-wrap:wrap;}
+.cb-who{display:flex;align-items:center;gap:9px;min-width:0;}
+.cb-av{width:34px;height:34px;border-radius:50%;flex:0 0 34px;overflow:hidden;background:var(--night-soft);border:2px solid rgba(255,255,255,.16);}
+.cb-av svg{width:100%;height:100%;display:block;}
+.cb-txt strong{display:block;font-family:'Noto Serif SC',serif;font-size:14.5px;line-height:1.2;}
+.cb-txt small{display:block;font-size:10.5px;color:#A7AEBA;margin-top:1px;}
+.cb-link{flex:1;min-width:70px;height:2px;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:2px;position:relative;overflow:hidden;}
+.cb-link i{position:absolute;top:-2.5px;width:7px;height:7px;border-radius:50%;background:#fff;animation:callFlow 2.6s linear infinite;}
+.cb-link i:nth-child(2){animation-delay:.85s;}
+.cb-link i:nth-child(3){animation-delay:1.7s;}
+@keyframes callFlow{from{left:-8px;opacity:0;}12%{opacity:1;}88%{opacity:1;}to{left:100%;opacity:0;}}
+.cb-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:#FFB694;white-space:nowrap;}
+.cb-status .live{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:livePulse 1.5s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:.45;}}
+
+.thread{padding:14px 16px 12px;display:flex;flex-direction:column;gap:9px;background:
+  radial-gradient(circle at 12% 0%, rgba(44,62,99,.05), transparent 42%),
+  radial-gradient(circle at 88% 100%, rgba(201,123,142,.06), transparent 45%);}
+.turn{display:flex;gap:9px;align-items:flex-end;max-width:76%;animation:turnIn .32s ease both;}
+.turn.side-r{margin-left:auto;flex-direction:row-reverse;}
+@keyframes turnIn{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
+.turn .face{width:30px;height:30px;border-radius:50%;flex:0 0 30px;overflow:hidden;border:1.5px solid var(--line);background:var(--paper-deep);}
+.turn .face svg{width:100%;height:100%;display:block;}
+.bub{position:relative;border:1px solid var(--line);border-radius:16px;padding:7px 12px 8px;background:#fff;transition:transform .18s ease, box-shadow .18s ease;}
+.turn.side-l .bub{border-bottom-left-radius:5px;}
+.turn.side-r .bub{background:var(--accent-soft);border-color:#F2C4AC;border-bottom-right-radius:5px;}
+.bub:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(35,42,56,.09);}
+.bub .spk{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:2px;}
+.turn.side-r .bub .spk{text-align:right;color:#1B2436;}
+.bub .h{font-family:'Noto Serif SC',serif;font-size:18.5px;line-height:1.45;}
+.bub .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.bub .vi{font-size:12px;margin-top:4px;color:var(--ink);background:rgba(35,42,56,.06);display:inline-block;padding:2px 9px;border-radius:8px;}
+.turn.side-r .bub .vi{background:rgba(179,74,23,.1);}
+.bub-tools{display:flex;align-items:center;gap:6px;margin-top:4px;}
+.turn.side-r .bub-tools{justify-content:flex-end;}
+.prog-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--lime);background:var(--jade-soft);border:1px solid #C3DDA0;padding:2px 8px 2px 6px;border-radius:999px;}
+.prog-tag b{display:flex;gap:2px;}
+.prog-tag b s{width:3.5px;height:3.5px;border-radius:50%;background:var(--lime);text-decoration:none;animation:dotBeat 1.2s infinite;}
+.prog-tag b s:nth-child(2){animation-delay:.2s;}
+.prog-tag b s:nth-child(3){animation-delay:.4s;}
+@keyframes dotBeat{0%,60%,100%{opacity:.25;}30%{opacity:1;}}
+.bub.playing{box-shadow:0 0 0 3px rgba(44,62,99,.28), 0 8px 18px rgba(35,42,56,.12);border-color:var(--accent);}
+.turn.side-r .bub.playing{box-shadow:0 0 0 3px rgba(201,123,142,.3), 0 8px 18px rgba(35,42,56,.12);border-color:var(--lime);}
+.aupick{position:relative;overflow:hidden;display:inline-flex;align-items:center;margin-left:8px;cursor:pointer;}
+.aupick input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.au-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;}
+.au-tag.on{background:var(--jade-soft);color:var(--lime);border:1px solid #C3DDA0;}
+.au-tag.off{background:var(--paper-deep);color:var(--ink-soft);border:1px solid var(--line);}
+.speak-btn.mini{width:24px;height:24px;flex:0 0 24px;font-size:10px;}
+.callfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:var(--paper-deep);border-top:1px solid var(--line);flex-wrap:wrap;}
+.callfoot .hint{font-size:11.5px;color:var(--ink-soft);}
+#dialogueBlock.hide-py .bub .p{display:none;}
+#dialogueBlock.hide-vi .bub .vi{display:none;}
+@media(max-width:700px){.turn{max-width:96%;}.bub .h{font-size:17px;}}
+
+
+/* ===== Dải LỘ TRÌNH + dòng thoại Bài 13 ===== */
+.routebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--night);color:#F3F1F7;border-radius:16px 16px 0 0;padding:11px 16px;}
+.routebar .rlabel{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#B2A9C6;margin-right:2px;}
+.rstep{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 13px 5px 6px;}
+.rstep .ric{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.rstep .ric svg{width:100%;height:100%;}
+.rstep .rtx{display:flex;flex-direction:column;line-height:1.15;}
+.rstep .rtx b{font-family:'Noto Serif SC',serif;font-size:13.5px;}
+.rstep .rtx small{font-size:10px;color:#B2A9C6;}
+.rarrow{color:var(--lime);font-weight:800;font-size:15px;}
+.rstep.now{background:var(--lime);border-color:var(--lime);color:#0E3A33;}
+.rstep.now .rtx small{color:rgba(14,58,51,.7);}
+
+.dwrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(35,42,56,.07);}
+.dbody{padding:6px 16px 4px;background:radial-gradient(circle at 96% 0%, rgba(201,123,142,.06), transparent 40%);}
+.dline{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);}
+.dline:last-child{border-bottom:none;}
+.dline .face{width:32px;height:32px;border-radius:50%;flex:0 0 32px;overflow:hidden;border:1.5px solid var(--line);}
+.dline .face svg{width:100%;height:100%;display:block;}
+.dline .content{flex:1;min-width:0;}
+.dline .spk{font-family:'Noto Serif SC',serif;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:1px;}
+.dline .h{font-family:'Noto Serif SC',serif;font-size:19px;line-height:1.5;}
+.dline .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.dline .vi{font-size:12px;margin-top:5px;color:var(--ink);background:var(--paper-deep);display:inline-block;padding:2px 9px;border-radius:8px;}
+.dline.playing{background:linear-gradient(90deg,var(--jade-soft),transparent);border-radius:10px;}
+.sv-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--jade);background:var(--jade-soft);border:1px solid #A9DED4;padding:2px 9px;border-radius:999px;margin-left:8px;vertical-align:2px;}
+.dfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:var(--paper-deep);border-top:1px solid var(--line);flex-wrap:wrap;}
+.dfoot .hint{font-size:11.5px;color:var(--ink-soft);}
+#dialogueBlock.hide-py .p{display:none;}
+#dialogueBlock.hide-vi .vi{display:none;}
+@media(max-width:700px){.dline .h{font-size:17px;}}
+
+.fun-sticker{position:absolute;z-index:4;pointer-events:none;opacity:.92;filter:drop-shadow(0 5px 9px rgba(35,42,56,.2));}
 .fun-sticker .fi{display:block;width:100%;height:100%;animation:funFloat 5.4s ease-in-out infinite;transform-origin:50% 60%;}
 .fun-sticker .fi svg{width:100%;height:100%;}
 @keyframes funFloat{0%,100%{transform:translateY(0) rotate(var(--r,0deg)) scale(1);}50%{transform:translateY(-7px) rotate(calc(var(--r,0deg) + 4deg)) scale(1.04);}}
@@ -272,7 +367,98 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 .fs-5 .fi{animation-delay:2.8s;}
 .fs-6{right:172px;top:88px;width:50px;height:50px;--r:-6deg;}
 .fs-6 .fi{animation-delay:1.0s;}
-@media(max-width:900px){.fun-sticker{display:none;}}
+@media(max-width:900px){
+/* ===== Giao diện CUỘC GỌI cho trang bài khóa ===== */
+.callwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(35,42,56,.07);}
+.callbar{display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--night);color:#F1F1EC;flex-wrap:wrap;}
+.cb-who{display:flex;align-items:center;gap:9px;min-width:0;}
+.cb-av{width:34px;height:34px;border-radius:50%;flex:0 0 34px;overflow:hidden;background:var(--night-soft);border:2px solid rgba(255,255,255,.16);}
+.cb-av svg{width:100%;height:100%;display:block;}
+.cb-txt strong{display:block;font-family:'Noto Serif SC',serif;font-size:14.5px;line-height:1.2;}
+.cb-txt small{display:block;font-size:10.5px;color:#A7AEBA;margin-top:1px;}
+.cb-link{flex:1;min-width:70px;height:2px;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:2px;position:relative;overflow:hidden;}
+.cb-link i{position:absolute;top:-2.5px;width:7px;height:7px;border-radius:50%;background:#fff;animation:callFlow 2.6s linear infinite;}
+.cb-link i:nth-child(2){animation-delay:.85s;}
+.cb-link i:nth-child(3){animation-delay:1.7s;}
+@keyframes callFlow{from{left:-8px;opacity:0;}12%{opacity:1;}88%{opacity:1;}to{left:100%;opacity:0;}}
+.cb-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:#FFB694;white-space:nowrap;}
+.cb-status .live{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:livePulse 1.5s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:.45;}}
+
+.thread{padding:14px 16px 12px;display:flex;flex-direction:column;gap:9px;background:
+  radial-gradient(circle at 12% 0%, rgba(44,62,99,.05), transparent 42%),
+  radial-gradient(circle at 88% 100%, rgba(201,123,142,.06), transparent 45%);}
+.turn{display:flex;gap:9px;align-items:flex-end;max-width:76%;animation:turnIn .32s ease both;}
+.turn.side-r{margin-left:auto;flex-direction:row-reverse;}
+@keyframes turnIn{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
+.turn .face{width:30px;height:30px;border-radius:50%;flex:0 0 30px;overflow:hidden;border:1.5px solid var(--line);background:var(--paper-deep);}
+.turn .face svg{width:100%;height:100%;display:block;}
+.bub{position:relative;border:1px solid var(--line);border-radius:16px;padding:7px 12px 8px;background:#fff;transition:transform .18s ease, box-shadow .18s ease;}
+.turn.side-l .bub{border-bottom-left-radius:5px;}
+.turn.side-r .bub{background:var(--accent-soft);border-color:#F2C4AC;border-bottom-right-radius:5px;}
+.bub:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(35,42,56,.09);}
+.bub .spk{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:2px;}
+.turn.side-r .bub .spk{text-align:right;color:#1B2436;}
+.bub .h{font-family:'Noto Serif SC',serif;font-size:18.5px;line-height:1.45;}
+.bub .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.bub .vi{font-size:12px;margin-top:4px;color:var(--ink);background:rgba(35,42,56,.06);display:inline-block;padding:2px 9px;border-radius:8px;}
+.turn.side-r .bub .vi{background:rgba(179,74,23,.1);}
+.bub-tools{display:flex;align-items:center;gap:6px;margin-top:4px;}
+.turn.side-r .bub-tools{justify-content:flex-end;}
+.prog-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--lime);background:var(--jade-soft);border:1px solid #C3DDA0;padding:2px 8px 2px 6px;border-radius:999px;}
+.prog-tag b{display:flex;gap:2px;}
+.prog-tag b s{width:3.5px;height:3.5px;border-radius:50%;background:var(--lime);text-decoration:none;animation:dotBeat 1.2s infinite;}
+.prog-tag b s:nth-child(2){animation-delay:.2s;}
+.prog-tag b s:nth-child(3){animation-delay:.4s;}
+@keyframes dotBeat{0%,60%,100%{opacity:.25;}30%{opacity:1;}}
+.bub.playing{box-shadow:0 0 0 3px rgba(44,62,99,.28), 0 8px 18px rgba(35,42,56,.12);border-color:var(--accent);}
+.turn.side-r .bub.playing{box-shadow:0 0 0 3px rgba(201,123,142,.3), 0 8px 18px rgba(35,42,56,.12);border-color:var(--lime);}
+.aupick{position:relative;overflow:hidden;display:inline-flex;align-items:center;margin-left:8px;cursor:pointer;}
+.aupick input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.au-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;}
+.au-tag.on{background:var(--jade-soft);color:var(--lime);border:1px solid #C3DDA0;}
+.au-tag.off{background:var(--paper-deep);color:var(--ink-soft);border:1px solid var(--line);}
+.speak-btn.mini{width:24px;height:24px;flex:0 0 24px;font-size:10px;}
+.callfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:var(--paper-deep);border-top:1px solid var(--line);flex-wrap:wrap;}
+.callfoot .hint{font-size:11.5px;color:var(--ink-soft);}
+#dialogueBlock.hide-py .bub .p{display:none;}
+#dialogueBlock.hide-vi .bub .vi{display:none;}
+@media(max-width:700px){.turn{max-width:96%;}.bub .h{font-size:17px;}}
+
+
+/* ===== Dải LỘ TRÌNH + dòng thoại Bài 13 ===== */
+.routebar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--night);color:#F3F1F7;border-radius:16px 16px 0 0;padding:11px 16px;}
+.routebar .rlabel{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#B2A9C6;margin-right:2px;}
+.rstep{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 13px 5px 6px;}
+.rstep .ric{width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.rstep .ric svg{width:100%;height:100%;}
+.rstep .rtx{display:flex;flex-direction:column;line-height:1.15;}
+.rstep .rtx b{font-family:'Noto Serif SC',serif;font-size:13.5px;}
+.rstep .rtx small{font-size:10px;color:#B2A9C6;}
+.rarrow{color:var(--lime);font-weight:800;font-size:15px;}
+.rstep.now{background:var(--lime);border-color:var(--lime);color:#0E3A33;}
+.rstep.now .rtx small{color:rgba(14,58,51,.7);}
+
+.dwrap{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(35,42,56,.07);}
+.dbody{padding:6px 16px 4px;background:radial-gradient(circle at 96% 0%, rgba(201,123,142,.06), transparent 40%);}
+.dline{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);}
+.dline:last-child{border-bottom:none;}
+.dline .face{width:32px;height:32px;border-radius:50%;flex:0 0 32px;overflow:hidden;border:1.5px solid var(--line);}
+.dline .face svg{width:100%;height:100%;display:block;}
+.dline .content{flex:1;min-width:0;}
+.dline .spk{font-family:'Noto Serif SC',serif;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:1px;}
+.dline .h{font-family:'Noto Serif SC',serif;font-size:19px;line-height:1.5;}
+.dline .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.dline .vi{font-size:12px;margin-top:5px;color:var(--ink);background:var(--paper-deep);display:inline-block;padding:2px 9px;border-radius:8px;}
+.dline.playing{background:linear-gradient(90deg,var(--jade-soft),transparent);border-radius:10px;}
+.sv-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--jade);background:var(--jade-soft);border:1px solid #A9DED4;padding:2px 9px;border-radius:999px;margin-left:8px;vertical-align:2px;}
+.dfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:var(--paper-deep);border-top:1px solid var(--line);flex-wrap:wrap;}
+.dfoot .hint{font-size:11.5px;color:var(--ink-soft);}
+#dialogueBlock.hide-py .p{display:none;}
+#dialogueBlock.hide-vi .vi{display:none;}
+@media(max-width:700px){.dline .h{font-size:17px;}}
+
+.fun-sticker{display:none;}}
 .order-answer{background:var(--jade-soft);border:1px solid var(--jade);border-radius:12px;padding:9px 13px;animation:fbIn .28s ease;}
 .order-answer .h{font-family:'Noto Serif SC',serif;font-size:17px;}
 .order-answer .p{font-size:12px;color:var(--jade);margin-top:2px;}
@@ -303,15 +489,15 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 <div id="app">
   <header>
     <div class="brand">
-      <a href="index.html" class="lib-back" title="Quay lại thư viện bài học">
+      <a href="../index.html" class="lib-back" title="Quay lại thư viện bài học">
         <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
         <span>Thư viện</span>
       </a>
       <div class="side-mark">博</div>
-      <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 7 · Rủ nhau đi chơi &amp; sở hữu — 明天你有课吗</strong></div>
+      <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 5 · Chuyên ngành &amp; phương vị — 在北京大学的东边</strong></div>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
-      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">影</div><span id="weatherLabel">Rạp phim</span></div>
+      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">专</div><span id="weatherLabel">Chuyên ngành</span></div>
       <button class="fs-btn" id="fsBtn" title="Trình chiếu toàn màn hình">
         <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
@@ -403,15 +589,73 @@ exclaim:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#C0614F
 bike:`<svg viewBox="0 0 100 100"><circle cx="24" cy="66" r="18" fill="none" stroke="#2B2540" stroke-width="5"/><circle cx="76" cy="66" r="18" fill="none" stroke="#2B2540" stroke-width="5"/><path d="M24 66 L44 40 L64 66 L44 40 L54 34" fill="none" stroke="#C2557F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 66 L58 38 L70 34" fill="none" stroke="#C2557F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="38" y1="34" x2="54" y2="34" stroke="#2B2540" stroke-width="5" stroke-linecap="round"/></svg>`,
 keyfun:`<svg viewBox="0 0 100 100"><circle cx="30" cy="38" r="17" fill="none" stroke="#D9A227" stroke-width="9"/><path d="M42 50 L78 86" stroke="#D9A227" stroke-width="9" stroke-linecap="round"/><path d="M64 72 L74 62" stroke="#D9A227" stroke-width="8" stroke-linecap="round"/><path d="M54 62 L64 52" stroke="#D9A227" stroke-width="8" stroke-linecap="round"/></svg>`,
 ticket:`<svg viewBox="0 0 100 100"><path d="M12 30 H88 V44 A7 7 0 0 0 88 58 V72 H12 V58 A7 7 0 0 0 12 44Z" fill="#C2557F"/><line x1="50" y1="36" x2="50" y2="44" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9"/><line x1="50" y1="52" x2="50" y2="66" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.1 9"/><text x="30" y="59" font-size="20" font-weight="900" fill="#fff" text-anchor="middle" font-family="Arial">7</text></svg>`,
-popcorn:`<svg viewBox="0 0 100 100"><circle cx="36" cy="30" r="12" fill="#FBF3E2"/><circle cx="56" cy="26" r="13" fill="#FFF8EC"/><circle cx="70" cy="36" r="10" fill="#FBF3E2"/><circle cx="46" cy="40" r="11" fill="#FFF8EC"/><path d="M26 44 H78 L70 88 H34Z" fill="#C0554F"/><path d="M38 44 L34 88" stroke="#fff" stroke-width="6"/><path d="M56 44 L58 88" stroke="#fff" stroke-width="6"/></svg>`,
+popcorn:`<svg viewBox="0 0 100 100"><circle cx="36" cy="30" r="12" fill="#FBF3E2"/><circle cx="56" cy="26" r="13" fill="#FFF8EC"/><circle cx="70" cy="36" r="10" fill="#FBF3E2"/><circle cx="46" cy="40" r="11" fill="#FFF8EC"/><path d="M26 44 H78 L70 88 H34Z" fill="#B8564A"/><path d="M38 44 L34 88" stroke="#fff" stroke-width="6"/><path d="M56 44 L58 88" stroke="#fff" stroke-width="6"/></svg>`,
 filmreel:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#4655A0"/><circle cx="50" cy="50" r="8" fill="#EBE3F7"/><circle cx="50" cy="28" r="7" fill="#EBE3F7"/><circle cx="50" cy="72" r="7" fill="#EBE3F7"/><circle cx="28" cy="50" r="7" fill="#EBE3F7"/><circle cx="72" cy="50" r="7" fill="#EBE3F7"/></svg>`,
 moonstar:`<svg viewBox="0 0 100 100"><path d="M66 20 A34 34 0 1 0 82 62 A28 28 0 0 1 66 20Z" fill="#7B5EA7"/><polygon points="0,0 4.5,-6 5.5,-1.8 9,-1.8 6.2,0.7 7.2,4.5 3.4,2.3 -0.4,4.5 0.9,0.5 -2,-1.8 1.8,-1.8" fill="#F0C64B" transform="translate(24,26) scale(1.5)"/><polygon points="0,0 4.5,-6 5.5,-1.8 9,-1.8 6.2,0.7 7.2,4.5 3.4,2.3 -0.4,4.5 0.9,0.5 -2,-1.8 1.8,-1.8" fill="#F0C64B" transform="translate(20,60) scale(1.05)"/></svg>`,
-okhand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#2F7D5A"/><circle cx="42" cy="44" r="12" fill="none" stroke="#fff" stroke-width="6"/><path d="M56 34 L74 30 M56 44 L78 42 M56 54 L74 54" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M32 60 Q50 76 70 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+okhand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#3E7D6B"/><circle cx="42" cy="44" r="12" fill="none" stroke="#fff" stroke-width="6"/><path d="M56 34 L74 30 M56 44 L78 42 M56 54 L74 54" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M32 60 Q50 76 70 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
 bubbleba:`<svg viewBox="0 0 100 100"><path d="M14 22 H86 A8 8 0 0 1 94 30 V64 A8 8 0 0 1 86 72 H44 L26 88 V72 H14 A8 8 0 0 1 6 64 V30 A8 8 0 0 1 14 22Z" fill="#EBE3F7" stroke="#7B5EA7" stroke-width="4"/><text x="50" y="58" font-family="Noto Serif SC, serif" font-size="30" font-weight="900" fill="#7B5EA7" text-anchor="middle">吧?</text></svg>`,
 sparkle:`<svg viewBox="0 0 100 100"><path d="M50 8 L59 41 L92 50 L59 59 L50 92 L41 59 L8 50 L41 41Z" fill="#F0C64B"/><circle cx="50" cy="50" r="7" fill="#FFF3CE"/></svg>`,
 phone:`<svg viewBox="0 0 100 100"><rect x="28" y="10" width="44" height="80" rx="8" fill="#2B2540"/><rect x="33" y="20" width="34" height="56" rx="3" fill="#C2557F"/><circle cx="50" cy="83" r="4" fill="#6A6382"/><rect x="43" y="14" width="14" height="3" rx="1.5" fill="#6A6382"/></svg>`,
 cinema:`<svg viewBox="0 0 100 100"><rect x="10" y="26" width="80" height="52" rx="5" fill="#4655A0"/><rect x="18" y="34" width="64" height="36" rx="3" fill="#EBE3F7"/><path d="M10 26 L20 12 H80 L90 26Z" fill="#7B5EA7"/><polygon points="42,44 42,60 58,52" fill="#7B5EA7"/></svg>`,
-clocknight:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E7E2F1" stroke="#7B5EA7" stroke-width="4"/><line x1="50" y1="50" x2="50" y2="30" stroke="#2B2540" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="50" x2="65" y2="57" stroke="#C2557F" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="4" fill="#2B2540"/></svg>`
+clocknight:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E7E2F1" stroke="#7B5EA7" stroke-width="4"/><line x1="50" y1="50" x2="50" y2="30" stroke="#2B2540" stroke-width="5" stroke-linecap="round"/><line x1="50" y1="50" x2="65" y2="57" stroke="#C2557F" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="4" fill="#2B2540"/></svg>`,
+bus:`<svg viewBox="0 0 100 100"><rect x="14" y="20" width="72" height="52" rx="8" fill="#E0703C"/><rect x="20" y="28" width="26" height="18" rx="3" fill="#FBEADC"/><rect x="54" y="28" width="26" height="18" rx="3" fill="#FBEADC"/><circle cx="30" cy="78" r="9" fill="#22332E"/><circle cx="70" cy="78" r="9" fill="#22332E"/><rect x="20" y="54" width="60" height="6" rx="3" fill="#B24E20"/></svg>`,
+keypad:`<svg viewBox="0 0 100 100"><rect x="18" y="10" width="64" height="80" rx="9" fill="#1F8A70"/><rect x="26" y="20" width="48" height="16" rx="3" fill="#D6EEE7"/><circle cx="35" cy="50" r="6" fill="#D6EEE7"/><circle cx="50" cy="50" r="6" fill="#D6EEE7"/><circle cx="65" cy="50" r="6" fill="#D6EEE7"/><circle cx="35" cy="66" r="6" fill="#D6EEE7"/><circle cx="50" cy="66" r="6" fill="#D6EEE7"/><circle cx="65" cy="66" r="6" fill="#D6EEE7"/><circle cx="50" cy="80" r="5" fill="#7A9E2F"/></svg>`,
+doorplate:`<svg viewBox="0 0 100 100"><rect x="16" y="26" width="68" height="48" rx="7" fill="#7A9E2F"/><rect x="22" y="32" width="56" height="36" rx="4" fill="#F3F8E6"/><text x="50" y="59" font-family="Arial Black, Arial" font-size="24" font-weight="900" fill="#5C7A1E" text-anchor="middle">502</text><circle cx="24" cy="22" r="3.5" fill="#5C7A1E"/><circle cx="76" cy="22" r="3.5" fill="#5C7A1E"/></svg>`,
+mapmark:`<svg viewBox="0 0 100 100"><path d="M50 12 C34 12 22 24 22 40 C22 60 50 88 50 88 C50 88 78 60 78 40 C78 24 66 12 50 12Z" fill="#E0703C"/><circle cx="50" cy="40" r="12" fill="#FBEADC"/></svg>`,
+telephone:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#1F8A70"/><path d="M32 30 Q28 28 26 34 L24 42 Q30 66 58 74 L66 72 Q72 70 70 64 L66 54 Q64 49 59 52 L54 55 Q45 50 42 41 L46 37 Q50 34 47 30 L40 22 Q37 18 32 22Z" fill="#fff" transform="translate(2,2) scale(0.92)"/></svg>`,
+weekend:`<svg viewBox="0 0 100 100"><rect x="14" y="22" width="72" height="62" rx="8" fill="#FFF" stroke="#1F8A70" stroke-width="4"/><rect x="14" y="22" width="72" height="18" rx="8" fill="#1F8A70"/><rect x="30" y="12" width="7" height="18" rx="3.5" fill="#1B2436"/><rect x="63" y="12" width="7" height="18" rx="3.5" fill="#1B2436"/><rect x="58" y="50" width="22" height="24" rx="4" fill="#E0703C"/><circle cx="30" cy="54" r="4" fill="#B9CDBF"/><circle cx="44" cy="54" r="4" fill="#B9CDBF"/><circle cx="30" cy="68" r="4" fill="#B9CDBF"/><circle cx="44" cy="68" r="4" fill="#B9CDBF"/></svg>`,
+fastbike:`<svg viewBox="0 0 100 100"><circle cx="30" cy="64" r="15" fill="none" stroke="#22332E" stroke-width="5"/><circle cx="76" cy="64" r="15" fill="none" stroke="#22332E" stroke-width="5"/><path d="M30 64 L48 42 L64 64 L48 42 L56 36" fill="none" stroke="#1F8A70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="40" x2="24" y2="40" stroke="#E0703C" stroke-width="5" stroke-linecap="round"/><line x1="10" y1="54" x2="26" y2="54" stroke="#E0703C" stroke-width="5" stroke-linecap="round"/></svg>`,
+beer:`<svg viewBox="0 0 100 100"><path d="M34 18 H66 L62 88 H38Z" fill="#E8B33C"/><path d="M34 18 H66 L64 34 H36Z" fill="#FBF3DC"/><path d="M66 32 H78 A9 9 0 0 1 78 58 H64" fill="none" stroke="#C9932A" stroke-width="6"/><circle cx="46" cy="48" r="3.5" fill="#FBF3DC" opacity=".8"/><circle cx="55" cy="62" r="3" fill="#FBF3DC" opacity=".8"/></svg>`,
+waterbtl:`<svg viewBox="0 0 100 100"><rect x="42" y="8" width="16" height="12" rx="3" fill="#3D7A9E"/><path d="M38 20 H62 L66 34 V84 A6 6 0 0 1 60 90 H40 A6 6 0 0 1 34 84 V34Z" fill="#CFE6F2" stroke="#7FA9C4" stroke-width="2.5"/><path d="M38 48 H62 V64 H38Z" fill="#8FC3DE" opacity=".7"/></svg>`,
+coin:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E0B93A" stroke="#B8942A" stroke-width="4"/><rect x="41" y="41" width="18" height="18" fill="#FAF4EE"/><text x="50" y="44" font-family="Noto Serif SC, serif" font-size="20" font-weight="900" fill="#1B2436" text-anchor="middle">元</text></svg>`,
+banknote:`<svg viewBox="0 0 100 100"><rect x="8" y="28" width="84" height="46" rx="5" fill="#B23A2E"/><rect x="15" y="35" width="70" height="32" rx="3" fill="none" stroke="#FADFDA" stroke-width="2.5"/><circle cx="50" cy="51" r="11" fill="#FADFDA"/><text x="50" y="58" font-family="Noto Serif SC, serif" font-size="15" font-weight="900" fill="#B23A2E" text-anchor="middle">块</text></svg>`,
+shopbag:`<svg viewBox="0 0 100 100"><path d="M22 32 H78 L84 88 H16Z" fill="#B23A2E"/><path d="M36 34 V24 A14 14 0 0 1 64 24 V34" fill="none" stroke="#7A2A20" stroke-width="5"/><rect x="30" y="52" width="40" height="6" rx="3" fill="#FADFDA" opacity=".85"/></svg>`,
+pricetag:`<svg viewBox="0 0 100 100"><path d="M52 12 H86 A4 4 0 0 1 90 16 V50 L46 94 L8 56Z" fill="#C29B22"/><circle cx="74" cy="28" r="7" fill="#FAF4EE"/><text x="46" y="66" font-family="Noto Serif SC, serif" font-size="22" font-weight="900" fill="#FAF4EE" text-anchor="middle" transform="rotate(-45 46 62)">￥</text></svg>`,
+cashier:`<svg viewBox="0 0 100 100"><rect x="12" y="44" width="76" height="40" rx="5" fill="#7A5A3C"/><rect x="20" y="52" width="30" height="14" rx="3" fill="#F0E5D9"/><circle cx="62" cy="58" r="4" fill="#E0B93A"/><circle cx="74" cy="58" r="4" fill="#E0B93A"/><circle cx="62" cy="72" r="4" fill="#E0B93A"/><circle cx="74" cy="72" r="4" fill="#E0B93A"/><rect x="28" y="20" width="44" height="22" rx="4" fill="#B23A2E"/><rect x="34" y="26" width="32" height="10" rx="2" fill="#FADFDA"/></svg>`,
+photoframe:`<svg viewBox="0 0 100 100"><rect x="10" y="16" width="80" height="68" rx="6" fill="#8E7A5E"/><rect x="18" y="24" width="64" height="52" rx="3" fill="#F6E3E9"/><circle cx="38" cy="42" r="8" fill="#B05A72"/><circle cx="60" cy="45" r="6.5" fill="#5B6E8C"/><path d="M22 72 Q34 54 46 72Z" fill="#3E7D6B"/><path d="M48 72 Q60 58 72 72Z" fill="#6E8FA8"/></svg>`,
+familygroup:`<svg viewBox="0 0 100 100"><circle cx="28" cy="34" r="11" fill="#F0CDB4" stroke="#7A5B4A" stroke-width="2"/><circle cx="62" cy="32" r="11" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><circle cx="46" cy="58" r="8" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M8 84 Q11 50 28 50 Q45 50 48 84Z" fill="#5B6E8C"/><path d="M44 84 Q47 48 62 48 Q79 48 82 84Z" fill="#B05A72"/><path d="M30 92 Q32 70 46 70 Q60 70 62 92Z" fill="#3E7D6B"/></svg>`,
+dogicon:`<svg viewBox="0 0 100 100"><ellipse cx="50" cy="60" rx="26" ry="22" fill="#C9A87C"/><path d="M26 40 Q18 18 32 22 Q36 32 34 44Z" fill="#A8865A"/><path d="M74 40 Q82 18 68 22 Q64 32 66 44Z" fill="#A8865A"/><circle cx="40" cy="56" r="4" fill="#3A2A1E"/><circle cx="60" cy="56" r="4" fill="#3A2A1E"/><ellipse cx="50" cy="68" rx="7" ry="5" fill="#5B4433"/><path d="M50 73 Q44 80 38 76 M50 73 Q56 80 62 76" stroke="#5B4433" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`,
+grandpa:`<svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="24" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><path d="M26 38 Q30 16 50 18 Q70 16 74 38 Q64 26 50 28 Q36 26 26 38Z" fill="#D8D4D0"/><circle cx="41" cy="45" r="7" fill="none" stroke="#5B4433" stroke-width="2.5"/><circle cx="59" cy="45" r="7" fill="none" stroke="#5B4433" stroke-width="2.5"/><line x1="48" y1="45" x2="52" y2="45" stroke="#5B4433" stroke-width="2.5"/><path d="M40 62 Q50 70 60 62" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 90 Q26 72 50 72 Q74 72 78 90Z" fill="#5B6E8C"/></svg>`,
+grandma:`<svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="24" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M26 40 Q28 14 50 16 Q72 14 74 40 Q72 22 50 24 Q28 22 26 40Z" fill="#E2DEDA"/><circle cx="30" cy="34" r="7" fill="#E2DEDA"/><circle cx="70" cy="34" r="7" fill="#E2DEDA"/><circle cx="41" cy="46" r="3.4" fill="#3A2A1E"/><circle cx="59" cy="46" r="3.4" fill="#3A2A1E"/><ellipse cx="34" cy="54" rx="5" ry="3" fill="#E9A0A8" opacity=".6"/><ellipse cx="66" cy="54" rx="5" ry="3" fill="#E9A0A8" opacity=".6"/><path d="M42 62 Q50 69 58 62" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 90 Q26 72 50 72 Q74 72 78 90Z" fill="#B05A72"/></svg>`,
+kid:`<svg viewBox="0 0 100 100"><circle cx="50" cy="42" r="22" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M28 36 Q32 16 50 18 Q68 16 72 36 Q62 26 50 28 Q38 26 28 36Z" fill="#4A3728"/><circle cx="42" cy="44" r="3.6" fill="#2A1C12"/><circle cx="58" cy="44" r="3.6" fill="#2A1C12"/><ellipse cx="35" cy="52" rx="4.5" ry="2.8" fill="#F0A0A8" opacity=".65"/><ellipse cx="65" cy="52" rx="4.5" ry="2.8" fill="#F0A0A8" opacity=".65"/><path d="M43 57 Q50 63 57 57" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M26 90 Q30 70 50 70 Q70 70 74 90Z" fill="#C9942F"/></svg>`,
+heartfam:`<svg viewBox="0 0 100 100"><path d="M50 86 C20 66 8 46 20 29 C30 15 48 19 50 35 C52 19 70 15 80 29 C92 46 80 66 50 86Z" fill="#B05A72"/><circle cx="38" cy="46" r="6" fill="#F6E3E9"/><circle cx="62" cy="46" r="6" fill="#F6E3E9"/><circle cx="50" cy="58" r="5" fill="#F6E3E9"/></svg>`,
+passport:`<svg viewBox="0 0 100 100"><rect x="20" y="10" width="60" height="80" rx="7" fill="#3B4E8C"/><rect x="26" y="16" width="48" height="68" rx="4" fill="#4A6FA5"/><circle cx="50" cy="42" r="15" fill="none" stroke="#E4EDF7" stroke-width="3"/><ellipse cx="50" cy="42" rx="6.5" ry="15" fill="none" stroke="#E4EDF7" stroke-width="3"/><line x1="35" y1="42" x2="65" y2="42" stroke="#E4EDF7" stroke-width="3"/><rect x="36" y="66" width="28" height="4" rx="2" fill="#E4EDF7"/></svg>`,
+classroom:`<svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="46" rx="5" fill="#2F4A5E"/><rect x="16" y="20" width="68" height="34" rx="3" fill="#E7F1F5"/><text x="50" y="45" font-family="Noto Serif SC, serif" font-size="22" font-weight="900" fill="#0E8FA8" text-anchor="middle">你好</text><rect x="14" y="70" width="24" height="16" rx="3" fill="#C98A4B"/><rect x="62" y="70" width="24" height="16" rx="3" fill="#C98A4B"/><circle cx="26" cy="64" r="6" fill="#F6D9C4"/><circle cx="74" cy="64" r="6" fill="#F6D9C4"/></svg>`,
+greet:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#D1495B"/><path d="M36 34 Q30 20 40 18 Q38 28 44 34" fill="#FBE0CC"/><path d="M46 32 Q44 16 54 16 Q50 28 54 34" fill="#FBE0CC"/><circle cx="50" cy="52" r="18" fill="#FBE0CC"/><circle cx="43" cy="50" r="3" fill="#3A2A1E"/><circle cx="57" cy="50" r="3" fill="#3A2A1E"/><path d="M42 60 Q50 68 58 60" stroke="#7A5B4A" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+worldmap:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#0E8FA8"/><path d="M22 40 Q32 32 40 40 Q46 48 38 54 Q28 56 22 48Z" fill="#D8EEF4"/><path d="M52 28 Q64 26 70 36 Q74 46 64 50 Q56 46 52 36Z" fill="#D8EEF4"/><path d="M50 58 Q62 58 66 68 Q60 78 50 76 Q44 68 50 58Z" fill="#D8EEF4"/></svg>`,
+idcard:`<svg viewBox="0 0 100 100"><rect x="8" y="24" width="84" height="54" rx="7" fill="#E8A33D"/><rect x="16" y="32" width="30" height="38" rx="4" fill="#FBF1DC"/><circle cx="31" cy="46" r="8" fill="#C98A4B"/><path d="M20 66 Q24 56 31 56 Q38 56 42 66Z" fill="#C98A4B"/><rect x="52" y="38" width="30" height="5" rx="2.5" fill="#FBF1DC"/><rect x="52" y="50" width="30" height="5" rx="2.5" fill="#FBF1DC"/><rect x="52" y="62" width="20" height="5" rx="2.5" fill="#FBF1DC"/></svg>`,
+speechhi:`<svg viewBox="0 0 100 100"><path d="M12 20 H88 A8 8 0 0 1 96 28 V62 A8 8 0 0 1 88 70 H42 L24 88 V70 H12 A8 8 0 0 1 4 62 V28 A8 8 0 0 1 12 20Z" fill="#D8EEF4" stroke="#0E8FA8" stroke-width="4"/><text x="50" y="56" font-family="Noto Serif SC, serif" font-size="26" font-weight="900" fill="#0E8FA8" text-anchor="middle">你好</text></svg>`,
+teacherpt:`<svg viewBox="0 0 100 100"><circle cx="50" cy="36" r="18" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><path d="M32 32 Q34 14 50 16 Q66 14 68 32 Q60 22 50 24 Q40 22 32 32Z" fill="#3A2A1E"/><circle cx="43" cy="37" r="6" fill="none" stroke="#4A6FA5" stroke-width="2.2"/><circle cx="57" cy="37" r="6" fill="none" stroke="#4A6FA5" stroke-width="2.2"/><line x1="49" y1="37" x2="51" y2="37" stroke="#4A6FA5" stroke-width="2.2"/><path d="M26 88 Q30 60 50 60 Q70 60 74 88Z" fill="#0E8FA8"/><line x1="72" y1="58" x2="92" y2="34" stroke="#7A5B4A" stroke-width="4" stroke-linecap="round"/></svg>`,
+avaDavid:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#3A4048"/><circle cx="50" cy="42" r="21" fill="#F3D3B6"/><path d="M27 40 Q24 14 50 16 Q76 14 73 40 Q68 24 50 26 Q32 24 27 40Z" fill="#6B4A2E"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><path d="M43 53 Q50 58 57 53" stroke="#8A6046" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#6F9E2F"/></svg>`,
+avaMary:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#3A4048"/><circle cx="50" cy="42" r="21" fill="#FBE0CC"/><path d="M26 44 Q24 12 50 14 Q76 12 74 44 Q72 22 50 24 Q28 22 26 44Z" fill="#D9A441"/><path d="M26 40 Q22 58 26 66 Q30 54 28 44Z" fill="#D9A441"/><path d="M74 40 Q78 58 74 66 Q70 54 72 44Z" fill="#D9A441"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><ellipse cx="34" cy="50" rx="4.2" ry="2.6" fill="#F09A9A" opacity=".6"/><ellipse cx="66" cy="50" rx="4.2" ry="2.6" fill="#F09A9A" opacity=".6"/><path d="M43 53 Q50 59 57 53" stroke="#B87A5A" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#F2662C"/></svg>`,
+homework:`<svg viewBox="0 0 100 100"><rect x="14" y="20" width="60" height="72" rx="5" fill="#FBF7EC" stroke="#8A8F80" stroke-width="3"/><line x1="26" y1="38" x2="62" y2="38" stroke="#B9BEB0" stroke-width="3.5" stroke-linecap="round"/><line x1="26" y1="52" x2="62" y2="52" stroke="#B9BEB0" stroke-width="3.5" stroke-linecap="round"/><line x1="26" y1="66" x2="48" y2="66" stroke="#B9BEB0" stroke-width="3.5" stroke-linecap="round"/><path d="M64 60 L88 34 L80 26 L56 52 L54 64Z" fill="#F2662C"/><path d="M54 64 L62 62 L56 56Z" fill="#23272E"/></svg>`,
+coffeecup:`<svg viewBox="0 0 100 100"><path d="M22 34 H70 V64 A18 18 0 0 1 52 82 H40 A18 18 0 0 1 22 64Z" fill="#FBF3E6" stroke="#8A6046" stroke-width="3"/><path d="M70 40 H80 A11 11 0 0 1 80 62 H70" fill="none" stroke="#8A6046" stroke-width="4"/><path d="M22 44 H70 V62 A16 16 0 0 1 54 78 H38 A16 16 0 0 1 22 62Z" fill="#7A4A2A"/><path d="M36 24 Q32 16 38 10 M50 24 Q46 16 52 10 M64 24 Q60 16 66 10" stroke="#C9C3B4" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+micnote:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#6F9E2F"/><path d="M42 66 V40 L70 34 V60" stroke="#fff" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="67" r="7" fill="#fff"/><circle cx="64" cy="61" r="7" fill="#fff"/></svg>`,
+calendarwk:`<svg viewBox="0 0 100 100"><rect x="12" y="22" width="76" height="64" rx="7" fill="#fff" stroke="#23272E" stroke-width="3.5"/><rect x="12" y="22" width="76" height="17" rx="7" fill="#23272E"/><rect x="28" y="12" width="7" height="17" rx="3.5" fill="#5F6672"/><rect x="65" y="12" width="7" height="17" rx="3.5" fill="#5F6672"/><rect x="24" y="48" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="44" y="48" width="12" height="11" rx="2.5" fill="#F2662C"/><rect x="64" y="48" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="24" y="66" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="44" y="66" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="64" y="66" width="12" height="11" rx="2.5" fill="#6F9E2F"/></svg>`,
+neonbar:`<svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="52" rx="8" fill="#23272E"/><text x="50" y="48" font-family="Noto Serif SC, serif" font-size="26" font-weight="900" fill="#F2662C" text-anchor="middle">酒吧</text><rect x="18" y="56" width="64" height="3" rx="1.5" fill="#6F9E2F"/><rect x="44" y="66" width="12" height="16" fill="#5F6672"/><rect x="30" y="82" width="40" height="6" rx="3" fill="#3A4048"/></svg>`,
+phoneline:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#F2662C"/><path d="M34 28 Q29 26 27 32 L25 41 Q31 66 60 74 L69 72 Q75 70 73 64 L69 54 Q67 49 62 52 L57 55 Q47 50 44 41 L48 37 Q52 34 49 30 L42 21 Q39 17 34 21Z" fill="#fff" transform="translate(1,1) scale(0.94)"/></svg>`,
+libbook:`<svg viewBox="0 0 100 100"><rect x="16" y="18" width="26" height="66" rx="3" fill="#4A3B6B"/><rect x="44" y="26" width="22" height="58" rx="3" fill="#3FAE9A"/><rect x="68" y="14" width="18" height="70" rx="3" fill="#E08A6E"/><rect x="22" y="30" width="14" height="4" rx="2" fill="#E6E1F2"/><rect x="22" y="40" width="14" height="4" rx="2" fill="#E6E1F2"/><rect x="49" y="38" width="12" height="4" rx="2" fill="#fff"/><rect x="72" y="26" width="10" height="4" rx="2" fill="#fff"/></svg>`,
+bank:`<svg viewBox="0 0 100 100"><polygon points="50,12 92,34 8,34" fill="#4A3B6B"/><rect x="14" y="38" width="72" height="38" rx="2" fill="#EFEBF7" stroke="#4A3B6B" stroke-width="2.5"/><rect x="24" y="46" width="8" height="24" fill="#4A3B6B" opacity=".6"/><rect x="40" y="46" width="8" height="24" fill="#4A3B6B" opacity=".6"/><rect x="56" y="46" width="8" height="24" fill="#4A3B6B" opacity=".6"/><rect x="70" y="46" width="8" height="24" fill="#4A3B6B" opacity=".6"/><rect x="8" y="78" width="84" height="7" rx="3" fill="#2A2438"/><circle cx="50" cy="24" r="6" fill="#E08A6E"/><text x="50" y="28" font-size="9" font-weight="900" fill="#fff" text-anchor="middle" font-family="Arial">¥</text></svg>`,
+mall:`<svg viewBox="0 0 100 100"><path d="M16 34 H84 L88 88 H12Z" fill="#E08A6E"/><path d="M16 34 L22 16 H78 L84 34Z" fill="#3FAE9A"/><rect x="30" y="56" width="18" height="32" rx="2" fill="#FBE8DF"/><rect x="54" y="56" width="18" height="20" rx="2" fill="#FBE8DF"/><circle cx="50" cy="46" r="4" fill="#FBE8DF"/></svg>`,
+clothes:`<svg viewBox="0 0 100 100"><path d="M34 20 L50 30 L66 20 L86 32 L76 50 L68 46 V86 H32 V46 L24 50 L14 32Z" fill="#3FAE9A"/><path d="M40 20 Q50 34 60 20" fill="none" stroke="#DCF2ED" stroke-width="3"/><rect x="32" y="60" width="36" height="4" rx="2" fill="#DCF2ED" opacity=".7"/></svg>`,
+doorclock:`<svg viewBox="0 0 100 100"><rect x="18" y="14" width="44" height="72" rx="4" fill="#4A3B6B"/><rect x="24" y="20" width="32" height="60" rx="3" fill="#EFEBF7"/><circle cx="50" cy="52" r="3.5" fill="#4A3B6B"/><circle cx="74" cy="66" r="20" fill="#E08A6E"/><line x1="74" y1="66" x2="74" y2="55" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><line x1="74" y1="66" x2="82" y2="70" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`,
+plancal:`<svg viewBox="0 0 100 100"><rect x="12" y="22" width="76" height="64" rx="7" fill="#fff" stroke="#4A3B6B" stroke-width="3.5"/><rect x="12" y="22" width="76" height="17" rx="7" fill="#4A3B6B"/><rect x="28" y="12" width="7" height="17" rx="3.5" fill="#635A78"/><rect x="65" y="12" width="7" height="17" rx="3.5" fill="#635A78"/><path d="M28 62 L40 74 L72 48" stroke="#3FAE9A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+moneyswap:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#3FAE9A"/><path d="M28 40 H66 L58 30" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M72 60 H34 L42 70" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+tagcheck:`<svg viewBox="0 0 100 100"><path d="M52 12 H86 A4 4 0 0 1 90 16 V50 L46 94 L8 56Z" fill="#4A3B6B"/><circle cx="74" cy="28" r="7" fill="#EFEBF7"/><path d="M28 56 L40 68 L62 44" stroke="#3FAE9A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+avaDawei2:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#4A3B6B"/><circle cx="50" cy="42" r="21" fill="#F3D3B6"/><path d="M27 40 Q24 14 50 16 Q76 14 73 40 Q68 24 50 26 Q32 24 27 40Z" fill="#6B4A2E"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><path d="M43 53 Q50 58 57 53" stroke="#8A6046" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#3FAE9A"/></svg>`,
+avaLijun:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#4A3B6B"/><circle cx="50" cy="42" r="21" fill="#F6D9C4"/><path d="M27 42 Q26 16 50 17 Q74 16 73 42 Q70 26 50 27 Q30 26 27 42Z" fill="#2A2438"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><path d="M43 54 Q50 59 57 54" stroke="#8A6046" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#E08A6E"/></svg>`,
+avaZhongcun:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#4A3B6B"/><circle cx="50" cy="42" r="21" fill="#FBE0CC"/><path d="M28 40 Q27 15 50 16 Q73 15 72 40 Q66 24 50 25 Q34 24 28 40Z" fill="#1B2436"/><circle cx="41" cy="43" r="3" fill="#2A1C12"/><circle cx="59" cy="43" r="3" fill="#2A1C12"/><path d="M44 54 Q50 58 56 54" stroke="#8A6046" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#6B7FBF"/></svg>`,
+majorbadge:`<svg viewBox="0 0 100 100"><rect x="14" y="20" width="72" height="54" rx="8" fill="#2C3E63"/><rect x="22" y="28" width="26" height="34" rx="4" fill="#DEE3EF"/><circle cx="35" cy="40" r="7" fill="#7D8794"/><path d="M25 58 Q29 48 35 48 Q41 48 45 58Z" fill="#7D8794"/><rect x="54" y="32" width="26" height="5" rx="2.5" fill="#C97B8E"/><rect x="54" y="44" width="26" height="4" rx="2" fill="#8C97AB"/><rect x="54" y="54" width="18" height="4" rx="2" fill="#8C97AB"/><rect x="42" y="10" width="16" height="12" rx="3" fill="#7D8794"/></svg>`,
+deptbldg:`<svg viewBox="0 0 100 100"><polygon points="50,10 94,32 6,32" fill="#2C3E63"/><rect x="12" y="36" width="76" height="42" rx="2" fill="#EDEFF5" stroke="#2C3E63" stroke-width="2.5"/><rect x="20" y="44" width="9" height="28" fill="#2C3E63" opacity=".55"/><rect x="36" y="44" width="9" height="28" fill="#2C3E63" opacity=".55"/><rect x="52" y="44" width="9" height="28" fill="#2C3E63" opacity=".55"/><rect x="68" y="44" width="9" height="28" fill="#2C3E63" opacity=".55"/><rect x="6" y="80" width="88" height="7" rx="3" fill="#1B2436"/><text x="50" y="27" font-family="Noto Serif SC, serif" font-size="12" font-weight="900" fill="#C97B8E" text-anchor="middle">系</text></svg>`,
+compassew:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="35" fill="#DEE3EF" stroke="#2C3E63" stroke-width="3"/><polygon points="18,50 50,42 50,58" fill="#7D8794"/><polygon points="82,50 50,42 50,58" fill="#C97B8E"/><text x="12" y="46" font-size="12" font-weight="900" fill="#232A38" font-family="Arial">W</text><text x="80" y="46" font-size="12" font-weight="900" fill="#232A38" font-family="Arial">E</text><circle cx="50" cy="50" r="4" fill="#232A38"/></svg>`,
+restroom:`<svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="72" rx="8" fill="#3E7D6B"/><circle cx="34" cy="36" r="7" fill="#fff"/><path d="M27 48 H41 L38 68 H30Z" fill="#fff"/><rect x="30" y="68" width="4" height="12" fill="#fff"/><rect x="36" y="68" width="4" height="12" fill="#fff"/><circle cx="66" cy="36" r="7" fill="#fff"/><path d="M56 68 L66 46 L76 68Z" fill="#fff"/><rect x="62" y="68" width="4" height="12" fill="#fff"/><rect x="68" y="68" width="4" height="12" fill="#fff"/></svg>`,
+classroomdesk:`<svg viewBox="0 0 100 100"><rect x="12" y="14" width="76" height="40" rx="4" fill="#1B2436"/><rect x="18" y="20" width="64" height="28" rx="2" fill="#EDEFF5"/><text x="50" y="41" font-family="Noto Serif SC, serif" font-size="18" font-weight="900" fill="#2C3E63" text-anchor="middle">教室</text><rect x="14" y="64" width="30" height="7" rx="3" fill="#8C6A4B"/><rect x="56" y="64" width="30" height="7" rx="3" fill="#8C6A4B"/><rect x="20" y="71" width="5" height="16" fill="#6B5238"/><rect x="34" y="71" width="5" height="16" fill="#6B5238"/><rect x="62" y="71" width="5" height="16" fill="#6B5238"/><rect x="76" y="71" width="5" height="16" fill="#6B5238"/></svg>`,
+partyglass:`<svg viewBox="0 0 100 100"><path d="M30 18 H70 L58 48 V74 H42 V48Z" fill="#DEE3EF" stroke="#2C3E63" stroke-width="2.5"/><path d="M34 24 H66 L57 44 H43Z" fill="#C97B8E"/><rect x="32" y="76" width="36" height="6" rx="3" fill="#2C3E63"/><circle cx="22" cy="24" r="3.5" fill="#C97B8E"/><circle cx="80" cy="34" r="3" fill="#3E7D6B"/><circle cx="76" cy="18" r="2.5" fill="#7D8794"/></svg>`,
+booknote:`<svg viewBox="0 0 100 100"><path d="M50 26 C40 16 20 16 12 23 V78 C20 71 40 71 50 81 C60 71 80 71 88 78 V23 C80 16 60 16 50 26Z" fill="#2C3E63"/><line x1="50" y1="26" x2="50" y2="81" stroke="#DEE3EF" stroke-width="3"/><rect x="20" y="36" width="20" height="3.5" rx="1.75" fill="#8C97AB"/><rect x="20" y="46" width="20" height="3.5" rx="1.75" fill="#8C97AB"/><rect x="60" y="36" width="20" height="3.5" rx="1.75" fill="#C97B8E"/><rect x="60" y="46" width="14" height="3.5" rx="1.75" fill="#8C97AB"/></svg>`,
+welcomehand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#C97B8E"/><path d="M36 72 V44 A5 5 0 0 1 46 44 V38 A5 5 0 0 1 56 38 V42 A5 5 0 0 1 66 42 V60 Q66 78 50 78 Q36 78 36 72Z" fill="#FBEEE2"/><path d="M30 52 Q24 44 30 38" stroke="#FBEEE2" stroke-width="5" fill="none" stroke-linecap="round"/></svg>`,
+avaMali5:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#2C3E63"/><circle cx="50" cy="42" r="21" fill="#FBE0CC"/><path d="M26 44 Q24 12 50 14 Q76 12 74 44 Q72 22 50 24 Q28 22 26 44Z" fill="#C89B52"/><path d="M26 40 Q22 58 26 66 Q30 54 28 44Z" fill="#C89B52"/><path d="M74 40 Q78 58 74 66 Q70 54 72 44Z" fill="#C89B52"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><path d="M43 53 Q50 59 57 53" stroke="#B87A5A" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#C97B8E"/></svg>`,
+avaZhanghong:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#2C3E63"/><circle cx="50" cy="42" r="21" fill="#F8DCC4"/><path d="M26 44 Q25 14 50 15 Q75 14 74 44 Q74 26 62 24 L62 44 Q56 30 38 28 Q28 30 26 44Z" fill="#241F2E"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><ellipse cx="34" cy="50" rx="4" ry="2.4" fill="#E8949E" opacity=".55"/><ellipse cx="66" cy="50" rx="4" ry="2.4" fill="#E8949E" opacity=".55"/><path d="M43 53 Q50 59 57 53" stroke="#B87A5A" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#3E7D6B"/></svg>`,
+avaStudent:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#2C3E63"/><circle cx="50" cy="42" r="21" fill="#F3D3B6"/><path d="M28 40 Q27 15 50 16 Q73 15 72 40 Q66 24 50 25 Q34 24 28 40Z" fill="#4A3A28"/><circle cx="41" cy="43" r="3" fill="#2A1C12"/><circle cx="59" cy="43" r="3" fill="#2A1C12"/><path d="M44 54 Q50 58 56 54" stroke="#8A6046" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#7D8794"/></svg>`
 };
 const LATTICE_SVG = `<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 100 Q40 60 80 90 Q100 105 90 130 Q75 150 100 160"/><path d="M30 130 Q55 110 80 130"/><path d="M60 40 Q90 20 120 45 Q140 60 125 80"/></svg>`;
 /* Corner sticker — hình giáo viên do người dùng cung cấp */
@@ -420,266 +664,390 @@ const CORNER_STICKER = `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA
 /* ---------- VOCAB DETAILS ----------
    Mọi từ trong bài khóa đều tra được. Mục old:true là từ đã học — không liệt kê ở hàng từ vựng. */
 const vocabDetails = {
-/* ===== 词语表 Bài 7 — 24 từ mới ===== */
-"明天":{p:"míngtiān",pos:"n.",hv:"Minh thiên",vi:"ngày mai",usage:"Danh từ thời gian. Bộ ba cần nhớ: 昨天 (hôm qua) — 今天 (hôm nay) — 明天 (ngày mai). Đứng TRƯỚC động từ: 我明天去。",
- radical:{char:"日",name:"nhật (mặt trời) — bên trái chữ 明"}, mnemonic:"明 = 日 (mặt trời) + 月 (mặt trăng) — hết một vòng ngày đêm thì trời lại sáng → ngày kế tiếp.", icon:"sunrise",
- examples:[{h:"明天你有课吗？",p:"Míngtiān nǐ yǒu kè ma?",vi:"Ngày mai bạn có tiết không?"},{h:"我明天下午去见朋友。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou.",vi:"Chiều mai tôi đi gặp bạn."},{h:"明天上午你有时间吗？",p:"Míngtiān shàngwǔ nǐ yǒu shíjiān ma?",vi:"Sáng mai bạn có rảnh không?"}]},
-"课":{p:"kè",pos:"n.",hv:"Khóa",vi:"tiết học, buổi học",usage:"Danh từ. 有课 = có tiết, 没有课 = không có tiết. Phân biệt với động từ 上课 (vào học) và 下课 (tan học).",
- radical:{char:"讠",name:"ngôn (lời nói) — bên trái chữ 课"}, mnemonic:"课 = 讠(lời nói) + 果 (quả) — lời giảng kết thành quả trong đầu người học → bài học.", icon:"lecture",
- examples:[{h:"明天你有课吗？",p:"Míngtiān nǐ yǒu kè ma?",vi:"Ngày mai bạn có tiết không?"},{h:"我上午有课。",p:"Wǒ shàngwǔ yǒu kè.",vi:"Buổi sáng tôi có tiết."},{h:"你们明天有汉语课吧？",p:"Nǐmen míngtiān yǒu Hànyǔ kè ba?",vi:"Mai các bạn có tiết tiếng Hán đúng không?"}]},
-"上午":{p:"shàngwǔ",pos:"n.",hv:"Thượng ngọ",vi:"buổi sáng (khoảng 8–12 giờ)",usage:"Danh từ thời gian. Dãy đầy đủ: 早上 (sáng sớm) → 上午 (buổi sáng) → 中午 (trưa) → 下午 (chiều) → 晚上 (tối).",
- radical:{char:"十",name:"thập — nét dọc xuyên qua chữ 午"}, mnemonic:"午 chỉ giữa trưa (giờ Ngọ); 上午 = phần TRƯỚC giờ Ngọ, 下午 = phần SAU giờ Ngọ.", icon:"sunrise",
- examples:[{h:"我上午有课，下午没有。",p:"Wǒ shàngwǔ yǒu kè, xiàwǔ méiyǒu.",vi:"Sáng tôi có tiết, chiều thì không."},{h:"我们上午九点上课。",p:"Wǒmen shàngwǔ jiǔ diǎn shàngkè.",vi:"Chúng tôi 9 giờ sáng vào học."},{h:"明天上午你有时间吗？",p:"Míngtiān shàngwǔ nǐ yǒu shíjiān ma?",vi:"Sáng mai bạn rảnh không?"}]},
-"下午":{p:"xiàwǔ",pos:"n.",hv:"Hạ ngọ",vi:"buổi chiều",usage:"Danh từ thời gian, trái với 上午. Ghép được với giờ cụ thể: 下午三点 = 3 giờ chiều.",
- radical:{char:"一",name:"nhất — nét ngang trên chữ 下"}, mnemonic:"下 là vạch nằm DƯỚI đường kẻ; 下午 = khoảng thời gian sau giờ Ngọ.", icon:"clocknight",
- examples:[{h:"我上午有课，下午没有。",p:"Wǒ shàngwǔ yǒu kè, xiàwǔ méiyǒu.",vi:"Sáng tôi có tiết, chiều thì không."},{h:"我明天下午去见朋友。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou.",vi:"Chiều mai tôi đi gặp bạn."},{h:"下午你去图书馆吗？",p:"Xiàwǔ nǐ qù túshūguǎn ma?",vi:"Chiều bạn có đi thư viện không?"}]},
-"没(有)":{p:"méi(yǒu)",pos:"v.",hv:"Một (hữu)",vi:"không có",usage:"Dạng phủ định DUY NHẤT của 有 — tuyệt đối KHÔNG nói 不有. Khi tân ngữ đã rõ, có thể rút gọn còn 没有 hoặc chỉ 没: 下午没有。Câu hỏi chính phản: 你有没有自行车？",
- radical:{char:"氵",name:"thủy (nước) — bên trái chữ 没"}, mnemonic:"没 có bộ 氵(nước) — vật chìm xuống nước thì mất hút, không còn thấy nữa → “không có”.", icon:"exclaim",
- examples:[{h:"我上午有课，下午没有。",p:"Wǒ shàngwǔ yǒu kè, xiàwǔ méiyǒu.",vi:"Sáng tôi có tiết, chiều thì không."},{h:"可是我没有自行车。",p:"Kěshì wǒ méiyǒu zìxíngchē.",vi:"Nhưng tôi không có xe đạp."},{h:"晚上大卫没有时间。",p:"Wǎnshang Dàwèi méiyǒu shíjiān.",vi:"Buổi tối David không có thời gian."}]},
-"自行车":{p:"zìxíngchē",pos:"n.",hv:"Tự hành xa",vi:"xe đạp",usage:"Danh từ. Nghĩa đen “xe tự chạy”. Lượng từ: 辆 (liàng). Cùng nhóm: 汽车 (ô tô), 公共汽车 (xe buýt).",
- radical:{char:"车",name:"xa (xe) — chữ 车"}, mnemonic:"车 vẽ hình chiếc xe nhìn từ trên xuống: một trục ngang xuyên qua hai bánh; 自行车 = xe tự mình đạp cho chạy.", icon:"bike",
- examples:[{h:"你有自行车吧？",p:"Nǐ yǒu zìxíngchē ba?",vi:"Bạn có xe đạp đúng không?"},{h:"可是我没有自行车……",p:"Kěshì wǒ méiyǒu zìxíngchē…",vi:"Nhưng tôi lại không có xe đạp…"},{h:"她的自行车在楼下。",p:"Tā de zìxíngchē zài lóu xià.",vi:"Xe đạp của cô ấy ở dưới tầng."}]},
-"吧":{p:"ba",pos:"part.",hv:"Ba (trợ từ)",vi:"trợ từ cuối câu: “đúng không nhỉ”",usage:"Đặt cuối câu hỏi để XÁC NHẬN điều mình đã đoán — người nói đã tin gần chắc rồi. Khác với 吗 (hỏi thật, chưa biết gì): 你有自行车吗？(có hay không?) ≠ 你有自行车吧？(có đúng không nhỉ?).",
- radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 吧"}, mnemonic:"吧 có bộ 口 (miệng) — một tiếng buông nhẹ ở cuối câu, như tiếng “nhỉ, nhé” của tiếng Việt.", icon:"bubbleba",
- examples:[{h:"你有自行车吧？",p:"Nǐ yǒu zìxíngchē ba?",vi:"Bạn có xe đạp đúng không?"},{h:"你是美国留学生吧？",p:"Nǐ shì Měiguó liúxuéshēng ba?",vi:"Bạn là du học sinh Mỹ nhỉ?"},{h:"那是图书馆吧？",p:"Nà shì túshūguǎn ba?",vi:"Kia là thư viện phải không nhỉ?"}]},
-"事":{p:"shì",pos:"n.",hv:"Sự",vi:"việc, chuyện",usage:"Danh từ. 什么事？= Có chuyện gì thế? 有事吗？= Có việc gì không? 没事 = không có gì / không sao.",
- radical:{char:"亅",name:"quyết — nét móc dọc xuyên chữ 事"}, mnemonic:"事 vẽ hình một bàn tay cầm bút ghi chép công việc — mọi việc phải làm đều được ghi lại.", icon:"exclaim",
- examples:[{h:"有。什么事？",p:"Yǒu. Shénme shì?",vi:"Có. Có chuyện gì thế?"},{h:"有事吗？",p:"Yǒu shì ma?",vi:"Có việc gì không?"},{h:"大卫下午有事。",p:"Dàwèi xiàwǔ yǒu shì.",vi:"Chiều David có việc."}]},
-"可是":{p:"kěshì",pos:"conj.",hv:"Khả thị",vi:"nhưng, thế mà",usage:"Liên từ nối hai vế trái ngược, đứng ĐẦU vế sau: A，可是 B. Đồng nghĩa với 但是 (dànshì) nhưng 可是 thân mật hơn.",
- radical:{char:"口",name:"khẩu (miệng) — phía dưới chữ 可"}, mnemonic:"可 = có thể, 是 = đúng — “đúng thì đúng đấy, có điều…” → nhưng.", icon:"exclaim",
- examples:[{h:"我明天下午去见朋友，可是我没有自行车。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou, kěshì wǒ méiyǒu zìxíngchē.",vi:"Chiều mai tôi đi gặp bạn, nhưng tôi không có xe đạp."},{h:"我不知道名字，可是听说很有名。",p:"Wǒ bù zhīdào míngzi, kěshì tīngshuō hěn yǒumíng.",vi:"Tôi không biết tên, nhưng nghe nói rất nổi tiếng."},{h:"我想去，可是没有时间。",p:"Wǒ xiǎng qù, kěshì méiyǒu shíjiān.",vi:"Tôi muốn đi, nhưng không có thời gian."}]},
-"没问题":{p:"méi wèntí",pos:"—",hv:"Một vấn đề",vi:"không thành vấn đề, không sao cả",usage:"Câu đáp khi vui vẻ nhận lời giúp. 问题 (wèntí) = vấn đề, câu hỏi.",
- radical:{char:"门",name:"môn (cửa) — bao ngoài chữ 问"}, mnemonic:"问 = 门 (cửa) + 口 (miệng) — đứng ở cửa mà hỏi; 没问题 = chẳng có gì phải hỏi tới → yên tâm đi.", icon:"okhand",
- examples:[{h:"没问题，我有。",p:"Méi wèntí, wǒ yǒu.",vi:"Không vấn đề gì, tôi có."},{h:"没问题！",p:"Méi wèntí!",vi:"Không thành vấn đề!"},{h:"明天上午？没问题。",p:"Míngtiān shàngwǔ? Méi wèntí.",vi:"Sáng mai à? Không sao cả."}]},
-"钥匙":{p:"yàoshi",pos:"n.",hv:"Thược thi",vi:"chìa khóa",usage:"Danh từ, âm tiết sau đọc nhẹ (khinh thanh). 宿舍的钥匙 = chìa khóa ký túc xá.",
- radical:{char:"钅",name:"kim (kim loại) — bên trái cả 钥 và 匙"}, mnemonic:"Cả hai chữ đều có bộ 钅(kim loại) — chìa khóa xưa nay đều đúc bằng kim loại.", icon:"keyfun",
- examples:[{h:"这是钥匙。",p:"Zhè shì yàoshi.",vi:"Đây là chìa khóa."},{h:"你有宿舍的钥匙吗？",p:"Nǐ yǒu sùshè de yàoshi ma?",vi:"Bạn có chìa khóa ký túc xá không?"},{h:"钥匙在桌子上。",p:"Yàoshi zài zhuōzi shang.",vi:"Chìa khóa ở trên bàn."}]},
-"车":{p:"chē",pos:"n.",hv:"Xa",vi:"xe (nói chung)",usage:"Danh từ. Khi ngữ cảnh đã rõ thì 车 thay cho 自行车 hoặc 汽车. Ghép: 汽车 (ô tô), 火车 (tàu hỏa), 车棚 (nhà để xe).",
- radical:{char:"车",name:"xa — bản thân nó là một bộ thủ"}, mnemonic:"车 giản thể từ 車 — hình chiếc xe nhìn từ trên: trục ngang xuyên qua thùng xe và hai bánh.", icon:"bike",
- examples:[{h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li.",vi:"Xe ở trong nhà xe dưới tầng."},{h:"这是谁的车？",p:"Zhè shì shéi de chē?",vi:"Đây là xe của ai?"},{h:"我的车在后边。",p:"Wǒ de chē zài hòubian.",vi:"Xe của tôi ở phía sau."}]},
-"下":{p:"xià",pos:"n.",hv:"Hạ",vi:"dưới, phía dưới",usage:"Từ phương vị, gắn TRỰC TIẾP sau danh từ, không cần 边: 楼下 = dưới tầng, 桌子下 = dưới bàn. Trái nghĩa: 上.",
- radical:{char:"一",name:"nhất — nét ngang phía trên chữ 下"}, mnemonic:"下 là một nét móc nằm DƯỚI vạch ngang; 上 thì ngược lại, nằm TRÊN vạch ngang.", icon:"signpost",
- examples:[{h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li.",vi:"Xe ở trong nhà xe dưới tầng."},{h:"她的自行车在楼下。",p:"Tā de zìxíngchē zài lóu xià.",vi:"Xe đạp của cô ấy ở dưới tầng."},{h:"我的书在词典下。",p:"Wǒ de shū zài cídiǎn xià.",vi:"Sách của tôi ở dưới quyển từ điển."}]},
-"车棚":{p:"chēpéng",pos:"n.",hv:"Xa bằng",vi:"nhà để xe, mái che xe",usage:"Danh từ chỉ nơi chốn. 棚 = mái che dựng tạm. Thường đi với 里: 车棚里 = trong nhà xe.",
- radical:{char:"木",name:"mộc (cây) — bên trái chữ 棚"}, mnemonic:"棚 = 木 (gỗ) + 朋 (đôi) — hai cột gỗ dựng lên đỡ một mái che → mái lán, nhà tạm.", icon:"home",
- examples:[{h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li.",vi:"Xe ở trong nhà xe dưới tầng."},{h:"是宿舍楼后边的车棚吗？",p:"Shì sùshèlóu hòubian de chēpéng ma?",vi:"Là nhà xe phía sau ký túc xá phải không?"},{h:"玛丽在车棚里。",p:"Mǎlì zài chēpéng li.",vi:"Mary đang ở trong nhà xe."}]},
-"里":{p:"li",pos:"n.",hv:"Lý",vi:"trong, bên trong",usage:"Từ phương vị gắn trực tiếp sau danh từ, đọc khinh thanh: 车棚里, 教室里, 书里. Trái nghĩa: 外 (wài, bên ngoài).",
- radical:{char:"里",name:"lý — bản thân nó là một bộ thủ"}, mnemonic:"里 = 田 (ruộng) + 土 (đất) — vùng đất bên trong ranh giới làng xóm → “bên trong”.", icon:"home",
- examples:[{h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li.",vi:"Xe ở trong nhà xe dưới tầng."},{h:"老师在教室里。",p:"Lǎoshī zài jiàoshì li.",vi:"Thầy/cô đang ở trong lớp."},{h:"钥匙在包里。",p:"Yàoshi zài bāo li.",vi:"Chìa khóa ở trong túi."}]},
-"后边":{p:"hòubian",pos:"n.",hv:"Hậu biên",vi:"phía sau, đằng sau",usage:"Danh từ phương vị (nhóm 边 đã học ở Bài 4). Làm định ngữ thì thêm 的: 宿舍楼后边的车棚. Trái nghĩa: 前边.",
- radical:{char:"辶",name:"sước (bước đi) — trong chữ 边"}, mnemonic:"后 vẽ hình người bước chậm lại phía sau; ghép 边 (phía) thành 后边 = phía sau.", icon:"compass",
- examples:[{h:"是宿舍楼后边的车棚吗？",p:"Shì sùshèlóu hòubian de chēpéng ma?",vi:"Là nhà xe phía sau ký túc xá à?"},{h:"图书馆在教学楼后边。",p:"Túshūguǎn zài jiàoxuélóu hòubian.",vi:"Thư viện ở phía sau tòa giảng đường."},{h:"我在你后边。",p:"Wǒ zài nǐ hòubian.",vi:"Tôi ở phía sau bạn."}]},
-"今天":{p:"jīntiān",pos:"n.",hv:"Kim thiên",vi:"hôm nay",usage:"Danh từ thời gian. Ghép được với buổi: 今天晚上 = tối nay, 今天下午 = chiều nay.",
- radical:{char:"人",name:"nhân (người) — phía trên chữ 今"}, mnemonic:"今 vẽ hình mái che chụp xuống một vạch — khoảnh khắc đang ở ngay dưới chân mình → hiện tại, hôm nay.", icon:"sparkle",
- examples:[{h:"今天晚上你有时间吗？",p:"Jīntiān wǎnshang nǐ yǒu shíjiān ma?",vi:"Tối nay bạn có rảnh không?"},{h:"今天晚上六点，电影院有好电影。",p:"Jīntiān wǎnshang liù diǎn, diànyǐngyuàn yǒu hǎo diànyǐng.",vi:"6 giờ tối nay rạp có phim hay."},{h:"今天我没有课。",p:"Jīntiān wǒ méiyǒu kè.",vi:"Hôm nay tôi không có tiết."}]},
-"晚上":{p:"wǎnshang",pos:"n.",hv:"Vãn thượng",vi:"buổi tối",usage:"Danh từ thời gian, cuối dãy: 早上 → 上午 → 中午 → 下午 → 晚上. Chữ 晚 riêng lẻ nghĩa là “muộn”, trái với 早.",
- radical:{char:"日",name:"nhật (mặt trời) — bên trái chữ 晚"}, mnemonic:"晚 = 日 (mặt trời) + 免 — mặt trời đã “miễn” việc chiếu sáng, lặn mất rồi → buổi tối, muộn.", icon:"moonstar",
- examples:[{h:"今天晚上你有时间吗？",p:"Jīntiān wǎnshang nǐ yǒu shíjiān ma?",vi:"Tối nay bạn có rảnh không?"},{h:"电影院晚上有电影。",p:"Diànyǐngyuàn wǎnshang yǒu diànyǐng.",vi:"Buổi tối rạp có chiếu phim."},{h:"晚上大卫没有时间。",p:"Wǎnshang Dàwèi méiyǒu shíjiān.",vi:"Buổi tối David không rảnh."}]},
-"时间":{p:"shíjiān",pos:"n.",hv:"Thời gian",vi:"thời gian, thời giờ",usage:"Danh từ. 有时间 = rảnh, 没有时间 = bận. Câu rủ rê rất hay dùng: 你有时间吗？",
- radical:{char:"日",name:"nhật (mặt trời) — bên trái chữ 时"}, mnemonic:"时 = 日 (mặt trời) + 寸 (tấc) — đo bóng mặt trời từng tấc để tính giờ; 间 = khoảng cách → 时间 = khoảng thời gian.", icon:"hourglass",
- examples:[{h:"今天晚上你有时间吗？",p:"Jīntiān wǎnshang nǐ yǒu shíjiān ma?",vi:"Tối nay bạn có thời gian không?"},{h:"明天上午我没有时间。",p:"Míngtiān shàngwǔ wǒ méiyǒu shíjiān.",vi:"Sáng mai tôi không rảnh."},{h:"你有时间吧？",p:"Nǐ yǒu shíjiān ba?",vi:"Bạn rảnh đúng không?"}]},
-"电影院":{p:"diànyǐngyuàn",pos:"n.",hv:"Điện ảnh viện",vi:"rạp chiếu phim",usage:"Danh từ chỉ nơi chốn. Cùng nhóm chữ 院: 医院 (bệnh viện), 学院 (học viện).",
- radical:{char:"阝",name:"phụ (ấp) — bên trái chữ 院"}, mnemonic:"院 = 阝(khu đất có tường) + 完 — một khuôn viên có tường bao; 电影院 = khuôn viên chiếu phim.", icon:"cinema",
- examples:[{h:"学校电影院有电影。",p:"Xuéxiào diànyǐngyuàn yǒu diànyǐng.",vi:"Rạp phim của trường có chiếu phim."},{h:"电影院晚上有电影。",p:"Diànyǐngyuàn wǎnshang yǒu diànyǐng.",vi:"Buổi tối rạp có phim."},{h:"电影院在图书馆旁边。",p:"Diànyǐngyuàn zài túshūguǎn pángbiān.",vi:"Rạp phim ở cạnh thư viện."}]},
-"电影":{p:"diànyǐng",pos:"n.",hv:"Điện ảnh",vi:"phim, bộ phim",usage:"Danh từ. 看电影 (kàn diànyǐng) = xem phim. 什么电影？= Phim gì thế?",
- radical:{char:"彡",name:"sam (vệt sáng) — bên phải chữ 影"}, mnemonic:"影 có bộ 彡 (ba vệt sáng) — hình bóng hắt lên tường; 电影 = “bóng điện” tức hình ảnh chiếu bằng điện.", icon:"filmreel",
- examples:[{h:"什么电影？",p:"Shénme diànyǐng?",vi:"Phim gì thế?"},{h:"学校电影院有电影，你去吗？",p:"Xuéxiào diànyǐngyuàn yǒu diànyǐng, nǐ qù ma?",vi:"Rạp trường có phim, bạn đi không?"},{h:"这个电影很有名。",p:"Zhège diànyǐng hěn yǒumíng.",vi:"Bộ phim này rất nổi tiếng."}]},
-"听说":{p:"tīngshuō",pos:"v.",hv:"Thính thuyết",vi:"nghe nói",usage:"Động từ, thường đứng đầu vế câu để dẫn lại tin nghe được: 听说很有名 = nghe nói rất nổi tiếng.",
- radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 听"}, mnemonic:"听 = 口 (miệng) + 斤 — giản thể của 聽 vốn có bộ 耳 (tai); 听说 = nghe người ta nói.", icon:"bubbleba",
- examples:[{h:"我不知道名字，可是听说很有名。",p:"Wǒ bù zhīdào míngzi, kěshì tīngshuō hěn yǒumíng.",vi:"Tôi không biết tên, nhưng nghe nói rất nổi tiếng."},{h:"听说这个电影很好。",p:"Tīngshuō zhège diànyǐng hěn hǎo.",vi:"Nghe nói phim này rất hay."},{h:"听说他有自行车。",p:"Tīngshuō tā yǒu zìxíngchē.",vi:"Nghe nói anh ấy có xe đạp."}]},
-"有名":{p:"yǒumíng",pos:"adj.",hv:"Hữu danh",vi:"nổi tiếng",usage:"Tính từ. Trước tính từ trong câu khẳng định thường có 很: 很有名. Nghĩa đen “có tên tuổi”.",
- radical:{char:"夕",name:"tịch (buổi tối) — phía trên chữ 名"}, mnemonic:"名 = 夕 (tối) + 口 (miệng) — trời tối phải xưng tên; 有名 = có tên ai cũng gọi được → nổi tiếng.", icon:"sparkle",
- examples:[{h:"听说很有名。",p:"Tīngshuō hěn yǒumíng.",vi:"Nghe nói rất nổi tiếng."},{h:"北京大学很有名。",p:"Běijīng Dàxué hěn yǒumíng.",vi:"Đại học Bắc Kinh rất nổi tiếng."},{h:"这个电影有名吗？",p:"Zhège diànyǐng yǒumíng ma?",vi:"Bộ phim này có nổi tiếng không?"}]},
-"当然":{p:"dāngrán",pos:"adv.",hv:"Đương nhiên",vi:"tất nhiên, dĩ nhiên",usage:"Phó từ, đứng TRƯỚC động từ: 我当然去 = tất nhiên là tôi đi. Có thể đứng riêng làm câu trả lời: 当然！",
- radical:{char:"灬",name:"hỏa (lửa) — bốn chấm dưới chữ 然"}, mnemonic:"当 = đúng lúc, đúng chỗ; 然 = như vậy → “vốn dĩ phải như vậy” = đương nhiên.", icon:"okhand",
- examples:[{h:"我当然去。",p:"Wǒ dāngrán qù.",vi:"Tất nhiên là tôi đi rồi."},{h:"当然有！",p:"Dāngrán yǒu!",vi:"Tất nhiên là có!"},{h:"我当然知道。",p:"Wǒ dāngrán zhīdào.",vi:"Tất nhiên tôi biết chứ."}]},
+/* ===== 词语表 Bài 5 — 20 từ mới ===== */
+"专业":{p:"zhuānyè",pos:"n.",hv:"Chuyên nghiệp",vi:"chuyên ngành",usage:"Danh từ. Mẫu câu chuẩn để nói ngành học: 我的专业是 + [tên ngành]. Hỏi: 你的专业是什么？",
+ radical:{char:"寸",name:"thốn — phía dưới chữ 专"}, mnemonic:"专 nghĩa gốc là “chuyên chú vào một việc”; 业 là nghề nghiệp → 专业 = nghề mình chuyên vào, tức chuyên ngành.", icon:"majorbadge",
+ examples:[{h:"我的专业是国际关系。",p:"Wǒ de zhuānyè shì guójì guānxi.",vi:"Chuyên ngành của tôi là quan hệ quốc tế."},{h:"我的专业是现代文学。",p:"Wǒ de zhuānyè shì xiàndài wénxué.",vi:"Chuyên ngành của tôi là văn học hiện đại."},{h:"你的专业是什么？",p:"Nǐ de zhuānyè shì shénme?",vi:"Chuyên ngành của bạn là gì?"}]},
+"国际":{p:"guójì",pos:"adj.",hv:"Quốc tế",vi:"quốc tế",usage:"Tính từ, đứng trước danh từ: 国际关系 (quan hệ quốc tế), 国际学生 (sinh viên quốc tế).",
+ radical:{char:"阝",name:"phụ (ấp) — bên trái chữ 际"}, mnemonic:"国 là quốc gia; 际 nghĩa gốc là “chỗ giáp ranh” → 国际 = chỗ các nước giáp nhau, tức phạm vi quốc tế.", icon:"majorbadge",
+ examples:[{h:"我的专业是国际关系。",p:"Wǒ de zhuānyè shì guójì guānxi.",vi:"Chuyên ngành của tôi là quan hệ quốc tế."},{h:"这是国际关系系。",p:"Zhè shì guójì guānxi xì.",vi:"Đây là khoa Quan hệ quốc tế."},{h:"他学国际经济。",p:"Tā xué guójì jīngjì.",vi:"Anh ấy học kinh tế quốc tế."}]},
+"关系":{p:"guānxi",pos:"n.",hv:"Quan hệ",vi:"quan hệ, mối liên hệ",usage:"Danh từ. Ghép: 国际关系 (quan hệ quốc tế). Chú ý cùng chữ 关系 với câu 没关系 (không sao) đã học ở Bài 4 — cùng chữ nhưng khác hẳn cách dùng.",
+ radical:{char:"丷",name:"bát biến thể — phía trên chữ 关"}, mnemonic:"关 vốn là then cài cửa, nghĩa mở rộng thành “liên quan”; 系 vẽ sợi dây buộc → 关系 = sợi dây nối hai bên lại.", icon:"majorbadge",
+ examples:[{h:"我的专业是国际关系。",p:"Wǒ de zhuānyè shì guójì guānxi.",vi:"Chuyên ngành của tôi là quan hệ quốc tế."},{h:"没关系。",p:"Méi guānxi.",vi:"Không sao đâu."},{h:"他们是什么关系？",p:"Tāmen shì shénme guānxi?",vi:"Họ có quan hệ gì với nhau?"}]},
+"中文":{p:"Zhōngwén",pos:"n.",hv:"Trung văn",vi:"tiếng Trung, Trung văn",usage:"Danh từ. Phân biệt với 汉语: 中文 thiên về NGÔN NGỮ VIẾT và tên gọi trong nhà trường (中文系, 中文书), còn 汉语 thiên về tiếng nói (说汉语, 汉语课).",
+ radical:{char:"文",name:"văn — chính là chữ 文"}, mnemonic:"文 vẽ hình hoa văn thêu trên ngực áo người, nghĩa gốc là “nét vẽ, chữ viết”; 中文 = chữ viết của Trung Quốc.", icon:"booknote",
+ examples:[{h:"我是清华大学中文系的研究生。",p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng.",vi:"Tôi là học viên cao học khoa Trung văn Đại học Thanh Hoa."},{h:"中文系在哪儿？",p:"Zhōngwén xì zài nǎr?",vi:"Khoa Trung văn ở đâu?"},{h:"这是中文书。",p:"Zhè shì Zhōngwén shū.",vi:"Đây là sách tiếng Trung."}]},
+"系":{p:"xì",pos:"n.",hv:"Hệ",vi:"khoa (trong trường đại học)",usage:"Danh từ. Đứng SAU tên ngành: 中文系 (khoa Trung văn), 国际关系系 (khoa Quan hệ quốc tế). Chú ý đọc xì thanh 4, khác với 关系 đọc nhẹ.",
+ radical:{char:"糸",name:"mịch (sợi tơ) — phần dưới chữ 系"}, mnemonic:"系 vẽ bàn tay nắm những sợi tơ buộc lại thành bó — một bó ngành học gom lại thành một khoa.", icon:"deptbldg",
+ examples:[{h:"我是清华大学中文系的研究生。",p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng.",vi:"Tôi là học viên cao học khoa Trung văn Đại học Thanh Hoa."},{h:"你是哪个系的学生？",p:"Nǐ shì nǎge xì de xuésheng?",vi:"Bạn là sinh viên khoa nào?"},{h:"中文系的学生很多。",p:"Zhōngwén xì de xuésheng hěn duō.",vi:"Sinh viên khoa Trung văn rất đông."}]},
+"研究生":{p:"yánjiūshēng",pos:"n.",hv:"Nghiên cứu sinh",vi:"học viên cao học",usage:"Danh từ. Thang bậc: 本科生 (sinh viên đại học) → 研究生 (cao học) → 博士生 (nghiên cứu sinh tiến sĩ). Đừng nhầm 研究生 với “nghiên cứu sinh” tiếng Việt — tiếng Việt nghiên cứu sinh là bậc tiến sĩ.",
+ radical:{char:"石",name:"thạch (đá) — bên trái chữ 研"}, mnemonic:"研 có bộ 石 (đá) — mài đá cho nhuyễn, tức nghiền ngẫm kỹ; 究 là truy tìm tới cùng → 研究 = nghiên cứu.", icon:"booknote",
+ examples:[{h:"我是清华大学中文系的研究生。",p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng.",vi:"Tôi là học viên cao học khoa Trung văn Đại học Thanh Hoa."},{h:"她是研究生，不是本科生。",p:"Tā shì yánjiūshēng, bú shì běnkēshēng.",vi:"Cô ấy là học viên cao học, không phải sinh viên đại học."},{h:"你是研究生吗？",p:"Nǐ shì yánjiūshēng ma?",vi:"Bạn là học viên cao học à?"}]},
+"现代":{p:"xiàndài",pos:"n./adj.",hv:"Hiện đại",vi:"hiện đại, thời hiện đại",usage:"Đứng trước danh từ: 现代文学 (văn học hiện đại), 现代汉语 (tiếng Hán hiện đại). Trái nghĩa: 古代 (gǔdài, cổ đại).",
+ radical:{char:"王",name:"vương/ngọc — bên trái chữ 现"}, mnemonic:"现 = 王 (ngọc) + 见 (thấy) — viên ngọc lộ ra trước mắt, tức là cái đang hiện hữu; 代 là thời đại → thời đang sống.", icon:"booknote",
+ examples:[{h:"我的专业是现代文学。",p:"Wǒ de zhuānyè shì xiàndài wénxué.",vi:"Chuyên ngành của tôi là văn học hiện đại."},{h:"她学现代汉语。",p:"Tā xué xiàndài Hànyǔ.",vi:"Cô ấy học tiếng Hán hiện đại."},{h:"这是现代文学书。",p:"Zhè shì xiàndài wénxué shū.",vi:"Đây là sách văn học hiện đại."}]},
+"文学":{p:"wénxué",pos:"n.",hv:"Văn học",vi:"văn học",usage:"Danh từ chỉ ngành học. Ghép: 现代文学, 中国文学, 世界文学.",
+ radical:{char:"文",name:"văn — chính là chữ 文"}, mnemonic:"文 (chữ viết) + 学 (học) → môn học về chữ nghĩa, tức văn học.", icon:"booknote",
+ examples:[{h:"我的专业是现代文学。",p:"Wǒ de zhuānyè shì xiàndài wénxué.",vi:"Chuyên ngành của tôi là văn học hiện đại."},{h:"他是文学系的学生。",p:"Tā shì wénxué xì de xuésheng.",vi:"Anh ấy là sinh viên khoa Văn học."},{h:"我很喜欢中国文学。",p:"Wǒ hěn xǐhuan Zhōngguó wénxué.",vi:"Tôi rất thích văn học Trung Quốc."}]},
+"东边":{p:"dōngbian",pos:"n.",hv:"Đông biên",vi:"phía đông",usage:"Danh từ phương vị, cùng nhóm 边 với 西边, 南边, 北边 đã học ở Bài 4. Làm định ngữ thì thêm 的: 北京大学的东边.",
+ radical:{char:"一",name:"nhất — nét ngang xuyên chữ 东"}, mnemonic:"東 (phồn thể) = 日 (mặt trời) lồng trong 木 (cây) — mặt trời vừa nhô lên ngang thân cây, đó là hướng đông.", icon:"compassew",
+ examples:[{h:"在北京大学的东边。",p:"Zài Běijīng Dàxué de dōngbian.",vi:"Ở phía đông Đại học Bắc Kinh."},{h:"清华大学在北京大学的东边。",p:"Qīnghuá Dàxué zài Běijīng Dàxué de dōngbian.",vi:"Đại học Thanh Hoa ở phía đông Đại học Bắc Kinh."},{h:"东边、西边、南边、北边",p:"dōngbian, xībian, nánbian, běibian",vi:"phía đông, phía tây, phía nam, phía bắc"}]},
+"有":{p:"yǒu",pos:"v.",hv:"Hữu",vi:"có; có (tồn tại)",usage:"Động từ. Hai nghĩa: SỞ HỮU (我有词典) và TỒN TẠI (那儿有教室 = ở đó có phòng học). Phủ định DUY NHẤT là 没有 — tuyệt đối không nói 不有. Ngữ pháp đầy đủ sẽ học ở Bài 7.",
+ radical:{char:"月",name:"nguyệt (thịt) — phía dưới chữ 有"}, mnemonic:"有 vẽ bàn tay đang cầm miếng thịt 月 — trong tay đang giữ thứ gì đó → “có”.", icon:"welcomehand",
+ examples:[{h:"有空儿的时候，欢迎你去玩儿。",p:"Yǒu kòngr de shíhou, huānyíng nǐ qù wánr.",vi:"Lúc nào rảnh, mời bạn qua chơi."},{h:"我有汉语课本。",p:"Wǒ yǒu Hànyǔ kèběn.",vi:"Tôi có giáo trình tiếng Hán."},{h:"教室的旁边有卫生间。",p:"Jiàoshì de pángbiān yǒu wèishēngjiān.",vi:"Cạnh phòng học có nhà vệ sinh."}]},
+"空儿":{p:"kòngr",pos:"n.",hv:"Không nhi",vi:"lúc rảnh, thời gian trống",usage:"Danh từ. 有空儿 = rảnh, 没有空儿 = bận. Chữ 空 ở đây đọc kòng thanh 4; khi đọc kōng thanh 1 thì nghĩa là “trống rỗng, bầu trời”.",
+ radical:{char:"穴",name:"huyệt (hang) — phía trên chữ 空"}, mnemonic:"空 có bộ 穴 (hang trống) — chỗ trống rỗng; 空儿 = khoảng trống trong lịch, tức lúc rảnh.", icon:"welcomehand",
+ examples:[{h:"有空儿的时候，欢迎你去玩儿。",p:"Yǒu kòngr de shíhou, huānyíng nǐ qù wánr.",vi:"Lúc nào rảnh, mời bạn qua chơi."},{h:"你有空儿吗？",p:"Nǐ yǒu kòngr ma?",vi:"Bạn có rảnh không?"},{h:"明天下午我没有空儿。",p:"Míngtiān xiàwǔ wǒ méiyǒu kòngr.",vi:"Chiều mai tôi không rảnh."}]},
+"时候":{p:"shíhou",pos:"n.",hv:"Thời hậu",vi:"lúc, khi, thời điểm",usage:"Danh từ. Khung rất hay dùng: [mệnh đề] + 的时候 = khi/lúc… — 有空儿的时候 = lúc rảnh, 上课的时候 = khi lên lớp. Cả cụm đứng ĐẦU câu.",
+ radical:{char:"日",name:"nhật (mặt trời) — bên trái chữ 时"}, mnemonic:"时 = 日 (mặt trời) + 寸 (tấc) — đo bóng mặt trời từng tấc để tính giờ; 候 là chờ đợi → 时候 = thời điểm đang chờ tới.", icon:"welcomehand",
+ examples:[{h:"有空儿的时候，欢迎你去玩儿。",p:"Yǒu kòngr de shíhou, huānyíng nǐ qù wánr.",vi:"Lúc nào rảnh, mời bạn qua chơi."},{h:"上课的时候不说话。",p:"Shàngkè de shíhou bù shuōhuà.",vi:"Lúc học không nói chuyện."},{h:"什么时候去？",p:"Shénme shíhou qù?",vi:"Khi nào thì đi?"}]},
+"欢迎":{p:"huānyíng",pos:"v.",hv:"Hoan nghênh",vi:"hoan nghênh, mời",usage:"Động từ. Câu mời lịch sự (注释 của bài): 欢迎你去玩儿 = mời bạn qua chơi. Cũng dùng khi đón khách: 欢迎欢迎！",
+ radical:{char:"辶",name:"sước (bước đi) — bao chữ 迎"}, mnemonic:"迎 có bộ 辶 (bước đi) — bước ra tận nơi đón người ta; 欢 là vui mừng → 欢迎 = vui vẻ ra đón.", icon:"welcomehand",
+ examples:[{h:"有空儿的时候，欢迎你去玩儿。",p:"Yǒu kòngr de shíhou, huānyíng nǐ qù wánr.",vi:"Lúc nào rảnh, mời bạn qua chơi."},{h:"欢迎你来我们学校。",p:"Huānyíng nǐ lái wǒmen xuéxiào.",vi:"Chào mừng bạn đến trường chúng tôi."},{h:"欢迎欢迎！",p:"Huānyíng huānyíng!",vi:"Hoan nghênh, hoan nghênh!"}]},
+"去":{p:"qù",pos:"v.",hv:"Khứ",vi:"đi, đi đến",usage:"Động từ. Mang thẳng nơi đến: 去图书馆. Ngược hướng với 来 (lái, đến chỗ người nói).",
+ radical:{char:"厶",name:"khư — phần dưới chữ 去"}, mnemonic:"去 vẽ hình người bước ra khỏi cửa hang, rời đi → “đi”.", icon:"compassew",
+ examples:[{h:"欢迎你去玩儿。",p:"Huānyíng nǐ qù wánr.",vi:"Mời bạn qua chơi."},{h:"我去清华大学。",p:"Wǒ qù Qīnghuá Dàxué.",vi:"Tôi đi Đại học Thanh Hoa."},{h:"有空儿的时候我去找你。",p:"Yǒu kòngr de shíhou wǒ qù zhǎo nǐ.",vi:"Lúc nào rảnh tôi qua tìm bạn."}]},
+"玩儿":{p:"wánr",pos:"v.",hv:"Ngoạn nhi",vi:"chơi, đi chơi",usage:"Động từ. Cụm 去…玩儿 / 来…玩儿 = qua… chơi, là lời mời rất thông dụng. Âm 儿 là hóa âm cuống lưỡi của tiếng Bắc Kinh.",
+ radical:{char:"王",name:"vương/ngọc — bên trái chữ 玩"}, mnemonic:"玩 có bộ 王 (ngọc) — cầm viên ngọc trong tay ngắm nghía cho vui → chơi đùa.", icon:"partyglass",
+ examples:[{h:"欢迎你去玩儿。",p:"Huānyíng nǐ qù wánr.",vi:"Mời bạn qua chơi."},{h:"来我们学校玩儿吧！",p:"Lái wǒmen xuéxiào wánr ba!",vi:"Đến trường chúng mình chơi đi!"},{h:"星期天我们去哪儿玩儿？",p:"Xīngqītiān wǒmen qù nǎr wánr?",vi:"Chủ nhật chúng ta đi đâu chơi?"}]},
+"卫生间":{p:"wèishēngjiān",pos:"n.",hv:"Vệ sinh gian",vi:"nhà vệ sinh",usage:"Danh từ chỉ nơi chốn, cách nói lịch sự và phổ biến nhất. Câu hỏi thường gặp: 请问，卫生间在哪儿？Cách nói khác: 洗手间 (xǐshǒujiān).",
+ radical:{char:"门",name:"môn (cửa) — bao ngoài chữ 间"}, mnemonic:"卫生 = giữ gìn sức khỏe, sạch sẽ; 间 có bộ 门 (cửa) là gian phòng → gian phòng vệ sinh.", icon:"restroom",
+ examples:[{h:"请问，卫生间在哪儿？",p:"Qǐngwèn, wèishēngjiān zài nǎr?",vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?"},{h:"卫生间在教室的旁边。",p:"Wèishēngjiān zài jiàoshì de pángbiān.",vi:"Nhà vệ sinh ở cạnh phòng học."},{h:"那儿是卫生间。",p:"Nàr shì wèishēngjiān.",vi:"Đằng kia là nhà vệ sinh."}]},
+"教室":{p:"jiàoshì",pos:"n.",hv:"Giáo thất",vi:"phòng học, lớp học",usage:"Danh từ chỉ nơi chốn. Phân biệt với 教学楼 (tòa giảng đường, cả tòa nhà) — 教室 chỉ một phòng.",
+ radical:{char:"宀",name:"miên (mái nhà) — phía trên chữ 室"}, mnemonic:"教 = dạy dỗ; 室 có bộ 宀 (mái nhà) là căn phòng → phòng để dạy học.", icon:"classroomdesk",
+ examples:[{h:"在那儿，教室的旁边。",p:"Zài nàr, jiàoshì de pángbiān.",vi:"Ở đằng kia, cạnh phòng học."},{h:"是西边的教室吗？",p:"Shì xībian de jiàoshì ma?",vi:"Là phòng học phía tây phải không?"},{h:"这儿是教室，那儿是卫生间。",p:"Zhèr shì jiàoshì, nàr shì wèishēngjiān.",vi:"Đây là phòng học, đằng kia là nhà vệ sinh."}]},
+"旁边":{p:"pángbiān",pos:"n.",hv:"Bàng biên",vi:"bên cạnh",usage:"Danh từ phương vị. Khác với nhóm 上/下/里/外, chữ 旁 BẮT BUỘC đi kèm 边 — chỉ nói 旁边, không nói 旁. Làm định ngữ thì thêm 的: 教室的旁边.",
+ radical:{char:"方",name:"phương — phần dưới chữ 旁"}, mnemonic:"旁 có bộ 方 (phương hướng) — phía bên hông, sát ngay cạnh.", icon:"compassew",
+ examples:[{h:"在那儿，教室的旁边。",p:"Zài nàr, jiàoshì de pángbiān.",vi:"Ở đằng kia, cạnh phòng học."},{h:"图书馆在教学楼的旁边。",p:"Túshūguǎn zài jiàoxuélóu de pángbiān.",vi:"Thư viện ở cạnh tòa giảng đường."},{h:"我的宿舍楼在图书馆的旁边。",p:"Wǒ de sùshèlóu zài túshūguǎn de pángbiān.",vi:"Ký túc xá của tôi ở cạnh thư viện."}]},
+"西边":{p:"xībian",pos:"n.",hv:"Tây biên",vi:"phía tây",usage:"Danh từ phương vị, cặp đôi với 东边. Thứ tự đọc quen thuộc của người Trung Quốc là 东西南北, khác với “đông tây nam bắc” của tiếng Việt ở chỗ giống nhau hoàn toàn.",
+ radical:{char:"西",name:"tây — bản thân nó là một bộ thủ"}, mnemonic:"西 vẽ hình cái tổ chim — chim về tổ lúc mặt trời lặn ở hướng tây.", icon:"compassew",
+ examples:[{h:"是西边的教室吗？",p:"Shì xībian de jiàoshì ma?",vi:"Là phòng học phía tây phải không?"},{h:"卫生间在西边。",p:"Wèishēngjiān zài xībian.",vi:"Nhà vệ sinh ở phía tây."},{h:"北京大学在清华大学的西边。",p:"Běijīng Dàxué zài Qīnghuá Dàxué de xībian.",vi:"Đại học Bắc Kinh ở phía tây Đại học Thanh Hoa."}]},
+"对":{p:"duì",pos:"adj.",hv:"Đối",vi:"đúng, phải",usage:"Tính từ, dùng riêng để xác nhận: 对。= Đúng vậy. Phủ định: 不对 = không đúng. Đừng nhầm với 对不起 (xin lỗi) hay 对面 (đối diện).",
+ radical:{char:"寸",name:"thốn — bên phải chữ 对"}, mnemonic:"对 nghĩa gốc là “đối ứng, khớp nhau” — hai bên khớp nhau thì tức là đúng.", icon:"welcomehand",
+ examples:[{h:"是西边的教室吗？——对。",p:"Shì xībian de jiàoshì ma? — Duì.",vi:"Là phòng học phía tây phải không? — Đúng rồi."},{h:"对，我是研究生。",p:"Duì, wǒ shì yánjiūshēng.",vi:"Đúng, tôi là học viên cao học."},{h:"不对，那是教室。",p:"Bú duì, nà shì jiàoshì.",vi:"Không đúng, kia là phòng học."}]},
+
+/* ===== 专有名词 Bài 5 — 3 tên riêng ===== */
+"张红":{p:"Zhāng Hóng",pos:"n.pr.",hv:"Trương Hồng",vi:"Trương Hồng (tên riêng, nữ)",usage:"Nhân vật nữ người Trung Quốc, học viên cao học khoa Trung văn Đại học Thanh Hoa. Họ 张 + tên 红.",
+ radical:{char:"弓",name:"cung (cây cung) — bên trái chữ 张"}, mnemonic:"张 = 弓 (cung) + 长 — giương cây cung ra, là một họ rất phổ biến; 红 có bộ 纟(tơ) nghĩa là màu đỏ.", icon:"avaZhanghong",
+ examples:[{h:"我叫张红。你呢？",p:"Wǒ jiào Zhāng Hóng. Nǐ ne?",vi:"Tôi tên là Trương Hồng. Còn bạn?"},{h:"张红是研究生。",p:"Zhāng Hóng shì yánjiūshēng.",vi:"Trương Hồng là học viên cao học."},{h:"张红的专业是现代文学。",p:"Zhāng Hóng de zhuānyè shì xiàndài wénxué.",vi:"Chuyên ngành của Trương Hồng là văn học hiện đại."}]},
+"北京大学":{p:"Běijīng Dàxué",pos:"n.pr.",hv:"Bắc Kinh Đại học",vi:"Đại học Bắc Kinh",usage:"Trường đại học hàng đầu Trung Quốc, gọi tắt là 北大 (Běidà). 北京 nghĩa đen là “kinh đô phía bắc”.",
+ radical:{char:"亠",name:"đầu — phía trên chữ 京"}, mnemonic:"京 vẽ tòa lầu cao trên nền đất — chỉ kinh đô; 北 vẽ hai người quay lưng vào nhau, hướng bắc lạnh giá.", icon:"deptbldg",
+ examples:[{h:"我是北京大学的留学生。",p:"Wǒ shì Běijīng Dàxué de liúxuéshēng.",vi:"Tôi là du học sinh Đại học Bắc Kinh."},{h:"清华大学在北京大学的东边。",p:"Qīnghuá Dàxué zài Běijīng Dàxué de dōngbian.",vi:"Đại học Thanh Hoa ở phía đông Đại học Bắc Kinh."},{h:"北京大学在哪儿？",p:"Běijīng Dàxué zài nǎr?",vi:"Đại học Bắc Kinh ở đâu?"}]},
+"清华大学":{p:"Qīnghuá Dàxué",pos:"n.pr.",hv:"Thanh Hoa Đại học",vi:"Đại học Thanh Hoa",usage:"Trường đại học hàng đầu Trung Quốc về kỹ thuật, gọi tắt là 清华. Nằm ngay phía đông Đại học Bắc Kinh.",
+ radical:{char:"氵",name:"thủy (nước) — bên trái chữ 清"}, mnemonic:"清 có bộ 氵(nước) nghĩa là trong trẻo; 华 là tinh hoa, rực rỡ → 清华 = trong sáng và rực rỡ.", icon:"deptbldg",
+ examples:[{h:"我是清华大学中文系的研究生。",p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng.",vi:"Tôi là học viên cao học khoa Trung văn Đại học Thanh Hoa."},{h:"清华大学在哪儿？",p:"Qīnghuá Dàxué zài nǎr?",vi:"Đại học Thanh Hoa ở đâu?"},{h:"清华大学在北京大学的东边。",p:"Qīnghuá Dàxué zài Běijīng Dàxué de dōngbian.",vi:"Đại học Thanh Hoa ở phía đông Đại học Bắc Kinh."}]},
 
 /* ===== Từ đã học ở các bài trước — tra được nhưng không liệt kê ===== */
-"有":{old:true,p:"yǒu",pos:"v.",hv:"Hữu",vi:"có",usage:"Đã học ở bài trước. Đây là trọng tâm ngữ pháp Bài 7. Khẳng định: S + 有 + n. Phủ định: S + 没有 + n. (KHÔNG dùng 不有). Nghi vấn: S + 有 + n. + 吗? hoặc S + 有没有 + n.?",
- radical:{char:"月",name:"nguyệt (thịt) — phía dưới chữ 有"}, mnemonic:"有 vẽ một bàn tay đang cầm miếng thịt 月 — trong tay đang giữ thứ gì đó → “có”.", icon:"okhand",
- examples:[{h:"明天你有课吗？",p:"Míngtiān nǐ yǒu kè ma?",vi:"Ngày mai bạn có tiết không?"},{h:"我有汉语课本。",p:"Wǒ yǒu Hànyǔ kèběn.",vi:"Tôi có giáo trình tiếng Hán."},{h:"你有没有自行车？",p:"Nǐ yǒu méiyǒu zìxíngchē?",vi:"Bạn có xe đạp hay không?"}]},
-"去":{old:true,p:"qù",pos:"v.",hv:"Khứ",vi:"đi, đi đến",usage:"Đã học ở bài trước. Động từ. Trạng ngữ thời gian đứng TRƯỚC: 我明天下午去。Mang theo nơi đến: 去图书馆.",
- radical:{char:"厶",name:"khư — phần dưới chữ 去"}, mnemonic:"去 vẽ hình người bước ra khỏi cửa hang, rời đi → “đi”.", icon:"signpost",
- examples:[{h:"我明天下午去见朋友。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou.",vi:"Chiều mai tôi đi gặp bạn."},{h:"你去吗？——我当然去。",p:"Nǐ qù ma? — Wǒ dāngrán qù.",vi:"Bạn đi không? — Tất nhiên tôi đi."},{h:"下午你去图书馆吗？",p:"Xiàwǔ nǐ qù túshūguǎn ma?",vi:"Chiều bạn đi thư viện không?"}]},
-"见":{old:true,p:"jiàn",pos:"v.",hv:"Kiến",vi:"gặp, thấy",usage:"Đã học ở Bài 6. 去见朋友 = đi gặp bạn. Dùng trong lời chào: 一会儿见, 明天见.",
- radical:{char:"见",name:"kiến — bản thân nó là một bộ thủ"}, mnemonic:"见 vẽ con mắt 目 đặt trên đôi chân người — đang mở to mắt nhìn → thấy, gặp.", icon:"friends",
- examples:[{h:"我明天下午去见朋友。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou.",vi:"Chiều mai tôi đi gặp bạn."},{h:"一会儿见。",p:"Yíhuìr jiàn.",vi:"Lát nữa gặp."},{h:"明天见！",p:"Míngtiān jiàn!",vi:"Mai gặp nhé!"}]},
-"朋友":{old:true,p:"péngyou",pos:"n.",hv:"Bằng hữu",vi:"bạn, bạn bè",usage:"Đã học ở Bài 3. 中国朋友 = bạn người Trung Quốc.",
- radical:{char:"月",name:"nguyệt — hai chữ 月 ghép thành 朋"}, mnemonic:"朋 do hai chữ 月 giống hệt đứng cạnh nhau — hai người sóng đôi, ngang hàng → bạn bè.", icon:"friends",
- examples:[{h:"我明天下午去见朋友。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou.",vi:"Chiều mai tôi đi gặp bạn."},{h:"大卫有中国朋友。",p:"Dàwèi yǒu Zhōngguó péngyou.",vi:"David có bạn người Trung Quốc."},{h:"这是我朋友的杂志。",p:"Zhè shì wǒ péngyou de zázhì.",vi:"Đây là tạp chí của bạn tôi."}]},
-"宿舍":{old:true,p:"sùshè",pos:"n.",hv:"Túc xá",vi:"ký túc xá",usage:"Đã học ở Bài 4. Nói đầy đủ là 宿舍楼 (tòa ký túc xá).",
- radical:{char:"宀",name:"miên (mái nhà) — trên đầu cả 宿 và 舍"}, mnemonic:"宿 = mái nhà che người nằm nghỉ; 舍 cũng là nhà ở → 宿舍 = nhà tập thể.", icon:"dorm",
- examples:[{h:"是宿舍楼后边的车棚吗？",p:"Shì sùshèlóu hòubian de chēpéng ma?",vi:"Là nhà xe phía sau ký túc xá à?"},{h:"你有宿舍的钥匙吗？",p:"Nǐ yǒu sùshè de yàoshi ma?",vi:"Bạn có chìa khóa ký túc xá không?"},{h:"宿舍楼的北边是图书馆。",p:"Sùshèlóu de běibian shì túshūguǎn.",vi:"Phía bắc ký túc xá là thư viện."}]},
-"楼":{old:true,p:"lóu",pos:"n.",hv:"Lâu",vi:"tòa nhà, tầng lầu",usage:"Đã học ở Bài 4. 楼下 = dưới tầng, 楼上 = trên tầng.",
- radical:{char:"木",name:"mộc (cây) — bên trái chữ 楼"}, mnemonic:"楼 có bộ 木 (gỗ) — nhà lầu xưa dựng bằng khung gỗ chồng tầng.", icon:"schoolbldg",
- examples:[{h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li.",vi:"Xe ở trong nhà xe dưới tầng."},{h:"是宿舍楼后边的车棚吗？",p:"Shì sùshèlóu hòubian de chēpéng ma?",vi:"Là nhà xe sau tòa ký túc xá à?"},{h:"右边的楼是图书馆。",p:"Yòubian de lóu shì túshūguǎn.",vi:"Tòa bên phải là thư viện."}]},
-"学校":{old:true,p:"xuéxiào",pos:"n.",hv:"Học hiệu",vi:"trường học",usage:"Đã học ở Bài 4. 学校电影院 = rạp phim của trường (quan hệ thân thiết nên lược 的).",
- radical:{char:"木",name:"mộc (cây) — bên trái chữ 校"}, mnemonic:"校 = 木 (gỗ) + 交 (giao nhau) — trường học xưa dựng bằng khung gỗ ghép.", icon:"univ",
- examples:[{h:"学校电影院有电影。",p:"Xuéxiào diànyǐngyuàn yǒu diànyǐng.",vi:"Rạp phim của trường có chiếu phim."},{h:"我不是这个学校的学生。",p:"Wǒ bú shì zhège xuéxiào de xuésheng.",vi:"Tôi không phải sinh viên trường này."},{h:"你们学校几点上课？",p:"Nǐmen xuéxiào jǐ diǎn shàngkè?",vi:"Trường các bạn mấy giờ vào học?"}]},
-"什么":{old:true,p:"shénme",pos:"pron.",hv:"Thập ma",vi:"cái gì, gì",usage:"Đã học ở Bài 1. Đặt đúng vị trí của câu trả lời, không đảo trật tự và không thêm 吗.",
- radical:{char:"亻",name:"nhân đứng — bên trái chữ 什"}, mnemonic:"什 = 亻(người) + 十 (mười) — “mười thứ của người ta”, tức nhiều loại → đại từ hỏi “cái gì”.", icon:"qmark",
- examples:[{h:"什么事？",p:"Shénme shì?",vi:"Có chuyện gì thế?"},{h:"什么电影？",p:"Shénme diànyǐng?",vi:"Phim gì thế?"},{h:"你叫什么名字？",p:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"}]},
-"知道":{old:true,p:"zhīdào",pos:"v.",hv:"Tri đạo",vi:"biết",usage:"Đã học ở Bài 4. Phủ định: 不知道.",
- radical:{char:"矢",name:"thỉ (mũi tên) — bên trái chữ 知"}, mnemonic:"知 = 矢 (mũi tên) + 口 (miệng) — lời nói bắn ra trúng đích → biết rõ.", icon:"qmark",
- examples:[{h:"我不知道名字。",p:"Wǒ bù zhīdào míngzi.",vi:"Tôi không biết tên."},{h:"我当然知道。",p:"Wǒ dāngrán zhīdào.",vi:"Tất nhiên tôi biết."},{h:"对不起，我不知道。",p:"Duìbuqǐ, wǒ bù zhīdào.",vi:"Xin lỗi, tôi không biết."}]},
-"名字":{old:true,p:"míngzi",pos:"n.",hv:"Danh tự",vi:"tên",usage:"Đã học ở Bài 1. Ở đây chỉ tên của bộ phim.",
- radical:{char:"夕",name:"tịch (buổi tối) — phía trên chữ 名"}, mnemonic:"名 = 夕 (tối) + 口 (miệng) — trời tối phải cất tiếng xưng tên mới nhận ra nhau.", icon:"nametag",
- examples:[{h:"我不知道名字。",p:"Wǒ bù zhīdào míngzi.",vi:"Tôi không biết tên (phim)."},{h:"你叫什么名字？",p:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},{h:"这个电影的名字很有名。",p:"Zhège diànyǐng de míngzi hěn yǒumíng.",vi:"Tên bộ phim này rất nổi tiếng."}]},
-"很":{old:true,p:"hěn",pos:"adv.",hv:"Ngận",vi:"rất",usage:"Đã học ở bài trước. Phó từ mức độ đặt TRƯỚC tính từ. Trong câu khẳng định, 很 thường bắt buộc phải có dù nghĩa “rất” đã nhạt: 很有名, 很好.",
- radical:{char:"彳",name:"xích (bước chân trái) — bên trái chữ 很"}, mnemonic:"很 có bộ 彳(bước đi) — mức độ cứ tiến thêm mãi lên → “rất”.", icon:"exclaim",
- examples:[{h:"听说很有名。",p:"Tīngshuō hěn yǒumíng.",vi:"Nghe nói rất nổi tiếng."},{h:"这个电影很好。",p:"Zhège diànyǐng hěn hǎo.",vi:"Bộ phim này rất hay."},{h:"我很好，谢谢。",p:"Wǒ hěn hǎo, xièxie.",vi:"Tôi khỏe, cảm ơn."}]},
-"对":{old:true,p:"duì",pos:"adj.",hv:"Đối",vi:"đúng, phải",usage:"Dùng riêng làm câu trả lời khẳng định: 对。= Đúng vậy. Trái nghĩa: 不对. Khác với 对不起 (xin lỗi).",
- radical:{char:"寸",name:"thốn — bên phải chữ 对"}, mnemonic:"对 gốc nghĩa là “đối ứng, khớp nhau” — hai bên khớp nhau thì tức là đúng.", icon:"check",
- examples:[{h:"是宿舍楼后边的车棚吗？——对。",p:"Shì sùshèlóu hòubian de chēpéng ma? — Duì.",vi:"Là nhà xe sau ký túc xá à? — Đúng rồi."},{h:"对，我明天有课。",p:"Duì, wǒ míngtiān yǒu kè.",vi:"Đúng, mai tôi có tiết."},{h:"不对。",p:"Bú duì.",vi:"Không đúng."}]},
-"我":{old:true,p:"wǒ",pos:"pron.",hv:"Ngã",vi:"tôi, mình",usage:"Đã học ở Bài 1. Số nhiều: 我们.",
- radical:{char:"戈",name:"qua (vũ khí cổ) — bên phải chữ 我"}, mnemonic:"我 có bộ 戈 (vũ khí) — cầm vũ khí bảo vệ bản thân → “tôi”.", icon:"nametag",
- examples:[{h:"我上午有课。",p:"Wǒ shàngwǔ yǒu kè.",vi:"Buổi sáng tôi có tiết."},{h:"我当然去。",p:"Wǒ dāngrán qù.",vi:"Tất nhiên tôi đi."},{h:"我没有自行车。",p:"Wǒ méiyǒu zìxíngchē.",vi:"Tôi không có xe đạp."}]},
-"你":{old:true,p:"nǐ",pos:"pron.",hv:"Nhĩ",vi:"bạn, cậu",usage:"Đã học ở Bài 1. Kính ngữ: 您. Số nhiều: 你们.",
- radical:{char:"亻",name:"nhân đứng — bên trái chữ 你"}, mnemonic:"你 có bộ 亻(người) — người đang đứng đối diện mình.", icon:"handshake",
- examples:[{h:"明天你有课吗？",p:"Míngtiān nǐ yǒu kè ma?",vi:"Ngày mai bạn có tiết không?"},{h:"你有自行车吧？",p:"Nǐ yǒu zìxíngchē ba?",vi:"Bạn có xe đạp đúng không?"},{h:"你去吗？",p:"Nǐ qù ma?",vi:"Bạn đi không?"}]},
-"是":{old:true,p:"shì",pos:"v.",hv:"Thị",vi:"là; đúng",usage:"Đã học ở Bài 1. Chú ý: chỉ SỞ HỮU thì dùng 有, không dùng 是.",
- radical:{char:"日",name:"nhật (mặt trời) — phía trên chữ 是"}, mnemonic:"是 có bộ 日 trên đầu — chân lý sáng rõ như ban ngày.", icon:"check",
- examples:[{h:"这是钥匙。",p:"Zhè shì yàoshi.",vi:"Đây là chìa khóa."},{h:"是宿舍楼后边的车棚吗？",p:"Shì sùshèlóu hòubian de chēpéng ma?",vi:"Là nhà xe sau ký túc xá à?"},{h:"我是留学生。",p:"Wǒ shì liúxuéshēng.",vi:"Tôi là du học sinh."}]},
-"这":{old:true,p:"zhè",pos:"pron.",hv:"Giá",vi:"này, đây",usage:"Đã học ở Bài 3. Chỉ vật ở gần. Ghép lượng từ: 这个 (cái này). Chỉ nơi chốn thì dùng 这儿.",
- radical:{char:"辶",name:"sước (bước đi) — bao quanh chữ 这"}, mnemonic:"这 có bộ 辶 (bước chân) — chỉ cần một bước là tới, tức ở ngay đây.", icon:"check",
- examples:[{h:"这是钥匙。",p:"Zhè shì yàoshi.",vi:"Đây là chìa khóa."},{h:"这个电影很有名。",p:"Zhège diànyǐng hěn yǒumíng.",vi:"Bộ phim này rất nổi tiếng."},{h:"这是我的自行车。",p:"Zhè shì wǒ de zìxíngchē.",vi:"Đây là xe đạp của tôi."}]},
-"不":{old:true,p:"bù",pos:"adv.",hv:"Bất",vi:"không",usage:"Đã học ở Bài 1. Phủ định động từ/tính từ thường. NHƯNG phủ định của 有 phải là 没有, không bao giờ là 不有.",
- radical:{char:"一",name:"nhất — nét ngang trên đầu chữ 不"}, mnemonic:"不 giống cánh chim bay lên bị một vạch ngang chặn lại → phủ định.", icon:"exclaim",
- examples:[{h:"我不知道名字。",p:"Wǒ bù zhīdào míngzi.",vi:"Tôi không biết tên."},{h:"不，是右边的楼。",p:"Bù, shì yòubian de lóu.",vi:"Không, là tòa bên phải."},{h:"我不去。",p:"Wǒ bú qù.",vi:"Tôi không đi."}]},
-"的":{old:true,p:"de",pos:"part.",hv:"Đích (trợ từ)",vi:"trợ từ định ngữ: “của”",usage:"Đã học ở Bài 3. 宿舍楼后边的车棚 = nhà xe ở phía sau ký túc xá.",
- radical:{char:"白",name:"bạch (trắng) — bên trái chữ 的"}, mnemonic:"的 có bộ 白 (rõ ràng) — làm rõ thứ đó thuộc về ai, thuộc loại nào.", icon:"check",
- examples:[{h:"是宿舍楼后边的车棚吗？",p:"Shì sùshèlóu hòubian de chēpéng ma?",vi:"Là nhà xe phía sau ký túc xá à?"},{h:"宿舍的钥匙",p:"sùshè de yàoshi",vi:"chìa khóa ký túc xá"},{h:"她的自行车在楼下。",p:"Tā de zìxíngchē zài lóu xià.",vi:"Xe đạp của cô ấy ở dưới tầng."}]},
-"在":{old:true,p:"zài",pos:"v.",hv:"Tại",vi:"ở, nằm ở",usage:"Đã học ở Bài 4. Mẫu: [Vật] + 在 + [Nơi chốn]. Bài này ghép với phương vị mới: 车在楼下车棚里。",
- radical:{char:"土",name:"thổ (đất) — nằm trong chữ 在"}, mnemonic:"在 có bộ 土 (đất) — muốn tồn tại thì phải đứng trên một mảnh đất.", icon:"signpost",
- examples:[{h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li.",vi:"Xe ở trong nhà xe dưới tầng."},{h:"老师在教室里。",p:"Lǎoshī zài jiàoshì li.",vi:"Thầy/cô ở trong lớp."},{h:"玛丽在车棚里。",p:"Mǎlì zài chēpéng li.",vi:"Mary ở trong nhà xe."}]},
-"中村":{old:true,p:"Zhōngcūn",pos:"n.pr.",hv:"Trung Thôn",vi:"Nakamura (họ người Nhật)",usage:"Đã học ở Bài 3. Du học sinh người Nhật, bạn cùng phòng của Mary.",
- radical:{char:"木",name:"mộc (cây) — bên trái chữ 村"}, mnemonic:"村 = 木 (cây) + 寸 (tấc); 中村 nghĩa đen “xóm giữa”, một họ phổ biến ở Nhật.", icon:"friends",
- examples:[{h:"中村，明天你有课吗？",p:"Zhōngcūn, míngtiān nǐ yǒu kè ma?",vi:"Nakamura, mai cậu có tiết không?"},{h:"中村是日本人。",p:"Zhōngcūn shì Rìběn rén.",vi:"Nakamura là người Nhật."},{h:"中村有自行车。",p:"Zhōngcūn yǒu zìxíngchē.",vi:"Nakamura có xe đạp."}]},
-"玛丽":{old:true,p:"Mǎlì",pos:"n.pr.",hv:"Mã Lệ",vi:"Mary (tên riêng, nữ)",usage:"Đã học ở Bài 3. Du học sinh người Canada.",
- radical:null, mnemonic:null, icon:"friends",
- examples:[{h:"玛丽，今天晚上你有时间吗？",p:"Mǎlì, jīntiān wǎnshang nǐ yǒu shíjiān ma?",vi:"Mary, tối nay cậu rảnh không?"},{h:"玛丽没有自行车。",p:"Mǎlì méiyǒu zìxíngchē.",vi:"Mary không có xe đạp."},{h:"玛丽在车棚里。",p:"Mǎlì zài chēpéng li.",vi:"Mary ở trong nhà xe."}]},
+"玛丽":{old:true,p:"Mǎlì",pos:"n.pr.",hv:"Mã Lệ",vi:"Mary (tên riêng, nữ)",usage:"Đã học ở Bài 2. Du học sinh người Canada, học ở Đại học Bắc Kinh.",
+ radical:null, mnemonic:null, icon:"avaMali5",
+ examples:[{h:"我叫玛丽。",p:"Wǒ jiào Mǎlì.",vi:"Tôi tên là Mary."},{h:"玛丽是北京大学的留学生。",p:"Mǎlì shì Běijīng Dàxué de liúxuéshēng.",vi:"Mary là du học sinh Đại học Bắc Kinh."},{h:"玛丽的专业是国际关系。",p:"Mǎlì de zhuānyè shì guójì guānxi.",vi:"Chuyên ngành của Mary là quan hệ quốc tế."}]},
 "大卫":{old:true,p:"Dàwèi",pos:"n.pr.",hv:"Đại Vệ",vi:"David (tên riêng, nam)",usage:"Đã học ở Bài 1. Du học sinh người Mỹ.",
- radical:null, mnemonic:null, icon:"friends",
- examples:[{h:"大卫：玛丽，今天晚上你有时间吗？",p:"Dàwèi: Mǎlì, jīntiān wǎnshang nǐ yǒu shíjiān ma?",vi:"David: Mary, tối nay cậu rảnh không?"},{h:"大卫有中国朋友。",p:"Dàwèi yǒu Zhōngguó péngyou.",vi:"David có bạn người Trung Quốc."},{h:"大卫下午有事。",p:"Dàwèi xiàwǔ yǒu shì.",vi:"Chiều David có việc."}]}
+ radical:null, mnemonic:null, icon:"avaDawei2",
+ examples:[{h:"请问，卫生间在哪儿？",p:"Qǐngwèn, wèishēngjiān zài nǎr?",vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?"},{h:"大卫是美国人。",p:"Dàwèi shì Měiguó rén.",vi:"David là người Mỹ."},{h:"大卫是留学生。",p:"Dàwèi shì liúxuéshēng.",vi:"David là du học sinh."}]},
+"学生":{old:true,p:"xuésheng",pos:"n.",hv:"Học sinh",vi:"học sinh, sinh viên",usage:"Đã học ở Bài 1. Trong bài khóa hai, 学生 là người trả lời đường cho David.",
+ radical:{char:"子",name:"tử (con) — phía dưới chữ 学"}, mnemonic:"学 có bộ 子 (đứa trẻ) phía dưới — đứa trẻ ngồi học dưới mái nhà.", icon:"avaStudent",
+ examples:[{h:"学生：在那儿，教室的旁边。",p:"Xuésheng: Zài nàr, jiàoshì de pángbiān.",vi:"Bạn học sinh: Ở đằng kia, cạnh phòng học."},{h:"我是学生。",p:"Wǒ shì xuésheng.",vi:"Tôi là học sinh."},{h:"中文系的学生很多。",p:"Zhōngwén xì de xuésheng hěn duō.",vi:"Sinh viên khoa Trung văn rất đông."}]},
+"留学生":{old:true,p:"liúxuéshēng",pos:"n.",hv:"Lưu học sinh",vi:"du học sinh",usage:"Đã học ở Bài 1.",
+ radical:{char:"田",name:"điền (ruộng) — phía dưới chữ 留"}, mnemonic:"留 có bộ 田 (ruộng) bên dưới — dừng chân ở lại mảnh đất khác quê hương để học.", icon:"majorbadge",
+ examples:[{h:"我是北京大学的留学生。",p:"Wǒ shì Běijīng Dàxué de liúxuéshēng.",vi:"Tôi là du học sinh Đại học Bắc Kinh."},{h:"留学生的宿舍楼在那儿。",p:"Liúxuéshēng de sùshèlóu zài nàr.",vi:"Ký túc xá du học sinh ở đằng kia."},{h:"你是留学生吗？",p:"Nǐ shì liúxuéshēng ma?",vi:"Bạn là du học sinh à?"}]},
+"大学":{old:true,p:"dàxué",pos:"n.",hv:"Đại học",vi:"trường đại học",usage:"Xuất hiện trong tên riêng 北京大学 / 清华大学. Từ này sẽ được đưa vào 词语表 chính thức ở Bài 6.",
+ radical:{char:"子",name:"tử (con) — phía dưới chữ 学"}, mnemonic:"学 vẽ đứa trẻ 子 ngồi dưới mái nhà tập viết; thêm 大 (lớn) thành nơi học của người đã lớn.", icon:"deptbldg",
+ examples:[{h:"我是北京大学的留学生。",p:"Wǒ shì Běijīng Dàxué de liúxuéshēng.",vi:"Tôi là du học sinh Đại học Bắc Kinh."},{h:"清华大学在哪儿？",p:"Qīnghuá Dàxué zài nǎr?",vi:"Đại học Thanh Hoa ở đâu?"},{h:"你们大学有中文系吗？",p:"Nǐmen dàxué yǒu Zhōngwén xì ma?",vi:"Trường các bạn có khoa Trung văn không?"}]},
+"你":{old:true,p:"nǐ",pos:"pron.",hv:"Nhĩ",vi:"bạn, cậu",usage:"Đã học ở Bài 1.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 你"}, mnemonic:"你 có bộ 亻(người) — người đang đứng đối diện mình.", icon:"handshake",
+ examples:[{h:"你好！你叫什么名字？",p:"Nǐ hǎo! Nǐ jiào shénme míngzi?",vi:"Chào bạn! Bạn tên là gì?"},{h:"欢迎你去玩儿。",p:"Huānyíng nǐ qù wánr.",vi:"Mời bạn qua chơi."},{h:"你的专业是什么？",p:"Nǐ de zhuānyè shì shénme?",vi:"Chuyên ngành của bạn là gì?"}]},
+"我":{old:true,p:"wǒ",pos:"pron.",hv:"Ngã",vi:"tôi, mình",usage:"Đã học ở Bài 1. 我的专业 = chuyên ngành của tôi.",
+ radical:{char:"戈",name:"qua (vũ khí cổ) — bên phải chữ 我"}, mnemonic:"我 có bộ 戈 (vũ khí) — cầm vũ khí bảo vệ bản thân.", icon:"nametag",
+ examples:[{h:"我叫玛丽。",p:"Wǒ jiào Mǎlì.",vi:"Tôi tên là Mary."},{h:"我的专业是国际关系。",p:"Wǒ de zhuānyè shì guójì guānxi.",vi:"Chuyên ngành của tôi là quan hệ quốc tế."},{h:"我是清华大学的研究生。",p:"Wǒ shì Qīnghuá Dàxué de yánjiūshēng.",vi:"Tôi là học viên cao học Đại học Thanh Hoa."}]},
+"好":{old:true,p:"hǎo",pos:"adj.",hv:"Hảo",vi:"tốt, khỏe",usage:"Đã học ở Bài 1. 你好 là lời chào thông dụng nhất.",
+ radical:{char:"女",name:"nữ — bên trái chữ 好"}, mnemonic:"好 = 女 (mẹ) + 子 (con) — mẹ con quây quần là điều tốt đẹp.", icon:"partyglass",
+ examples:[{h:"你好！你叫什么名字？",p:"Nǐ hǎo! Nǐ jiào shénme míngzi?",vi:"Chào bạn! Bạn tên là gì?"},{h:"你好吗？",p:"Nǐ hǎo ma?",vi:"Bạn khỏe không?"},{h:"老师好！",p:"Lǎoshī hǎo!",vi:"Em chào thầy ạ!"}]},
+"叫":{old:true,p:"jiào",pos:"v.",hv:"Khiếu",vi:"tên là, gọi là",usage:"Đã học ở Bài 1. Phân biệt với 姓 (chỉ nói họ).",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 叫"}, mnemonic:"叫 có bộ 口 (miệng) — cất tiếng gọi tên ai đó.", icon:"majorbadge",
+ examples:[{h:"你叫什么名字？",p:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},{h:"我叫张红。",p:"Wǒ jiào Zhāng Hóng.",vi:"Tôi tên là Trương Hồng."},{h:"我叫玛丽。",p:"Wǒ jiào Mǎlì.",vi:"Tôi tên là Mary."}]},
+"什么":{old:true,p:"shénme",pos:"pron.",hv:"Thập ma",vi:"cái gì, gì",usage:"Đã học ở Bài 1. Câu có 什么 thì không thêm 吗.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 什"}, mnemonic:"什 = 亻(người) + 十 (mười) — nhiều loại thứ khác nhau → hỏi “cái gì”.", icon:"qmark",
+ examples:[{h:"你叫什么名字？",p:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},{h:"你的专业是什么？",p:"Nǐ de zhuānyè shì shénme?",vi:"Chuyên ngành của bạn là gì?"},{h:"什么时候去？",p:"Shénme shíhou qù?",vi:"Khi nào thì đi?"}]},
+"名字":{old:true,p:"míngzi",pos:"n.",hv:"Danh tự",vi:"tên",usage:"Đã học ở Bài 1.",
+ radical:{char:"夕",name:"tịch (buổi tối) — phía trên chữ 名"}, mnemonic:"名 = 夕 (tối) + 口 (miệng) — trời tối phải cất tiếng xưng tên mới nhận ra nhau.", icon:"majorbadge",
+ examples:[{h:"你叫什么名字？",p:"Nǐ jiào shénme míngzi?",vi:"Bạn tên là gì?"},{h:"我的名字是玛丽。",p:"Wǒ de míngzi shì Mǎlì.",vi:"Tên của tôi là Mary."},{h:"她叫什么名字？",p:"Tā jiào shénme míngzi?",vi:"Cô ấy tên là gì?"}]},
+"呢":{old:true,p:"ne",pos:"part.",hv:"Ni (trợ từ)",vi:"trợ từ cuối câu hỏi rút gọn",usage:"Đã học ở Bài 2. 你呢？= còn bạn thì sao? — hỏi lại cùng câu hỏi mà không phải nhắc lại.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 呢"}, mnemonic:"呢 có bộ 口 — tiếng kéo dài ở cuối câu, như “… thì sao?” của tiếng Việt.", icon:"speechhi",
+ examples:[{h:"我叫张红。你呢？",p:"Wǒ jiào Zhāng Hóng. Nǐ ne?",vi:"Tôi tên là Trương Hồng. Còn bạn?"},{h:"我的专业是国际关系。你呢？",p:"Wǒ de zhuānyè shì guójì guānxi. Nǐ ne?",vi:"Chuyên ngành của tôi là quan hệ quốc tế. Còn bạn?"},{h:"你叫李军，她呢？",p:"Nǐ jiào Lǐ Jūn, tā ne?",vi:"Bạn tên Lý Quân, còn cô ấy?"}]},
+"是":{old:true,p:"shì",pos:"v.",hv:"Thị",vi:"là; đúng",usage:"Đã học ở Bài 1. Trong bài này 是 dùng để giới thiệu thân phận và chuyên ngành: 我是……的留学生, 我的专业是…….",
+ radical:{char:"日",name:"nhật (mặt trời) — phía trên chữ 是"}, mnemonic:"是 có bộ 日 trên đầu — chân lý sáng rõ như ban ngày.", icon:"check",
+ examples:[{h:"我是北京大学的留学生。",p:"Wǒ shì Běijīng Dàxué de liúxuéshēng.",vi:"Tôi là du học sinh Đại học Bắc Kinh."},{h:"我的专业是现代文学。",p:"Wǒ de zhuānyè shì xiàndài wénxué.",vi:"Chuyên ngành của tôi là văn học hiện đại."},{h:"是西边的教室吗？",p:"Shì xībian de jiàoshì ma?",vi:"Là phòng học phía tây phải không?"}]},
+"的":{old:true,p:"de",pos:"part.",hv:"Đích (trợ từ)",vi:"trợ từ định ngữ: “của”",usage:"Đã học ở Bài 2 và Bài 3. Trong bài này dùng rất dày: 北京大学的留学生, 中文系的研究生, 北京大学的东边, 有空儿的时候.",
+ radical:{char:"白",name:"bạch (trắng) — bên trái chữ 的"}, mnemonic:"的 có bộ 白 (rõ ràng) — làm rõ thứ đó thuộc về đâu.", icon:"check",
+ examples:[{h:"我是北京大学的留学生。",p:"Wǒ shì Běijīng Dàxué de liúxuéshēng.",vi:"Tôi là du học sinh Đại học Bắc Kinh."},{h:"在北京大学的东边。",p:"Zài Běijīng Dàxué de dōngbian.",vi:"Ở phía đông Đại học Bắc Kinh."},{h:"教室的旁边",p:"jiàoshì de pángbiān",vi:"cạnh phòng học"}]},
+"在":{old:true,p:"zài",pos:"v.",hv:"Tại",vi:"ở, nằm ở",usage:"Đã học ở Bài 4. Mẫu: [Vật/Nơi] + 在 + [Nơi chốn]. Trong bài này ghép với phương vị: 在北京大学的东边.",
+ radical:{char:"土",name:"thổ (đất) — nằm trong chữ 在"}, mnemonic:"在 có bộ 土 (đất) — muốn tồn tại thì phải đứng trên một mảnh đất.", icon:"compassew",
+ examples:[{h:"清华大学在哪儿？",p:"Qīnghuá Dàxué zài nǎr?",vi:"Đại học Thanh Hoa ở đâu?"},{h:"在北京大学的东边。",p:"Zài Běijīng Dàxué de dōngbian.",vi:"Ở phía đông Đại học Bắc Kinh."},{h:"卫生间在哪儿？",p:"Wèishēngjiān zài nǎr?",vi:"Nhà vệ sinh ở đâu?"}]},
+"哪儿":{old:true,p:"nǎr",pos:"pron.",hv:"Na nhi",vi:"ở đâu",usage:"Đã học ở Bài 4. Hỏi nơi chốn, KHÔNG thêm 吗 ở cuối câu.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 哪"}, mnemonic:"哪 = 口 (miệng) + 那 (kia) — mở miệng hỏi “chỗ kia là chỗ nào?”.", icon:"compassew",
+ examples:[{h:"清华大学在哪儿？",p:"Qīnghuá Dàxué zài nǎr?",vi:"Đại học Thanh Hoa ở đâu?"},{h:"请问，卫生间在哪儿？",p:"Qǐngwèn, wèishēngjiān zài nǎr?",vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?"},{h:"图书馆在哪儿？",p:"Túshūguǎn zài nǎr?",vi:"Thư viện ở đâu?"}]},
+"那儿":{old:true,p:"nàr",pos:"pron.",hv:"Na nhi",vi:"ở đó, đằng kia",usage:"Đã học ở Bài 4. Bộ ba cần nhớ: 这儿 (đây) — 那儿 (kia) — 哪儿 (đâu?).",
+ radical:{char:"阝",name:"phụ (ấp) — bên phải chữ 那"}, mnemonic:"那 có bộ 阝 (làng xóm) — chỉ về nơi chốn ở phía xa kia. Chú ý thanh điệu: 那儿 nàr ≠ 哪儿 nǎr.", icon:"signpost",
+ examples:[{h:"在那儿，教室的旁边。",p:"Zài nàr, jiàoshì de pángbiān.",vi:"Ở đằng kia, cạnh phòng học."},{h:"那儿是卫生间。",p:"Nàr shì wèishēngjiān.",vi:"Đằng kia là nhà vệ sinh."},{h:"你的词典在那儿。",p:"Nǐ de cídiǎn zài nàr.",vi:"Từ điển của bạn ở đằng kia."}]},
+"请问":{old:true,p:"qǐngwèn",pos:"v.",hv:"Thỉnh vấn",vi:"xin hỏi",usage:"Đã học ở Bài 4. Câu mở lời lịch sự, luôn đứng đầu câu, sau đó có dấu phẩy.",
+ radical:{char:"讠",name:"ngôn (lời nói) — bên trái cả 请 và 问"}, mnemonic:"请 = lời mời nhã nhặn; 问 = 门 (cửa) + 口 (miệng), đứng ở cửa cất tiếng hỏi.", icon:"qmark",
+ examples:[{h:"请问，卫生间在哪儿？",p:"Qǐngwèn, wèishēngjiān zài nǎr?",vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?"},{h:"请问，教室在哪儿？",p:"Qǐngwèn, jiàoshì zài nǎr?",vi:"Xin hỏi, phòng học ở đâu ạ?"},{h:"请问，你是哪个系的？",p:"Qǐngwèn, nǐ shì nǎge xì de?",vi:"Cho hỏi, bạn ở khoa nào?"}]},
+"吗":{old:true,p:"ma",pos:"part.",hv:"Ma (trợ từ)",vi:"trợ từ nghi vấn cuối câu",usage:"Đã học ở Bài 1. Câu đã có 什么 hoặc 哪儿 thì không thêm 吗.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 吗"}, mnemonic:"吗 có bộ 口 — mở miệng cất tiếng hỏi.", icon:"qmark",
+ examples:[{h:"是西边的教室吗？",p:"Shì xībian de jiàoshì ma?",vi:"Là phòng học phía tây phải không?"},{h:"你是研究生吗？",p:"Nǐ shì yánjiūshēng ma?",vi:"Bạn là học viên cao học à?"},{h:"你有空儿吗？",p:"Nǐ yǒu kòngr ma?",vi:"Bạn có rảnh không?"}]}
 };
 /* ---------- DIALOGUE DATA ---------- */
 function seg(t,v){ return {t:t, v:v||null}; }
-const dialogue1 = [
-{spk:"玛丽", segments:[seg("中村","中村"),seg("，"),seg("明天","明天"),seg("你","你"),seg("有","有"),seg("课","课"),seg("吗？")], p:"Zhōngcūn, míngtiān nǐ yǒu kè ma?", vi:"Nakamura, ngày mai cậu có tiết không?"},
-{spk:"中村", segments:[seg("我","我"),seg("上午","上午"),seg("有","有"),seg("课","课"),seg("，"),seg("下午","下午"),seg("没有","没(有)"),seg("。")], p:"Wǒ shàngwǔ yǒu kè, xiàwǔ méiyǒu.", vi:"Sáng mình có tiết, chiều thì không."},
-{spk:"玛丽", segments:[seg("你","你"),seg("有","有"),seg("自行车","自行车"),seg("吧","吧"),seg("？")], p:"Nǐ yǒu zìxíngchē ba?", vi:"Cậu có xe đạp đúng không?"},
-{spk:"中村", segments:[seg("有","有"),seg("。"),seg("什么","什么"),seg("事","事"),seg("？")], p:"Yǒu. Shénme shì?", vi:"Có. Có chuyện gì thế?"},
-{spk:"玛丽", segments:[seg("我","我"),seg("明天","明天"),seg("下午","下午"),seg("去","去"),seg("见","见"),seg("朋友","朋友"),seg("，"),seg("可是","可是"),seg("我","我"),seg("没有","没(有)"),seg("自行车","自行车"),seg("……")], p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou, kěshì wǒ méiyǒu zìxíngchē…", vi:"Chiều mai mình đi gặp bạn, nhưng mình lại không có xe đạp…"},
-{spk:"中村", segments:[seg("没问题","没问题"),seg("，"),seg("我","我"),seg("有","有"),seg("。"),seg("这","这"),seg("是","是"),seg("钥匙","钥匙"),seg("，"),seg("车","车"),seg("在","在"),seg("楼","楼"),seg("下","下"),seg("车棚","车棚"),seg("里","里"),seg("。")], p:"Méi wèntí, wǒ yǒu. Zhè shì yàoshi, chē zài lóu xià chēpéng li.", vi:"Không vấn đề gì, mình có. Đây là chìa khóa, xe ở trong nhà xe dưới tầng."},
-{spk:"玛丽", segments:[seg("是","是"),seg("宿舍","宿舍"),seg("楼","楼"),seg("后边","后边"),seg("的","的"),seg("车棚","车棚"),seg("吗？")], p:"Shì sùshèlóu hòubian de chēpéng ma?", vi:"Là nhà xe phía sau tòa ký túc xá à?"},
-{spk:"中村", segments:[seg("对","对"),seg("。")], p:"Duì.", vi:"Đúng rồi."}
+const CAST1 = [{name:"玛丽", ava:"avaMali5"},{name:"张红", ava:"avaZhanghong"}];
+const CAST2 = [{name:"大卫", ava:"avaDawei2"},{name:"学生", ava:"avaStudent"}];
+
+const PROFILE1 = [
+ {zh:"玛丽 · 北京大学", vi:"留学生 · 国际关系", icon:"avaMali5", now:true},
+ {zh:"张红 · 清华大学", vi:"中文系研究生 · 现代文学", icon:"avaZhanghong"}
 ];
-const dialogue1Vocab = ["明天","课","上午","下午","没(有)","自行车","吧","事","可是","没问题","钥匙","车","下","车棚","里","后边"];
-const dialogue1ProperNouns = [];
+const PLACE2 = [
+ {zh:"卫生间", vi:"ở đâu? · 在哪儿", icon:"restroom", now:true},
+ {zh:"教室的旁边", vi:"cạnh phòng học", icon:"classroomdesk"},
+ {zh:"西边", vi:"phía tây · 对", icon:"compassew"}
+];
+
+const dialogue1 = [
+{id:"A-01", spk:"玛丽", segments:[seg("你","你"),seg("好","好"),seg("！你"),seg("叫","叫"),seg("什么","什么"),seg("名字","名字"),seg("？")], p:"Nǐ hǎo! Nǐ jiào shénme míngzi?", vi:"Chào bạn! Bạn tên là gì?"},
+{id:"A-02", spk:"张红", segments:[seg("我","我"),seg("叫","叫"),seg("张红","张红"),seg("。你"),seg("呢","呢"),seg("？")], p:"Wǒ jiào Zhāng Hóng. Nǐ ne?", vi:"Mình tên là Trương Hồng. Còn bạn?"},
+{id:"A-03", spk:"玛丽", sv:"是 + 的 + thân phận", segments:[seg("我","我"),seg("叫","叫"),seg("玛丽","玛丽"),seg("。我"),seg("是","是"),seg("北京大学","北京大学"),seg("的","的"),seg("留学生","留学生"),seg("。我"),seg("的","的"),seg("专业","专业"),seg("是","是"),seg("国际","国际"),seg("关系","关系"),seg("。你"),seg("呢","呢"),seg("？")], p:"Wǒ jiào Mǎlì. Wǒ shì Běijīng Dàxué de liúxuéshēng. Wǒ de zhuānyè shì guójì guānxi. Nǐ ne?", vi:"Mình tên là Mary. Mình là du học sinh Đại học Bắc Kinh. Chuyên ngành của mình là quan hệ quốc tế. Còn bạn?"},
+{id:"A-04", spk:"张红", sv:"是 + 的 + thân phận", segments:[seg("我","我"),seg("是","是"),seg("清华大学","清华大学"),seg("中文","中文"),seg("系","系"),seg("的","的"),seg("研究生","研究生"),seg("。我"),seg("的","的"),seg("专业","专业"),seg("是","是"),seg("现代","现代"),seg("文学","文学"),seg("。")], p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng. Wǒ de zhuānyè shì xiàndài wénxué.", vi:"Mình là học viên cao học khoa Trung văn Đại học Thanh Hoa. Chuyên ngành của mình là văn học hiện đại."},
+{id:"A-05", spk:"玛丽", segments:[seg("清华大学","清华大学"),seg("在","在"),seg("哪儿","哪儿"),seg("？")], p:"Qīnghuá Dàxué zài nǎr?", vi:"Đại học Thanh Hoa ở đâu vậy?"},
+{id:"A-06", spk:"张红", sv:"在 + 的 + 方位", segments:[seg("在","在"),seg("北京大学","北京大学"),seg("的","的"),seg("东边","东边"),seg("。"),seg("有","有"),seg("空儿","空儿"),seg("的","的"),seg("时候","时候"),seg("，"),seg("欢迎","欢迎"),seg("你","你"),seg("去","去"),seg("玩儿","玩儿"),seg("。")], p:"Zài Běijīng Dàxué de dōngbian. Yǒu kòngr de shíhou, huānyíng nǐ qù wánr.", vi:"Ở phía đông Đại học Bắc Kinh. Lúc nào rảnh, mời bạn qua chơi nhé."}
+];
+const dialogue1Vocab = ["专业","国际","关系","中文","系","研究生","现代","文学","东边","有","空儿","时候","欢迎","去","玩儿"];
+const dialogue1ProperNouns = ["张红","北京大学","清华大学"];
 
 const dialogue2 = [
-{spk:"大卫", segments:[seg("玛丽","玛丽"),seg("，"),seg("今天","今天"),seg("晚上","晚上"),seg("你","你"),seg("有","有"),seg("时间","时间"),seg("吗？")], p:"Mǎlì, jīntiān wǎnshang nǐ yǒu shíjiān ma?", vi:"Mary, tối nay cậu có rảnh không?"},
-{spk:"玛丽", segments:[seg("有","有"),seg("。"),seg("有","有"),seg("事","事"),seg("吗？")], p:"Yǒu. Yǒu shì ma?", vi:"Rảnh. Có việc gì thế?"},
-{spk:"大卫", segments:[seg("学校","学校"),seg("电影院","电影院"),seg("有","有"),seg("电影","电影"),seg("，"),seg("你","你"),seg("去","去"),seg("吗？")], p:"Xuéxiào diànyǐngyuàn yǒu diànyǐng, nǐ qù ma?", vi:"Rạp phim của trường có chiếu phim, cậu đi không?"},
-{spk:"玛丽", segments:[seg("什么","什么"),seg("电影","电影"),seg("？")], p:"Shénme diànyǐng?", vi:"Phim gì thế?"},
-{spk:"大卫", segments:[seg("我","我"),seg("不","不"),seg("知道","知道"),seg("名字","名字"),seg("，"),seg("可是","可是"),seg("听说","听说"),seg("很","很"),seg("有名","有名"),seg("。")], p:"Wǒ bù zhīdào míngzi, kěshì tīngshuō hěn yǒumíng.", vi:"Mình không biết tên, nhưng nghe nói rất nổi tiếng."},
-{spk:"玛丽", segments:[seg("我","我"),seg("当然","当然"),seg("去","去"),seg("。")], p:"Wǒ dāngrán qù.", vi:"Tất nhiên là mình đi rồi."}
+{id:"B-01", spk:"大卫", segments:[seg("请问","请问"),seg("，"),seg("卫生间","卫生间"),seg("在","在"),seg("哪儿","哪儿"),seg("？")], p:"Qǐngwèn, wèishēngjiān zài nǎr?", vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?"},
+{id:"B-02", spk:"学生", sv:"在 + 的 + 方位", segments:[seg("在","在"),seg("那儿","那儿"),seg("，"),seg("教室","教室"),seg("的","的"),seg("旁边","旁边"),seg("。")], p:"Zài nàr, jiàoshì de pángbiān.", vi:"Ở đằng kia, cạnh phòng học."},
+{id:"B-03", spk:"大卫", segments:[seg("是","是"),seg("西边","西边"),seg("的","的"),seg("教室","教室"),seg("吗","吗"),seg("？")], p:"Shì xībian de jiàoshì ma?", vi:"Là phòng học phía tây phải không ạ?"},
+{id:"B-04", spk:"学生", segments:[seg("对","对"),seg("。")], p:"Duì.", vi:"Đúng rồi."}
 ];
-const dialogue2Vocab = ["今天","晚上","时间","电影院","电影","听说","有名","当然"];
+const dialogue2Vocab = ["卫生间","教室","旁边","西边","对"];
 const dialogue2ProperNouns = [];
 
 const grammar = [
-{title:"1 · “有”字句 — Câu với động từ 有",example:"明天你有课吗？",explain:"有 biểu thị SỞ HỮU. Ba dạng cần thuộc. (1) Khẳng định: S + 有 + n. → 我有汉语课本。 (2) Phủ định: S + 没有 + n. → 我没有美国朋友。 Đây là ngoại lệ lớn nhất của tiếng Hán: phủ định của 有 là 没有, TUYỆT ĐỐI không nói 不有. (3) Nghi vấn: S + 有 + n. + 吗? hoặc dùng câu chính phản S + 有没有 + n.? → 你有没有自行车？",more:["我有汉语课本。","他上午有课。","大卫有中国朋友。","我没有美国朋友。","玛丽没有自行车。","晚上大卫没有时间。","你有同屋吗？","明天上午你有时间吗？","你有没有自行车？"]},
-{title:"2 · 吧 (1) — Trợ từ 吧 xác nhận phỏng đoán",example:"你有自行车吧？",explain:"吧 đặt cuối câu hỏi mang nghĩa “…đúng không nhỉ” — người nói đã đoán ra rồi, chỉ hỏi cho chắc. So sánh: 你有自行车吗？là hỏi thật (chưa biết gì), còn 你有自行车吧？là đã tin gần chắc là có.",more:["你是美国留学生吧？","那是图书馆吧？","你们明天有汉语课吧？","今天晚上你有时间吧？"]},
-{title:"3 · 方位名词 (2) — Danh từ phương vị nhóm 2",example:"车在楼下车棚里。",explain:"Ngoài nhóm 东边/西边/南边/北边/左边/右边 đã học, còn nhóm: 上 (trên), 下 (dưới), 里 (trong), 外 (ngoài), 前 (trước), 后 (sau), 旁边 (bên cạnh). Điểm khác biệt quan trọng: sáu chữ 上、下、里、外、前、后 gắn TRỰC TIẾP sau danh từ, KHÔNG cần thêm 边 — nói 楼下, 车棚里, 桌子上 chứ không nói 楼下边.",more:["她的自行车在楼下。","玛丽在车棚里。","老师在教室里。","车在楼下车棚里。","电影院在图书馆旁边。"]},
-{title:"4 · 时间名词做状语 — Trạng ngữ thời gian",example:"今天晚上你有时间吗？",explain:"Danh từ thời gian làm trạng ngữ thì luôn đứng TRƯỚC động từ — ngược hẳn tiếng Việt (“có tiết vào sáng mai” → 明天上午有课). Khi có nhiều mốc thời gian, xếp từ LỚN đến NHỎ: 明天 + 下午 + 三点, 今天 + 晚上 + 六点.",more:["我明天八点有课。","电影院晚上有电影。","大卫下午有事。","我明天下午去见朋友。","今天晚上六点，电影院有好电影。"]}
+{title:"1 · 欢迎你去玩儿 — Lời mời lịch sự (注释)",example:"有空儿的时候，欢迎你去玩儿。",explain:"Câu khách sáo rất thông dụng khi mời ai đó ghé chơi. Cấu trúc: 欢迎 + [ai] + 去 / 来 + [làm gì]. Dùng 去 khi nơi đến KHÔNG phải chỗ người nói đang đứng, dùng 来 khi mời tới chỗ mình. Người Trung Quốc hay nói câu này ở cuối buổi làm quen, không nhất thiết là một lời hẹn cụ thể — giống “hôm nào rảnh ghé chơi nhé” của tiếng Việt.",more:["有空儿的时候，欢迎你去玩儿。","欢迎你来我们学校玩儿。","欢迎你们去清华大学玩儿。","欢迎欢迎！"]},
+{title:"2 · ……的时候 — Khi, lúc",example:"有空儿的时候，欢迎你去玩儿。",explain:"Đặt cả một mệnh đề vào trước 的时候 để chỉ thời điểm: [mệnh đề] + 的时候 = khi/lúc… Cả cụm này đứng ĐẦU câu, phần chính nói sau. Người Việt hay đặt ngược vì tiếng Việt cho nói “mời bạn qua chơi lúc nào rảnh” — tiếng Hán thì mốc thời gian luôn phải đứng trước.",more:["有空儿的时候，我去图书馆。","上课的时候不说话。","什么时候去？","没有空儿的时候，我在宿舍做作业。"]},
+{title:"3 · 在 / 是 và 方位名词 — Ôn lại cách nói vị trí",example:"清华大学在北京大学的东边。／那儿是卫生间。",explain:"Hai mẫu đảo ngược nhau, đều đã học ở Bài 4 và dùng dày đặc trong bài này. Mẫu 在 hỏi VẬT ĐÓ ở đâu, trả lời bằng nơi chốn: 清华大学在……的东边。 Mẫu 是 hỏi CHỖ ĐÓ là gì, trả lời bằng tên vật: 那儿是卫生间。 Danh từ phương vị của bài: 东边 / 西边 / 旁边. Khi làm định ngữ đều phải thêm 的 vào trước: 北京大学的东边, 教室的旁边, 西边的教室.",more:["清华大学在北京大学的东边。","卫生间在教室的旁边。","是西边的教室吗？——对。","那儿是卫生间，这儿是教室。","东边、西边、南边、北边、旁边"]},
+{title:"4 · 单元语言点小结 — Tổng kết ngữ pháp Bài 1–4",example:"Bảng tổng kết của sách, đặt ở cuối Bài 5",explain:"Sách gom lại 11 điểm ngữ pháp đã học từ Bài 1 đến Bài 4 để ôn trước khi kiểm tra. Hãy đọc lại từng dòng và tự đặt một câu mới cho mỗi điểm.",more:["1. “是”字句　我是学生，她是老师。（Bài 1）","2. 用“吗”的疑问句　你是留学生吗？（Bài 1）","3. 们　同学们好！（Bài 2）","4. 也　我也很高兴。（Bài 2）","5. 呢 (1)　我是加拿大人，你呢？（Bài 2）","6. 这 / 那　那是谁的书？（Bài 3）","7. 特殊疑问句　这是什么杂志？（Bài 3）","8. 定语　这是我朋友的杂志。（Bài 3）","9. 在 / 是　这儿是图书馆吗？（Bài 4）","10. 哪儿　图书馆在哪儿？（Bài 4）","11. 方位名词 (1)　图书馆在那儿，宿舍楼的北边。（Bài 4）"]}
 ];
 
 /* ---------- ÔN TẬP ① · Sắp xếp câu ---------- */
 const reorderItems = [
-{chunks:["明天","你","有","课","吗","？"], p:"Míngtiān nǐ yǒu kè ma?", vi:"Ngày mai bạn có tiết không?"},
-{chunks:["我","上午","有","课","，","下午","没有","。"], p:"Wǒ shàngwǔ yǒu kè, xiàwǔ méiyǒu.", vi:"Sáng tôi có tiết, chiều thì không."},
-{chunks:["你","有","自行车","吧","？"], p:"Nǐ yǒu zìxíngchē ba?", vi:"Bạn có xe đạp đúng không?"},
-{chunks:["我","明天","下午","去","见","朋友","。"], p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou.", vi:"Chiều mai tôi đi gặp bạn."},
-{chunks:["这","是","钥匙","，","车","在","楼下","车棚","里","。"], p:"Zhè shì yàoshi, chē zài lóu xià chēpéng li.", vi:"Đây là chìa khóa, xe ở trong nhà xe dưới tầng."},
-{chunks:["是","宿舍楼","后边","的","车棚","吗","？"], p:"Shì sùshèlóu hòubian de chēpéng ma?", vi:"Là nhà xe phía sau ký túc xá phải không?"},
-{chunks:["今天","晚上","你","有","时间","吗","？"], p:"Jīntiān wǎnshang nǐ yǒu shíjiān ma?", vi:"Tối nay bạn có rảnh không?"},
-{chunks:["我","不","知道","名字","，","可是","听说","很","有名","。"], p:"Wǒ bù zhīdào míngzi, kěshì tīngshuō hěn yǒumíng.", vi:"Tôi không biết tên, nhưng nghe nói rất nổi tiếng."}
+{chunks:["你","叫","什么","名字","？"], p:"Nǐ jiào shénme míngzi?", vi:"Bạn tên là gì?"},
+{chunks:["我","是","北京大学","的","留学生","。"], p:"Wǒ shì Běijīng Dàxué de liúxuéshēng.", vi:"Tôi là du học sinh Đại học Bắc Kinh."},
+{chunks:["我的","专业","是","国际关系","。"], p:"Wǒ de zhuānyè shì guójì guānxi.", vi:"Chuyên ngành của tôi là quan hệ quốc tế."},
+{chunks:["我","是","清华大学","中文系","的","研究生","。"], p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng.", vi:"Tôi là học viên cao học khoa Trung văn Đại học Thanh Hoa."},
+{chunks:["清华大学","在","北京大学","的","东边","。"], p:"Qīnghuá Dàxué zài Běijīng Dàxué de dōngbian.", vi:"Đại học Thanh Hoa ở phía đông Đại học Bắc Kinh."},
+{chunks:["有空儿","的时候","，","欢迎","你","去","玩儿","。"], p:"Yǒu kòngr de shíhou, huānyíng nǐ qù wánr.", vi:"Lúc nào rảnh, mời bạn qua chơi."},
+{chunks:["请问","，","卫生间","在","哪儿","？"], p:"Qǐngwèn, wèishēngjiān zài nǎr?", vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?"},
+{chunks:["在","那儿","，","教室","的","旁边","。"], p:"Zài nàr, jiàoshì de pángbiān.", vi:"Ở đằng kia, cạnh phòng học."}
 ];
 
 /* ---------- ÔN TẬP ② · Điền từ ---------- */
 const fillItems = [
-{bank:["早上","上午","下午","晚上"], items:[
- {pre:"今天", post:"六点，电影院有好电影。", ans:"晚上"},
- {pre:"明天", post:"我没有课，上午有。", ans:"下午"},
- {pre:"我们", post:"九点上课，十点半下课。", ans:"上午"},
- {pre:"你明天", post:"几点去清华大学（Qīnghuá Dàxué）？", ans:"早上"}
+{bank:["呢","吗","也","的","在"], items:[
+ {pre:"你是留学生，我", post:"是留学生。", ans:"也"},
+ {pre:"我叫玛丽，你", post:"？", ans:"呢"},
+ {pre:"你的词典", post:"那儿。", ans:"在"},
+ {pre:"那是刘老师的汉语书", post:"？", ans:"吗"},
+ {pre:"你是哪个学校", post:"学生？", ans:"的"}
 ]},
-{bank:["有","没有","吧","可是","当然"], items:[
- {pre:"你", post:"时间吗？", ans:"有"},
- {pre:"我上午有课，下午", post:"。", ans:"没有"},
- {pre:"你有自行车", post:"？", ans:"吧"},
- {pre:"我明天去，", post:"今天我没有时间。", ans:"可是"},
- {pre:"电影院有电影，你去吗？——我", post:"去。", ans:"当然"}
+{bank:["谁","这","那","那儿","这儿","哪儿"], items:[
+ {pre:"留学生的宿舍楼在", post:"，图书馆的旁边。", ans:"那儿"},
+ {pre:"", post:"是教室，那儿是卫生间。", ans:"这儿"},
+ {pre:"北京大学在", post:"？", ans:"哪儿"},
+ {pre:"他是", post:"？是你的同学吗？", ans:"谁"},
+ {pre:"", post:"不是教学楼，教学楼在那儿。", ans:"这"},
+ {pre:"", post:"是中国音乐，不是美国音乐。", ans:"那"}
 ]},
-{bank:["上","下","里","后边","旁边"], items:[
- {pre:"车在楼", post:"车棚里。", ans:"下"},
- {pre:"我的自行车在车棚", post:"。", ans:"里"},
- {pre:"是宿舍楼", post:"的车棚吗？", ans:"后边"},
- {pre:"钥匙在桌子（zhuōzi, cái bàn）", post:"。", ans:"上"},
- {pre:"电影院在图书馆", post:"。", ans:"旁边"}
+{bank:["东边","西边","旁边","系","专业"], items:[
+ {pre:"清华大学在北京大学的", post:"。", ans:"东边"},
+ {pre:"是", post:"的教室吗？", ans:"西边"},
+ {pre:"卫生间在教室的", post:"。", ans:"旁边"},
+ {pre:"我是中文", post:"的研究生。", ans:"系"},
+ {pre:"我的", post:"是现代文学。", ans:"专业"}
 ]}
 ];
 
 /* ---------- ÔN TẬP ③ · Dịch câu ---------- */
 const translateItems = [
-{vi:"Ngày mai bạn có tiết không?",h:"明天你有课吗？",p:"Míngtiān nǐ yǒu kè ma?"},
-{vi:"Buổi sáng tôi có tiết, buổi chiều thì không.",h:"我上午有课，下午没有。",p:"Wǒ shàngwǔ yǒu kè, xiàwǔ méiyǒu."},
-{vi:"Bạn có xe đạp đúng không? — Có. Có chuyện gì thế?",h:"你有自行车吧？有。什么事？",p:"Nǐ yǒu zìxíngchē ba? Yǒu. Shénme shì?"},
-{vi:"Chiều mai tôi đi gặp bạn, nhưng tôi không có xe đạp.",h:"我明天下午去见朋友，可是我没有自行车。",p:"Wǒ míngtiān xiàwǔ qù jiàn péngyou, kěshì wǒ méiyǒu zìxíngchē."},
-{vi:"Không vấn đề gì, tôi có. Đây là chìa khóa.",h:"没问题，我有。这是钥匙。",p:"Méi wèntí, wǒ yǒu. Zhè shì yàoshi."},
-{vi:"Xe ở trong nhà xe dưới tầng.",h:"车在楼下车棚里。",p:"Chē zài lóu xià chēpéng li."},
-{vi:"Là nhà xe phía sau tòa ký túc xá phải không? — Đúng rồi.",h:"是宿舍楼后边的车棚吗？对。",p:"Shì sùshèlóu hòubian de chēpéng ma? Duì."},
-{vi:"Tối nay bạn có thời gian không?",h:"今天晚上你有时间吗？",p:"Jīntiān wǎnshang nǐ yǒu shíjiān ma?"},
-{vi:"Rạp chiếu phim của trường có phim, bạn đi không?",h:"学校电影院有电影，你去吗？",p:"Xuéxiào diànyǐngyuàn yǒu diànyǐng, nǐ qù ma?"},
-{vi:"Tôi không biết tên, nhưng nghe nói rất nổi tiếng. — Tất nhiên là tôi đi.",h:"我不知道名字，可是听说很有名。我当然去。",p:"Wǒ bù zhīdào míngzi, kěshì tīngshuō hěn yǒumíng. Wǒ dāngrán qù."}
+{vi:"Chào bạn! Bạn tên là gì? — Mình tên là Trương Hồng.",h:"你好！你叫什么名字？我叫张红。",p:"Nǐ hǎo! Nǐ jiào shénme míngzi? Wǒ jiào Zhāng Hóng."},
+{vi:"Tôi là du học sinh Đại học Bắc Kinh.",h:"我是北京大学的留学生。",p:"Wǒ shì Běijīng Dàxué de liúxuéshēng."},
+{vi:"Chuyên ngành của tôi là quan hệ quốc tế. Còn bạn?",h:"我的专业是国际关系。你呢？",p:"Wǒ de zhuānyè shì guójì guānxi. Nǐ ne?"},
+{vi:"Tôi là học viên cao học khoa Trung văn Đại học Thanh Hoa.",h:"我是清华大学中文系的研究生。",p:"Wǒ shì Qīnghuá Dàxué Zhōngwén xì de yánjiūshēng."},
+{vi:"Chuyên ngành của tôi là văn học hiện đại.",h:"我的专业是现代文学。",p:"Wǒ de zhuānyè shì xiàndài wénxué."},
+{vi:"Đại học Thanh Hoa ở đâu? — Ở phía đông Đại học Bắc Kinh.",h:"清华大学在哪儿？在北京大学的东边。",p:"Qīnghuá Dàxué zài nǎr? Zài Běijīng Dàxué de dōngbian."},
+{vi:"Lúc nào rảnh, mời bạn qua chơi.",h:"有空儿的时候，欢迎你去玩儿。",p:"Yǒu kòngr de shíhou, huānyíng nǐ qù wánr."},
+{vi:"Xin hỏi, nhà vệ sinh ở đâu ạ?",h:"请问，卫生间在哪儿？",p:"Qǐngwèn, wèishēngjiān zài nǎr?"},
+{vi:"Ở đằng kia, cạnh phòng học.",h:"在那儿，教室的旁边。",p:"Zài nàr, jiàoshì de pángbiān."},
+{vi:"Là phòng học phía tây phải không? — Đúng rồi.",h:"是西边的教室吗？对。",p:"Shì xībian de jiàoshì ma? Duì."}
 ];
 
 /* ---------- ÔN TẬP ⑤ · MỞ RỘNG · Từ mới ngoài bài + đặt câu ---------- */
 const expandItems = [
-{w:"手机",p:"shǒujī",vi:"điện thoại di động",model:{h:"我有手机，可是没有电脑。",p:"Wǒ yǒu shǒujī, kěshì méiyǒu diànnǎo.",vi:"Tôi có điện thoại, nhưng không có máy tính."}},
-{w:"电脑",p:"diànnǎo",vi:"máy tính",model:{h:"电脑在桌子上。",p:"Diànnǎo zài zhuōzi shang.",vi:"Máy tính ở trên bàn."}},
-{w:"地铁",p:"dìtiě",vi:"tàu điện ngầm",model:{h:"明天我坐地铁去见朋友。",p:"Míngtiān wǒ zuò dìtiě qù jiàn péngyou.",vi:"Mai tôi đi tàu điện ngầm đến gặp bạn."}},
-{w:"公共汽车",p:"gōnggòng qìchē",vi:"xe buýt",model:{h:"我没有自行车，可是有公共汽车。",p:"Wǒ méiyǒu zìxíngchē, kěshì yǒu gōnggòng qìchē.",vi:"Tôi không có xe đạp, nhưng có xe buýt."}},
-{w:"咖啡馆",p:"kāfēiguǎn",vi:"quán cà phê",model:{h:"咖啡馆在电影院旁边。",p:"Kāfēiguǎn zài diànyǐngyuàn pángbiān.",vi:"Quán cà phê ở cạnh rạp chiếu phim."}},
-{w:"商店",p:"shāngdiàn",vi:"cửa hàng",model:{h:"商店在宿舍楼后边。",p:"Shāngdiàn zài sùshèlóu hòubian.",vi:"Cửa hàng ở phía sau ký túc xá."}},
-{w:"周末",p:"zhōumò",vi:"cuối tuần",model:{h:"周末你有时间吧？",p:"Zhōumò nǐ yǒu shíjiān ba?",vi:"Cuối tuần bạn rảnh đúng không?"}},
-{w:"一起",p:"yìqǐ",vi:"cùng nhau",model:{h:"晚上我们一起去电影院吧。",p:"Wǎnshang wǒmen yìqǐ qù diànyǐngyuàn ba.",vi:"Tối nay chúng ta cùng đi rạp nhé."}},
-{w:"票",p:"piào",vi:"vé",model:{h:"我有两张电影票。",p:"Wǒ yǒu liǎng zhāng diànyǐng piào.",vi:"Tôi có hai vé xem phim."}},
-{w:"有意思",p:"yǒu yìsi",vi:"thú vị, hay",model:{h:"听说这个电影很有意思。",p:"Tīngshuō zhège diànyǐng hěn yǒu yìsi.",vi:"Nghe nói bộ phim này rất thú vị."}},
-{w:"空儿",p:"kòngr",vi:"lúc rảnh, thời gian trống",model:{h:"明天下午我没有空儿。",p:"Míngtiān xiàwǔ wǒ méiyǒu kòngr.",vi:"Chiều mai tôi không có thời gian rảnh."}},
-{w:"借",p:"jiè",vi:"mượn, cho mượn",model:{h:"我可以借你的自行车吗？",p:"Wǒ kěyǐ jiè nǐ de zìxíngchē ma?",vi:"Tôi mượn xe đạp của bạn được không?"}}
+{w:"经济",p:"jīngjì",vi:"kinh tế",model:{h:"我的专业是国际经济。",p:"Wǒ de zhuānyè shì guójì jīngjì.",vi:"Chuyên ngành của tôi là kinh tế quốc tế."}},
+{w:"法律",p:"fǎlǜ",vi:"luật",model:{h:"他是法律系的研究生。",p:"Tā shì fǎlǜ xì de yánjiūshēng.",vi:"Anh ấy là học viên cao học khoa Luật."}},
+{w:"历史",p:"lìshǐ",vi:"lịch sử",model:{h:"历史系在图书馆的旁边。",p:"Lìshǐ xì zài túshūguǎn de pángbiān.",vi:"Khoa Lịch sử ở cạnh thư viện."}},
+{w:"医学",p:"yīxué",vi:"y học",model:{h:"我的专业是医学。",p:"Wǒ de zhuānyè shì yīxué.",vi:"Chuyên ngành của tôi là y học."}},
+{w:"数学",p:"shùxué",vi:"toán học",model:{h:"数学系在东边。",p:"Shùxué xì zài dōngbian.",vi:"Khoa Toán ở phía đông."}},
+{w:"本科生",p:"běnkēshēng",vi:"sinh viên đại học",model:{h:"我是本科生，不是研究生。",p:"Wǒ shì běnkēshēng, bú shì yánjiūshēng.",vi:"Tôi là sinh viên đại học, không phải học viên cao học."}},
+{w:"博士",p:"bóshì",vi:"tiến sĩ",model:{h:"她是中文系的博士。",p:"Tā shì Zhōngwén xì de bóshì.",vi:"Cô ấy là tiến sĩ khoa Trung văn."}},
+{w:"教授",p:"jiàoshòu",vi:"giáo sư",model:{h:"刘教授的办公室在西边。",p:"Liú jiàoshòu de bàngōngshì zài xībian.",vi:"Văn phòng giáo sư Lưu ở phía tây."}},
+{w:"食堂",p:"shítáng",vi:"nhà ăn",model:{h:"食堂在教学楼的旁边。",p:"Shítáng zài jiàoxuélóu de pángbiān.",vi:"Nhà ăn ở cạnh tòa giảng đường."}},
+{w:"操场",p:"cāochǎng",vi:"sân vận động",model:{h:"操场在宿舍楼的东边。",p:"Cāochǎng zài sùshèlóu de dōngbian.",vi:"Sân vận động ở phía đông ký túc xá."}},
+{w:"外边",p:"wàibian",vi:"bên ngoài",model:{h:"卫生间在教室的外边。",p:"Wèishēngjiān zài jiàoshì de wàibian.",vi:"Nhà vệ sinh ở bên ngoài phòng học."}},
+{w:"中间",p:"zhōngjiān",vi:"ở giữa",model:{h:"图书馆在两个教学楼的中间。",p:"Túshūguǎn zài liǎng ge jiàoxuélóu de zhōngjiān.",vi:"Thư viện ở giữa hai tòa giảng đường."}}
 ];
 
 /* ---------- SLIDE SECTIONS ---------- */
 const slidesNew = [
- {type:'cover', season:'影'},
- {type:'dialogue', title:'课文一 · 玛丽和中村', season:'车', funSet:0, lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1,2]},
- {type:'dialogue', title:'课文二 · 大卫和玛丽', season:'晚', funSet:1, lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[3]}
+ {type:'cover', season:'专'},
+ {type:'dialogue', title:'课文一 · 玛丽和张红的自我介绍', season:'系', funSet:0, callers:CAST1, route:PROFILE1,
+  routeLabel:'Hồ sơ', tagHint:'Mẫu câu trọng tâm của bài', footHint:'Nhãn xanh đánh dấu câu dùng mẫu 是……的…… và 在……的方位',
+  lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1]},
+ {type:'dialogue', title:'课文二 · 大卫问路', season:'边', funSet:1, callers:CAST2, route:PLACE2,
+  routeLabel:'Vị trí', tagHint:'Mẫu câu trọng tâm của bài', footHint:'Nhãn xanh đánh dấu câu dùng mẫu 在 + ……的 + 方位名词',
+  lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[2,3]}
 ];
 const slidesReview = [
- {type:'reorder',   title:'Sắp xếp câu',    season:'车', tab:'① Sắp xếp câu'},
- {type:'fill',      title:'Điền từ',        season:'晚', tab:'② Điền từ'},
- {type:'translate', title:'Dịch câu',       season:'影', tab:'③ Dịch câu'},
- {type:'speaking',  title:'Luyện khẩu ngữ', season:'车', tab:'④ Khẩu ngữ'},
- {type:'expand',    title:'Mở rộng · Đặt câu với từ mới', season:'晚', tab:'⑤ Mở rộng'}
+ {type:'reorder',   title:'Sắp xếp câu',    season:'系', tab:'① Sắp xếp câu'},
+ {type:'fill',      title:'Điền từ',        season:'边', tab:'② Điền từ'},
+ {type:'translate', title:'Dịch câu',       season:'专', tab:'③ Dịch câu'},
+ {type:'speaking',  title:'Luyện khẩu ngữ', season:'系', tab:'④ Khẩu ngữ'},
+ {type:'expand',    title:'Mở rộng · Đặt câu với từ mới', season:'边', tab:'⑤ Mở rộng'}
 ];
 
 const seasonMeta = {
- '影':{label:'Rạp phim',  accent:'#7B5EA7', soft:'#EBE3F7'},
- '车':{label:'Xe đạp',    accent:'#C2557F', soft:'#F7E2EC'},
- '晚':{label:'Buổi tối',  accent:'#4655A0', soft:'#E1E4F6'}
+ '专':{label:'Chuyên ngành', accent:'#2C3E63', soft:'#DEE3EF'},
+ '系':{label:'Khoa',         accent:'#6C7789', soft:'#E5E8ED'},
+ '边':{label:'Phương vị',    accent:'#C97B8E', soft:'#F7E4E9'}
 };
+
+/* =========================================================
+   AUDIO — HIỆN ĐANG TẮT, BÀI GIẢNG DÙNG GIỌNG ĐỌC MÁY.
+   Khối này để nguyên, không ảnh hưởng gì. Khi nào muốn dùng
+   bản thu của mình thì điền src + cues là tự động bật lại.
+   ---------------------------------------------------------
+   src    : tên file mp3 đặt CÙNG THƯ MỤC với file html này,
+            hoặc một đường dẫn/URL đầy đủ. Để trống "" thì
+            bài giảng tự dùng giọng đọc máy như trước.
+   offset : số giây cộng thêm cho mọi mốc (nếu audio có nhạc dạo).
+   cues   : mốc [bắt đầu, kết thúc] của từng câu.
+            Gõ được cả số giây (12.4) lẫn chuỗi "1:05.2".
+   Mã câu A-01…A-06 là 课文（上）, B-01…B-08 là 课文（下）.
+   ========================================================= */
+const AUDIO = {
+  src: "",
+  offset: 0,
+  /* true  = câu chưa có mốc thì đọc bằng giọng máy (mặc định)
+     false = chỉ dùng audio của bạn, câu chưa có mốc thì không phát gì */
+  useSpeech: true,
+  cues: {
+    "A-01": ["", ""],
+    "A-02": ["", ""],
+    "A-03": ["", ""],
+    "A-04": ["", ""],
+    "A-05": ["", ""],
+    "A-06": ["", ""],
+
+    "B-01": ["", ""],
+    "B-02": ["", ""],
+    "B-03": ["", ""],
+    "B-04": ["", ""],
+  }
+};
+function parseT(v){
+  if(v==null) return null;
+  if(typeof v === 'number') return v;
+  const s = String(v).trim();
+  if(!s) return null;
+  const parts = s.split(':').map(Number);
+  if(parts.some(isNaN)) return null;
+  return parts.length===3 ? parts[0]*3600+parts[1]*60+parts[2]
+       : parts.length===2 ? parts[0]*60+parts[1]
+       : parts[0];
+}
+function cueOf(id){
+  const c = AUDIO.cues[id];
+  if(!c) return null;
+  const a = parseT(c[0]), b = parseT(c[1]);
+  if(a==null||b==null||b<=a) return null;
+  return {start:a + (AUDIO.offset||0), end:b + (AUDIO.offset||0)};
+}
+let _auURL = null, _auName = '';
+const audioSrc = () => _auURL || (AUDIO.src && AUDIO.src.trim()) || '';
+const audioReady = () => !!audioSrc();
+let _au = null, _auStop = null, _auTimer = null;
+function getAudio(){
+  if(!_au || _au.dataset.src !== audioSrc()){
+    if(_au) _au.pause();
+    _au = new Audio(audioSrc()); _au.preload = 'auto'; _au.dataset.src = audioSrc();
+  }
+  return _au;
+}
+/* Cho phép chọn file audio ngay trên trang — dùng khi mở bằng file:// */
+function attachAudioFile(file){
+  if(!file) return;
+  if(_auURL) URL.revokeObjectURL(_auURL);
+  _auURL = URL.createObjectURL(file); _auName = file.name; _au = null;
+  render();
+}
+function speakIfAllowed(text){ if(AUDIO.useSpeech !== false) speak(text); }
+function speakSeqIfAllowed(arr){ if(AUDIO.useSpeech !== false) speakSequence(arr); }
+function stopAudio(){
+  if(_auTimer){ cancelAnimationFrame(_auTimer); _auTimer = null; }
+  if(_au){ _au.pause(); }
+  _auStop = null;
+  document.querySelectorAll('.playing').forEach(b=>b.classList.remove('playing'));
+  document.querySelectorAll('.bub.playing').forEach(b=>b.classList.remove('playing'));
+}
+function markPlaying(id){
+  document.querySelectorAll('.playing').forEach(b=>b.classList.remove('playing'));
+  const el = document.querySelector('.dline[data-id="'+id+'"]');
+  if(el){ el.classList.add('playing'); el.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+}
+/* Phát một câu theo timestamp; nếu chưa gắn audio thì dùng giọng máy */
+function playLine(id, fallbackText){
+  const cue = audioReady() ? cueOf(id) : null;
+  if(!cue){ speakIfAllowed(fallbackText); return; }
+  stopAudio();
+  const a = getAudio();
+  a.currentTime = cue.start; _auStop = cue.end;
+  markPlaying(id);
+  a.play().catch(()=>speakIfAllowed(fallbackText));
+  const watch = ()=>{
+    if(_auStop==null) return;
+    if(a.currentTime >= _auStop){ a.pause(); stopAudio(); return; }
+    _auTimer = requestAnimationFrame(watch);
+  };
+  _auTimer = requestAnimationFrame(watch);
+}
+/* Phát liên tục cả đoạn, tô sáng câu đang đọc */
+function playSection(lines){
+  const ids = lines.map(l=>l.id).filter(id=>cueOf(id));
+  if(!audioReady() || !ids.length){ speakSeqIfAllowed(lines.map(l=>l.segments.map(sg=>sg.t).join(''))); return; }
+  stopAudio();
+  const a = getAudio();
+  const first = cueOf(ids[0]), last = cueOf(ids[ids.length-1]);
+  a.currentTime = first.start; _auStop = last.end;
+  a.play().catch(()=>speakSeqIfAllowed(lines.map(l=>l.segments.map(sg=>sg.t).join(''))));
+  const watch = ()=>{
+    if(_auStop==null) return;
+    const t = a.currentTime;
+    if(t >= _auStop){ a.pause(); stopAudio(); return; }
+    const cur = ids.find(id=>{ const c = cueOf(id); return t >= c.start && t < c.end; });
+    if(cur) markPlaying(cur);
+    _auTimer = requestAnimationFrame(watch);
+  };
+  _auTimer = requestAnimationFrame(watch);
+}
 
 /* ---------- STATE ---------- */
 let section = 'new';
@@ -717,25 +1085,25 @@ function renderCover(){
   return `<div class="slide cover">
     <div class="cover-lattice corner-tl">${LATTICE_SVG}</div>
     <div class="cover-lattice corner-br">${LATTICE_SVG}</div>
-    ${sticker('s1','bike')}
-    ${sticker('s2','bubbleba')}
-    ${sticker('s3','keyfun')}
-    ${sticker('s4','ticket')}
-    ${sticker('s5','popcorn')}
-    ${sticker('s6','moonstar')}
+    ${sticker('s1','majorbadge')}
+    ${sticker('s2','deptbldg')}
+    ${sticker('s3','compassew')}
+    ${sticker('s4','booknote')}
+    ${sticker('s5','partyglass')}
+    ${sticker('s6','welcomehand')}
     <div class="cover-card">
-      <div class="num">07</div>
+      <div class="num">05</div>
       <div class="eyebrow">博雅汉语 · Boya Chinese · 初级起步篇 I</div>
-      <div class="title-zh hanzi">明天你有课吗</div>
-      <div class="title-py">Míngtiān Nǐ Yǒu Kè Ma</div>
-      <div class="sub">Bài 7 · Ngày mai bạn có tiết không?</div>
+      <div class="title-zh hanzi">在北京大学的东边</div>
+      <div class="title-py">Zài Běijīng Dàxué De Dōngbian</div>
+      <div class="sub">Bài 5 · Ở phía đông Đại học Bắc Kinh</div>
     </div>
   </div>`;
 }
 
 const FUN_SETS = [
-  ['bike','keyfun','sparkle','bubbleba','okhand','popcorn'],
-  ['cinema','ticket','filmreel','moonstar','sparkle','clocknight']
+  ['partyglass','majorbadge','booknote','sparkle','deptbldg','welcomehand'],
+  ['restroom','classroomdesk','compassew','sparkle','signpost','okhand']
 ];
 function funStickers(setIndex){
   const set = FUN_SETS[setIndex % FUN_SETS.length];
@@ -743,19 +1111,31 @@ function funStickers(setIndex){
 }
 
 function renderDialogue(s){
-  const lines = s.lines.map(l=>{
+  const cast = s.callers || [];
+  const faceOf = n => (cast.find(c=>c.name===n)||{}).ava || 'avaDawei2';
+
+  const route = (s.route||[]).map((r,i)=>
+    `${i? '<span class="rarrow">→</span>' : ''}<div class="rstep${r.now?' now':''}">
+        <div class="ric">${ICONS[r.icon]||''}</div>
+        <div class="rtx"><b class="hanzi">${r.zh}</b><small>${r.vi}</small></div>
+      </div>`).join('');
+
+  const rows = s.lines.map(l=>{
     const segHtml = l.segments.map(sg=> sg.v ? `<span class="vword" data-word="${sg.v}">${sg.t}</span>` : `<span>${sg.t}</span>`).join('');
     const plain = l.segments.map(sg=>sg.t).join('');
-    return `<div class="dline">
-      <div class="spk zh">${l.spk}</div>
+    const tag = l.sv ? `<span class="sv-tag" title="${s.tagHint||''}">${l.sv}</span>` : '';
+    return `<div class="dline" data-id="${l.id||''}">
+      <div class="face">${ICONS[faceOf(l.spk)]||''}</div>
       <div class="content">
-        <div class="h hanzi">${segHtml}</div>
+        <div class="spk">${l.spk}</div>
+        <div class="h hanzi">${segHtml}${tag}</div>
         <div class="p">${l.p}</div>
         <div class="vi">${l.vi}</div>
       </div>
-      <button class="speak-btn" data-speak="${plain}">▶</button>
+      <button class="speak-btn" data-line="${l.id||''}" data-speak="${plain}" title="Nghe câu này">▶</button>
     </div>`;
   }).join('');
+
   const chips = s.vocabWords.map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
   const properChips = (s.properNouns||[]).map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
   const grammarHtml = (s.grammarRefs||[]).map(gi=>{
@@ -768,16 +1148,23 @@ function renderDialogue(s){
       <ul class="gmore">${more}</ul>
     </div>`;
   }).join('');
+
   return `<div class="slide">
     <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
     ${funStickers(s.funSet||0)}
-    <div class="eyebrow">课文 · Bài khóa — chạm vào bất kỳ chữ nào có gạch chân để tra nghĩa (kể cả từ đã học)</div>
+    <div class="eyebrow">课文 · Bài khóa — chạm vào chữ có gạch chân để tra nghĩa (kể cả từ đã học)</div>
     <h2 class="hanzi">${s.title}</h2>
-    <div id="dialogueBlock">${lines}</div>
-    <div class="dialogue-toolbar">
-      <button class="reveal-btn" id="playAll">▶ Phát cả đoạn</button>
-      <button class="reveal-btn ghost" id="togglePy">Ẩn phiên âm</button>
-      <button class="reveal-btn ghost" id="toggleVi2">Ẩn nghĩa</button>
+    <div class="dwrap">
+      ${route ? `<div class="routebar"><span class="rlabel">${s.routeLabel||"Lộ trình"}</span>${route}</div>` : ''}
+      <div class="dbody" id="dialogueBlock">${rows}</div>
+      <div class="dfoot">
+        <span class="hint">${s.footHint||''}</span>
+        <div class="dialogue-toolbar">
+          <button class="reveal-btn small" id="playAll">▶ Phát cả đoạn</button>
+          <button class="reveal-btn ghost small" id="togglePy">Ẩn phiên âm</button>
+          <button class="reveal-btn ghost small" id="toggleVi2">Ẩn nghĩa</button>
+        </div>
+      </div>
     </div>
     <div class="chip-row"><span class="chip-label">词语表 · Từ mới của bài:</span>${chips}</div>
     ${properChips ? `<div class="chip-row"><span class="chip-label">专有名词 Tên riêng:</span>${properChips}</div>` : ''}
@@ -799,7 +1186,7 @@ function renderReorder(s){
       <div class="reorder-bank">${bankHtml}</div>
       <div class="reorder-actions">
         <button class="reveal-btn ghost small" data-i="${i}" data-act="reset">↻ Làm lại</button>
-        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#2F7D5A':'#B3503F'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
+        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#3E7D6B':'#B8564A'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
         <button class="reveal-btn ghost small" data-i="${i}" data-act="revealOrder">${st.revealed?'Ẩn đáp án':'Đáp án tham khảo'}</button>
       </div>
       ${st.revealed ? `<div class="order-answer">
@@ -872,7 +1259,7 @@ function renderExpand(s){
     <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
     <div class="eyebrow">扩展练习 · Mở rộng — từ mới ngoài bài</div>
     <h2><span class="ex-badge">5</span>${s.title}</h2>
-    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Đây là những từ <strong>ngoài giáo trình</strong> nhưng cùng chủ đề rủ nhau đi chơi &amp; đồ dùng cá nhân. Với mỗi từ, hãy tự đặt một câu có dùng ngữ pháp của bài (有／没有／吧／可是／在 + từ chỉ vị trí), rồi bấm Kiểm tra. Bấm <em>Câu mẫu</em> để đối chiếu.</p>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Đây là những từ <strong>ngoài giáo trình</strong> nhưng cùng chủ đề trường lớp &amp; chuyên ngành. Với mỗi từ, hãy tự đặt một câu có dùng ngữ pháp của bài (是……的…… / 在……的＿边 / ……的时候), rồi bấm Kiểm tra. Bấm <em>Câu mẫu</em> để đối chiếu.</p>
     <div class="fill-bank"><span class="bank-label">Từ mở rộng:</span>${chips}</div>
     <div class="expand-grid">${cards}</div>
   </div>`;
@@ -904,10 +1291,10 @@ function renderTranslate(s){
 
 function renderSpeaking(s){
   const cards = [
-    {icon:'bike', name:'自行车', q:'你有自行车吧？'},
-    {icon:'keyfun', name:'钥匙', q:'钥匙在哪儿？'},
-    {icon:'cinema', name:'电影院', q:'晚上电影院有电影吗？'},
-    {icon:'hourglass', name:'时间', q:'今天晚上你有时间吗？'}
+    {icon:'majorbadge', name:'专业', q:'你的专业是什么？'},
+    {icon:'deptbldg', name:'系', q:'你是哪个系的学生？'},
+    {icon:'compassew', name:'在哪儿', q:'你们学校在哪儿？'},
+    {icon:'welcomehand', name:'欢迎', q:'有空儿的时候，欢迎你去玩儿。'}
   ].map(c=>`<div class="speak-card"><div class="ic">${ICONS[c.icon]}</div><div class="name hanzi">${c.name}</div><div class="q">${c.q}</div></div>`).join('');
   const seen = new Set();
   const allVocab = dialogue1Vocab.concat(dialogue2Vocab, dialogue1ProperNouns, dialogue2ProperNouns).filter(w=>{ if(seen.has(w)) return false; seen.add(w); return true; });
@@ -917,22 +1304,22 @@ function renderSpeaking(s){
     <div class="eyebrow">口语练习 · Luyện khẩu ngữ</div>
     <h2><span class="ex-badge">4</span>${s.title}</h2>
     <div class="speak-topic">
-      <div class="speak-q">💬 Chủ đề: <strong>Rủ bạn đi xem phim tối nay và hỏi mượn xe đạp — dùng 有／没有, trợ từ 吧 và từ chỉ vị trí 楼下／车棚里／后边.</strong></div>
+      <div class="speak-q">💬 Chủ đề: <strong>Gặp nhau ở buổi giao lưu: giới thiệu trường, khoa, chuyên ngành của mình, hỏi trường bạn nằm ở đâu, rồi mời bạn qua chơi.</strong></div>
       <ul class="speak-guide">
-        <li>明天你有课吗？——我上午有课，下午没有。</li>
-        <li>你有＿＿吧？——有。什么事？</li>
-        <li>可是我没有＿＿…… ——没问题，我有。这是钥匙。</li>
-        <li>今天晚上你有时间吗？＿＿有电影，你去吗？——我当然去。</li>
+        <li>你好！你叫什么名字？——我叫＿＿。你呢？</li>
+        <li>我是＿＿大学＿＿系的＿＿。我的专业是＿＿。</li>
+        <li>＿＿大学在哪儿？——在＿＿大学的＿＿边。</li>
+        <li>有空儿的时候，欢迎你去玩儿。——好啊，谢谢！</li>
       </ul>
     </div>
     <div class="speak-cards">${cards}</div>
     <div class="pattern-box">
       <div class="eyebrow" style="margin:0;">句型参考 · Mẫu câu gợi ý</div>
       <ul class="gmore">
-        <li>S + 有 +［N］。／ S + 没有 +［N］。　例：我有自行车。／我没有时间。</li>
-        <li>S + 有 +［N］+ 吗？／ S + 有没有 +［N］？　例：你有没有钥匙？</li>
-        <li>S + 有 +［N］+ 吧？（xác nhận）　例：你有自行车吧？</li>
-        <li>［Thời gian］+ S +［Động từ］。／［Vật］+ 在 +［N］+ 上／下／里／后边。</li>
+        <li>我是 +［trường］+［khoa］+ 的 +［thân phận］。</li>
+        <li>我的专业是 +［ngành］。／ 你的专业是什么？</li>
+        <li>［Nơi A］+ 在 +［Nơi B］+ 的 +［方位］。　例：在北京大学的东边。</li>
+        <li>［Mệnh đề］+ 的时候，＿＿。　例：有空儿的时候，欢迎你去玩儿。</li>
       </ul>
     </div>
     <div class="chip-row"><span class="chip-label">词语 Gợi ý từ vựng:</span>${chips}</div>
@@ -940,6 +1327,7 @@ function renderSpeaking(s){
 }
 
 function render(){
+  if(typeof stopAudio === 'function') stopAudio();
   const list = activeSlides();
   const idx = getCurrent();
   const s = list[idx];
@@ -975,10 +1363,16 @@ function render(){
 
 function attachEvents(s){
   document.querySelectorAll('[data-speak]').forEach(btn=>{
-    btn.addEventListener('click', ()=>speak(btn.getAttribute('data-speak')));
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-line');
+      if(id) playLine(id, btn.getAttribute('data-speak'));
+      else speak(btn.getAttribute('data-speak'));
+    });
   });
   const playAll = document.getElementById('playAll');
-  if(playAll) playAll.addEventListener('click', ()=>speakSequence(s.lines.map(l=>l.segments.map(sg=>sg.t).join(''))));
+  if(playAll) playAll.addEventListener('click', ()=>playSection(s.lines));
+  const auPick = document.getElementById('auPick');
+  if(auPick) auPick.addEventListener('change', e=>attachAudioFile(e.target.files[0]));
 
   const togglePy = document.getElementById('togglePy');
   if(togglePy) togglePy.addEventListener('click', ()=>{
@@ -1022,8 +1416,8 @@ function attachEvents(s){
         if(act==='revealFill'){ inp.value = it.ans; inp.classList.add('ok'); right++; return; }
         const val = normalizeStr(inp.value);
         if(!val){ fb.textContent='—'; fb.style.color='var(--ink-soft)'; return; }
-        if(val===normalizeStr(it.ans)){ inp.classList.add('ok'); fb.textContent='✓'; fb.style.color='#2F7D5A'; right++; }
-        else { inp.classList.add('no'); fb.textContent='✗'; fb.style.color='#B3503F'; }
+        if(val===normalizeStr(it.ans)){ inp.classList.add('ok'); fb.textContent='✓'; fb.style.color='#3E7D6B'; right++; }
+        else { inp.classList.add('no'); fb.textContent='✗'; fb.style.color='#B8564A'; }
       });
       const sc = document.getElementById('fScore'+gi);
       if(act==='resetFill') sc.textContent='';
@@ -1051,17 +1445,17 @@ function attachEvents(s){
       const fb  = document.getElementById('xFb'+i);
       const card= document.getElementById('xCard'+i);
       card.style.borderColor = 'var(--line)';
-      if(!val){ fb.textContent='Hãy viết câu của bạn trước nhé.'; fb.style.color='#B3503F'; return; }
+      if(!val){ fb.textContent='Hãy viết câu của bạn trước nhé.'; fb.style.color='#B8564A'; return; }
       const hasWord = val.includes(it.w);
-      const hasTime = /有|没有|吧|可是|在|当然/.test(val);
+      const hasTime = /是|在|的|专业|系|边|哪儿|有|欢迎|时候/.test(val);
       if(hasWord && hasTime){
-        fb.textContent='Tốt! Câu có từ 「'+it.w+'」 và dùng ngữ pháp của bài.'; fb.style.color='#2F7D5A';
+        fb.textContent='Tốt! Câu có từ 「'+it.w+'」 và dùng ngữ pháp của bài.'; fb.style.color='#3E7D6B';
         card.style.borderColor='var(--jade)';
       } else if(hasWord){
-        fb.textContent='Đã có từ 「'+it.w+'」 — thử dùng thêm 有／没有／吧／可是／在… của bài.'; fb.style.color='#6E4E96';
+        fb.textContent='Đã có từ 「'+it.w+'」 — thử dùng thêm 是……的……／我的专业是……／在……的＿边／……的时候… của bài.'; fb.style.color='#1B2436';
         card.style.borderColor='var(--accent)';
       } else {
-        fb.textContent='Chưa thấy từ 「'+it.w+'」 trong câu.'; fb.style.color='#B3503F';
+        fb.textContent='Chưa thấy từ 「'+it.w+'」 trong câu.'; fb.style.color='#B8564A';
         card.style.borderColor='var(--red)';
       }
     });
@@ -1084,13 +1478,13 @@ function attachEvents(s){
       const it = translateItems[i];
       const val = input.value.trim();
       item.classList.remove('t-correct','t-wrong');
-      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#B3503F'; return; }
+      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#B8564A'; return; }
       const norm = normalizeStr(val);
       const isMatch = norm===normalizeStr(it.h) || norm===normalizeStr(it.p);
       if(isMatch){
-        fb.textContent = 'Chính xác!'; fb.style.color = '#2F7D5A'; item.classList.add('t-correct');
+        fb.textContent = 'Chính xác!'; fb.style.color = '#3E7D6B'; item.classList.add('t-correct');
       } else {
-        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#B3503F'; item.classList.add('t-wrong');
+        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#B8564A'; item.classList.add('t-wrong');
       }
     });
   });
@@ -1164,7 +1558,7 @@ function openVocabModal(word){
   document.getElementById('vwPinyin').textContent = info.p;
   document.getElementById('vwHanviet').textContent = 'Âm Hán Việt: '+info.hv;
   document.getElementById('vwPos').innerHTML = '<span>'+info.pos+'</span>' +
-    (info.old ? '<span class="tag-old">Từ đã học — ôn lại</span>' : '<span class="tag-new">Từ mới Bài 7</span>');
+    (info.old ? '<span class="tag-old">Từ đã học — ôn lại</span>' : '<span class="tag-new">Từ mới Bài 5</span>');
   document.getElementById('vwMeaning').innerHTML = '<strong>Nghĩa:</strong> '+info.vi;
   document.getElementById('vwUsage').innerHTML = '<strong>Cách dùng:</strong> '+info.usage;
   const radSec = document.getElementById('vwRadicalSection');

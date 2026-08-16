@@ -73,7 +73,8 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-
 .unit-head .tag{font-family:'Noto Serif SC',serif;font-weight:900;font-size:20px;color:var(--accent);}
 .unit-head .range{font-size:12.5px;color:var(--ink-soft);letter-spacing:.03em;}
 
-.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+.lesson-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+@media(max-width:1000px){.lesson-grid{grid-template-columns:repeat(3,1fr);}}
 
 .lcard{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px 16px 14px;display:flex;flex-direction:column;gap:6px;min-height:118px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;cursor:pointer;}
 .lcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(39,49,64,.12);border-color:var(--accent);}
@@ -104,7 +105,7 @@ footer.hubfoot{max-width:1180px;margin:0 auto;padding:10px 20px 30px;color:var(-
   .hero{padding:28px 22px;}
   .hero-title{font-size:28px;}
   .corner-sticker{width:78px;height:78px;top:10px;right:10px;}
-  .lesson-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+  .lesson-grid{grid-template-columns:repeat(2,1fr);}
 }
 </style>
 </head>
@@ -146,7 +147,7 @@ footer.hubfoot{max-width:1180px;margin:0 auto;padding:10px 20px 30px;color:var(-
 
   <div class="extra-block">
     <div class="extra-note">
-      💡 <b>Cách thêm bài học mới:</b> mở file này bằng trình soạn thảo văn bản, tìm mảng <code>LESSONS</code> trong thẻ <code>&lt;script&gt;</code>, điền <code>title</code>, <code>pinyin</code> và <code>file</code> (tên file .html của bài học, đặt cùng thư mục với trang này) cho từng bài — trang sẽ tự động hiện link. Có thể nhờ Claude cập nhật giúp bất cứ lúc nào.
+      💡 <b>Cách thêm bài học mới:</b> mở file này bằng trình soạn thảo văn bản, tìm mảng <code>LESSONS</code> trong thẻ <code>&lt;script&gt;</code>, điền <code>title</code>, <code>pinyin</code> và <code>file</code> cho từng bài — trang sẽ tự động hiện link. File bài học đặt trong thư mục <code>boya1/</code> hoặc <code>boya2/</code>; ô <code>file</code> chỉ ghi tên file, không ghi kèm thư mục. Có thể nhờ Claude cập nhật giúp bất cứ lúc nào.
     </div>
   </div>
 
@@ -157,6 +158,11 @@ footer.hubfoot{max-width:1180px;margin:0 auto;padding:10px 20px 30px;color:var(-
 /* ================== CẤU HÌNH DANH SÁCH BÀI HỌC ==================
    Mỗi bài: { n: số thứ tự bài, title: tên bài (chữ Hán, để trống nếu chưa có),
               pinyin: phiên âm, file: tên file .html (để trống "" nếu chưa có) }
+   File bài học nằm trong thư mục con ghi ở "dir" của mỗi quyển:
+      boya-shinlaoshi/index.html
+      boya-shinlaoshi/boya1/Bai1.html ... Bai13.html
+      boya-shinlaoshi/boya2/Bai1.html ...
+   => ở "file" chỉ ghi tên file, KHÔNG ghi kèm thư mục.
    Để trống title/pinyin/file => thẻ bài học sẽ hiện ở trạng thái "Sắp có".
    Cứ mỗi 5 bài, trang sẽ tự chèn 1 thẻ "Ôn tập" — có thể sửa unitSize bên dưới. */
 
@@ -164,7 +170,7 @@ const unitSize = 5;
 
 const LESSONS = {
   book1: {
-    label: '博雅汉语 I', sub: '初级起步篇 I · Elementary Chinese I',
+    label: '博雅汉语 I', sub: '初级起步篇 I · Elementary Chinese I', dir: 'boya1',
     lessons: [
       {n:1,  title:'你好',            pinyin:'Nǐ Hǎo',                         file:'Bai1.html'},
       {n:2,  title:'你是哪国人',                pinyin:'Nǐ Shì Nǎ Guó Rén',                                file:'Bai2.html'},
@@ -175,21 +181,30 @@ const LESSONS = {
       {n:7,  title:'明天你有课吗',                pinyin:'Míngtiān Nǐ Yǒu Kè Ma',                                file:'Bai7.html'},
       {n:8,  title:'你的电话号码是多少',                pinyin:'Nǐ De Diànhuà Hàomǎ Shì Duōshao',                                file:'Bai8.html'},
       {n:9,  title:'多少钱一瓶',                pinyin:'Duōshao Qián Yì Píng',                                file:'Bai9.html'},
-      {n:10, title:'你家有几口',                pinyin:'Nǐ Jiā Yǒu Jǐ Kǒu Rén',                                file:'Bai10.html'},
-      {n:11, title:'',                pinyin:'',                                file:''},
-      {n:12, title:'',                pinyin:'',                                file:''},
-      {n:13, title:'',                pinyin:'',                                file:''},
+      {n:10, title:'你家有几口人',                pinyin:'Nǐ Jiā Yǒu Jǐ Kǒu Rén',                                file:'Bai10.html'},
+      {n:11, title:'北京的冬天比较冷', pinyin:'Běijīng de Dōngtiān Bǐjiào Lěng', file:'Bai11.html'},
+      {n:12, title:'你在干什么呢', pinyin:'Nǐ Zài Gàn Shénme Ne', file:'Bai12.html'},
+      {n:13, title:'我去图书馆借书', pinyin:'Wǒ Qù Túshūguǎn Jiè Shū', file:'Bai13.html'},
       {n:14, title:'',                pinyin:'',                                file:''},
       {n:15, title:'',                pinyin:'',                                file:''},
       {n:16, title:'',                pinyin:'',                                file:''},
       {n:17, title:'',                pinyin:'',                                file:''},
       {n:18, title:'',                pinyin:'',                                file:''},
       {n:19, title:'',                pinyin:'',                                file:''},
-      {n:20, title:'',                pinyin:'',                                file:''}
+      {n:20, title:'',                pinyin:'',                                file:''},
+      {n:21, title:'',                pinyin:'',                                file:''},
+      {n:22, title:'',                pinyin:'',                                file:''},
+      {n:23, title:'',                pinyin:'',                                file:''},
+      {n:24, title:'',                pinyin:'',                                file:''},
+      {n:25, title:'',                pinyin:'',                                file:''},
+      {n:26, title:'',                pinyin:'',                                file:''},
+      {n:27, title:'',                pinyin:'',                                file:''},
+      {n:28, title:'',                pinyin:'',                                file:''},
+      {n:29, title:'',                pinyin:'',                                file:''}
     ]
   },
   book2: {
-    label: '博雅汉语 II', sub: '初级起步篇 II · Elementary Chinese II',
+    label: '博雅汉语 II', sub: '初级起步篇 II · Elementary Chinese II', dir: 'boya2',
     lessons: [
       {n:1,  title:'', pinyin:'', file:''},
       {n:2,  title:'', pinyin:'', file:''},
@@ -210,7 +225,12 @@ const LESSONS = {
       {n:17, title:'', pinyin:'', file:''},
       {n:18, title:'', pinyin:'', file:''},
       {n:19, title:'', pinyin:'', file:''},
-      {n:20, title:'', pinyin:'', file:''}
+      {n:20, title:'', pinyin:'', file:''},
+      {n:21, title:'', pinyin:'', file:''},
+      {n:22, title:'', pinyin:'', file:''},
+      {n:23, title:'', pinyin:'', file:''},
+      {n:24, title:'', pinyin:'', file:''},
+      {n:25, title:'', pinyin:'', file:''}
     ]
   }
 };
@@ -263,7 +283,8 @@ function buildLessonCard(book, item){
   if(has){
     const a = document.createElement('a');
     a.className = 'lcard';
-    a.href = item.file;
+    const dir = (LESSONS[book].dir||'').trim();
+    a.href = dir ? dir + '/' + item.file : item.file;
     a.setAttribute('data-search', (item.n+' '+title+' '+pinyin).toLowerCase());
     a.innerHTML = cardInner;
     return a;

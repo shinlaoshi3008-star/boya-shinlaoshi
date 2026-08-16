@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>博雅汉语 · Bài 9 · 多少钱一瓶</title>
+<title>博雅汉语 · Bài 10 · 你家有几口人</title>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --paper:#FAF4EE;
-  --paper-deep:#F0E3D7;
-  --ink:#33241F;
-  --ink-soft:#7A665C;
+  --paper:#F5F1F2;
+  --paper-deep:#E8DFE2;
+  --ink:#2E2830;
+  --ink-soft:#6E6470;
   --card:#FFFFFF;
-  --line:#E8D8C9;
-  --accent:#B23A2E;
-  --accent-soft:#FADFDA;
-  --jade:#3D7A52;
-  --jade-soft:#DEEEE0;
-  --red:#8C3A2F;
-  --red-soft:#F6DED9;
+  --line:#E1D6D9;
+  --accent:#B05A72;
+  --accent-soft:#F6E3E9;
+  --jade:#4E7C6B;
+  --jade-soft:#DFEBE4;
+  --red:#A8453C;
+  --red-soft:#F6DFDC;
   --shadow: 0 10px 30px rgba(39,49,64,0.07);
 }
 *{box-sizing:border-box;}
@@ -81,7 +81,7 @@ main{flex:1;display:flex;flex-direction:column;}
 .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;filter:brightness(.75);}
 .slide h2{margin:0;font-family:'Noto Serif SC',serif;font-size:24px;}
 
-.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(158deg,#FBE4DC 0%,#FBF2D6 46%,#EEE2D4 100%);}
+.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(158deg,#F7E3EA 0%,#E9F0EA 48%,#E3E8F1 100%);}
 .cover-lattice{position:absolute;width:200px;height:200px;opacity:.16;z-index:1;color:#273140;}
 .cover-lattice svg{width:100%;height:100%;}
 .corner-tl{top:-40px;left:-40px;}
@@ -239,7 +239,7 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 
 .vword-pos{display:flex;align-items:center;gap:8px;}
 .tag-new,.tag-old{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:2px 9px;border-radius:999px;text-transform:none;}
-.tag-new{background:var(--accent-soft);color:#8C6A12;border:1px solid var(--accent);}
+.tag-new{background:var(--accent-soft);color:#8E4258;border:1px solid var(--accent);}
 .tag-old{background:var(--jade-soft);color:var(--jade);border:1px solid var(--jade);}
 .expand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .expand-card{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
@@ -256,7 +256,7 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 .expand-model .p{font-size:11.5px;color:var(--jade);margin-top:2px;}
 .expand-model .vi{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
 @media(max-width:700px){.expand-grid{grid-template-columns:1fr;}}
-.fun-sticker{position:absolute;z-index:4;pointer-events:none;opacity:.92;filter:drop-shadow(0 5px 9px rgba(51,36,31,.18));}
+.fun-sticker{position:absolute;z-index:4;pointer-events:none;opacity:.92;filter:drop-shadow(0 5px 9px rgba(46,40,48,.18));}
 .fun-sticker .fi{display:block;width:100%;height:100%;animation:funFloat 5.4s ease-in-out infinite;transform-origin:50% 60%;}
 .fun-sticker .fi svg{width:100%;height:100%;}
 @keyframes funFloat{0%,100%{transform:translateY(0) rotate(var(--r,0deg)) scale(1);}50%{transform:translateY(-7px) rotate(calc(var(--r,0deg) + 4deg)) scale(1.04);}}
@@ -303,15 +303,15 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 <div id="app">
   <header>
     <div class="brand">
-      <a href="index.html" class="lib-back" title="Quay lại thư viện bài học">
+      <a href="../index.html" class="lib-back" title="Quay lại thư viện bài học">
         <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
         <span>Thư viện</span>
       </a>
       <div class="side-mark">博</div>
-      <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 9 · Mua sắm &amp; hỏi giá — 多少钱一瓶</strong></div>
+      <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 10 · Gia đình &amp; lượng từ — 你家有几口人</strong></div>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
-      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">钱</div><span id="weatherLabel">Tiền</span></div>
+      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">家</div><span id="weatherLabel">Gia đình</span></div>
       <button class="fs-btn" id="fsBtn" title="Trình chiếu toàn màn hình">
         <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
@@ -406,7 +406,7 @@ ticket:`<svg viewBox="0 0 100 100"><path d="M12 30 H88 V44 A7 7 0 0 0 88 58 V72 
 popcorn:`<svg viewBox="0 0 100 100"><circle cx="36" cy="30" r="12" fill="#FBF3E2"/><circle cx="56" cy="26" r="13" fill="#FFF8EC"/><circle cx="70" cy="36" r="10" fill="#FBF3E2"/><circle cx="46" cy="40" r="11" fill="#FFF8EC"/><path d="M26 44 H78 L70 88 H34Z" fill="#C0554F"/><path d="M38 44 L34 88" stroke="#fff" stroke-width="6"/><path d="M56 44 L58 88" stroke="#fff" stroke-width="6"/></svg>`,
 filmreel:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#4655A0"/><circle cx="50" cy="50" r="8" fill="#EBE3F7"/><circle cx="50" cy="28" r="7" fill="#EBE3F7"/><circle cx="50" cy="72" r="7" fill="#EBE3F7"/><circle cx="28" cy="50" r="7" fill="#EBE3F7"/><circle cx="72" cy="50" r="7" fill="#EBE3F7"/></svg>`,
 moonstar:`<svg viewBox="0 0 100 100"><path d="M66 20 A34 34 0 1 0 82 62 A28 28 0 0 1 66 20Z" fill="#7B5EA7"/><polygon points="0,0 4.5,-6 5.5,-1.8 9,-1.8 6.2,0.7 7.2,4.5 3.4,2.3 -0.4,4.5 0.9,0.5 -2,-1.8 1.8,-1.8" fill="#F0C64B" transform="translate(24,26) scale(1.5)"/><polygon points="0,0 4.5,-6 5.5,-1.8 9,-1.8 6.2,0.7 7.2,4.5 3.4,2.3 -0.4,4.5 0.9,0.5 -2,-1.8 1.8,-1.8" fill="#F0C64B" transform="translate(20,60) scale(1.05)"/></svg>`,
-okhand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#3D7A52"/><circle cx="42" cy="44" r="12" fill="none" stroke="#fff" stroke-width="6"/><path d="M56 34 L74 30 M56 44 L78 42 M56 54 L74 54" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M32 60 Q50 76 70 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+okhand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#4E7C6B"/><circle cx="42" cy="44" r="12" fill="none" stroke="#fff" stroke-width="6"/><path d="M56 34 L74 30 M56 44 L78 42 M56 54 L74 54" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M32 60 Q50 76 70 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
 bubbleba:`<svg viewBox="0 0 100 100"><path d="M14 22 H86 A8 8 0 0 1 94 30 V64 A8 8 0 0 1 86 72 H44 L26 88 V72 H14 A8 8 0 0 1 6 64 V30 A8 8 0 0 1 14 22Z" fill="#EBE3F7" stroke="#7B5EA7" stroke-width="4"/><text x="50" y="58" font-family="Noto Serif SC, serif" font-size="30" font-weight="900" fill="#7B5EA7" text-anchor="middle">吧?</text></svg>`,
 sparkle:`<svg viewBox="0 0 100 100"><path d="M50 8 L59 41 L92 50 L59 59 L50 92 L41 59 L8 50 L41 41Z" fill="#F0C64B"/><circle cx="50" cy="50" r="7" fill="#FFF3CE"/></svg>`,
 phone:`<svg viewBox="0 0 100 100"><rect x="28" y="10" width="44" height="80" rx="8" fill="#2B2540"/><rect x="33" y="20" width="34" height="56" rx="3" fill="#C2557F"/><circle cx="50" cy="83" r="4" fill="#6A6382"/><rect x="43" y="14" width="14" height="3" rx="1.5" fill="#6A6382"/></svg>`,
@@ -417,15 +417,22 @@ keypad:`<svg viewBox="0 0 100 100"><rect x="18" y="10" width="64" height="80" rx
 doorplate:`<svg viewBox="0 0 100 100"><rect x="16" y="26" width="68" height="48" rx="7" fill="#7A9E2F"/><rect x="22" y="32" width="56" height="36" rx="4" fill="#F3F8E6"/><text x="50" y="59" font-family="Arial Black, Arial" font-size="24" font-weight="900" fill="#5C7A1E" text-anchor="middle">502</text><circle cx="24" cy="22" r="3.5" fill="#5C7A1E"/><circle cx="76" cy="22" r="3.5" fill="#5C7A1E"/></svg>`,
 mapmark:`<svg viewBox="0 0 100 100"><path d="M50 12 C34 12 22 24 22 40 C22 60 50 88 50 88 C50 88 78 60 78 40 C78 24 66 12 50 12Z" fill="#E0703C"/><circle cx="50" cy="40" r="12" fill="#FBEADC"/></svg>`,
 telephone:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#1F8A70"/><path d="M32 30 Q28 28 26 34 L24 42 Q30 66 58 74 L66 72 Q72 70 70 64 L66 54 Q64 49 59 52 L54 55 Q45 50 42 41 L46 37 Q50 34 47 30 L40 22 Q37 18 32 22Z" fill="#fff" transform="translate(2,2) scale(0.92)"/></svg>`,
-weekend:`<svg viewBox="0 0 100 100"><rect x="14" y="22" width="72" height="62" rx="8" fill="#FFF" stroke="#1F8A70" stroke-width="4"/><rect x="14" y="22" width="72" height="18" rx="8" fill="#1F8A70"/><rect x="30" y="12" width="7" height="18" rx="3.5" fill="#8C6A12"/><rect x="63" y="12" width="7" height="18" rx="3.5" fill="#8C6A12"/><rect x="58" y="50" width="22" height="24" rx="4" fill="#E0703C"/><circle cx="30" cy="54" r="4" fill="#B9CDBF"/><circle cx="44" cy="54" r="4" fill="#B9CDBF"/><circle cx="30" cy="68" r="4" fill="#B9CDBF"/><circle cx="44" cy="68" r="4" fill="#B9CDBF"/></svg>`,
+weekend:`<svg viewBox="0 0 100 100"><rect x="14" y="22" width="72" height="62" rx="8" fill="#FFF" stroke="#1F8A70" stroke-width="4"/><rect x="14" y="22" width="72" height="18" rx="8" fill="#1F8A70"/><rect x="30" y="12" width="7" height="18" rx="3.5" fill="#8E4258"/><rect x="63" y="12" width="7" height="18" rx="3.5" fill="#8E4258"/><rect x="58" y="50" width="22" height="24" rx="4" fill="#E0703C"/><circle cx="30" cy="54" r="4" fill="#B9CDBF"/><circle cx="44" cy="54" r="4" fill="#B9CDBF"/><circle cx="30" cy="68" r="4" fill="#B9CDBF"/><circle cx="44" cy="68" r="4" fill="#B9CDBF"/></svg>`,
 fastbike:`<svg viewBox="0 0 100 100"><circle cx="30" cy="64" r="15" fill="none" stroke="#22332E" stroke-width="5"/><circle cx="76" cy="64" r="15" fill="none" stroke="#22332E" stroke-width="5"/><path d="M30 64 L48 42 L64 64 L48 42 L56 36" fill="none" stroke="#1F8A70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="40" x2="24" y2="40" stroke="#E0703C" stroke-width="5" stroke-linecap="round"/><line x1="10" y1="54" x2="26" y2="54" stroke="#E0703C" stroke-width="5" stroke-linecap="round"/></svg>`,
 beer:`<svg viewBox="0 0 100 100"><path d="M34 18 H66 L62 88 H38Z" fill="#E8B33C"/><path d="M34 18 H66 L64 34 H36Z" fill="#FBF3DC"/><path d="M66 32 H78 A9 9 0 0 1 78 58 H64" fill="none" stroke="#C9932A" stroke-width="6"/><circle cx="46" cy="48" r="3.5" fill="#FBF3DC" opacity=".8"/><circle cx="55" cy="62" r="3" fill="#FBF3DC" opacity=".8"/></svg>`,
 waterbtl:`<svg viewBox="0 0 100 100"><rect x="42" y="8" width="16" height="12" rx="3" fill="#3D7A9E"/><path d="M38 20 H62 L66 34 V84 A6 6 0 0 1 60 90 H40 A6 6 0 0 1 34 84 V34Z" fill="#CFE6F2" stroke="#7FA9C4" stroke-width="2.5"/><path d="M38 48 H62 V64 H38Z" fill="#8FC3DE" opacity=".7"/></svg>`,
-coin:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E0B93A" stroke="#B8942A" stroke-width="4"/><rect x="41" y="41" width="18" height="18" fill="#FAF4EE"/><text x="50" y="44" font-family="Noto Serif SC, serif" font-size="20" font-weight="900" fill="#8C6A12" text-anchor="middle">元</text></svg>`,
+coin:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E0B93A" stroke="#B8942A" stroke-width="4"/><rect x="41" y="41" width="18" height="18" fill="#FAF4EE"/><text x="50" y="44" font-family="Noto Serif SC, serif" font-size="20" font-weight="900" fill="#8E4258" text-anchor="middle">元</text></svg>`,
 banknote:`<svg viewBox="0 0 100 100"><rect x="8" y="28" width="84" height="46" rx="5" fill="#B23A2E"/><rect x="15" y="35" width="70" height="32" rx="3" fill="none" stroke="#FADFDA" stroke-width="2.5"/><circle cx="50" cy="51" r="11" fill="#FADFDA"/><text x="50" y="58" font-family="Noto Serif SC, serif" font-size="15" font-weight="900" fill="#B23A2E" text-anchor="middle">块</text></svg>`,
 shopbag:`<svg viewBox="0 0 100 100"><path d="M22 32 H78 L84 88 H16Z" fill="#B23A2E"/><path d="M36 34 V24 A14 14 0 0 1 64 24 V34" fill="none" stroke="#7A2A20" stroke-width="5"/><rect x="30" y="52" width="40" height="6" rx="3" fill="#FADFDA" opacity=".85"/></svg>`,
 pricetag:`<svg viewBox="0 0 100 100"><path d="M52 12 H86 A4 4 0 0 1 90 16 V50 L46 94 L8 56Z" fill="#C29B22"/><circle cx="74" cy="28" r="7" fill="#FAF4EE"/><text x="46" y="66" font-family="Noto Serif SC, serif" font-size="22" font-weight="900" fill="#FAF4EE" text-anchor="middle" transform="rotate(-45 46 62)">￥</text></svg>`,
-cashier:`<svg viewBox="0 0 100 100"><rect x="12" y="44" width="76" height="40" rx="5" fill="#7A5A3C"/><rect x="20" y="52" width="30" height="14" rx="3" fill="#F0E5D9"/><circle cx="62" cy="58" r="4" fill="#E0B93A"/><circle cx="74" cy="58" r="4" fill="#E0B93A"/><circle cx="62" cy="72" r="4" fill="#E0B93A"/><circle cx="74" cy="72" r="4" fill="#E0B93A"/><rect x="28" y="20" width="44" height="22" rx="4" fill="#B23A2E"/><rect x="34" y="26" width="32" height="10" rx="2" fill="#FADFDA"/></svg>`
+cashier:`<svg viewBox="0 0 100 100"><rect x="12" y="44" width="76" height="40" rx="5" fill="#7A5A3C"/><rect x="20" y="52" width="30" height="14" rx="3" fill="#F0E5D9"/><circle cx="62" cy="58" r="4" fill="#E0B93A"/><circle cx="74" cy="58" r="4" fill="#E0B93A"/><circle cx="62" cy="72" r="4" fill="#E0B93A"/><circle cx="74" cy="72" r="4" fill="#E0B93A"/><rect x="28" y="20" width="44" height="22" rx="4" fill="#B23A2E"/><rect x="34" y="26" width="32" height="10" rx="2" fill="#FADFDA"/></svg>`,
+photoframe:`<svg viewBox="0 0 100 100"><rect x="10" y="16" width="80" height="68" rx="6" fill="#8E7A5E"/><rect x="18" y="24" width="64" height="52" rx="3" fill="#F6E3E9"/><circle cx="38" cy="42" r="8" fill="#B05A72"/><circle cx="60" cy="45" r="6.5" fill="#5B6E8C"/><path d="M22 72 Q34 54 46 72Z" fill="#4E7C6B"/><path d="M48 72 Q60 58 72 72Z" fill="#6E8FA8"/></svg>`,
+familygroup:`<svg viewBox="0 0 100 100"><circle cx="28" cy="34" r="11" fill="#F0CDB4" stroke="#7A5B4A" stroke-width="2"/><circle cx="62" cy="32" r="11" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><circle cx="46" cy="58" r="8" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M8 84 Q11 50 28 50 Q45 50 48 84Z" fill="#5B6E8C"/><path d="M44 84 Q47 48 62 48 Q79 48 82 84Z" fill="#B05A72"/><path d="M30 92 Q32 70 46 70 Q60 70 62 92Z" fill="#4E7C6B"/></svg>`,
+dogicon:`<svg viewBox="0 0 100 100"><ellipse cx="50" cy="60" rx="26" ry="22" fill="#C9A87C"/><path d="M26 40 Q18 18 32 22 Q36 32 34 44Z" fill="#A8865A"/><path d="M74 40 Q82 18 68 22 Q64 32 66 44Z" fill="#A8865A"/><circle cx="40" cy="56" r="4" fill="#3A2A1E"/><circle cx="60" cy="56" r="4" fill="#3A2A1E"/><ellipse cx="50" cy="68" rx="7" ry="5" fill="#5B4433"/><path d="M50 73 Q44 80 38 76 M50 73 Q56 80 62 76" stroke="#5B4433" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`,
+grandpa:`<svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="24" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><path d="M26 38 Q30 16 50 18 Q70 16 74 38 Q64 26 50 28 Q36 26 26 38Z" fill="#D8D4D0"/><circle cx="41" cy="45" r="7" fill="none" stroke="#5B4433" stroke-width="2.5"/><circle cx="59" cy="45" r="7" fill="none" stroke="#5B4433" stroke-width="2.5"/><line x1="48" y1="45" x2="52" y2="45" stroke="#5B4433" stroke-width="2.5"/><path d="M40 62 Q50 70 60 62" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 90 Q26 72 50 72 Q74 72 78 90Z" fill="#5B6E8C"/></svg>`,
+grandma:`<svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="24" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M26 40 Q28 14 50 16 Q72 14 74 40 Q72 22 50 24 Q28 22 26 40Z" fill="#E2DEDA"/><circle cx="30" cy="34" r="7" fill="#E2DEDA"/><circle cx="70" cy="34" r="7" fill="#E2DEDA"/><circle cx="41" cy="46" r="3.4" fill="#3A2A1E"/><circle cx="59" cy="46" r="3.4" fill="#3A2A1E"/><ellipse cx="34" cy="54" rx="5" ry="3" fill="#E9A0A8" opacity=".6"/><ellipse cx="66" cy="54" rx="5" ry="3" fill="#E9A0A8" opacity=".6"/><path d="M42 62 Q50 69 58 62" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 90 Q26 72 50 72 Q74 72 78 90Z" fill="#B05A72"/></svg>`,
+kid:`<svg viewBox="0 0 100 100"><circle cx="50" cy="42" r="22" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M28 36 Q32 16 50 18 Q68 16 72 36 Q62 26 50 28 Q38 26 28 36Z" fill="#4A3728"/><circle cx="42" cy="44" r="3.6" fill="#2A1C12"/><circle cx="58" cy="44" r="3.6" fill="#2A1C12"/><ellipse cx="35" cy="52" rx="4.5" ry="2.8" fill="#F0A0A8" opacity=".65"/><ellipse cx="65" cy="52" rx="4.5" ry="2.8" fill="#F0A0A8" opacity=".65"/><path d="M43 57 Q50 63 57 57" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M26 90 Q30 70 50 70 Q70 70 74 90Z" fill="#C9942F"/></svg>`,
+heartfam:`<svg viewBox="0 0 100 100"><path d="M50 86 C20 66 8 46 20 29 C30 15 48 19 50 35 C52 19 70 15 80 29 C92 46 80 66 50 86Z" fill="#B05A72"/><circle cx="38" cy="46" r="6" fill="#F6E3E9"/><circle cx="62" cy="46" r="6" fill="#F6E3E9"/><circle cx="50" cy="58" r="5" fill="#F6E3E9"/></svg>`
 };
 const LATTICE_SVG = `<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 100 Q40 60 80 90 Q100 105 90 130 Q75 150 100 160"/><path d="M30 130 Q55 110 80 130"/><path d="M60 40 Q90 20 120 45 Q140 60 125 80"/></svg>`;
 /* Corner sticker — hình giáo viên do người dùng cung cấp */
@@ -434,262 +441,258 @@ const CORNER_STICKER = `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA
 /* ---------- VOCAB DETAILS ----------
    Mọi từ trong bài khóa đều tra được. Mục old:true là từ đã học — không liệt kê ở hàng từ vựng. */
 const vocabDetails = {
-/* ===== 词语表 Bài 9 — 20 từ mới ===== */
-"师傅":{p:"shīfu",pos:"n.",hv:"Sư phó",vi:"bác, chú, anh (gọi người làm nghề)",usage:"Cách xưng hô lịch sự với người lao động, thợ, tài xế, người bán hàng — không phân biệt tuổi hay giới. Đứng đầu câu như lời gọi: 师傅，我买啤酒。",
- radical:{char:"巾",name:"cân (khăn) — bên trái chữ 师"}, mnemonic:"师 = thầy, người có nghề; 傅 = người dạy dỗ → 师傅 vốn chỉ người thợ cả có tay nghề, nay dùng gọi mọi người làm dịch vụ.", icon:"cashier",
- examples:[{h:"师傅，我买啤酒。",p:"Shīfu, wǒ mǎi píjiǔ.",vi:"Anh ơi, tôi mua bia."},{h:"师傅，多少钱一瓶？",p:"Shīfu, duōshao qián yì píng?",vi:"Anh ơi, bao nhiêu tiền một chai?"},{h:"师傅，去北京大学怎么走？",p:"Shīfu, qù Běijīng Dàxué zěnme zǒu?",vi:"Anh ơi, đến Đại học Bắc Kinh đi thế nào ạ?"}]},
-"买":{p:"mǎi",pos:"v.",hv:"Mãi",vi:"mua",usage:"Động từ. Mang thẳng tân ngữ: 买啤酒, 买两瓶水. Trái nghĩa: 卖 (mài, bán) — chú ý hai chữ rất giống nhau, 卖 có thêm nét ngang ở trên.",
- radical:{char:"乛",name:"nét móc trên đầu chữ 买"}, mnemonic:"買 (phồn thể) = 网 (lưới) + 贝 (vỏ sò — tiền cổ) — quăng lưới gom vỏ sò đem đổi lấy hàng → mua.", icon:"shopbag",
- examples:[{h:"师傅，我买啤酒。",p:"Shīfu, wǒ mǎi píjiǔ.",vi:"Anh ơi, tôi mua bia."},{h:"你买几瓶？",p:"Nǐ mǎi jǐ píng?",vi:"Bạn mua mấy chai?"},{h:"我买两瓶，再买两瓶水。",p:"Wǒ mǎi liǎng píng, zài mǎi liǎng píng shuǐ.",vi:"Tôi mua hai chai, mua thêm hai chai nước nữa."}]},
-"啤酒":{p:"píjiǔ",pos:"n.",hv:"Bì tửu",vi:"bia",usage:"Danh từ. Lượng từ: 瓶 (chai), 杯 (cốc). 啤 là chữ phiên âm từ tiếng Anh “beer”.",
- radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 啤"}, mnemonic:"啤 có bộ 口 (miệng) vì đây là chữ mượn ÂM tiếng nước ngoài (beer); 酒 có bộ 氵(nước) + 酉 (vò rượu) → thức uống có men.", icon:"beer",
- examples:[{h:"师傅，我买啤酒。",p:"Shīfu, wǒ mǎi píjiǔ.",vi:"Anh ơi, tôi mua bia."},{h:"两瓶啤酒七块。",p:"Liǎng píng píjiǔ qī kuài.",vi:"Hai chai bia bảy đồng."},{h:"啤酒多少钱一瓶？",p:"Píjiǔ duōshao qián yì píng?",vi:"Bia bao nhiêu tiền một chai?"}]},
-"售货员":{p:"shòuhuòyuán",pos:"n.",hv:"Thụ hóa viên",vi:"nhân viên bán hàng",usage:"Danh từ nghề nghiệp. 售 = bán, 货 = hàng hóa, 员 = nhân viên. Cùng nhóm chữ 员: 服务员 (nhân viên phục vụ), 服务员 hay dùng trong nhà hàng.",
- radical:{char:"贝",name:"bối (vỏ sò — tiền cổ) — phía dưới chữ 货"}, mnemonic:"货 có bộ 贝 (vỏ sò dùng làm tiền thời cổ) — mọi chữ liên quan tiền bạc, hàng hóa đều mang bộ này: 货、贵、钱（钅）.", icon:"cashier",
- examples:[{h:"售货员：你买几瓶？",p:"Shòuhuòyuán: Nǐ mǎi jǐ píng?",vi:"Nhân viên bán hàng: Anh mua mấy chai?"},{h:"售货员在那儿。",p:"Shòuhuòyuán zài nàr.",vi:"Nhân viên bán hàng ở đằng kia."},{h:"她是售货员。",p:"Tā shì shòuhuòyuán.",vi:"Cô ấy là nhân viên bán hàng."}]},
-"瓶":{p:"píng",pos:"n./mw.",hv:"Bình",vi:"chai; (lượng từ) chai",usage:"Vừa là danh từ (cái chai) vừa mượn làm LƯỢNG TỪ: 一瓶水 = một chai nước, 两瓶啤酒 = hai chai bia. Trong tiếng Hán nhiều danh từ vật chứa đều mượn được làm lượng từ như thế: 杯 (cốc), 碗 (bát).",
- radical:{char:"瓦",name:"ngõa (ngói, đồ gốm) — bên phải chữ 瓶"}, mnemonic:"瓶 có bộ 瓦 (đồ gốm) — cái bình gốm để đựng; sau dùng luôn làm đơn vị đếm thứ đựng trong đó.", icon:"waterbtl",
- examples:[{h:"你买几瓶？",p:"Nǐ mǎi jǐ píng?",vi:"Bạn mua mấy chai?"},{h:"多少钱一瓶？",p:"Duōshao qián yì píng?",vi:"Bao nhiêu tiền một chai?"},{h:"再买两瓶水。",p:"Zài mǎi liǎng píng shuǐ.",vi:"Mua thêm hai chai nước nữa."}]},
-"钱":{p:"qián",pos:"n.",hv:"Tiền",vi:"tiền",usage:"Danh từ. Hỏi giá: 多少钱？= bao nhiêu tiền? Mẫu đầy đủ rất hay dùng: 多少钱 + [số] + [lượng từ]? → 多少钱一瓶？= bao nhiêu tiền một chai?",
- radical:{char:"钅",name:"kim (kim loại) — bên trái chữ 钱"}, mnemonic:"钱 có bộ 钅(kim loại) — tiền xưa đúc bằng đồng; hễ chữ nào nói về tiền bạc đều mang bộ 钅 hoặc 贝.", icon:"coin",
- examples:[{h:"多少钱一瓶？",p:"Duōshao qián yì píng?",vi:"Bao nhiêu tiền một chai?"},{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"给你钱。",p:"Gěi nǐ qián.",vi:"Tiền của anh đây."}]},
-"块":{p:"kuài",pos:"mw.",hv:"Khối",vi:"đồng (khẩu ngữ của 元)",usage:"Đơn vị tiền tệ trong KHẨU NGỮ, tương ứng với 元 (yuán) trong văn viết. 1块 = 10毛 = 100分. Nói: 三块五 = 3 đồng 5 hào.",
- radical:{char:"土",name:"thổ (đất) — bên trái chữ 块"}, mnemonic:"块 có bộ 土 (đất) — nghĩa gốc là “một cục, một miếng”; tiền xu tròn cũng là một “cục” nên thành đơn vị tiền.", icon:"banknote",
- examples:[{h:"三块五。",p:"Sān kuài wǔ.",vi:"Ba đồng năm."},{h:"两瓶啤酒七块。",p:"Liǎng píng píjiǔ qī kuài.",vi:"Hai chai bia bảy đồng."},{h:"二十二块。",p:"Èrshí'èr kuài.",vi:"Hai mươi hai đồng."}]},
-"两":{p:"liǎng",pos:"num.",hv:"Lưỡng",vi:"hai (khi đi với lượng từ)",usage:"Số 2 có hai cách đọc. Trước LƯỢNG TỪ phải dùng 两: 两瓶, 两本, 两个. Còn 二 dùng khi đếm số, đọc số hiệu, số thứ tự: 十二, 二十, 第二, 二号楼, 二路车.",
- radical:{char:"一",name:"nhất — nét ngang trên đầu chữ 两"}, mnemonic:"两 vẽ hình cái cân có hai đĩa cân bằng nhau — hai vật ngang nhau → “hai của cái gì đó”.", icon:"coin",
- examples:[{h:"我买两瓶，再买两瓶水。",p:"Wǒ mǎi liǎng píng, zài mǎi liǎng píng shuǐ.",vi:"Tôi mua hai chai, mua thêm hai chai nước."},{h:"两瓶水两块四。",p:"Liǎng píng shuǐ liǎng kuài sì.",vi:"Hai chai nước hai đồng bốn."},{h:"两本、两块、两毛、两个",p:"liǎng běn, liǎng kuài, liǎng máo, liǎng ge",vi:"hai quyển, hai đồng, hai hào, hai cái"}]},
-"再":{p:"zài",pos:"adv.",hv:"Tái",vi:"lại, thêm nữa",usage:"Phó từ đặt TRƯỚC động từ, chỉ hành động lặp lại hoặc bổ sung trong tương lai: 再买两瓶水 = mua thêm hai chai nước nữa. Quen thuộc trong 再见 (gặp lại).",
- radical:{char:"一",name:"nhất — nét ngang trên đầu chữ 再"}, mnemonic:"再 vẽ hình chồng thêm một lớp nữa lên trên → làm thêm lần nữa.", icon:"shopbag",
- examples:[{h:"我买两瓶，再买两瓶水。",p:"Wǒ mǎi liǎng píng, zài mǎi liǎng píng shuǐ.",vi:"Tôi mua hai chai, mua thêm hai chai nước nữa."},{h:"再来一瓶。",p:"Zài lái yì píng.",vi:"Cho thêm một chai nữa."},{h:"再见！",p:"Zàijiàn!",vi:"Hẹn gặp lại!"}]},
-"水":{p:"shuǐ",pos:"n.",hv:"Thủy",vi:"nước",usage:"Danh từ. Lượng từ thường dùng: 瓶 (chai), 杯 (cốc). Chữ 水 cũng là một bộ thủ rất quan trọng, khi đứng bên trái viết thành 氵.",
- radical:{char:"水",name:"thủy — bản thân nó là một bộ thủ"}, mnemonic:"水 vẽ dòng nước chảy có nhánh hai bên; khi làm bộ thủ bên trái rút gọn thành ba chấm 氵 — thấy 氵 là biết chữ liên quan tới nước (河、酒、没、汉).", icon:"waterbtl",
- examples:[{h:"再买两瓶水。",p:"Zài mǎi liǎng píng shuǐ.",vi:"Mua thêm hai chai nước nữa."},{h:"两瓶水两块四。",p:"Liǎng píng shuǐ liǎng kuài sì.",vi:"Hai chai nước hai đồng bốn."},{h:"水多少钱一瓶？",p:"Shuǐ duōshao qián yì píng?",vi:"Nước bao nhiêu tiền một chai?"}]},
-"一共":{p:"yígòng",pos:"adv.",hv:"Nhất cộng",vi:"tổng cộng, tất cả là",usage:"Phó từ, đặt TRƯỚC động từ hoặc trước 是: 一共是九块四毛钱. Dùng để chốt tổng số tiền hoặc tổng số lượng.",
- radical:{char:"八",name:"bát — phía dưới chữ 共"}, mnemonic:"共 vẽ hai bàn tay cùng nâng một vật lên — gộp chung lại; 一共 = gộp tất cả thành một.", icon:"pricetag",
- examples:[{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"一共多少钱？",p:"Yígòng duōshao qián?",vi:"Tổng cộng bao nhiêu tiền?"},{h:"一共有多少路公共汽车？",p:"Yígòng yǒu duōshao lù gōnggòng qìchē?",vi:"Tổng cộng có bao nhiêu tuyến xe buýt?"}]},
-"毛":{p:"máo",pos:"mw.",hv:"Mao",vi:"hào (1/10 đồng)",usage:"Đơn vị tiền trong khẩu ngữ, tương ứng 角 (jiǎo) trong văn viết. 1块 = 10毛. Khi đứng CUỐI câu thường thêm 钱: 九块四毛钱; nếu ở giữa thì có thể lược: 三块五 (= 三块五毛).",
- radical:{char:"毛",name:"mao — bản thân nó là một bộ thủ"}, mnemonic:"毛 vẽ một sợi lông cong — vật nhỏ nhẹ; mượn làm đơn vị tiền nhỏ, chỉ bằng một phần mười đồng.", icon:"coin",
- examples:[{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"六毛二。",p:"Liù máo èr.",vi:"Sáu hào hai."},{h:"十二块五毛。",p:"Shí'èr kuài wǔ máo.",vi:"Mười hai đồng năm hào."}]},
-"给":{p:"gěi",pos:"v.",hv:"Cấp",vi:"đưa, cho",usage:"Động từ mang HAI tân ngữ: 给 + [người] + [vật] → 给你钱 = đưa anh tiền. Cũng dùng làm giới từ: 给你打电话 = gọi điện cho bạn.",
- radical:{char:"纟",name:"mịch (sợi tơ) — bên trái chữ 给"}, mnemonic:"给 có bộ 纟(sợi tơ) — thời xưa tơ lụa là của cải đem tặng, trao cho người khác → “đưa, cho”.", icon:"banknote",
- examples:[{h:"给你钱。",p:"Gěi nǐ qián.",vi:"Tiền của anh đây."},{h:"我给你两块。",p:"Wǒ gěi nǐ liǎng kuài.",vi:"Tôi đưa anh hai đồng."},{h:"周末我给你打电话。",p:"Zhōumò wǒ gěi nǐ dǎ diànhuà.",vi:"Cuối tuần tôi gọi điện cho bạn."}]},
-"小姐":{p:"xiǎojie",pos:"n.",hv:"Tiểu thư",vi:"cô, chị (gọi phụ nữ trẻ)",usage:"Cách gọi lịch sự với phụ nữ trẻ, nhất là nhân viên phục vụ nữ — cặp đôi với 师傅 dùng cho nam. Đứng đầu câu như lời gọi: 小姐，有英汉词典吗？",
- radical:{char:"女",name:"nữ — bên trái chữ 姐"}, mnemonic:"姐 = 女 (nữ) + 且 — người chị; 小姐 nghĩa đen “tiểu thư”, nay dùng như “cô, chị” khi gọi người lạ.", icon:"cashier",
- examples:[{h:"小姐，有英汉词典吗？",p:"Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?",vi:"Chị ơi, có từ điển Anh - Hán không ạ?"},{h:"小姐，多少钱一本？",p:"Xiǎojie, duōshao qián yì běn?",vi:"Chị ơi, bao nhiêu tiền một quyển?"},{h:"她是小姐，他是师傅。",p:"Tā shì xiǎojie, tā shì shīfu.",vi:"Cô ấy là “tiểu thư”, anh ấy là “sư phụ”."}]},
-"看":{p:"kàn",pos:"v.",hv:"Khán",vi:"nhìn, xem",usage:"Động từ. 你看 = bạn xem này (dùng để mời người khác chú ý). Kết hợp: 看电影 (xem phim), 看书 (đọc sách).",
- radical:{char:"目",name:"mục (con mắt) — phía dưới chữ 看"}, mnemonic:"看 = 手 (bàn tay) đặt trên 目 (con mắt) — che tay lên mắt để nhìn cho rõ ra xa.", icon:"dict",
- examples:[{h:"你看，这些都是。",p:"Nǐ kàn, zhèxiē dōu shì.",vi:"Chị xem này, đây đều là loại đó cả."},{h:"我看电影。",p:"Wǒ kàn diànyǐng.",vi:"Tôi xem phim."},{h:"你看这本词典吧。",p:"Nǐ kàn zhè běn cídiǎn ba.",vi:"Chị xem quyển từ điển này đi."}]},
-"这些":{p:"zhèxiē",pos:"pron.",hv:"Giá ta",vi:"những cái này",usage:"Dạng SỐ NHIỀU của 这. 些 (xiē) là lượng từ chỉ số nhiều nên sau 这些 KHÔNG thêm lượng từ nữa: nói 这些书 chứ không nói 这些本书. Đối lập: 那些 (những cái kia).",
- radical:{char:"二",name:"nhị — phía dưới chữ 些"}, mnemonic:"些 = 此 (này) + 二 (hai) — hơn một cái, tức là “một vài”; 这些 = mấy cái này.", icon:"dict",
- examples:[{h:"你看，这些都是。",p:"Nǐ kàn, zhèxiē dōu shì.",vi:"Chị xem này, mấy quyển này đều là loại đó."},{h:"这些书都是我的。",p:"Zhèxiē shū dōu shì wǒ de.",vi:"Những quyển sách này đều của tôi."},{h:"这些多少钱？",p:"Zhèxiē duōshao qián?",vi:"Mấy cái này bao nhiêu tiền?"}]},
-"要":{p:"yào",pos:"v.",hv:"Yếu",vi:"muốn, lấy (cái gì)",usage:"Động từ dùng khi chọn mua: 我要这本 = tôi lấy quyển này. Mang thẳng tân ngữ, không cần thêm động từ 买.",
- radical:{char:"女",name:"nữ — phía dưới chữ 要"}, mnemonic:"要 vẽ hình hai tay chống eo người phụ nữ; nghĩa gốc là “vòng eo”, mượn âm thành “muốn, cần”.", icon:"shopbag",
- examples:[{h:"你要哪本呢？",p:"Nǐ yào nǎ běn ne?",vi:"Chị lấy quyển nào ạ?"},{h:"我要这本小词典。",p:"Wǒ yào zhè běn xiǎo cídiǎn.",vi:"Tôi lấy quyển từ điển nhỏ này."},{h:"我要两瓶水。",p:"Wǒ yào liǎng píng shuǐ.",vi:"Tôi lấy hai chai nước."}]},
-"本":{p:"běn",pos:"mw.",hv:"Bản",vi:"quyển (lượng từ cho sách vở)",usage:"Lượng từ dùng cho vật đóng thành tập: 一本书, 两本词典, 这本课本. Vị trí: [số/đại từ chỉ thị] + 本 + [danh từ].",
- radical:{char:"木",name:"mộc (cây) — chữ 本 là 木 thêm nét ngang ở gốc"}, mnemonic:"本 = 木 (cây) thêm một vạch đánh dấu ở GỐC → gốc rễ; sách được đóng gáy như bó gốc nên dùng 本 để đếm.", icon:"dict",
- examples:[{h:"你要哪本呢？",p:"Nǐ yào nǎ běn ne?",vi:"Chị lấy quyển nào ạ?"},{h:"多少钱一本？",p:"Duōshao qián yì běn?",vi:"Bao nhiêu tiền một quyển?"},{h:"我要五本汉语书。",p:"Wǒ yào wǔ běn Hànyǔ shū.",vi:"Tôi lấy năm quyển sách tiếng Hán."}]},
-"小":{p:"xiǎo",pos:"adj.",hv:"Tiểu",vi:"nhỏ, bé",usage:"Tính từ. Làm định ngữ đứng TRƯỚC danh từ: 小词典 = quyển từ điển nhỏ. Trái nghĩa: 大 (dà, lớn).",
- radical:{char:"小",name:"tiểu — bản thân nó là một bộ thủ"}, mnemonic:"小 vẽ ba hạt cát nhỏ rơi xuống — vật bé tí; ngược với 大 là hình người dang rộng tay chân.", icon:"pricetag",
- examples:[{h:"我要这本小词典。",p:"Wǒ yào zhè běn xiǎo cídiǎn.",vi:"Tôi lấy quyển từ điển nhỏ này."},{h:"这本小，那本大。",p:"Zhè běn xiǎo, nà běn dà.",vi:"Quyển này nhỏ, quyển kia to."},{h:"小姐，有小词典吗？",p:"Xiǎojie, yǒu xiǎo cídiǎn ma?",vi:"Chị ơi, có từ điển loại nhỏ không ạ?"}]},
-"零钱":{p:"língqián",pos:"n.",hv:"Linh tiền",vi:"tiền lẻ",usage:"Danh từ. 零 = số không, lẻ; 没有零钱 = không có tiền lẻ — câu rất hay dùng khi mua bán.",
- radical:{char:"雨",name:"vũ (mưa) — phía trên chữ 零"}, mnemonic:"零 có bộ 雨 (mưa) — hạt mưa rơi lắc rắc từng giọt lẻ; nghĩa mở rộng thành “số lẻ, số không”.", icon:"coin",
- examples:[{h:"对不起，我没有零钱。",p:"Duìbuqǐ, wǒ méiyǒu língqián.",vi:"Xin lỗi, tôi không có tiền lẻ."},{h:"你有零钱吗？",p:"Nǐ yǒu língqián ma?",vi:"Bạn có tiền lẻ không?"},{h:"我只有一百块，没有零钱。",p:"Wǒ zhǐ yǒu yìbǎi kuài, méiyǒu língqián.",vi:"Tôi chỉ có tờ một trăm, không có tiền lẻ."}]},
+/* ===== 词语表 Bài 10 — 19 từ mới ===== */
+"照片":{p:"zhàopiàn",pos:"n.",hv:"Chiếu phiến",vi:"bức ảnh, tấm hình",usage:"Danh từ. Lượng từ: 张 (zhāng — tờ, tấm). 我家的照片 = ảnh gia đình tôi. Chụp ảnh là 照相 (zhàoxiàng).",
+ radical:{char:"灬",name:"hỏa (lửa) — bốn chấm dưới chữ 照"}, mnemonic:"照 có bộ 灬 (lửa) ở dưới — cần ánh sáng mới soi rõ; 片 vẽ một mảnh mỏng cắt ra → 照片 = mảnh giấy ghi lại ánh sáng.", icon:"photoframe",
+ examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"对，是我家的照片。",p:"Duì, shì wǒ jiā de zhàopiàn.",vi:"Đúng, là ảnh gia đình mình."},{h:"这张照片很好。",p:"Zhè zhāng zhàopiàn hěn hǎo.",vi:"Tấm ảnh này đẹp lắm."}]},
+"家":{p:"jiā",pos:"n.",hv:"Gia",vi:"nhà, gia đình",usage:"Danh từ. Trước 家 thường lược 的 vì quan hệ thân thiết: 我家 = nhà tôi (không cần nói 我的家). 你家有几口人？là câu hỏi chuẩn về gia đình.",
+ radical:{char:"宀",name:"miên (mái nhà) — phía trên chữ 家"}, mnemonic:"家 = 宀 (mái nhà) + 豕 (con lợn) — nhà nào nuôi được lợn dưới mái là một gia đình no đủ.", icon:"home",
+ examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"}]},
+"口":{p:"kǒu",pos:"mw.",hv:"Khẩu",vi:"(lượng từ đếm nhân khẩu)",usage:"Lượng từ CHỈ dùng để đếm số người trong một gia đình: 五口人 = năm nhân khẩu. Đếm người nói chung thì dùng 个: 三个学生, không nói 三口学生.",
+ radical:{char:"口",name:"khẩu — bản thân nó là một bộ thủ"}, mnemonic:"口 vẽ hình cái miệng mở — mỗi miệng ăn là một nhân khẩu trong nhà; nên chỉ đếm người trong gia đình.", icon:"familygroup",
+ examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"一共六口人？——不，七口。",p:"Yígòng liù kǒu rén? — Bù, qī kǒu.",vi:"Tổng cộng sáu người à? — Không, bảy người."}]},
+"爷爷":{p:"yéye",pos:"n.",hv:"Gia gia",vi:"ông nội",usage:"Danh từ chỉ CHA của bố. Ông ngoại (cha của mẹ) gọi là 外公 wàigōng hoặc 姥爷 lǎoye — tiếng Hán phân biệt rõ họ nội và họ ngoại.",
+ radical:{char:"父",name:"phụ (cha) — phía trên chữ 爷"}, mnemonic:"爷 có bộ 父 (cha) trên đầu — người cha của cha mình, tức ông nội.", icon:"grandpa",
+ examples:[{h:"我家有五口人：爷爷、奶奶、爸爸、妈妈和我。",p:"Wǒ jiā yǒu wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ.",vi:"Nhà tôi có năm người: ông nội, bà nội, bố, mẹ và tôi."},{h:"爷爷和奶奶在家。",p:"Yéye hé nǎinai zài jiā.",vi:"Ông bà nội đang ở nhà."},{h:"这是我爷爷的照片。",p:"Zhè shì wǒ yéye de zhàopiàn.",vi:"Đây là ảnh ông nội tôi."}]},
+"奶奶":{p:"nǎinai",pos:"n.",hv:"Nãi nãi",vi:"bà nội",usage:"Danh từ chỉ MẸ của bố. Bà ngoại gọi là 外婆 wàipó hoặc 姥姥 lǎolao.",
+ radical:{char:"女",name:"nữ — bên trái chữ 奶"}, mnemonic:"奶 = 女 (nữ) + 乃 — người phụ nữ cho sữa, nuôi nấng cả nhà; lặp lại thành 奶奶 = bà nội.", icon:"grandma",
+ examples:[{h:"爷爷、奶奶、爸爸、妈妈和我。",p:"Yéye, nǎinai, bàba, māma hé wǒ.",vi:"Ông nội, bà nội, bố, mẹ và tôi."},{h:"奶奶有一条狗。",p:"Nǎinai yǒu yì tiáo gǒu.",vi:"Bà nội có một con chó."},{h:"我奶奶在中国。",p:"Wǒ nǎinai zài Zhōngguó.",vi:"Bà nội tôi ở Trung Quốc."}]},
+"爸爸":{p:"bàba",pos:"n.",hv:"Ba ba",vi:"bố, cha",usage:"Danh từ, cách gọi thân mật. Trang trọng hơn là 父亲 fùqīn. Âm tiết thứ hai đọc nhẹ (khinh thanh).",
+ radical:{char:"父",name:"phụ (cha) — phía trên chữ 爸"}, mnemonic:"爸 = 父 (cha) + 巴 (mượn âm ba) — chữ tượng thanh, gần giống tiếng gọi “ba” của trẻ con khắp thế giới.", icon:"familygroup",
+ examples:[{h:"我家有爸爸、妈妈、哥哥、弟弟、妹妹。",p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei.",vi:"Nhà tôi có bố, mẹ, anh trai, em trai, em gái."},{h:"爸爸的爸爸是爷爷。",p:"Bàba de bàba shì yéye.",vi:"Bố của bố là ông nội."},{h:"我爸爸是老师。",p:"Wǒ bàba shì lǎoshī.",vi:"Bố tôi là giáo viên."}]},
+"妈妈":{p:"māma",pos:"n.",hv:"Ma ma",vi:"mẹ",usage:"Danh từ, cách gọi thân mật. Trang trọng hơn là 母亲 mǔqīn.",
+ radical:{char:"女",name:"nữ — bên trái chữ 妈"}, mnemonic:"妈 = 女 (nữ) + 马 (mượn âm ma) — chữ hình thanh: bộ 女 cho nghĩa, 马 cho âm.", icon:"familygroup",
+ examples:[{h:"爷爷、奶奶、爸爸、妈妈和我。",p:"Yéye, nǎinai, bàba, māma hé wǒ.",vi:"Ông nội, bà nội, bố, mẹ và tôi."},{h:"爸爸的妈妈是奶奶。",p:"Bàba de māma shì nǎinai.",vi:"Mẹ của bố là bà nội."},{h:"我妈妈有一条狗。",p:"Wǒ māma yǒu yì tiáo gǒu.",vi:"Mẹ tôi có một con chó."}]},
+"哥哥":{p:"gēge",pos:"n.",hv:"Ca ca",vi:"anh trai",usage:"Danh từ chỉ anh trai (lớn tuổi hơn mình). Tiếng Hán phân biệt rõ tuổi: 哥哥 (anh) ≠ 弟弟 (em trai), 姐姐 (chị) ≠ 妹妹 (em gái).",
+ radical:{char:"口",name:"khẩu (miệng) — hai chữ 可 chồng lên tạo thành 哥"}, mnemonic:"哥 do hai chữ 可 chồng lên nhau — người ở tầng trên, sinh trước → anh.", icon:"kid",
+ examples:[{h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?",vi:"Bạn không có anh chị à?"},{h:"我家有一个哥哥。",p:"Wǒ jiā yǒu yí ge gēge.",vi:"Nhà tôi có một anh trai."},{h:"哥哥、弟弟、妹妹和我。",p:"Gēge, dìdi, mèimei hé wǒ.",vi:"Anh trai, em trai, em gái và tôi."}]},
+"姐姐":{p:"jiějie",pos:"n.",hv:"Tỉ tỉ",vi:"chị gái",usage:"Danh từ chỉ chị gái (lớn tuổi hơn mình). Chú ý phân biệt với 小姐 (xiǎojie — cô, chị, dùng gọi người lạ) đã học ở Bài 9.",
+ radical:{char:"女",name:"nữ — bên trái chữ 姐"}, mnemonic:"姐 = 女 (nữ) + 且 (hơn nữa, ở trên) — người con gái sinh trước mình → chị.", icon:"grandma",
+ examples:[{h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?",vi:"Bạn không có anh chị à?"},{h:"我有一个姐姐，还有一个妹妹。",p:"Wǒ yǒu yí ge jiějie, hái yǒu yí ge mèimei.",vi:"Tôi có một chị gái, còn có một em gái nữa."},{h:"姐姐是留学生。",p:"Jiějie shì liúxuéshēng.",vi:"Chị gái tôi là du học sinh."}]},
+"家庭":{p:"jiātíng",pos:"n.",hv:"Gia đình",vi:"gia đình (đơn vị xã hội)",usage:"Danh từ mang sắc thái trang trọng, dùng khi nói khái quát: 中国家庭 = gia đình Trung Quốc. Khi nói về nhà mình thì dùng 家: 我家有五口人 (không nói 我家庭有五口人).",
+ radical:{char:"广",name:"nghiễm (mái hiên) — bao chữ 庭"}, mnemonic:"庭 có bộ 广 (mái hiên) — cái sân trước nhà nơi cả nhà quây quần; 家庭 = mái nhà và cái sân, tức một hộ gia đình.", icon:"heartfam",
+ examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"一个家庭有几口人？",p:"Yí ge jiātíng yǒu jǐ kǒu rén?",vi:"Một gia đình có mấy người?"},{h:"这是一个大家庭。",p:"Zhè shì yí ge dà jiātíng.",vi:"Đây là một gia đình lớn."}]},
+"一般":{p:"yìbān",pos:"adj./adv.",hv:"Nhất ban",vi:"thông thường, nói chung",usage:"Đặt TRƯỚC động từ để nói về thói quen, tình hình phổ biến: 一般只有一个孩子 = thường chỉ có một con. Cũng có nghĩa “bình thường, không đặc biệt”.",
+ radical:{char:"舟",name:"chu (con thuyền) — bên trái chữ 般"}, mnemonic:"般 có bộ 舟 (thuyền) — nghĩa gốc là “loại, kiểu”; 一般 = cùng một kiểu, tức là thông thường như thế.", icon:"chart",
+ examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"我们一般八点上课。",p:"Wǒmen yìbān bā diǎn shàngkè.",vi:"Chúng tôi thường tám giờ vào học."},{h:"一般是九点。",p:"Yìbān shì jiǔ diǎn.",vi:"Thường là chín giờ."}]},
+"只":{p:"zhǐ",pos:"adv.",hv:"Chỉ",vi:"chỉ, chỉ có",usage:"Phó từ giới hạn, đặt TRƯỚC động từ: 只有一个孩子 = chỉ có một con. Chú ý chữ 只 còn đọc zhī và làm lượng từ cho động vật nhỏ (一只猫).",
+ radical:{char:"口",name:"khẩu (miệng) — phía trên chữ 只"}, mnemonic:"只 = 口 (miệng) trên hai nét chống xuống — chỉ một tiếng thốt ra, không hơn → “chỉ, chỉ có”.", icon:"exclaim",
+ examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"我只有一个哥哥。",p:"Wǒ zhǐ yǒu yí ge gēge.",vi:"Tôi chỉ có một anh trai."},{h:"我只买两瓶水。",p:"Wǒ zhǐ mǎi liǎng píng shuǐ.",vi:"Tôi chỉ mua hai chai nước."}]},
+"孩子":{p:"háizi",pos:"n.",hv:"Hài tử",vi:"đứa trẻ; con cái",usage:"Danh từ. Lượng từ: 个. Vừa chỉ trẻ con nói chung, vừa chỉ con cái trong nhà: 一个孩子 = một người con.",
+ radical:{char:"子",name:"tử (đứa con) — bên phải chữ 孩"}, mnemonic:"孩 = 子 (đứa trẻ) + 亥 — bộ 子 vẽ hình em bé quấn tã dang hai tay; hễ chữ nào có 子 thường liên quan tới trẻ nhỏ (学、字、孩).", icon:"kid",
+ examples:[{h:"一般只有一个孩子。",p:"Yìbān zhǐ yǒu yí ge háizi.",vi:"Thường chỉ có một người con."},{h:"这个家庭有两个孩子。",p:"Zhège jiātíng yǒu liǎng ge háizi.",vi:"Gia đình này có hai người con."},{h:"孩子们在家。",p:"Háizimen zài jiā.",vi:"Bọn trẻ đang ở nhà."}]},
+"弟弟":{p:"dìdi",pos:"n.",hv:"Đệ đệ",vi:"em trai",usage:"Danh từ chỉ em trai (nhỏ tuổi hơn mình). Cặp đôi với 哥哥.",
+ radical:{char:"弓",name:"cung (cây cung) — trong chữ 弟"}, mnemonic:"弟 vẽ sợi dây quấn quanh cây cọc theo thứ tự từ dưới lên — thứ tự lớn bé trong nhà → em.", icon:"kid",
+ examples:[{h:"我家有爸爸、妈妈、哥哥、弟弟、妹妹。",p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei.",vi:"Nhà tôi có bố, mẹ, anh trai, em trai, em gái."},{h:"一个弟弟和一个妹妹。",p:"Yí ge dìdi hé yí ge mèimei.",vi:"Một em trai và một em gái."},{h:"我弟弟是学生。",p:"Wǒ dìdi shì xuésheng.",vi:"Em trai tôi là học sinh."}]},
+"妹妹":{p:"mèimei",pos:"n.",hv:"Muội muội",vi:"em gái",usage:"Danh từ chỉ em gái (nhỏ tuổi hơn mình). Cặp đôi với 姐姐.",
+ radical:{char:"女",name:"nữ — bên trái chữ 妹"}, mnemonic:"妹 = 女 (nữ) + 未 (chưa tới) — người con gái sinh sau, chưa lớn bằng mình → em gái.", icon:"kid",
+ examples:[{h:"哥哥、弟弟、妹妹，还有一条狗。",p:"Gēge, dìdi, mèimei, hái yǒu yì tiáo gǒu.",vi:"Anh trai, em trai, em gái, còn có một con chó nữa."},{h:"我有一个姐姐，还有一个妹妹。",p:"Wǒ yǒu yí ge jiějie, hái yǒu yí ge mèimei.",vi:"Tôi có một chị gái, còn có một em gái nữa."},{h:"妹妹很小。",p:"Mèimei hěn xiǎo.",vi:"Em gái tôi còn bé lắm."}]},
+"还":{p:"hái",pos:"adv.",hv:"Hoàn",vi:"còn, còn có… nữa",usage:"Phó từ BỔ SUNG (注释 của bài): kể thêm một thứ nữa ngoài những thứ vừa nói. Đặt TRƯỚC động từ, hay đi thành cụm 还有: …，还有一条狗 = …, còn có một con chó nữa.",
+ radical:{char:"辶",name:"sước (bước đi) — bao chữ 还"}, mnemonic:"还 có bộ 辶 (bước đi) — quay lại thêm một lần nữa, kể thêm một thứ nữa → “còn, còn có”.", icon:"okhand",
+ examples:[{h:"我家有爸爸、妈妈…，还有一条狗。",p:"Wǒ jiā yǒu bàba, māma…, hái yǒu yì tiáo gǒu.",vi:"Nhà tôi có bố, mẹ…, còn có một con chó nữa."},{h:"我有美国朋友、加拿大朋友，还有日本朋友。",p:"Wǒ yǒu Měiguó péngyou, Jiānádà péngyou, hái yǒu Rìběn péngyou.",vi:"Tôi có bạn Mỹ, bạn Canada, còn có cả bạn Nhật nữa."},{h:"我有一个姐姐，还有一个妹妹。",p:"Wǒ yǒu yí ge jiějie, hái yǒu yí ge mèimei.",vi:"Tôi có một chị gái, còn có một em gái nữa."}]},
+"条":{p:"tiáo",pos:"mw.",hv:"Điều",vi:"(lượng từ cho vật dài, ở đây dùng cho chó)",usage:"Lượng từ dùng cho vật DÀI và mềm: 一条狗, 一条鱼 (cá), 一条街 (con phố), 一条路. Chó dùng 条 vì thân dài; mèo thì dùng 只 (zhī).",
+ radical:{char:"木",name:"mộc (cây) — phía dưới chữ 条"}, mnemonic:"条 có bộ 木 (cây) — cành cây nhỏ dài; nên dùng đếm mọi thứ có hình dài thuôn.", icon:"dogicon",
+ examples:[{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."},{h:"我家有两条狗。",p:"Wǒ jiā yǒu liǎng tiáo gǒu.",vi:"Nhà tôi có hai con chó."},{h:"一条狗、一条街、一条路",p:"yì tiáo gǒu, yì tiáo jiē, yì tiáo lù",vi:"một con chó, một con phố, một con đường"}]},
+"狗":{p:"gǒu",pos:"n.",hv:"Cẩu",vi:"con chó",usage:"Danh từ. Lượng từ: 条 hoặc 只. 一条狗 = một con chó.",
+ radical:{char:"犭",name:"khuyển (con chó) — bên trái chữ 狗"}, mnemonic:"狗 có bộ 犭(khuyển) — hình con chó đứng nghiêng; hễ chữ nào có 犭 đều chỉ loài thú bốn chân (猫、猪、狼).", icon:"dogicon",
+ examples:[{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."},{h:"不对，还有一条狗。",p:"Bú duì, hái yǒu yì tiáo gǒu.",vi:"Không đúng, còn một con chó nữa mà."},{h:"这条狗很小。",p:"Zhè tiáo gǒu hěn xiǎo.",vi:"Con chó này bé lắm."}]},
+"这样":{p:"zhèyàng",pos:"pron.",hv:"Giá dạng",vi:"như thế này, thế à",usage:"Đại từ chỉ cách thức. 是这样 = ra là thế / thì ra là vậy — câu cảm thán khi vừa vỡ lẽ ra điều gì.",
+ radical:{char:"木",name:"mộc (cây) — bên trái chữ 样"}, mnemonic:"样 = 木 (gỗ) + 羊 — cái khuôn gỗ để làm mẫu; 这样 = theo cái khuôn này, tức “như thế này”.", icon:"bubbleba",
+ examples:[{h:"是这样……",p:"Shì zhèyàng…",vi:"Thì ra là vậy…"},{h:"是这样吗？",p:"Shì zhèyàng ma?",vi:"Là như thế à?"},{h:"这样很好。",p:"Zhèyàng hěn hǎo.",vi:"Như thế này rất tốt."}]},
 
 /* ===== Từ đã học ở các bài trước — tra được nhưng không liệt kê ===== */
-"大卫":{old:true,p:"Dàwèi",pos:"n.pr.",hv:"Đại Vệ",vi:"David (tên riêng, nam)",usage:"Đã học ở Bài 1. Du học sinh người Mỹ.",
- radical:null, mnemonic:null, icon:"friends",
- examples:[{h:"大卫：师傅，我买啤酒。",p:"Dàwèi: Shīfu, wǒ mǎi píjiǔ.",vi:"David: Anh ơi, tôi mua bia."},{h:"大卫买了两瓶啤酒。",p:"Dàwèi mǎi le liǎng píng píjiǔ.",vi:"David mua hai chai bia."},{h:"大卫是留学生。",p:"Dàwèi shì liúxuéshēng.",vi:"David là du học sinh."}]},
 "玛丽":{old:true,p:"Mǎlì",pos:"n.pr.",hv:"Mã Lệ",vi:"Mary (tên riêng, nữ)",usage:"Đã học ở Bài 3. Du học sinh người Canada.",
- radical:null, mnemonic:null, icon:"friends",
- examples:[{h:"玛丽：小姐，有英汉词典吗？",p:"Mǎlì: Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?",vi:"Mary: Chị ơi, có từ điển Anh - Hán không ạ?"},{h:"玛丽要一本小词典。",p:"Mǎlì yào yì běn xiǎo cídiǎn.",vi:"Mary lấy một quyển từ điển nhỏ."},{h:"玛丽没有零钱。",p:"Mǎlì méiyǒu língqián.",vi:"Mary không có tiền lẻ."}]},
-"英汉词典":{old:true,p:"Yīng-Hàn cídiǎn",pos:"n.",hv:"Anh Hán từ điển",vi:"từ điển Anh - Hán",usage:"Cấu tạo giống 汉日词典 đã học ở Bài 3: [ngôn ngữ] + [ngôn ngữ] + 词典. 英 = tiếng Anh, 汉 = tiếng Hán.",
- radical:{char:"艹",name:"thảo (cỏ) — phía trên chữ 英"}, mnemonic:"英 có bộ 艹 (cỏ hoa) — nghĩa gốc là bông hoa đẹp, sau dùng phiên âm cho “England” → 英语, 英汉词典.", icon:"dict",
- examples:[{h:"小姐，有英汉词典吗？",p:"Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?",vi:"Chị ơi, có từ điển Anh - Hán không ạ?"},{h:"这本英汉词典二十二块。",p:"Zhè běn Yīng-Hàn cídiǎn èrshí'èr kuài.",vi:"Quyển từ điển Anh - Hán này hai mươi hai đồng."},{h:"张红有英语词典吗？",p:"Zhāng Hóng yǒu Yīngyǔ cídiǎn ma?",vi:"Trương Hồng có từ điển tiếng Anh không?"}]},
-"词典":{old:true,p:"cídiǎn",pos:"n.",hv:"Từ điển",vi:"từ điển",usage:"Đã học ở Bài 3. Lượng từ: 本.",
- radical:{char:"讠",name:"ngôn (lời nói) — bên trái chữ 词"}, mnemonic:"词 = 讠(lời nói) + 司; 典 vẽ quyển sách quý đặt trên giá → sách tra từ ngữ.", icon:"dict",
- examples:[{h:"我要这本小词典。",p:"Wǒ yào zhè běn xiǎo cídiǎn.",vi:"Tôi lấy quyển từ điển nhỏ này."},{h:"多少钱一本词典？",p:"Duōshao qián yì běn cídiǎn?",vi:"Một quyển từ điển bao nhiêu tiền?"},{h:"一本词典八十块钱。",p:"Yì běn cídiǎn bāshí kuài qián.",vi:"Một quyển từ điển tám mươi đồng."}]},
-"多少":{old:true,p:"duōshao",pos:"pron.",hv:"Đa thiểu",vi:"bao nhiêu",usage:"Đã học ở Bài 8. Bài 9 học sâu hơn: 多少 dùng cho số lượng LỚN (trên 10) hoặc số bất kỳ, sau nó không bắt buộc có lượng từ.",
- radical:{char:"夕",name:"tịch (buổi tối) — hai chữ 夕 chồng thành 多"}, mnemonic:"多 = hai chữ 夕 chồng lên nhau, hết tối này tới tối khác → nhiều; ghép với 少 (ít) thành “nhiều hay ít” = bao nhiêu.", icon:"pricetag",
- examples:[{h:"多少钱一瓶？",p:"Duōshao qián yì píng?",vi:"Bao nhiêu tiền một chai?"},{h:"多少钱一本？",p:"Duōshao qián yì běn?",vi:"Bao nhiêu tiền một quyển?"},{h:"玛丽有多少本书？",p:"Mǎlì yǒu duōshao běn shū?",vi:"Mary có bao nhiêu quyển sách?"}]},
-"几":{old:true,p:"jǐ",pos:"pron.",hv:"Kỷ",vi:"mấy (số nhỏ dưới 10)",usage:"Đã học ở Bài 6. Bài 9 nhấn lại: 几 dùng khi đoán câu trả lời là số NHỎ và bắt buộc có lượng từ đứng sau — 几瓶, 几本, 几个.",
- radical:{char:"几",name:"kỷ — bản thân nó là một bộ thủ"}, mnemonic:"几 vẽ cái bàn nhỏ hai chân — đếm được ngay bằng mắt, nên dùng hỏi số lượng ít.", icon:"qmark",
- examples:[{h:"你买几瓶？",p:"Nǐ mǎi jǐ píng?",vi:"Anh mua mấy chai?"},{h:"你要几本汉语书？",p:"Nǐ yào jǐ běn Hànyǔ shū?",vi:"Bạn lấy mấy quyển sách tiếng Hán?"},{h:"他要几瓶啤酒？",p:"Tā yào jǐ píng píjiǔ?",vi:"Anh ấy lấy mấy chai bia?"}]},
-"哪":{old:true,p:"nǎ",pos:"pron.",hv:"Na",vi:"nào (cái nào)",usage:"Đã học ở Bài 3. Dùng để chọn lựa, sau nó phải có LƯỢNG TỪ: 哪本 = quyển nào, 哪个 = cái nào. Phân biệt với 那 (nà — kia).",
- radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 哪"}, mnemonic:"哪 = 口 (miệng) + 那 (kia) — mở miệng hỏi “cái kia là cái nào?”.", icon:"qmark",
- examples:[{h:"你要哪本呢？",p:"Nǐ yào nǎ běn ne?",vi:"Chị lấy quyển nào ạ?"},{h:"哪本是你的词典？",p:"Nǎ běn shì nǐ de cídiǎn?",vi:"Quyển nào là từ điển của bạn?"},{h:"你要哪瓶？",p:"Nǐ yào nǎ píng?",vi:"Bạn lấy chai nào?"}]},
-"呢":{old:true,p:"ne",pos:"part.",hv:"Ni (trợ từ)",vi:"trợ từ cuối câu hỏi",usage:"Đã học ở Bài 8. Đặt cuối câu hỏi đặc chỉ (có 哪/怎么/谁…) cho giọng mềm hơn. Câu có từ để hỏi thì dùng 呢, không dùng 吗.",
- radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 呢"}, mnemonic:"呢 có bộ 口 — tiếng kéo dài cuối câu, như “… nhỉ?” trong tiếng Việt.", icon:"bubbleba",
- examples:[{h:"你要哪本呢？",p:"Nǐ yào nǎ běn ne?",vi:"Chị lấy quyển nào nhỉ?"},{h:"去图书馆怎么走呢？",p:"Qù túshūguǎn zěnme zǒu ne?",vi:"Đến thư viện đi thế nào nhỉ?"},{h:"这是谁的书呢？",p:"Zhè shì shéi de shū ne?",vi:"Đây là sách của ai nhỉ?"}]},
-"都":{old:true,p:"dōu",pos:"adv.",hv:"Đô",vi:"đều, tất cả",usage:"Đã học ở Bài 8. Đặt sau chủ ngữ, trước động từ: 这些都是。",
- radical:{char:"阝",name:"phụ (ấp) — bên phải chữ 都"}, mnemonic:"都 vốn là “kinh đô” (dū) — nơi tụ hội tất cả; đọc dōu thành “đều”.", icon:"okhand",
- examples:[{h:"你看，这些都是。",p:"Nǐ kàn, zhèxiē dōu shì.",vi:"Chị xem, mấy quyển này đều là loại đó."},{h:"这些书都是我的。",p:"Zhèxiē shū dōu shì wǒ de.",vi:"Những quyển sách này đều là của tôi."},{h:"21路和106路都到。",p:"Èrshíyī lù hé yāo líng liù lù dōu dào.",vi:"Tuyến 21 và 106 đều tới."}]},
-"有":{old:true,p:"yǒu",pos:"v.",hv:"Hữu",vi:"có",usage:"Đã học ở Bài 7. Phủ định là 没有. Ở đây dùng để hỏi cửa hàng có bán món gì không: 有英汉词典吗？",
+ radical:null, mnemonic:null, icon:"familygroup",
+ examples:[{h:"玛丽，你家都有什么人？",p:"Mǎlì, nǐ jiā dōu yǒu shénme rén?",vi:"Mary, nhà cậu có những ai?"},{h:"玛丽家有七口人。",p:"Mǎlì jiā yǒu qī kǒu rén.",vi:"Nhà Mary có bảy người."},{h:"玛丽有一条狗。",p:"Mǎlì yǒu yì tiáo gǒu.",vi:"Mary có một con chó."}]},
+"张红":{old:true,p:"Zhāng Hóng",pos:"n.pr.",hv:"Trương Hồng",vi:"Trương Hồng (tên riêng, nữ)",usage:"Đã học ở Bài 8. Nhân vật nữ người Trung Quốc.",
+ radical:{char:"弓",name:"cung (cây cung) — bên trái chữ 张"}, mnemonic:"张 = 弓 (cung) + 长 — giương cây cung; là một họ rất phổ biến. 红 = màu đỏ.", icon:"grandma",
+ examples:[{h:"张红：对，是我家的照片。",p:"Zhāng Hóng: Duì, shì wǒ jiā de zhàopiàn.",vi:"Trương Hồng: Đúng, là ảnh gia đình mình."},{h:"张红家有五口人。",p:"Zhāng Hóng jiā yǒu wǔ kǒu rén.",vi:"Nhà Trương Hồng có năm người."},{h:"张红没有哥哥姐姐。",p:"Zhāng Hóng méiyǒu gēge jiějie.",vi:"Trương Hồng không có anh chị."}]},
+"人":{old:true,p:"rén",pos:"n.",hv:"Nhân",vi:"người",usage:"Đã học ở bài trước. Ghép sau tên nước để chỉ quốc tịch: 中国人, 美国人. Đếm bằng 个, riêng người trong gia đình đếm bằng 口.",
+ radical:{char:"人",name:"nhân — bản thân nó là một bộ thủ"}, mnemonic:"人 vẽ hình một người đang sải bước nhìn nghiêng; khi làm bộ thủ bên trái viết thành 亻 (你、他、们).", icon:"familygroup",
+ examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"一共六口人？",p:"Yígòng liù kǒu rén?",vi:"Tổng cộng sáu người à?"}]},
+"个":{old:true,p:"ge",pos:"mw.",hv:"Cá",vi:"cái, người (lượng từ dùng chung)",usage:"Đã học ở Bài 4. Lượng từ phổ thông nhất, dùng được cho hầu hết danh từ chỉ người và đồ vật: 一个孩子, 一个哥哥, 一个学校.",
+ radical:{char:"人",name:"nhân (người) — phía trên chữ 个"}, mnemonic:"个 vẽ cây tre chẻ đôi — mỗi nhánh là “một cái”; phần trên giống bộ 人 nên rất hay dùng đếm người.", icon:"okhand",
+ examples:[{h:"一般只有一个孩子。",p:"Yìbān zhǐ yǒu yí ge háizi.",vi:"Thường chỉ có một người con."},{h:"一个哥哥、一个弟弟、一个妹妹。",p:"Yí ge gēge, yí ge dìdi, yí ge mèimei.",vi:"Một anh trai, một em trai, một em gái."},{h:"这个家庭有两个孩子。",p:"Zhège jiātíng yǒu liǎng ge háizi.",vi:"Gia đình này có hai người con."}]},
+"有":{old:true,p:"yǒu",pos:"v.",hv:"Hữu",vi:"có",usage:"Đã học ở Bài 7. Phủ định là 没有. Trọng tâm của bài này: 你家有几口人？／我家有五口人。",
  radical:{char:"月",name:"nguyệt (thịt) — phía dưới chữ 有"}, mnemonic:"有 vẽ bàn tay đang cầm miếng thịt 月 — trong tay đang giữ thứ gì đó.", icon:"okhand",
- examples:[{h:"小姐，有英汉词典吗？",p:"Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?",vi:"Chị ơi, có từ điển Anh - Hán không ạ?"},{h:"有。你看，这些都是。",p:"Yǒu. Nǐ kàn, zhèxiē dōu shì.",vi:"Có. Chị xem, mấy quyển này đều là."},{h:"你有零钱吗？",p:"Nǐ yǒu língqián ma?",vi:"Bạn có tiền lẻ không?"}]},
+ examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."}]},
 "没有":{old:true,p:"méiyǒu",pos:"v.",hv:"Một hữu",vi:"không có",usage:"Đã học ở Bài 7. Dạng phủ định duy nhất của 有 — không bao giờ nói 不有.",
  radical:{char:"氵",name:"thủy (nước) — bên trái chữ 没"}, mnemonic:"没 có bộ 氵(nước) — vật chìm mất hút dưới nước → không còn.", icon:"exclaim",
- examples:[{h:"对不起，我没有零钱。",p:"Duìbuqǐ, wǒ méiyǒu língqián.",vi:"Xin lỗi, tôi không có tiền lẻ."},{h:"我没有钱。",p:"Wǒ méiyǒu qián.",vi:"Tôi không có tiền."},{h:"这儿没有英汉词典。",p:"Zhèr méiyǒu Yīng-Hàn cídiǎn.",vi:"Ở đây không có từ điển Anh - Hán."}]},
-"对不起":{old:true,p:"duìbuqǐ",pos:"v.",hv:"Đối bất khởi",vi:"xin lỗi",usage:"Đã học ở Bài 4. Câu đáp lễ tương ứng là 没关系.",
- radical:{char:"寸",name:"thốn — bên phải chữ 对"}, mnemonic:"对不起 nghĩa gốc “không ngẩng mặt đối diện được” — thấy có lỗi nên không dám nhìn thẳng.", icon:"sorry",
- examples:[{h:"对不起，我没有零钱。",p:"Duìbuqǐ, wǒ méiyǒu língqián.",vi:"Xin lỗi, tôi không có tiền lẻ."},{h:"对不起！——没关系。",p:"Duìbuqǐ! — Méi guānxi.",vi:"Xin lỗi! — Không sao đâu."},{h:"对不起，我不知道。",p:"Duìbuqǐ, wǒ bù zhīdào.",vi:"Xin lỗi, tôi không biết."}]},
-"没关系":{old:true,p:"méi guānxi",pos:"—",hv:"Một quan hệ",vi:"không sao, không hề gì",usage:"Đã học ở Bài 4. Dùng đáp lại 对不起 — khác với 不用谢 / 不客气 là để đáp lại 谢谢.",
- radical:{char:"氵",name:"thủy (nước) — bên trái chữ 没"}, mnemonic:"没关系 nghĩa đen “không có liên quan gì” → chuyện đó chẳng ảnh hưởng, không sao.", icon:"okhand",
- examples:[{h:"没关系。",p:"Méi guānxi.",vi:"Không sao đâu ạ."},{h:"对不起！——没关系。",p:"Duìbuqǐ! — Méi guānxi.",vi:"Xin lỗi! — Không sao mà."},{h:"没关系，我等你。",p:"Méi guānxi, wǒ děng nǐ.",vi:"Không sao, tôi đợi bạn."}]},
-"这":{old:true,p:"zhè",pos:"pron.",hv:"Giá",vi:"này, đây",usage:"Đã học ở Bài 3. Trước danh từ phải có lượng từ: 这本词典. Dạng số nhiều là 这些.",
+ examples:[{h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?",vi:"Bạn không có anh chị à?"},{h:"没有，现在中国家庭一般只有一个孩子。",p:"Méiyǒu, xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Không có, hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"我没有弟弟。",p:"Wǒ méiyǒu dìdi.",vi:"Tôi không có em trai."}]},
+"几":{old:true,p:"jǐ",pos:"pron.",hv:"Kỷ",vi:"mấy (số nhỏ dưới 10)",usage:"Đã học ở Bài 6 và Bài 9. Bắt buộc có lượng từ đứng sau: 几口人, 几个孩子, 几条狗.",
+ radical:{char:"几",name:"kỷ — bản thân nó là một bộ thủ"}, mnemonic:"几 vẽ cái bàn nhỏ hai chân — đếm được ngay bằng mắt nên dùng hỏi số ít.", icon:"qmark",
+ examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"你有几个孩子？",p:"Nǐ yǒu jǐ ge háizi?",vi:"Bạn có mấy người con?"},{h:"你家有几条狗？",p:"Nǐ jiā yǒu jǐ tiáo gǒu?",vi:"Nhà bạn có mấy con chó?"}]},
+"什么":{old:true,p:"shénme",pos:"pron.",hv:"Thập ma",vi:"cái gì, gì; những ai",usage:"Đã học ở Bài 1. Trong 都有什么人 thì 什么人 nghĩa là “những ai, những người nào” — hỏi liệt kê chứ không hỏi số lượng.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 什"}, mnemonic:"什 = 亻(người) + 十 (mười) — nhiều loại thứ khác nhau → hỏi “cái gì”.", icon:"qmark",
+ examples:[{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"什么事？",p:"Shénme shì?",vi:"Có chuyện gì thế?"},{h:"这是什么？",p:"Zhè shì shénme?",vi:"Đây là cái gì?"}]},
+"都":{old:true,p:"dōu",pos:"adv.",hv:"Đô",vi:"đều, tất cả",usage:"Đã học ở Bài 8. Trong câu hỏi 你家都有什么人？thì 都 nhấn ý “liệt kê cho hết” — hãy kể ra tất cả.",
+ radical:{char:"阝",name:"phụ (ấp) — bên phải chữ 都"}, mnemonic:"都 vốn là “kinh đô” (dū) — nơi tụ hội tất cả; đọc dōu thành “đều”.", icon:"okhand",
+ examples:[{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"这些都是。",p:"Zhèxiē dōu shì.",vi:"Mấy cái này đều là."},{h:"我们都是留学生。",p:"Wǒmen dōu shì liúxuéshēng.",vi:"Chúng tôi đều là du học sinh."}]},
+"一共":{old:true,p:"yígòng",pos:"adv.",hv:"Nhất cộng",vi:"tổng cộng",usage:"Đã học ở Bài 9. Đặt trước động từ hoặc trước số: 一共六口人？",
+ radical:{char:"八",name:"bát — phía dưới chữ 共"}, mnemonic:"共 vẽ hai bàn tay cùng nâng một vật — gộp chung lại; 一共 = gộp tất cả thành một.", icon:"chart",
+ examples:[{h:"一共六口人？",p:"Yígòng liù kǒu rén?",vi:"Tổng cộng sáu người à?"},{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"一共有几个孩子？",p:"Yígòng yǒu jǐ ge háizi?",vi:"Tổng cộng có mấy người con?"}]},
+"现在":{old:true,p:"xiànzài",pos:"n.",hv:"Hiện tại",vi:"bây giờ, hiện nay",usage:"Đã học ở Bài 6. Ở đây mang nghĩa “thời nay, hiện nay”: 现在中国家庭…",
+ radical:{char:"王",name:"vương/ngọc — bên trái chữ 现"}, mnemonic:"现 = 王 (ngọc) + 见 (thấy) — viên ngọc lộ ra trước mắt; 在 = đang ở → lúc này.", icon:"clocknight",
+ examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"现在几点？",p:"Xiànzài jǐ diǎn?",vi:"Bây giờ mấy giờ?"},{h:"现在我在家。",p:"Xiànzài wǒ zài jiā.",vi:"Bây giờ tôi đang ở nhà."}]},
+"中国":{old:true,p:"Zhōngguó",pos:"n.pr.",hv:"Trung Quốc",vi:"Trung Quốc",usage:"Đã học ở Bài 3. Người Trung Quốc = 中国人.",
+ radical:{char:"囗",name:"vi (vòng bao) — bao ngoài chữ 国"}, mnemonic:"国 có bộ 囗 (đường biên bao quanh) ôm lấy 玉 (ngọc) — lãnh thổ có báu vật bên trong.", icon:"globe",
+ examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"中国家庭一般很小。",p:"Zhōngguó jiātíng yìbān hěn xiǎo.",vi:"Gia đình Trung Quốc thường khá ít người."},{h:"张红是中国人。",p:"Zhāng Hóng shì Zhōngguó rén.",vi:"Trương Hồng là người Trung Quốc."}]},
+"和":{old:true,p:"hé",pos:"conj.",hv:"Hòa",vi:"và, với",usage:"Đã học ở Bài 8. Chỉ nối DANH TỪ, thường đặt trước thành phần cuối cùng trong dãy liệt kê: 爷爷、奶奶、爸爸、妈妈和我。",
+ radical:{char:"禾",name:"hòa (lúa) — bên trái chữ 和"}, mnemonic:"和 = 禾 (lúa) + 口 (miệng) — có lúa vào miệng thì hòa thuận, gắn với nhau.", icon:"handshake",
+ examples:[{h:"爷爷、奶奶、爸爸、妈妈和我。",p:"Yéye, nǎinai, bàba, māma hé wǒ.",vi:"Ông nội, bà nội, bố, mẹ và tôi."},{h:"一个妹妹和你。",p:"Yí ge mèimei hé nǐ.",vi:"Một em gái và cậu."},{h:"我和玛丽都是留学生。",p:"Wǒ hé Mǎlì dōu shì liúxuéshēng.",vi:"Tôi và Mary đều là du học sinh."}]},
+"对":{old:true,p:"duì",pos:"adj.",hv:"Đối",vi:"đúng, phải",usage:"Đã học ở Bài 7. Dùng riêng để xác nhận: 对。= Đúng vậy. Phủ định: 不对 = không đúng.",
+ radical:{char:"寸",name:"thốn — bên phải chữ 对"}, mnemonic:"对 gốc nghĩa “đối ứng, khớp nhau” — hai bên khớp nhau thì tức là đúng.", icon:"check",
+ examples:[{h:"对，是我家的照片。",p:"Duì, shì wǒ jiā de zhàopiàn.",vi:"Đúng, là ảnh gia đình mình."},{h:"六口，对吧？",p:"Liù kǒu, duì ba?",vi:"Sáu người, đúng không?"},{h:"不对，还有一条狗。",p:"Bú duì, hái yǒu yì tiáo gǒu.",vi:"Không đúng, còn một con chó nữa."}]},
+"吧":{old:true,p:"ba",pos:"part.",hv:"Ba (trợ từ)",vi:"trợ từ cuối câu",usage:"Đã học ở Bài 7 (xác nhận phỏng đoán) và Bài 8 (đề nghị). Ở đây là nghĩa xác nhận: 对吧？= đúng không nhỉ?",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 吧"}, mnemonic:"吧 có bộ 口 — một tiếng buông nhẹ cuối câu, như “nhỉ, nhé” trong tiếng Việt.", icon:"bubbleba",
+ examples:[{h:"六口，对吧？",p:"Liù kǒu, duì ba?",vi:"Sáu người, đúng không nhỉ?"},{h:"你有自行车吧？",p:"Nǐ yǒu zìxíngchē ba?",vi:"Bạn có xe đạp đúng không?"},{h:"来我们学校玩儿吧！",p:"Lái wǒmen xuéxiào wánr ba!",vi:"Đến trường mình chơi đi!"}]},
+"这":{old:true,p:"zhè",pos:"pron.",hv:"Giá",vi:"này, đây",usage:"Đã học ở Bài 3. Trước danh từ cần có lượng từ: 这张照片.",
  radical:{char:"辶",name:"sước (bước đi) — bao quanh chữ 这"}, mnemonic:"这 có bộ 辶 (bước chân) — chỉ cần một bước là tới, tức ở ngay đây.", icon:"check",
- examples:[{h:"我要这本小词典。",p:"Wǒ yào zhè běn xiǎo cídiǎn.",vi:"Tôi lấy quyển từ điển nhỏ này."},{h:"这瓶多少钱？",p:"Zhè píng duōshao qián?",vi:"Chai này bao nhiêu tiền?"},{h:"这是钥匙。",p:"Zhè shì yàoshi.",vi:"Đây là chìa khóa."}]},
-"是":{old:true,p:"shì",pos:"v.",hv:"Thị",vi:"là; đúng",usage:"Đã học ở Bài 1. Trong câu tính tiền thường có 是: 一共是九块四毛钱。",
+ examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"这条狗很小。",p:"Zhè tiáo gǒu hěn xiǎo.",vi:"Con chó này bé lắm."},{h:"这个家庭有五口人。",p:"Zhège jiātíng yǒu wǔ kǒu rén.",vi:"Gia đình này có năm người."}]},
+"是":{old:true,p:"shì",pos:"v.",hv:"Thị",vi:"là; đúng",usage:"Đã học ở Bài 1. Chú ý: nói SỞ HỮU thì dùng 有, không dùng 是 — 我家有五口人 chứ không nói 我家是五口人.",
  radical:{char:"日",name:"nhật (mặt trời) — phía trên chữ 是"}, mnemonic:"是 có bộ 日 trên đầu — chân lý sáng rõ như ban ngày.", icon:"check",
- examples:[{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"这些都是。",p:"Zhèxiē dōu shì.",vi:"Mấy quyển này đều là loại đó."},{h:"她是售货员。",p:"Tā shì shòuhuòyuán.",vi:"Cô ấy là nhân viên bán hàng."}]},
-"我":{old:true,p:"wǒ",pos:"pron.",hv:"Ngã",vi:"tôi, mình",usage:"Đã học ở Bài 1.",
+ examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"是我家的照片。",p:"Shì wǒ jiā de zhàopiàn.",vi:"Là ảnh gia đình mình."},{h:"是这样……",p:"Shì zhèyàng…",vi:"Thì ra là vậy…"}]},
+"的":{old:true,p:"de",pos:"part.",hv:"Đích (trợ từ)",vi:"trợ từ định ngữ: “của”",usage:"Đã học ở Bài 3. Lưu ý: với người thân và tổ chức thân thiết thì lược 的 — nói 我家, 我爸爸 chứ ít khi nói 我的家, 我的爸爸.",
+ radical:{char:"白",name:"bạch (trắng) — bên trái chữ 的"}, mnemonic:"的 có bộ 白 (rõ ràng) — làm rõ thứ đó thuộc về ai.", icon:"check",
+ examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"是我家的照片。",p:"Shì wǒ jiā de zhàopiàn.",vi:"Là ảnh của gia đình mình."},{h:"爸爸的爸爸是爷爷。",p:"Bàba de bàba shì yéye.",vi:"Bố của bố là ông nội."}]},
+"我":{old:true,p:"wǒ",pos:"pron.",hv:"Ngã",vi:"tôi, mình",usage:"Đã học ở Bài 1. 我家 = nhà tôi (lược 的).",
  radical:{char:"戈",name:"qua (vũ khí cổ) — bên phải chữ 我"}, mnemonic:"我 có bộ 戈 (vũ khí) — cầm vũ khí bảo vệ bản thân.", icon:"nametag",
- examples:[{h:"师傅，我买啤酒。",p:"Shīfu, wǒ mǎi píjiǔ.",vi:"Anh ơi, tôi mua bia."},{h:"我要这本小词典。",p:"Wǒ yào zhè běn xiǎo cídiǎn.",vi:"Tôi lấy quyển từ điển nhỏ này."},{h:"我没有零钱。",p:"Wǒ méiyǒu língqián.",vi:"Tôi không có tiền lẻ."}]},
-"你":{old:true,p:"nǐ",pos:"pron.",hv:"Nhĩ",vi:"bạn, anh, chị",usage:"Đã học ở Bài 1.",
+ examples:[{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"爸爸、妈妈和我。",p:"Bàba, māma hé wǒ.",vi:"Bố, mẹ và tôi."},{h:"我只有一个哥哥。",p:"Wǒ zhǐ yǒu yí ge gēge.",vi:"Tôi chỉ có một anh trai."}]},
+"你":{old:true,p:"nǐ",pos:"pron.",hv:"Nhĩ",vi:"bạn, cậu",usage:"Đã học ở Bài 1. 你家 = nhà bạn.",
  radical:{char:"亻",name:"nhân đứng — bên trái chữ 你"}, mnemonic:"你 có bộ 亻(người) — người đang đứng đối diện mình.", icon:"handshake",
- examples:[{h:"你买几瓶？",p:"Nǐ mǎi jǐ píng?",vi:"Anh mua mấy chai?"},{h:"你要哪本呢？",p:"Nǐ yào nǎ běn ne?",vi:"Chị lấy quyển nào ạ?"},{h:"给你钱。",p:"Gěi nǐ qián.",vi:"Tiền của anh đây."}]},
-"二":{old:true,p:"èr",pos:"num.",hv:"Nhị",vi:"hai (2)",usage:"Đã học ở Bài 6. Dùng khi ĐẾM SỐ, đọc số hiệu, số thứ tự: 十二, 二十, 第二, 二号楼. Trước lượng từ thì phải đổi thành 两.",
- radical:{char:"二",name:"nhị — bản thân nó là một bộ thủ"}, mnemonic:"二 là hai nét ngang song song — đơn giản nhất, chỉ số hai.", icon:"coin",
- examples:[{h:"二十二块。",p:"Èrshí'èr kuài.",vi:"Hai mươi hai đồng."},{h:"十二、二十、二十二",p:"shí'èr, èrshí, èrshí'èr",vi:"mười hai, hai mươi, hai mươi hai"},{h:"二号楼、二路公共汽车",p:"èr hào lóu, èr lù gōnggòng qìchē",vi:"tòa số 2, xe buýt tuyến 2"}]},
-"三":{old:true,p:"sān",pos:"num.",hv:"Tam",vi:"ba (3)",usage:"Đã học ở Bài 6.",
- radical:{char:"一",name:"nhất — ba nét ngang tạo thành chữ 三"}, mnemonic:"三 là ba nét ngang chồng lên nhau — đếm bằng mắt là ra.", icon:"coin",
- examples:[{h:"三块五。",p:"Sān kuài wǔ.",vi:"Ba đồng năm."},{h:"他要三瓶啤酒。",p:"Tā yào sān píng píjiǔ.",vi:"Anh ấy lấy ba chai bia."},{h:"三十、十三",p:"sānshí, shísān",vi:"ba mươi, mười ba"}]},
-"四":{old:true,p:"sì",pos:"num.",hv:"Tứ",vi:"bốn (4)",usage:"Đã học ở Bài 6.",
- radical:{char:"囗",name:"vi (vòng bao) — bao ngoài chữ 四"}, mnemonic:"四 vốn vẽ bốn vạch, sau biến thành hình chiếc miệng mở có hai nét bên trong.", icon:"coin",
- examples:[{h:"两瓶水两块四。",p:"Liǎng píng shuǐ liǎng kuài sì.",vi:"Hai chai nước hai đồng bốn."},{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"四十、十四",p:"sìshí, shísì",vi:"bốn mươi, mười bốn"}]},
-"五":{old:true,p:"wǔ",pos:"num.",hv:"Ngũ",vi:"năm (5)",usage:"Đã học ở Bài 6.",
- radical:{char:"二",name:"nhị — hai nét ngang kẹp chữ 五"}, mnemonic:"五 vẽ hai vạch trời đất kẹp một nét chéo giao nhau ở giữa — biểu tượng ngũ hành.", icon:"coin",
- examples:[{h:"三块五。",p:"Sān kuài wǔ.",vi:"Ba đồng năm."},{h:"我要五本汉语书。",p:"Wǒ yào wǔ běn Hànyǔ shū.",vi:"Tôi lấy năm quyển sách tiếng Hán."},{h:"五块、五毛",p:"wǔ kuài, wǔ máo",vi:"năm đồng, năm hào"}]},
-"七":{old:true,p:"qī",pos:"num.",hv:"Thất",vi:"bảy (7)",usage:"Đã học ở Bài 6. Chú ý khi đọc dãy số hiệu thì 1 đọc là yāo để tránh nhầm với 七 (qī).",
- radical:{char:"一",name:"nhất — nét ngang của chữ 七"}, mnemonic:"七 vẽ một vạch bị cắt ngang — nghĩa gốc là “cắt”, sau mượn làm số bảy.", icon:"coin",
- examples:[{h:"两瓶啤酒七块。",p:"Liǎng píng píjiǔ qī kuài.",vi:"Hai chai bia bảy đồng."},{h:"七十四块八毛二。",p:"Qīshísì kuài bā máo èr.",vi:"Bảy mươi tư đồng tám hào hai."},{h:"七十、十七",p:"qīshí, shíqī",vi:"bảy mươi, mười bảy"}]},
-"九":{old:true,p:"jiǔ",pos:"num.",hv:"Cửu",vi:"chín (9)",usage:"Đã học ở Bài 6.",
- radical:{char:"乙",name:"ất — nét móc cong tạo thành chữ 九"}, mnemonic:"九 vẽ cánh tay co lại hết cỡ — số lớn nhất chỉ có một chữ số.", icon:"coin",
- examples:[{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"九块、九毛",p:"jiǔ kuài, jiǔ máo",vi:"chín đồng, chín hào"},{h:"九十、十九",p:"jiǔshí, shíjiǔ",vi:"chín mươi, mười chín"}]},
-"十":{old:true,p:"shí",pos:"num.",hv:"Thập",vi:"mười (10)",usage:"Đã học ở Bài 6. Là “trục” tạo mọi số hàng chục: 十二 (12), 二十 (20), 二十二 (22).",
- radical:{char:"十",name:"thập — bản thân nó là một bộ thủ"}, mnemonic:"十 là hai nét cắt ngang nhau như dấu thập — trọn một bó mười.", icon:"coin",
- examples:[{h:"二十二块。",p:"Èrshí'èr kuài.",vi:"Hai mươi hai đồng."},{h:"一本词典八十块钱。",p:"Yì běn cídiǎn bāshí kuài qián.",vi:"Một quyển từ điển tám mươi đồng."},{h:"十二、二十、二十二",p:"shí'èr, èrshí, èrshí'èr",vi:"mười hai, hai mươi, hai mươi hai"}]},
-"一":{old:true,p:"yī / yì / yí",pos:"num.",hv:"Nhất",vi:"một (1)",usage:"Đã học ở Bài 6. Biến điệu: trước thanh 4 đọc yí (一本 yì běn… thực ra 本 là thanh 3 nên đọc yì; 一共 yígòng vì 共 thanh 4); trước thanh 1/2/3 đọc yì (一瓶 yì píng, 一百 yì bǎi).",
+ examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"一个妹妹和你。",p:"Yí ge mèimei hé nǐ.",vi:"Một em gái và cậu."}]},
+"不":{old:true,p:"bù",pos:"adv.",hv:"Bất",vi:"không",usage:"Đã học ở Bài 1. Dùng riêng để phủ nhận: 不，七口。= Không, bảy người. Phủ định của 有 vẫn phải là 没有.",
+ radical:{char:"一",name:"nhất — nét ngang trên đầu chữ 不"}, mnemonic:"不 giống cánh chim bay lên bị một vạch ngang chặn lại → phủ định.", icon:"exclaim",
+ examples:[{h:"不，七口。",p:"Bù, qī kǒu.",vi:"Không, bảy người."},{h:"不对，还有一条狗。",p:"Bú duì, hái yǒu yì tiáo gǒu.",vi:"Không đúng, còn một con chó nữa."},{h:"不是，我不是老师。",p:"Bú shì, wǒ bú shì lǎoshī.",vi:"Không phải, tôi không phải giáo viên."}]},
+"一":{old:true,p:"yī / yì / yí",pos:"num.",hv:"Nhất",vi:"một (1)",usage:"Đã học ở Bài 6. Biến điệu: trước thanh 4 đọc yí (一个 yí ge), trước thanh 1/2/3 đọc yì (一条 yì tiáo, 一般 yìbān).",
  radical:{char:"一",name:"nhất — bản thân nó là một bộ thủ"}, mnemonic:"一 là một vạch ngang duy nhất — chữ đơn giản nhất trong Hán tự.", icon:"coin",
- examples:[{h:"多少钱一瓶？",p:"Duōshao qián yì píng?",vi:"Bao nhiêu tiền một chai?"},{h:"多少钱一本？",p:"Duōshao qián yì běn?",vi:"Bao nhiêu tiền một quyển?"},{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."}]}
+ examples:[{h:"一般只有一个孩子。",p:"Yìbān zhǐ yǒu yí ge háizi.",vi:"Thường chỉ có một người con."},{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."},{h:"一个哥哥、一个弟弟。",p:"Yí ge gēge, yí ge dìdi.",vi:"Một anh trai, một em trai."}]},
+"五":{old:true,p:"wǔ",pos:"num.",hv:"Ngũ",vi:"năm (5)",usage:"Đã học ở Bài 6.",
+ radical:{char:"二",name:"nhị — hai nét ngang kẹp chữ 五"}, mnemonic:"五 vẽ hai vạch trời đất kẹp một nét chéo giao nhau ở giữa.", icon:"coin",
+ examples:[{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"五口人：爷爷、奶奶、爸爸、妈妈和我。",p:"Wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ.",vi:"Năm người: ông nội, bà nội, bố, mẹ và tôi."},{h:"五个孩子",p:"wǔ ge háizi",vi:"năm người con"}]},
+"六":{old:true,p:"liù",pos:"num.",hv:"Lục",vi:"sáu (6)",usage:"Đã học ở Bài 6.",
+ radical:{char:"亠",name:"đầu — nét trên đỉnh chữ 六"}, mnemonic:"六 vẽ hình mái nhà có hai chân chống.", icon:"coin",
+ examples:[{h:"一共六口人？",p:"Yígòng liù kǒu rén?",vi:"Tổng cộng sáu người à?"},{h:"六口，对吧？",p:"Liù kǒu, duì ba?",vi:"Sáu người, đúng không?"},{h:"六个孩子",p:"liù ge háizi",vi:"sáu người con"}]},
+"七":{old:true,p:"qī",pos:"num.",hv:"Thất",vi:"bảy (7)",usage:"Đã học ở Bài 6.",
+ radical:{char:"一",name:"nhất — nét ngang của chữ 七"}, mnemonic:"七 vẽ một vạch bị cắt ngang — nghĩa gốc là “cắt”, sau mượn làm số bảy.", icon:"coin",
+ examples:[{h:"不，七口。",p:"Bù, qī kǒu.",vi:"Không, bảy người."},{h:"我家有七口人。",p:"Wǒ jiā yǒu qī kǒu rén.",vi:"Nhà tôi có bảy người."},{h:"七个人",p:"qī ge rén",vi:"bảy người"}]}
 };
 /* ---------- DIALOGUE DATA ---------- */
 function seg(t,v){ return {t:t, v:v||null}; }
 const dialogue1 = [
-{spk:"大卫", segments:[seg("师傅","师傅"),seg("，"),seg("我","我"),seg("买","买"),seg("啤酒","啤酒"),seg("。")], p:"Shīfu, wǒ mǎi píjiǔ.", vi:"Anh ơi, tôi mua bia."},
-{spk:"售货员", segments:[seg("你","你"),seg("买","买"),seg("几","几"),seg("瓶","瓶"),seg("？")], p:"Nǐ mǎi jǐ píng?", vi:"Anh mua mấy chai?"},
-{spk:"大卫", segments:[seg("多少","多少"),seg("钱","钱"),seg("一","一"),seg("瓶","瓶"),seg("？")], p:"Duōshao qián yì píng?", vi:"Bao nhiêu tiền một chai ạ?"},
-{spk:"售货员", segments:[seg("三","三"),seg("块","块"),seg("五","五"),seg("。")], p:"Sān kuài wǔ.", vi:"Ba đồng năm."},
-{spk:"大卫", segments:[seg("我","我"),seg("买","买"),seg("两","两"),seg("瓶","瓶"),seg("，"),seg("再","再"),seg("买","买"),seg("两","两"),seg("瓶","瓶"),seg("水","水"),seg("。")], p:"Wǒ mǎi liǎng píng, zài mǎi liǎng píng shuǐ.", vi:"Tôi mua hai chai, mua thêm hai chai nước nữa."},
-{spk:"售货员", segments:[seg("两","两"),seg("瓶","瓶"),seg("啤酒","啤酒"),seg("七","七"),seg("块","块"),seg("，"),seg("两","两"),seg("瓶","瓶"),seg("水","水"),seg("两","两"),seg("块","块"),seg("四","四"),seg("，"),seg("一共","一共"),seg("是","是"),seg("九","九"),seg("块","块"),seg("四","四"),seg("毛","毛"),seg("钱","钱"),seg("。")], p:"Liǎng píng píjiǔ qī kuài, liǎng píng shuǐ liǎng kuài sì, yígòng shì jiǔ kuài sì máo qián.", vi:"Hai chai bia bảy đồng, hai chai nước hai đồng bốn, tổng cộng là chín đồng bốn hào."},
-{spk:"大卫", segments:[seg("给","给"),seg("你","你"),seg("钱","钱"),seg("。")], p:"Gěi nǐ qián.", vi:"Tiền đây ạ."}
+{spk:"玛丽", segments:[seg("这","这"),seg("是","是"),seg("你","你"),seg("的","的"),seg("照片","照片"),seg("吗？")], p:"Zhè shì nǐ de zhàopiàn ma?", vi:"Đây là ảnh của cậu à?"},
+{spk:"张红", segments:[seg("对","对"),seg("，"),seg("是","是"),seg("我","我"),seg("家","家"),seg("的","的"),seg("照片","照片"),seg("。")], p:"Duì, shì wǒ jiā de zhàopiàn.", vi:"Đúng, là ảnh gia đình mình."},
+{spk:"玛丽", segments:[seg("你","你"),seg("家","家"),seg("有","有"),seg("几","几"),seg("口","口"),seg("人","人"),seg("？")], p:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà cậu có mấy người?"},
+{spk:"张红", segments:[seg("我","我"),seg("家","家"),seg("有","有"),seg("五","五"),seg("口","口"),seg("人","人"),seg("："),seg("爷爷","爷爷"),seg("、"),seg("奶奶","奶奶"),seg("、"),seg("爸爸","爸爸"),seg("、"),seg("妈妈","妈妈"),seg("和","和"),seg("我","我"),seg("。")], p:"Wǒ jiā yǒu wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ.", vi:"Nhà mình có năm người: ông nội, bà nội, bố, mẹ và mình."},
+{spk:"玛丽", segments:[seg("你","你"),seg("没有","没有"),seg("哥哥","哥哥"),seg("姐姐","姐姐"),seg("吗？")], p:"Nǐ méiyǒu gēge jiějie ma?", vi:"Cậu không có anh chị à?"},
+{spk:"张红", segments:[seg("没有","没有"),seg("，"),seg("现在","现在"),seg("中国","中国"),seg("家庭","家庭"),seg("一般","一般"),seg("只","只"),seg("有","有"),seg("一","一"),seg("个","个"),seg("孩子","孩子"),seg("。"),seg("玛丽","玛丽"),seg("，"),seg("你","你"),seg("家","家"),seg("都","都"),seg("有","有"),seg("什么","什么"),seg("人","人"),seg("？")], p:"Méiyǒu, xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi. Mǎlì, nǐ jiā dōu yǒu shénme rén?", vi:"Không có, hiện nay gia đình Trung Quốc thường chỉ có một con. Mary này, nhà cậu có những ai?"}
 ];
-const dialogue1Vocab = ["师傅","买","啤酒","售货员","瓶","钱","块","两","再","水","一共","毛","给"];
+const dialogue1Vocab = ["照片","家","口","爷爷","奶奶","爸爸","妈妈","哥哥","姐姐","家庭","一般","只","孩子"];
 const dialogue1ProperNouns = [];
 
 const dialogue2 = [
-{spk:"玛丽", segments:[seg("小姐","小姐"),seg("，"),seg("有","有"),seg("英汉词典","英汉词典"),seg("吗？")], p:"Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?", vi:"Chị ơi, có từ điển Anh - Hán không ạ?"},
-{spk:"售货员", segments:[seg("有","有"),seg("。"),seg("你","你"),seg("看","看"),seg("，"),seg("这些","这些"),seg("都","都"),seg("是","是"),seg("，"),seg("你","你"),seg("要","要"),seg("哪","哪"),seg("本","本"),seg("呢","呢"),seg("？")], p:"Yǒu. Nǐ kàn, zhèxiē dōu shì, nǐ yào nǎ běn ne?", vi:"Có. Chị xem này, mấy quyển này đều là, chị lấy quyển nào ạ?"},
-{spk:"玛丽", segments:[seg("我","我"),seg("要","要"),seg("这","这"),seg("本","本"),seg("小","小"),seg("词典","词典"),seg("。"),seg("多少","多少"),seg("钱","钱"),seg("一","一"),seg("本","本"),seg("？")], p:"Wǒ yào zhè běn xiǎo cídiǎn. Duōshao qián yì běn?", vi:"Tôi lấy quyển từ điển nhỏ này. Bao nhiêu tiền một quyển ạ?"},
-{spk:"售货员", segments:[seg("二","二"),seg("十","十"),seg("二","二"),seg("块","块"),seg("。")], p:"Èrshí'èr kuài.", vi:"Hai mươi hai đồng."},
-{spk:"玛丽", segments:[seg("对不起","对不起"),seg("，"),seg("我","我"),seg("没有","没有"),seg("零钱","零钱"),seg("。")], p:"Duìbuqǐ, wǒ méiyǒu língqián.", vi:"Xin lỗi, tôi không có tiền lẻ."},
-{spk:"售货员", segments:[seg("没关系","没关系"),seg("。")], p:"Méi guānxi.", vi:"Không sao đâu ạ."}
+{spk:"玛丽", segments:[seg("我","我"),seg("家","家"),seg("有","有"),seg("爸爸","爸爸"),seg("、"),seg("妈妈","妈妈"),seg("、"),seg("哥哥","哥哥"),seg("、"),seg("弟弟","弟弟"),seg("、"),seg("妹妹","妹妹"),seg("，"),seg("还","还"),seg("有","有"),seg("一","一"),seg("条","条"),seg("狗","狗"),seg("。")], p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei, hái yǒu yì tiáo gǒu.", vi:"Nhà mình có bố, mẹ, anh trai, em trai, em gái, còn có một con chó nữa."},
+{spk:"张红", segments:[seg("一共","一共"),seg("六","六"),seg("口","口"),seg("人","人"),seg("？")], p:"Yígòng liù kǒu rén?", vi:"Tổng cộng sáu người à?"},
+{spk:"玛丽", segments:[seg("不","不"),seg("，"),seg("七","七"),seg("口","口"),seg("。")], p:"Bù, qī kǒu.", vi:"Không, bảy người."},
+{spk:"张红", segments:[seg("爸爸","爸爸"),seg("、"),seg("妈妈","妈妈"),seg("、"),seg("一","一"),seg("个","个"),seg("哥哥","哥哥"),seg("、"),seg("一","一"),seg("个","个"),seg("弟弟","弟弟"),seg("、"),seg("一","一"),seg("个","个"),seg("妹妹","妹妹"),seg("和","和"),seg("你","你"),seg("，"),seg("六","六"),seg("口","口"),seg("，"),seg("对","对"),seg("吧","吧"),seg("？")], p:"Bàba, māma, yí ge gēge, yí ge dìdi, yí ge mèimei hé nǐ, liù kǒu, duì ba?", vi:"Bố, mẹ, một anh trai, một em trai, một em gái và cậu, sáu người, đúng không?"},
+{spk:"玛丽", segments:[seg("不","不"),seg("对","对"),seg("，"),seg("还","还"),seg("有","有"),seg("一","一"),seg("条","条"),seg("狗","狗"),seg("。")], p:"Bú duì, hái yǒu yì tiáo gǒu.", vi:"Không đúng, còn một con chó nữa mà."},
+{spk:"张红", segments:[seg("是","是"),seg("这样","这样"),seg("……")], p:"Shì zhèyàng…", vi:"Thì ra là vậy…"}
 ];
-const dialogue2Vocab = ["小姐","看","这些","要","本","小","零钱"];
+const dialogue2Vocab = ["弟弟","妹妹","还","条","狗","这样"];
 const dialogue2ProperNouns = [];
 
 const grammar = [
-{title:"1 · 几 và 多少 (2) — Hỏi số lượng",example:"你买几瓶？／多少钱一瓶？",explain:"Cùng hỏi về số nhưng chọn theo cỡ số mà mình ĐOÁN. 几 dùng khi câu trả lời chắc là số nhỏ dưới 10, và bắt buộc phải có lượng từ đứng sau: 几瓶、几本、几个. 多少 dùng cho số lớn từ 10 trở lên hoặc số bất kỳ, và không bắt buộc có lượng từ: 多少钱？玛丽有多少本书？",more:["我要五本汉语书。　→　你要几本汉语书？","他要三瓶啤酒。　→　他要几瓶啤酒？","玛丽有五十本书。　→　玛丽有多少本书？","一本词典八十块钱。　→　一本词典多少钱？"]},
-{title:"2 · 二 và 两 — Hai cách nói số 2",example:"我买两瓶，再买两瓶水。",explain:"Số 2 đọc thế nào là tùy vị trí. Dùng 二 khi đếm số, đọc số hiệu và số thứ tự: 十二、二十、二十二、第二、二号楼、二路公共汽车. Dùng 两 khi đứng ngay TRƯỚC LƯỢNG TỪ, tức khi nói “hai cái gì đó”: 两瓶、两本、两块、两毛、两个. Với hàng trăm trở lên thì dùng cách nào cũng được: 两百 / 二百.",more:["二：十二、二十、二十二、第二、二号楼、二路公共汽车","两：两本、两块、两瓶、两毛、两个","两/二百　　两/二千 (qiān)　　两/二万 (wàn)","我买两瓶啤酒，不是二瓶。"]},
-{title:"3 · 量词 — Lượng từ",example:"再买两瓶水。／两瓶啤酒七块。",explain:"Trong tiếng Hán, giữa con số và danh từ BẮT BUỘC có lượng từ: [số] + [lượng từ] + [danh từ]. Mỗi danh từ đi với một lượng từ riêng, phải học thuộc theo cặp. Một số danh từ chỉ vật chứa còn mượn luôn làm lượng từ, ví dụ 瓶 (chai) trong 一瓶水.",more:["一瓶水　　一本书　　一个车棚　　一块钱","一辆 (liàng) 自行车　　一把 (bǎ) 钥匙　　一位 (wèi) 老师","21路公共汽车　　两本词典　　三瓶啤酒"]},
-{title:"4 · 钱数表达法 — Cách nói giá tiền",example:"一共是九块四毛钱。",explain:"Đơn vị tiền Trung Quốc trong VĂN VIẾT là 元 (yuán) / 角 (jiǎo) / 分 (fēn); trong KHẨU NGỮ nói thành 块 (kuài) / 毛 (máo) / 分 (fēn). 1块 = 10毛 = 100分. Đơn vị cuối cùng thường được lược bỏ khi đã rõ: 三块五 = 三块五毛. Nếu muốn nói trọn vẹn thì thêm 钱 ở cuối: 九块四毛钱.",more:["五元　→　五块","十二元五角　→　十二块五（毛）","六角二分　→　六毛二（分）","七十四元八角二分　→　七十四块八毛二"]}
+{title:"1 · 你家有几口人？— Hỏi về gia đình",example:"你家有几口人？／你家都有什么人？",explain:"Có hai câu hỏi khác nhau, đừng lẫn. 你家有几口人？hỏi SỐ LƯỢNG, trả lời bằng con số: 我家有五口人。 Còn 你家都有什么人？hỏi THÀNH PHẦN, trả lời bằng cách liệt kê: 我家有爸爸、妈妈、哥哥…… Chữ 都 trong câu thứ hai mang ý “kể cho hết ra”. Lưu ý dùng 有 chứ không dùng 是, và trước 家 thì lược 的 — nói 我家 chứ không nói 我的家.",more:["你家有几口人？　→　我家有五口人。","你家都有什么人？　→　我家有爸爸、妈妈和我。","一共六口人？　→　不，七口。","你有几个孩子？　→　我只有一个孩子。"]},
+{title:"2 · 量词 口 / 个 / 条 — Chọn đúng lượng từ",example:"我家有五口人。／还有一条狗。",explain:"Mỗi danh từ đi với một lượng từ riêng, phải học thuộc theo cặp. 口 CHỈ dùng đếm người trong gia đình: 五口人. Đếm người nói chung thì dùng 个: 一个哥哥, 三个学生 — không nói 三口学生. 条 dùng cho vật dài thuôn: 一条狗, 一条街, 一条路. 个 là lượng từ dùng chung, không chắc thì chọn 个.",more:["一口人（trong gia đình）　　一个人（người nói chung）","一个孩子　　一个哥哥　　一个学校","一条狗　　一条街　　一条路","一本书　　一瓶水　　一块钱　　一张照片"]},
+{title:"3 · 还 — Còn có… nữa (注释)",example:"…，还有一条狗。",explain:"还 là phó từ BỔ SUNG: sau khi đã kể xong một loạt, dùng 还有 để thêm một thứ nữa mà suýt quên. Đặt TRƯỚC động từ. Đây chính là chỗ gây hiểu nhầm buồn cười trong bài khóa — Trương Hồng đếm sáu người, còn Mary tính cả con chó thành bảy.",more:["我有美国朋友、加拿大朋友，还有日本朋友。","我有一个姐姐，还有一个妹妹。","我家有爸爸、妈妈，还有一条狗。","不对，还有一条狗。"]},
+{title:"4 · 单元语言点小结 — Tổng kết ngữ pháp Bài 6–9",example:"Bảng tổng kết của sách, đặt ở cuối Bài 10",explain:"Sách gom lại 14 điểm ngữ pháp đã học từ Bài 6 đến Bài 9 để ôn trước khi kiểm tra. Hãy đọc lại từng dòng và tự đặt một câu mới cho mỗi điểm.",more:["1. 钟点表达法　日本的大学早上几点上课？（Bài 6）","2. 数字表达法　六十五（Bài 6）","3. “有”字句　明天你有课吗？（Bài 7）","4. 吧 (1)　你有自行车吧？（Bài 7）","5. 方位名词 (2)　车在楼下车棚里。（Bài 7）","6. 时间名词做状语　今天晚上你有时间吗？（Bài 7）","7. 吧 (2)　来我们学校玩儿吧！（Bài 8）","8. 呢 (2)　去你们学校怎么走呢？（Bài 8）","9. 号码表达法　我的宿舍是东5号楼502室。（Bài 8）","10. “几”和“多少”(1)　你的房间号是多少？（Bài 8）","11. “几”和“多少”(2)　你买几瓶？／多少钱一瓶？（Bài 9）","12. “二”和“两”　十二／二号楼／两本／两块（Bài 9）","13. 量词　两瓶啤酒七块。（Bài 9）","14. 钱数表达法　一共是九块四毛钱。（Bài 9）"]}
 ];
 
 /* ---------- ÔN TẬP ① · Sắp xếp câu ---------- */
 const reorderItems = [
-{chunks:["师傅","，","我","买","啤酒","。"], p:"Shīfu, wǒ mǎi píjiǔ.", vi:"Anh ơi, tôi mua bia."},
-{chunks:["你","买","几","瓶","？"], p:"Nǐ mǎi jǐ píng?", vi:"Anh mua mấy chai?"},
-{chunks:["多少","钱","一瓶","？"], p:"Duōshao qián yì píng?", vi:"Bao nhiêu tiền một chai?"},
-{chunks:["我","买两瓶","，","再","买两瓶水","。"], p:"Wǒ mǎi liǎng píng, zài mǎi liǎng píng shuǐ.", vi:"Tôi mua hai chai, mua thêm hai chai nước nữa."},
-{chunks:["一共","是","九块","四毛","钱","。"], p:"Yígòng shì jiǔ kuài sì máo qián.", vi:"Tổng cộng là chín đồng bốn hào."},
-{chunks:["小姐","，","有","英汉词典","吗","？"], p:"Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?", vi:"Chị ơi, có từ điển Anh - Hán không ạ?"},
-{chunks:["我","要","这本","小词典","。"], p:"Wǒ yào zhè běn xiǎo cídiǎn.", vi:"Tôi lấy quyển từ điển nhỏ này."},
-{chunks:["对不起","，","我","没有","零钱","。"], p:"Duìbuqǐ, wǒ méiyǒu língqián.", vi:"Xin lỗi, tôi không có tiền lẻ."}
+{chunks:["这","是","你的","照片","吗","？"], p:"Zhè shì nǐ de zhàopiàn ma?", vi:"Đây là ảnh của bạn à?"},
+{chunks:["你家","有","几","口","人","？"], p:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà bạn có mấy người?"},
+{chunks:["我家","有","五","口","人","。"], p:"Wǒ jiā yǒu wǔ kǒu rén.", vi:"Nhà tôi có năm người."},
+{chunks:["你","没有","哥哥","姐姐","吗","？"], p:"Nǐ méiyǒu gēge jiějie ma?", vi:"Bạn không có anh chị à?"},
+{chunks:["现在","中国家庭","一般","只","有","一个","孩子","。"], p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.", vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},
+{chunks:["玛丽","，","你家","都","有","什么","人","？"], p:"Mǎlì, nǐ jiā dōu yǒu shénme rén?", vi:"Mary, nhà bạn có những ai?"},
+{chunks:["我家","有","爸爸","妈妈","哥哥","弟弟","和","妹妹","。"], p:"Wǒ jiā yǒu bàba māma gēge dìdi hé mèimei.", vi:"Nhà tôi có bố, mẹ, anh trai, em trai và em gái."},
+{chunks:["不对","，","还有","一条","狗","。"], p:"Bú duì, hái yǒu yì tiáo gǒu.", vi:"Không đúng, còn có một con chó nữa."}
 ];
 
 /* ---------- ÔN TẬP ② · Điền từ ---------- */
 const fillItems = [
-{bank:["买","看","要","一共","给"], items:[
- {pre:"师傅，我", post:"啤酒。", ans:"买"},
- {pre:"你", post:"，这些都是。", ans:"看"},
- {pre:"我", post:"这本小词典。", ans:"要"},
- {pre:"", post:"是九块四毛钱。", ans:"一共"},
- {pre:"", post:"你钱。", ans:"给"}
+{bank:["口","条","个","本","瓶"], items:[
+ {pre:"一（", post:"）人", ans:"口"},
+ {pre:"一（", post:"）狗", ans:"条"},
+ {pre:"一（", post:"）书", ans:"本"},
+ {pre:"一（", post:"）水", ans:"瓶"},
+ {pre:"一（", post:"）家庭", ans:"个"}
 ]},
-{bank:["几","多少","两","本","瓶"], items:[
- {pre:"你买", post:"瓶？", ans:"几"},
- {pre:"", post:"钱一瓶？", ans:"多少"},
- {pre:"我买", post:"瓶啤酒。", ans:"两"},
- {pre:"我要这", post:"小词典。", ans:"本"},
- {pre:"再买两", post:"水。", ans:"瓶"}
+{bank:["家庭","一般","只","都","还"], items:[
+ {pre:"现在中国", post:"一般只有一个孩子。", ans:"家庭"},
+ {pre:"现在中国家庭", post:"只有一个孩子。", ans:"一般"},
+ {pre:"现在中国家庭一般", post:"有一个孩子。", ans:"只"},
+ {pre:"你家", post:"有什么人？", ans:"都"},
+ {pre:"我家有爸爸、妈妈，", post:"有一条狗。", ans:"还"}
 ]},
-{bank:["块","毛","钱","零钱","二"], items:[
- {pre:"三", post:"五。", ans:"块"},
- {pre:"一共是九块四", post:"钱。", ans:"毛"},
- {pre:"多少", post:"一本？", ans:"钱"},
- {pre:"对不起，我没有", post:"。", ans:"零钱"},
- {pre:"", post:"十二块。", ans:"二"}
+{bank:["爷爷","奶奶","哥哥","姐姐","妹妹"], items:[
+ {pre:"我家有五口人：", post:"、奶奶、爸爸、妈妈和我。", ans:"爷爷"},
+ {pre:"我家有五口人：爷爷、", post:"、爸爸、妈妈和我。", ans:"奶奶"},
+ {pre:"你没有", post:"姐姐吗？", ans:"哥哥"},
+ {pre:"你没有哥哥", post:"吗？", ans:"姐姐"},
+ {pre:"我有一个弟弟，还有一个", post:"。", ans:"妹妹"}
 ]}
 ];
 
 /* ---------- ÔN TẬP ③ · Dịch câu ---------- */
 const translateItems = [
-{vi:"Anh ơi, tôi mua bia. — Anh mua mấy chai?",h:"师傅，我买啤酒。你买几瓶？",p:"Shīfu, wǒ mǎi píjiǔ. Nǐ mǎi jǐ píng?"},
-{vi:"Bao nhiêu tiền một chai? — Ba đồng năm.",h:"多少钱一瓶？三块五。",p:"Duōshao qián yì píng? Sān kuài wǔ."},
-{vi:"Tôi mua hai chai, mua thêm hai chai nước nữa.",h:"我买两瓶，再买两瓶水。",p:"Wǒ mǎi liǎng píng, zài mǎi liǎng píng shuǐ."},
-{vi:"Hai chai bia bảy đồng, hai chai nước hai đồng bốn.",h:"两瓶啤酒七块，两瓶水两块四。",p:"Liǎng píng píjiǔ qī kuài, liǎng píng shuǐ liǎng kuài sì."},
-{vi:"Tổng cộng là chín đồng bốn hào. — Tiền đây ạ.",h:"一共是九块四毛钱。给你钱。",p:"Yígòng shì jiǔ kuài sì máo qián. Gěi nǐ qián."},
-{vi:"Chị ơi, có từ điển Anh - Hán không ạ?",h:"小姐，有英汉词典吗？",p:"Xiǎojie, yǒu Yīng-Hàn cídiǎn ma?"},
-{vi:"Chị xem này, mấy quyển này đều là, chị lấy quyển nào ạ?",h:"你看，这些都是，你要哪本呢？",p:"Nǐ kàn, zhèxiē dōu shì, nǐ yào nǎ běn ne?"},
-{vi:"Tôi lấy quyển từ điển nhỏ này. Bao nhiêu tiền một quyển?",h:"我要这本小词典。多少钱一本？",p:"Wǒ yào zhè běn xiǎo cídiǎn. Duōshao qián yì běn?"},
-{vi:"Hai mươi hai đồng.",h:"二十二块。",p:"Èrshí'èr kuài."},
-{vi:"Xin lỗi, tôi không có tiền lẻ. — Không sao đâu ạ.",h:"对不起，我没有零钱。没关系。",p:"Duìbuqǐ, wǒ méiyǒu língqián. Méi guānxi."}
+{vi:"Đây là ảnh của bạn à? — Đúng, là ảnh gia đình mình.",h:"这是你的照片吗？对，是我家的照片。",p:"Zhè shì nǐ de zhàopiàn ma? Duì, shì wǒ jiā de zhàopiàn."},
+{vi:"Nhà bạn có mấy người?",h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?"},
+{vi:"Nhà tôi có năm người: ông nội, bà nội, bố, mẹ và tôi.",h:"我家有五口人：爷爷、奶奶、爸爸、妈妈和我。",p:"Wǒ jiā yǒu wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ."},
+{vi:"Bạn không có anh chị à?",h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?"},
+{vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con.",h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi."},
+{vi:"Nhà bạn có những ai?",h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?"},
+{vi:"Nhà tôi có bố, mẹ, anh trai, em trai, em gái, còn có một con chó nữa.",h:"我家有爸爸、妈妈、哥哥、弟弟、妹妹，还有一条狗。",p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei, hái yǒu yì tiáo gǒu."},
+{vi:"Tổng cộng sáu người à? — Không, bảy người.",h:"一共六口人？不，七口。",p:"Yígòng liù kǒu rén? Bù, qī kǒu."},
+{vi:"Sáu người, đúng không? — Không đúng, còn một con chó nữa mà.",h:"六口，对吧？不对，还有一条狗。",p:"Liù kǒu, duì ba? Bú duì, hái yǒu yì tiáo gǒu."},
+{vi:"Tôi chỉ có một anh trai, còn có một em gái nữa.",h:"我只有一个哥哥，还有一个妹妹。",p:"Wǒ zhǐ yǒu yí ge gēge, hái yǒu yí ge mèimei."}
 ];
 
 /* ---------- ÔN TẬP ⑤ · MỞ RỘNG · Từ mới ngoài bài + đặt câu ---------- */
 const expandItems = [
-{w:"超市",p:"chāoshì",vi:"siêu thị",model:{h:"我去超市买两瓶水。",p:"Wǒ qù chāoshì mǎi liǎng píng shuǐ.",vi:"Tôi đi siêu thị mua hai chai nước."}},
-{w:"面包",p:"miànbāo",vi:"bánh mì",model:{h:"面包多少钱一个？",p:"Miànbāo duōshao qián yí ge?",vi:"Bánh mì bao nhiêu tiền một cái?"}},
-{w:"牛奶",p:"niúnǎi",vi:"sữa bò",model:{h:"我要两瓶牛奶，一共多少钱？",p:"Wǒ yào liǎng píng niúnǎi, yígòng duōshao qián?",vi:"Tôi lấy hai chai sữa, tổng cộng bao nhiêu tiền?"}},
-{w:"可乐",p:"kělè",vi:"nước ngọt cola",model:{h:"可乐三块五一瓶。",p:"Kělè sān kuài wǔ yì píng.",vi:"Cola ba đồng năm một chai."}},
-{w:"水果",p:"shuǐguǒ",vi:"hoa quả, trái cây",model:{h:"这些水果多少钱一斤？",p:"Zhèxiē shuǐguǒ duōshao qián yì jīn?",vi:"Mấy loại hoa quả này bao nhiêu tiền một cân?"}},
-{w:"便宜",p:"piányi",vi:"rẻ",model:{h:"这本小词典很便宜，二十二块。",p:"Zhè běn xiǎo cídiǎn hěn piányi, èrshí'èr kuài.",vi:"Quyển từ điển nhỏ này rất rẻ, hai mươi hai đồng."}},
-{w:"贵",p:"guì",vi:"đắt",model:{h:"太贵了！便宜一点儿吧。",p:"Tài guì le! Piányi yìdiǎnr ba.",vi:"Đắt quá! Rẻ chút đi ạ."}},
-{w:"找",p:"zhǎo",vi:"thối lại (tiền)",model:{h:"给你十块，找我五毛。",p:"Gěi nǐ shí kuài, zhǎo wǒ wǔ máo.",vi:"Đưa anh mười đồng, thối lại tôi năm hào."}},
-{w:"斤",p:"jīn",vi:"cân (500 gam)",model:{h:"我买两斤水果。",p:"Wǒ mǎi liǎng jīn shuǐguǒ.",vi:"Tôi mua hai cân hoa quả."}},
-{w:"杯",p:"bēi",vi:"cốc, ly (lượng từ)",model:{h:"再来一杯水，多少钱？",p:"Zài lái yì bēi shuǐ, duōshao qián?",vi:"Cho thêm một cốc nước nữa, bao nhiêu tiền?"}},
-{w:"个",p:"ge",vi:"cái, quả (lượng từ dùng chung)",model:{h:"我要两个面包。",p:"Wǒ yào liǎng ge miànbāo.",vi:"Tôi lấy hai cái bánh mì."}},
-{w:"张",p:"zhāng",vi:"tờ, tấm (lượng từ)",model:{h:"给你一张一百块。",p:"Gěi nǐ yì zhāng yìbǎi kuài.",vi:"Đưa anh một tờ một trăm đồng."}}
+{w:"叔叔",p:"shūshu",vi:"chú (em trai của bố)",model:{h:"我家还有一个叔叔。",p:"Wǒ jiā hái yǒu yí ge shūshu.",vi:"Nhà tôi còn có một người chú nữa."}},
+{w:"阿姨",p:"āyí",vi:"dì, cô (chị em gái của mẹ)",model:{h:"阿姨家有几口人？",p:"Āyí jiā yǒu jǐ kǒu rén?",vi:"Nhà dì có mấy người?"}},
+{w:"儿子",p:"érzi",vi:"con trai",model:{h:"他家只有一个儿子。",p:"Tā jiā zhǐ yǒu yí ge érzi.",vi:"Nhà anh ấy chỉ có một người con trai."}},
+{w:"女儿",p:"nǚ'ér",vi:"con gái",model:{h:"我家有一个女儿，还有一个儿子。",p:"Wǒ jiā yǒu yí ge nǚ'ér, hái yǒu yí ge érzi.",vi:"Nhà tôi có một con gái, còn có một con trai nữa."}},
+{w:"猫",p:"māo",vi:"con mèo",model:{h:"我家有一条狗，还有一只猫。",p:"Wǒ jiā yǒu yì tiáo gǒu, hái yǒu yì zhī māo.",vi:"Nhà tôi có một con chó, còn có một con mèo nữa."}},
+{w:"只",p:"zhī",vi:"(lượng từ cho động vật nhỏ)",model:{h:"一只猫、两只狗",p:"yì zhī māo, liǎng zhī gǒu",vi:"một con mèo, hai con chó"}},
+{w:"张",p:"zhāng",vi:"(lượng từ cho vật phẳng: ảnh, giấy)",model:{h:"这张照片是我家的。",p:"Zhè zhāng zhàopiàn shì wǒ jiā de.",vi:"Tấm ảnh này là của gia đình tôi."}},
+{w:"岁",p:"suì",vi:"tuổi",model:{h:"我妹妹只有六岁。",p:"Wǒ mèimei zhǐ yǒu liù suì.",vi:"Em gái tôi mới có sáu tuổi."}},
+{w:"兄弟姐妹",p:"xiōngdì jiěmèi",vi:"anh chị em ruột",model:{h:"你有几个兄弟姐妹？",p:"Nǐ yǒu jǐ ge xiōngdì jiěmèi?",vi:"Bạn có mấy anh chị em?"}},
+{w:"独生子女",p:"dúshēng zǐnǚ",vi:"con một",model:{h:"现在中国家庭一般都是独生子女。",p:"Xiànzài Zhōngguó jiātíng yìbān dōu shì dúshēng zǐnǚ.",vi:"Hiện nay gia đình Trung Quốc thường đều là con một."}},
+{w:"照相",p:"zhào xiàng",vi:"chụp ảnh",model:{h:"我家一共七口人，一起照相吧！",p:"Wǒ jiā yígòng qī kǒu rén, yìqǐ zhàoxiàng ba!",vi:"Nhà tôi tổng cộng bảy người, cùng chụp ảnh nào!"}},
+{w:"可爱",p:"kě'ài",vi:"dễ thương, đáng yêu",model:{h:"这条狗很可爱。",p:"Zhè tiáo gǒu hěn kě'ài.",vi:"Con chó này dễ thương lắm."}}
 ];
 
 /* ---------- SLIDE SECTIONS ---------- */
 const slidesNew = [
- {type:'cover', season:'钱'},
- {type:'dialogue', title:'课文一 · 大卫买啤酒和水', season:'瓶', funSet:0, lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1]},
- {type:'dialogue', title:'课文二 · 玛丽买英汉词典', season:'买', funSet:1, lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[2,3]}
+ {type:'cover', season:'家'},
+ {type:'dialogue', title:'课文（上）· 张红家有五口人', season:'口', funSet:0, lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1]},
+ {type:'dialogue', title:'课文（下）· 玛丽家还有一条狗', season:'狗', funSet:1, lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[2,3]}
 ];
 const slidesReview = [
- {type:'reorder',   title:'Sắp xếp câu',    season:'瓶', tab:'① Sắp xếp câu'},
- {type:'fill',      title:'Điền từ',        season:'买', tab:'② Điền từ'},
- {type:'translate', title:'Dịch câu',       season:'钱', tab:'③ Dịch câu'},
- {type:'speaking',  title:'Luyện khẩu ngữ', season:'瓶', tab:'④ Khẩu ngữ'},
- {type:'expand',    title:'Mở rộng · Đặt câu với từ mới', season:'买', tab:'⑤ Mở rộng'}
+ {type:'reorder',   title:'Sắp xếp câu',    season:'口', tab:'① Sắp xếp câu'},
+ {type:'fill',      title:'Điền từ',        season:'狗', tab:'② Điền từ'},
+ {type:'translate', title:'Dịch câu',       season:'家', tab:'③ Dịch câu'},
+ {type:'speaking',  title:'Luyện khẩu ngữ', season:'口', tab:'④ Khẩu ngữ'},
+ {type:'expand',    title:'Mở rộng · Đặt câu với từ mới', season:'狗', tab:'⑤ Mở rộng'}
 ];
 
 const seasonMeta = {
- '钱':{label:'Tiền',       accent:'#B23A2E', soft:'#FADFDA'},
- '瓶':{label:'Chai, bình', accent:'#C29B22', soft:'#FAF1CE'},
- '买':{label:'Mua sắm',    accent:'#7A5A3C', soft:'#F0E5D9'}
+ '家':{label:'Gia đình',  accent:'#B05A72', soft:'#F6E3E9'},
+ '口':{label:'Nhân khẩu', accent:'#4E7C6B', soft:'#DFEBE4'},
+ '狗':{label:'Thú cưng',  accent:'#5B6E8C', soft:'#E1E6EF'}
 };
 
 /* ---------- STATE ---------- */
@@ -728,25 +731,25 @@ function renderCover(){
   return `<div class="slide cover">
     <div class="cover-lattice corner-tl">${LATTICE_SVG}</div>
     <div class="cover-lattice corner-br">${LATTICE_SVG}</div>
-    ${sticker('s1','beer')}
-    ${sticker('s2','pricetag')}
-    ${sticker('s3','waterbtl')}
-    ${sticker('s4','coin')}
-    ${sticker('s5','shopbag')}
-    ${sticker('s6','banknote')}
+    ${sticker('s1','photoframe')}
+    ${sticker('s2','grandpa')}
+    ${sticker('s3','grandma')}
+    ${sticker('s4','kid')}
+    ${sticker('s5','dogicon')}
+    ${sticker('s6','heartfam')}
     <div class="cover-card">
-      <div class="num">09</div>
+      <div class="num">10</div>
       <div class="eyebrow">博雅汉语 · Boya Chinese · 初级起步篇 I</div>
-      <div class="title-zh hanzi">多少钱一瓶</div>
-      <div class="title-py">Duōshao Qián Yì Píng</div>
-      <div class="sub">Bài 9 · Bao nhiêu tiền một chai?</div>
+      <div class="title-zh hanzi">你家有几口人</div>
+      <div class="title-py">Nǐ Jiā Yǒu Jǐ Kǒu Rén</div>
+      <div class="sub">Bài 10 · Nhà bạn có mấy người?</div>
     </div>
   </div>`;
 }
 
 const FUN_SETS = [
-  ['beer','waterbtl','coin','banknote','sparkle','pricetag'],
-  ['dict','shopbag','cashier','coin','sparkle','okhand']
+  ['photoframe','grandpa','grandma','familygroup','sparkle','home'],
+  ['dogicon','kid','heartfam','bubbleba','sparkle','okhand']
 ];
 function funStickers(setIndex){
   const set = FUN_SETS[setIndex % FUN_SETS.length];
@@ -810,7 +813,7 @@ function renderReorder(s){
       <div class="reorder-bank">${bankHtml}</div>
       <div class="reorder-actions">
         <button class="reveal-btn ghost small" data-i="${i}" data-act="reset">↻ Làm lại</button>
-        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#3D7A52':'#8C3A2F'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
+        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#4E7C6B':'#A8453C'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
         <button class="reveal-btn ghost small" data-i="${i}" data-act="revealOrder">${st.revealed?'Ẩn đáp án':'Đáp án tham khảo'}</button>
       </div>
       ${st.revealed ? `<div class="order-answer">
@@ -883,7 +886,7 @@ function renderExpand(s){
     <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
     <div class="eyebrow">扩展练习 · Mở rộng — từ mới ngoài bài</div>
     <h2><span class="ex-badge">5</span>${s.title}</h2>
-    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Đây là những từ <strong>ngoài giáo trình</strong> nhưng cùng chủ đề mua sắm &amp; lượng từ. Với mỗi từ, hãy tự đặt một câu có dùng ngữ pháp của bài (多少钱一＿ / 买两＿ / 一共是＿块＿毛), rồi bấm Kiểm tra. Bấm <em>Câu mẫu</em> để đối chiếu.</p>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Đây là những từ <strong>ngoài giáo trình</strong> nhưng cùng chủ đề gia đình &amp; lượng từ. Với mỗi từ, hãy tự đặt một câu có dùng ngữ pháp của bài (有几口人 / 一个＿ / 一条＿ / 只有 / 还有), rồi bấm Kiểm tra. Bấm <em>Câu mẫu</em> để đối chiếu.</p>
     <div class="fill-bank"><span class="bank-label">Từ mở rộng:</span>${chips}</div>
     <div class="expand-grid">${cards}</div>
   </div>`;
@@ -915,10 +918,10 @@ function renderTranslate(s){
 
 function renderSpeaking(s){
   const cards = [
-    {icon:'beer', name:'买啤酒', q:'你买几瓶？多少钱一瓶？'},
-    {icon:'waterbtl', name:'买水', q:'再买两瓶水，一共多少钱？'},
-    {icon:'dict', name:'买词典', q:'你要哪本呢？多少钱一本？'},
-    {icon:'coin', name:'块 · 毛', q:'一共是九块四毛钱。'}
+    {icon:'photoframe', name:'照片', q:'这是你家的照片吗？'},
+    {icon:'familygroup', name:'几口人', q:'你家有几口人？'},
+    {icon:'grandpa', name:'爷爷奶奶', q:'你家都有什么人？'},
+    {icon:'dogicon', name:'一条狗', q:'你家还有小动物吗？'}
   ].map(c=>`<div class="speak-card"><div class="ic">${ICONS[c.icon]}</div><div class="name hanzi">${c.name}</div><div class="q">${c.q}</div></div>`).join('');
   const seen = new Set();
   const allVocab = dialogue1Vocab.concat(dialogue2Vocab, dialogue1ProperNouns, dialogue2ProperNouns).filter(w=>{ if(seen.has(w)) return false; seen.add(w); return true; });
@@ -928,22 +931,22 @@ function renderSpeaking(s){
     <div class="eyebrow">口语练习 · Luyện khẩu ngữ</div>
     <h2><span class="ex-badge">4</span>${s.title}</h2>
     <div class="speak-topic">
-      <div class="speak-q">💬 Chủ đề: <strong>Đóng vai người mua và nhân viên bán hàng. Nhớ ba điều: trước lượng từ phải dùng 两 chứ không dùng 二, hỏi giá bằng 多少钱一＿, và tính tiền bằng ＿块＿毛.</strong></div>
+      <div class="speak-q">💬 Chủ đề: <strong>Đưa cho bạn xem ảnh gia đình mình rồi giới thiệu từng người. Nhớ dùng 有 chứ không dùng 是, đếm người trong nhà bằng 口, và kể thêm bằng 还有.</strong></div>
       <ul class="speak-guide">
-        <li>师傅／小姐，我买＿＿。——你买几＿？</li>
-        <li>多少钱一＿？——＿块＿。</li>
-        <li>我买两＿，再买两＿＿。——一共是＿块＿毛钱。</li>
-        <li>对不起，我没有零钱。——没关系。给你钱。</li>
+        <li>这是我家的照片。——你家有几口人？</li>
+        <li>我家有＿口人：＿＿、＿＿、＿＿和我。</li>
+        <li>你没有哥哥姐姐吗？——没有，我只有一个＿＿。</li>
+        <li>你家都有什么人？——我家有＿＿、＿＿，还有一条狗。</li>
       </ul>
     </div>
     <div class="speak-cards">${cards}</div>
     <div class="pattern-box">
       <div class="eyebrow" style="margin:0;">句型参考 · Mẫu câu gợi ý</div>
       <ul class="gmore">
-        <li>我买 +［số］+［lượng từ］+［N］。　例：我买两瓶啤酒。</li>
-        <li>多少钱 + 一 +［lượng từ］？　例：多少钱一本？</li>
-        <li>你买几 +［lượng từ］？　例：你买几瓶？</li>
-        <li>一共是 + ＿块＿毛（钱）。　例：一共是九块四毛钱。</li>
+        <li>［Ai］+ 家有几口人？　→　我家有 + ＿ + 口人。</li>
+        <li>［Ai］+ 家都有什么人？　→　我家有 + A、B、C。</li>
+        <li>只有 +［số］+［lượng từ］+［N］。　例：只有一个孩子。</li>
+        <li>……，还有 +［số］+［lượng từ］+［N］。　例：还有一条狗。</li>
       </ul>
     </div>
     <div class="chip-row"><span class="chip-label">词语 Gợi ý từ vựng:</span>${chips}</div>
@@ -1033,8 +1036,8 @@ function attachEvents(s){
         if(act==='revealFill'){ inp.value = it.ans; inp.classList.add('ok'); right++; return; }
         const val = normalizeStr(inp.value);
         if(!val){ fb.textContent='—'; fb.style.color='var(--ink-soft)'; return; }
-        if(val===normalizeStr(it.ans)){ inp.classList.add('ok'); fb.textContent='✓'; fb.style.color='#3D7A52'; right++; }
-        else { inp.classList.add('no'); fb.textContent='✗'; fb.style.color='#8C3A2F'; }
+        if(val===normalizeStr(it.ans)){ inp.classList.add('ok'); fb.textContent='✓'; fb.style.color='#4E7C6B'; right++; }
+        else { inp.classList.add('no'); fb.textContent='✗'; fb.style.color='#A8453C'; }
       });
       const sc = document.getElementById('fScore'+gi);
       if(act==='resetFill') sc.textContent='';
@@ -1062,17 +1065,17 @@ function attachEvents(s){
       const fb  = document.getElementById('xFb'+i);
       const card= document.getElementById('xCard'+i);
       card.style.borderColor = 'var(--line)';
-      if(!val){ fb.textContent='Hãy viết câu của bạn trước nhé.'; fb.style.color='#8C3A2F'; return; }
+      if(!val){ fb.textContent='Hãy viết câu của bạn trước nhé.'; fb.style.color='#A8453C'; return; }
       const hasWord = val.includes(it.w);
-      const hasTime = /买|要|给|块|毛|钱|多少|几|两|一共|瓶|本|个/.test(val);
+      const hasTime = /有|口|条|个|只|还|一般|都|家|几/.test(val);
       if(hasWord && hasTime){
-        fb.textContent='Tốt! Câu có từ 「'+it.w+'」 và dùng ngữ pháp của bài.'; fb.style.color='#3D7A52';
+        fb.textContent='Tốt! Câu có từ 「'+it.w+'」 và dùng ngữ pháp của bài.'; fb.style.color='#4E7C6B';
         card.style.borderColor='var(--jade)';
       } else if(hasWord){
-        fb.textContent='Đã có từ 「'+it.w+'」 — thử dùng thêm 买／要／多少钱／几／两／块／毛／一共… của bài.'; fb.style.color='#8C6A12';
+        fb.textContent='Đã có từ 「'+it.w+'」 — thử dùng thêm 有／几口人／一个／一条／只／还有… của bài.'; fb.style.color='#8E4258';
         card.style.borderColor='var(--accent)';
       } else {
-        fb.textContent='Chưa thấy từ 「'+it.w+'」 trong câu.'; fb.style.color='#8C3A2F';
+        fb.textContent='Chưa thấy từ 「'+it.w+'」 trong câu.'; fb.style.color='#A8453C';
         card.style.borderColor='var(--red)';
       }
     });
@@ -1095,13 +1098,13 @@ function attachEvents(s){
       const it = translateItems[i];
       const val = input.value.trim();
       item.classList.remove('t-correct','t-wrong');
-      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#8C3A2F'; return; }
+      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#A8453C'; return; }
       const norm = normalizeStr(val);
       const isMatch = norm===normalizeStr(it.h) || norm===normalizeStr(it.p);
       if(isMatch){
-        fb.textContent = 'Chính xác!'; fb.style.color = '#3D7A52'; item.classList.add('t-correct');
+        fb.textContent = 'Chính xác!'; fb.style.color = '#4E7C6B'; item.classList.add('t-correct');
       } else {
-        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#8C3A2F'; item.classList.add('t-wrong');
+        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#A8453C'; item.classList.add('t-wrong');
       }
     });
   });
@@ -1175,7 +1178,7 @@ function openVocabModal(word){
   document.getElementById('vwPinyin').textContent = info.p;
   document.getElementById('vwHanviet').textContent = 'Âm Hán Việt: '+info.hv;
   document.getElementById('vwPos').innerHTML = '<span>'+info.pos+'</span>' +
-    (info.old ? '<span class="tag-old">Từ đã học — ôn lại</span>' : '<span class="tag-new">Từ mới Bài 9</span>');
+    (info.old ? '<span class="tag-old">Từ đã học — ôn lại</span>' : '<span class="tag-new">Từ mới Bài 10</span>');
   document.getElementById('vwMeaning').innerHTML = '<strong>Nghĩa:</strong> '+info.vi;
   document.getElementById('vwUsage').innerHTML = '<strong>Cách dùng:</strong> '+info.usage;
   const radSec = document.getElementById('vwRadicalSection');

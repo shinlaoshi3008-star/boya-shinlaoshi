@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>博雅汉语 · Bài 10 · 你家有几口人</title>
+<title>博雅汉语 · Bài 12 · 你在干什么呢</title>
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --paper:#F5F1F2;
-  --paper-deep:#E8DFE2;
-  --ink:#2E2830;
-  --ink-soft:#6E6470;
+  --paper:#F1F1EC;
+  --paper-deep:#E3E4DB;
+  --ink:#23272E;
+  --ink-soft:#5F6672;
   --card:#FFFFFF;
-  --line:#E1D6D9;
-  --accent:#B05A72;
-  --accent-soft:#F6E3E9;
-  --jade:#4E7C6B;
-  --jade-soft:#DFEBE4;
-  --red:#A8453C;
-  --red-soft:#F6DFDC;
+  --line:#DBDCD2;
+  --accent:#F2662C;
+  --accent-soft:#FDE7DC;
+  --jade:#5F8F2A;
+  --jade-soft:#E7F1D8;
+  --red:#C43C2E;
+  --red-soft:#FADFDA;
+  --night:#23272E;
+  --night-soft:#3A4048;
+  --lime:#6F9E2F;
   --shadow: 0 10px 30px rgba(39,49,64,0.07);
 }
 *{box-sizing:border-box;}
@@ -81,7 +84,7 @@ main{flex:1;display:flex;flex-direction:column;}
 .eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;filter:brightness(.75);}
 .slide h2{margin:0;font-family:'Noto Serif SC',serif;font-size:24px;}
 
-.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(158deg,#F7E3EA 0%,#E9F0EA 48%,#E3E8F1 100%);}
+.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(158deg,#E6E8EF 0%,#FCE6DA 46%,#EDF3DC 100%);}
 .cover-lattice{position:absolute;width:200px;height:200px;opacity:.16;z-index:1;color:#273140;}
 .cover-lattice svg{width:100%;height:100%;}
 .corner-tl{top:-40px;left:-40px;}
@@ -239,7 +242,7 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 
 .vword-pos{display:flex;align-items:center;gap:8px;}
 .tag-new,.tag-old{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:2px 9px;border-radius:999px;text-transform:none;}
-.tag-new{background:var(--accent-soft);color:#8E4258;border:1px solid var(--accent);}
+.tag-new{background:var(--accent-soft);color:#B34A17;border:1px solid var(--accent);}
 .tag-old{background:var(--jade-soft);color:var(--jade);border:1px solid var(--jade);}
 .expand-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .expand-card{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
@@ -256,7 +259,65 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 .expand-model .p{font-size:11.5px;color:var(--jade);margin-top:2px;}
 .expand-model .vi{font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
 @media(max-width:700px){.expand-grid{grid-template-columns:1fr;}}
-.fun-sticker{position:absolute;z-index:4;pointer-events:none;opacity:.92;filter:drop-shadow(0 5px 9px rgba(46,40,48,.18));}
+
+/* ===== Giao diện CUỘC GỌI cho trang bài khóa ===== */
+.callwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(35,39,46,.07);}
+.callbar{display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--night);color:#F1F1EC;flex-wrap:wrap;}
+.cb-who{display:flex;align-items:center;gap:9px;min-width:0;}
+.cb-av{width:34px;height:34px;border-radius:50%;flex:0 0 34px;overflow:hidden;background:var(--night-soft);border:2px solid rgba(255,255,255,.16);}
+.cb-av svg{width:100%;height:100%;display:block;}
+.cb-txt strong{display:block;font-family:'Noto Serif SC',serif;font-size:14.5px;line-height:1.2;}
+.cb-txt small{display:block;font-size:10.5px;color:#A7AEBA;margin-top:1px;}
+.cb-link{flex:1;min-width:70px;height:2px;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:2px;position:relative;overflow:hidden;}
+.cb-link i{position:absolute;top:-2.5px;width:7px;height:7px;border-radius:50%;background:#fff;animation:callFlow 2.6s linear infinite;}
+.cb-link i:nth-child(2){animation-delay:.85s;}
+.cb-link i:nth-child(3){animation-delay:1.7s;}
+@keyframes callFlow{from{left:-8px;opacity:0;}12%{opacity:1;}88%{opacity:1;}to{left:100%;opacity:0;}}
+.cb-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:#FFB694;white-space:nowrap;}
+.cb-status .live{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:livePulse 1.5s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:.45;}}
+
+.thread{padding:14px 16px 12px;display:flex;flex-direction:column;gap:9px;background:
+  radial-gradient(circle at 12% 0%, rgba(242,102,44,.05), transparent 42%),
+  radial-gradient(circle at 88% 100%, rgba(111,158,47,.06), transparent 45%);}
+.turn{display:flex;gap:9px;align-items:flex-end;max-width:76%;animation:turnIn .32s ease both;}
+.turn.side-r{margin-left:auto;flex-direction:row-reverse;}
+@keyframes turnIn{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
+.turn .face{width:30px;height:30px;border-radius:50%;flex:0 0 30px;overflow:hidden;border:1.5px solid var(--line);background:var(--paper-deep);}
+.turn .face svg{width:100%;height:100%;display:block;}
+.bub{position:relative;border:1px solid var(--line);border-radius:16px;padding:7px 12px 8px;background:#fff;transition:transform .18s ease, box-shadow .18s ease;}
+.turn.side-l .bub{border-bottom-left-radius:5px;}
+.turn.side-r .bub{background:var(--accent-soft);border-color:#F2C4AC;border-bottom-right-radius:5px;}
+.bub:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(35,39,46,.09);}
+.bub .spk{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:2px;}
+.turn.side-r .bub .spk{text-align:right;color:#B34A17;}
+.bub .h{font-family:'Noto Serif SC',serif;font-size:18.5px;line-height:1.45;}
+.bub .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.bub .vi{font-size:12px;margin-top:4px;color:var(--ink);background:rgba(35,39,46,.06);display:inline-block;padding:2px 9px;border-radius:8px;}
+.turn.side-r .bub .vi{background:rgba(179,74,23,.1);}
+.bub-tools{display:flex;align-items:center;gap:6px;margin-top:4px;}
+.turn.side-r .bub-tools{justify-content:flex-end;}
+.prog-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--lime);background:var(--jade-soft);border:1px solid #C3DDA0;padding:2px 8px 2px 6px;border-radius:999px;}
+.prog-tag b{display:flex;gap:2px;}
+.prog-tag b s{width:3.5px;height:3.5px;border-radius:50%;background:var(--lime);text-decoration:none;animation:dotBeat 1.2s infinite;}
+.prog-tag b s:nth-child(2){animation-delay:.2s;}
+.prog-tag b s:nth-child(3){animation-delay:.4s;}
+@keyframes dotBeat{0%,60%,100%{opacity:.25;}30%{opacity:1;}}
+.bub.playing{box-shadow:0 0 0 3px rgba(242,102,44,.28), 0 8px 18px rgba(35,39,46,.12);border-color:var(--accent);}
+.turn.side-r .bub.playing{box-shadow:0 0 0 3px rgba(111,158,47,.3), 0 8px 18px rgba(35,39,46,.12);border-color:var(--lime);}
+.aupick{position:relative;overflow:hidden;display:inline-flex;align-items:center;margin-left:8px;cursor:pointer;}
+.aupick input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.au-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;}
+.au-tag.on{background:var(--jade-soft);color:var(--lime);border:1px solid #C3DDA0;}
+.au-tag.off{background:var(--paper-deep);color:var(--ink-soft);border:1px solid var(--line);}
+.speak-btn.mini{width:24px;height:24px;flex:0 0 24px;font-size:10px;}
+.callfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:var(--paper-deep);border-top:1px solid var(--line);flex-wrap:wrap;}
+.callfoot .hint{font-size:11.5px;color:var(--ink-soft);}
+#dialogueBlock.hide-py .bub .p{display:none;}
+#dialogueBlock.hide-vi .bub .vi{display:none;}
+@media(max-width:700px){.turn{max-width:96%;}.bub .h{font-size:17px;}}
+
+.fun-sticker{position:absolute;z-index:4;pointer-events:none;opacity:.92;filter:drop-shadow(0 5px 9px rgba(35,39,46,.2));}
 .fun-sticker .fi{display:block;width:100%;height:100%;animation:funFloat 5.4s ease-in-out infinite;transform-origin:50% 60%;}
 .fun-sticker .fi svg{width:100%;height:100%;}
 @keyframes funFloat{0%,100%{transform:translateY(0) rotate(var(--r,0deg)) scale(1);}50%{transform:translateY(-7px) rotate(calc(var(--r,0deg) + 4deg)) scale(1.04);}}
@@ -272,7 +333,65 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 .fs-5 .fi{animation-delay:2.8s;}
 .fs-6{right:172px;top:88px;width:50px;height:50px;--r:-6deg;}
 .fs-6 .fi{animation-delay:1.0s;}
-@media(max-width:900px){.fun-sticker{display:none;}}
+@media(max-width:900px){
+/* ===== Giao diện CUỘC GỌI cho trang bài khóa ===== */
+.callwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(35,39,46,.07);}
+.callbar{display:flex;align-items:center;gap:12px;padding:11px 16px;background:var(--night);color:#F1F1EC;flex-wrap:wrap;}
+.cb-who{display:flex;align-items:center;gap:9px;min-width:0;}
+.cb-av{width:34px;height:34px;border-radius:50%;flex:0 0 34px;overflow:hidden;background:var(--night-soft);border:2px solid rgba(255,255,255,.16);}
+.cb-av svg{width:100%;height:100%;display:block;}
+.cb-txt strong{display:block;font-family:'Noto Serif SC',serif;font-size:14.5px;line-height:1.2;}
+.cb-txt small{display:block;font-size:10.5px;color:#A7AEBA;margin-top:1px;}
+.cb-link{flex:1;min-width:70px;height:2px;background:linear-gradient(90deg,var(--accent),var(--lime));border-radius:2px;position:relative;overflow:hidden;}
+.cb-link i{position:absolute;top:-2.5px;width:7px;height:7px;border-radius:50%;background:#fff;animation:callFlow 2.6s linear infinite;}
+.cb-link i:nth-child(2){animation-delay:.85s;}
+.cb-link i:nth-child(3){animation-delay:1.7s;}
+@keyframes callFlow{from{left:-8px;opacity:0;}12%{opacity:1;}88%{opacity:1;}to{left:100%;opacity:0;}}
+.cb-status{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;letter-spacing:.05em;color:#FFB694;white-space:nowrap;}
+.cb-status .live{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:livePulse 1.5s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:.45;}}
+
+.thread{padding:14px 16px 12px;display:flex;flex-direction:column;gap:9px;background:
+  radial-gradient(circle at 12% 0%, rgba(242,102,44,.05), transparent 42%),
+  radial-gradient(circle at 88% 100%, rgba(111,158,47,.06), transparent 45%);}
+.turn{display:flex;gap:9px;align-items:flex-end;max-width:76%;animation:turnIn .32s ease both;}
+.turn.side-r{margin-left:auto;flex-direction:row-reverse;}
+@keyframes turnIn{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
+.turn .face{width:30px;height:30px;border-radius:50%;flex:0 0 30px;overflow:hidden;border:1.5px solid var(--line);background:var(--paper-deep);}
+.turn .face svg{width:100%;height:100%;display:block;}
+.bub{position:relative;border:1px solid var(--line);border-radius:16px;padding:7px 12px 8px;background:#fff;transition:transform .18s ease, box-shadow .18s ease;}
+.turn.side-l .bub{border-bottom-left-radius:5px;}
+.turn.side-r .bub{background:var(--accent-soft);border-color:#F2C4AC;border-bottom-right-radius:5px;}
+.bub:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(35,39,46,.09);}
+.bub .spk{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-soft);margin-bottom:2px;}
+.turn.side-r .bub .spk{text-align:right;color:#B34A17;}
+.bub .h{font-family:'Noto Serif SC',serif;font-size:18.5px;line-height:1.45;}
+.bub .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.bub .vi{font-size:12px;margin-top:4px;color:var(--ink);background:rgba(35,39,46,.06);display:inline-block;padding:2px 9px;border-radius:8px;}
+.turn.side-r .bub .vi{background:rgba(179,74,23,.1);}
+.bub-tools{display:flex;align-items:center;gap:6px;margin-top:4px;}
+.turn.side-r .bub-tools{justify-content:flex-end;}
+.prog-tag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--lime);background:var(--jade-soft);border:1px solid #C3DDA0;padding:2px 8px 2px 6px;border-radius:999px;}
+.prog-tag b{display:flex;gap:2px;}
+.prog-tag b s{width:3.5px;height:3.5px;border-radius:50%;background:var(--lime);text-decoration:none;animation:dotBeat 1.2s infinite;}
+.prog-tag b s:nth-child(2){animation-delay:.2s;}
+.prog-tag b s:nth-child(3){animation-delay:.4s;}
+@keyframes dotBeat{0%,60%,100%{opacity:.25;}30%{opacity:1;}}
+.bub.playing{box-shadow:0 0 0 3px rgba(242,102,44,.28), 0 8px 18px rgba(35,39,46,.12);border-color:var(--accent);}
+.turn.side-r .bub.playing{box-shadow:0 0 0 3px rgba(111,158,47,.3), 0 8px 18px rgba(35,39,46,.12);border-color:var(--lime);}
+.aupick{position:relative;overflow:hidden;display:inline-flex;align-items:center;margin-left:8px;cursor:pointer;}
+.aupick input{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.au-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;}
+.au-tag.on{background:var(--jade-soft);color:var(--lime);border:1px solid #C3DDA0;}
+.au-tag.off{background:var(--paper-deep);color:var(--ink-soft);border:1px solid var(--line);}
+.speak-btn.mini{width:24px;height:24px;flex:0 0 24px;font-size:10px;}
+.callfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;background:var(--paper-deep);border-top:1px solid var(--line);flex-wrap:wrap;}
+.callfoot .hint{font-size:11.5px;color:var(--ink-soft);}
+#dialogueBlock.hide-py .bub .p{display:none;}
+#dialogueBlock.hide-vi .bub .vi{display:none;}
+@media(max-width:700px){.turn{max-width:96%;}.bub .h{font-size:17px;}}
+
+.fun-sticker{display:none;}}
 .order-answer{background:var(--jade-soft);border:1px solid var(--jade);border-radius:12px;padding:9px 13px;animation:fbIn .28s ease;}
 .order-answer .h{font-family:'Noto Serif SC',serif;font-size:17px;}
 .order-answer .p{font-size:12px;color:var(--jade);margin-top:2px;}
@@ -303,15 +422,15 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 <div id="app">
   <header>
     <div class="brand">
-      <a href="index.html" class="lib-back" title="Quay lại thư viện bài học">
+      <a href="../index.html" class="lib-back" title="Quay lại thư viện bài học">
         <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
         <span>Thư viện</span>
       </a>
       <div class="side-mark">博</div>
-      <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 10 · Gia đình &amp; lượng từ — 你家有几口人</strong></div>
+      <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 12 · Đang làm gì &amp; lịch tuần — 你在干什么呢</strong></div>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
-      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">家</div><span id="weatherLabel">Gia đình</span></div>
+      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">喂</div><span id="weatherLabel">Cuộc gọi</span></div>
       <button class="fs-btn" id="fsBtn" title="Trình chiếu toàn màn hình">
         <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
       </button>
@@ -406,7 +525,7 @@ ticket:`<svg viewBox="0 0 100 100"><path d="M12 30 H88 V44 A7 7 0 0 0 88 58 V72 
 popcorn:`<svg viewBox="0 0 100 100"><circle cx="36" cy="30" r="12" fill="#FBF3E2"/><circle cx="56" cy="26" r="13" fill="#FFF8EC"/><circle cx="70" cy="36" r="10" fill="#FBF3E2"/><circle cx="46" cy="40" r="11" fill="#FFF8EC"/><path d="M26 44 H78 L70 88 H34Z" fill="#C0554F"/><path d="M38 44 L34 88" stroke="#fff" stroke-width="6"/><path d="M56 44 L58 88" stroke="#fff" stroke-width="6"/></svg>`,
 filmreel:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#4655A0"/><circle cx="50" cy="50" r="8" fill="#EBE3F7"/><circle cx="50" cy="28" r="7" fill="#EBE3F7"/><circle cx="50" cy="72" r="7" fill="#EBE3F7"/><circle cx="28" cy="50" r="7" fill="#EBE3F7"/><circle cx="72" cy="50" r="7" fill="#EBE3F7"/></svg>`,
 moonstar:`<svg viewBox="0 0 100 100"><path d="M66 20 A34 34 0 1 0 82 62 A28 28 0 0 1 66 20Z" fill="#7B5EA7"/><polygon points="0,0 4.5,-6 5.5,-1.8 9,-1.8 6.2,0.7 7.2,4.5 3.4,2.3 -0.4,4.5 0.9,0.5 -2,-1.8 1.8,-1.8" fill="#F0C64B" transform="translate(24,26) scale(1.5)"/><polygon points="0,0 4.5,-6 5.5,-1.8 9,-1.8 6.2,0.7 7.2,4.5 3.4,2.3 -0.4,4.5 0.9,0.5 -2,-1.8 1.8,-1.8" fill="#F0C64B" transform="translate(20,60) scale(1.05)"/></svg>`,
-okhand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#4E7C6B"/><circle cx="42" cy="44" r="12" fill="none" stroke="#fff" stroke-width="6"/><path d="M56 34 L74 30 M56 44 L78 42 M56 54 L74 54" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M32 60 Q50 76 70 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
+okhand:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#5F8F2A"/><circle cx="42" cy="44" r="12" fill="none" stroke="#fff" stroke-width="6"/><path d="M56 34 L74 30 M56 44 L78 42 M56 54 L74 54" stroke="#fff" stroke-width="6" stroke-linecap="round"/><path d="M32 60 Q50 76 70 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/></svg>`,
 bubbleba:`<svg viewBox="0 0 100 100"><path d="M14 22 H86 A8 8 0 0 1 94 30 V64 A8 8 0 0 1 86 72 H44 L26 88 V72 H14 A8 8 0 0 1 6 64 V30 A8 8 0 0 1 14 22Z" fill="#EBE3F7" stroke="#7B5EA7" stroke-width="4"/><text x="50" y="58" font-family="Noto Serif SC, serif" font-size="30" font-weight="900" fill="#7B5EA7" text-anchor="middle">吧?</text></svg>`,
 sparkle:`<svg viewBox="0 0 100 100"><path d="M50 8 L59 41 L92 50 L59 59 L50 92 L41 59 L8 50 L41 41Z" fill="#F0C64B"/><circle cx="50" cy="50" r="7" fill="#FFF3CE"/></svg>`,
 phone:`<svg viewBox="0 0 100 100"><rect x="28" y="10" width="44" height="80" rx="8" fill="#2B2540"/><rect x="33" y="20" width="34" height="56" rx="3" fill="#C2557F"/><circle cx="50" cy="83" r="4" fill="#6A6382"/><rect x="43" y="14" width="14" height="3" rx="1.5" fill="#6A6382"/></svg>`,
@@ -417,22 +536,37 @@ keypad:`<svg viewBox="0 0 100 100"><rect x="18" y="10" width="64" height="80" rx
 doorplate:`<svg viewBox="0 0 100 100"><rect x="16" y="26" width="68" height="48" rx="7" fill="#7A9E2F"/><rect x="22" y="32" width="56" height="36" rx="4" fill="#F3F8E6"/><text x="50" y="59" font-family="Arial Black, Arial" font-size="24" font-weight="900" fill="#5C7A1E" text-anchor="middle">502</text><circle cx="24" cy="22" r="3.5" fill="#5C7A1E"/><circle cx="76" cy="22" r="3.5" fill="#5C7A1E"/></svg>`,
 mapmark:`<svg viewBox="0 0 100 100"><path d="M50 12 C34 12 22 24 22 40 C22 60 50 88 50 88 C50 88 78 60 78 40 C78 24 66 12 50 12Z" fill="#E0703C"/><circle cx="50" cy="40" r="12" fill="#FBEADC"/></svg>`,
 telephone:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#1F8A70"/><path d="M32 30 Q28 28 26 34 L24 42 Q30 66 58 74 L66 72 Q72 70 70 64 L66 54 Q64 49 59 52 L54 55 Q45 50 42 41 L46 37 Q50 34 47 30 L40 22 Q37 18 32 22Z" fill="#fff" transform="translate(2,2) scale(0.92)"/></svg>`,
-weekend:`<svg viewBox="0 0 100 100"><rect x="14" y="22" width="72" height="62" rx="8" fill="#FFF" stroke="#1F8A70" stroke-width="4"/><rect x="14" y="22" width="72" height="18" rx="8" fill="#1F8A70"/><rect x="30" y="12" width="7" height="18" rx="3.5" fill="#8E4258"/><rect x="63" y="12" width="7" height="18" rx="3.5" fill="#8E4258"/><rect x="58" y="50" width="22" height="24" rx="4" fill="#E0703C"/><circle cx="30" cy="54" r="4" fill="#B9CDBF"/><circle cx="44" cy="54" r="4" fill="#B9CDBF"/><circle cx="30" cy="68" r="4" fill="#B9CDBF"/><circle cx="44" cy="68" r="4" fill="#B9CDBF"/></svg>`,
+weekend:`<svg viewBox="0 0 100 100"><rect x="14" y="22" width="72" height="62" rx="8" fill="#FFF" stroke="#1F8A70" stroke-width="4"/><rect x="14" y="22" width="72" height="18" rx="8" fill="#1F8A70"/><rect x="30" y="12" width="7" height="18" rx="3.5" fill="#B34A17"/><rect x="63" y="12" width="7" height="18" rx="3.5" fill="#B34A17"/><rect x="58" y="50" width="22" height="24" rx="4" fill="#E0703C"/><circle cx="30" cy="54" r="4" fill="#B9CDBF"/><circle cx="44" cy="54" r="4" fill="#B9CDBF"/><circle cx="30" cy="68" r="4" fill="#B9CDBF"/><circle cx="44" cy="68" r="4" fill="#B9CDBF"/></svg>`,
 fastbike:`<svg viewBox="0 0 100 100"><circle cx="30" cy="64" r="15" fill="none" stroke="#22332E" stroke-width="5"/><circle cx="76" cy="64" r="15" fill="none" stroke="#22332E" stroke-width="5"/><path d="M30 64 L48 42 L64 64 L48 42 L56 36" fill="none" stroke="#1F8A70" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="40" x2="24" y2="40" stroke="#E0703C" stroke-width="5" stroke-linecap="round"/><line x1="10" y1="54" x2="26" y2="54" stroke="#E0703C" stroke-width="5" stroke-linecap="round"/></svg>`,
 beer:`<svg viewBox="0 0 100 100"><path d="M34 18 H66 L62 88 H38Z" fill="#E8B33C"/><path d="M34 18 H66 L64 34 H36Z" fill="#FBF3DC"/><path d="M66 32 H78 A9 9 0 0 1 78 58 H64" fill="none" stroke="#C9932A" stroke-width="6"/><circle cx="46" cy="48" r="3.5" fill="#FBF3DC" opacity=".8"/><circle cx="55" cy="62" r="3" fill="#FBF3DC" opacity=".8"/></svg>`,
 waterbtl:`<svg viewBox="0 0 100 100"><rect x="42" y="8" width="16" height="12" rx="3" fill="#3D7A9E"/><path d="M38 20 H62 L66 34 V84 A6 6 0 0 1 60 90 H40 A6 6 0 0 1 34 84 V34Z" fill="#CFE6F2" stroke="#7FA9C4" stroke-width="2.5"/><path d="M38 48 H62 V64 H38Z" fill="#8FC3DE" opacity=".7"/></svg>`,
-coin:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E0B93A" stroke="#B8942A" stroke-width="4"/><rect x="41" y="41" width="18" height="18" fill="#FAF4EE"/><text x="50" y="44" font-family="Noto Serif SC, serif" font-size="20" font-weight="900" fill="#8E4258" text-anchor="middle">元</text></svg>`,
+coin:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#E0B93A" stroke="#B8942A" stroke-width="4"/><rect x="41" y="41" width="18" height="18" fill="#FAF4EE"/><text x="50" y="44" font-family="Noto Serif SC, serif" font-size="20" font-weight="900" fill="#B34A17" text-anchor="middle">元</text></svg>`,
 banknote:`<svg viewBox="0 0 100 100"><rect x="8" y="28" width="84" height="46" rx="5" fill="#B23A2E"/><rect x="15" y="35" width="70" height="32" rx="3" fill="none" stroke="#FADFDA" stroke-width="2.5"/><circle cx="50" cy="51" r="11" fill="#FADFDA"/><text x="50" y="58" font-family="Noto Serif SC, serif" font-size="15" font-weight="900" fill="#B23A2E" text-anchor="middle">块</text></svg>`,
 shopbag:`<svg viewBox="0 0 100 100"><path d="M22 32 H78 L84 88 H16Z" fill="#B23A2E"/><path d="M36 34 V24 A14 14 0 0 1 64 24 V34" fill="none" stroke="#7A2A20" stroke-width="5"/><rect x="30" y="52" width="40" height="6" rx="3" fill="#FADFDA" opacity=".85"/></svg>`,
 pricetag:`<svg viewBox="0 0 100 100"><path d="M52 12 H86 A4 4 0 0 1 90 16 V50 L46 94 L8 56Z" fill="#C29B22"/><circle cx="74" cy="28" r="7" fill="#FAF4EE"/><text x="46" y="66" font-family="Noto Serif SC, serif" font-size="22" font-weight="900" fill="#FAF4EE" text-anchor="middle" transform="rotate(-45 46 62)">￥</text></svg>`,
 cashier:`<svg viewBox="0 0 100 100"><rect x="12" y="44" width="76" height="40" rx="5" fill="#7A5A3C"/><rect x="20" y="52" width="30" height="14" rx="3" fill="#F0E5D9"/><circle cx="62" cy="58" r="4" fill="#E0B93A"/><circle cx="74" cy="58" r="4" fill="#E0B93A"/><circle cx="62" cy="72" r="4" fill="#E0B93A"/><circle cx="74" cy="72" r="4" fill="#E0B93A"/><rect x="28" y="20" width="44" height="22" rx="4" fill="#B23A2E"/><rect x="34" y="26" width="32" height="10" rx="2" fill="#FADFDA"/></svg>`,
-photoframe:`<svg viewBox="0 0 100 100"><rect x="10" y="16" width="80" height="68" rx="6" fill="#8E7A5E"/><rect x="18" y="24" width="64" height="52" rx="3" fill="#F6E3E9"/><circle cx="38" cy="42" r="8" fill="#B05A72"/><circle cx="60" cy="45" r="6.5" fill="#5B6E8C"/><path d="M22 72 Q34 54 46 72Z" fill="#4E7C6B"/><path d="M48 72 Q60 58 72 72Z" fill="#6E8FA8"/></svg>`,
-familygroup:`<svg viewBox="0 0 100 100"><circle cx="28" cy="34" r="11" fill="#F0CDB4" stroke="#7A5B4A" stroke-width="2"/><circle cx="62" cy="32" r="11" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><circle cx="46" cy="58" r="8" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M8 84 Q11 50 28 50 Q45 50 48 84Z" fill="#5B6E8C"/><path d="M44 84 Q47 48 62 48 Q79 48 82 84Z" fill="#B05A72"/><path d="M30 92 Q32 70 46 70 Q60 70 62 92Z" fill="#4E7C6B"/></svg>`,
+photoframe:`<svg viewBox="0 0 100 100"><rect x="10" y="16" width="80" height="68" rx="6" fill="#8E7A5E"/><rect x="18" y="24" width="64" height="52" rx="3" fill="#F6E3E9"/><circle cx="38" cy="42" r="8" fill="#B05A72"/><circle cx="60" cy="45" r="6.5" fill="#5B6E8C"/><path d="M22 72 Q34 54 46 72Z" fill="#5F8F2A"/><path d="M48 72 Q60 58 72 72Z" fill="#6E8FA8"/></svg>`,
+familygroup:`<svg viewBox="0 0 100 100"><circle cx="28" cy="34" r="11" fill="#F0CDB4" stroke="#7A5B4A" stroke-width="2"/><circle cx="62" cy="32" r="11" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><circle cx="46" cy="58" r="8" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M8 84 Q11 50 28 50 Q45 50 48 84Z" fill="#5B6E8C"/><path d="M44 84 Q47 48 62 48 Q79 48 82 84Z" fill="#B05A72"/><path d="M30 92 Q32 70 46 70 Q60 70 62 92Z" fill="#5F8F2A"/></svg>`,
 dogicon:`<svg viewBox="0 0 100 100"><ellipse cx="50" cy="60" rx="26" ry="22" fill="#C9A87C"/><path d="M26 40 Q18 18 32 22 Q36 32 34 44Z" fill="#A8865A"/><path d="M74 40 Q82 18 68 22 Q64 32 66 44Z" fill="#A8865A"/><circle cx="40" cy="56" r="4" fill="#3A2A1E"/><circle cx="60" cy="56" r="4" fill="#3A2A1E"/><ellipse cx="50" cy="68" rx="7" ry="5" fill="#5B4433"/><path d="M50 73 Q44 80 38 76 M50 73 Q56 80 62 76" stroke="#5B4433" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>`,
 grandpa:`<svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="24" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><path d="M26 38 Q30 16 50 18 Q70 16 74 38 Q64 26 50 28 Q36 26 26 38Z" fill="#D8D4D0"/><circle cx="41" cy="45" r="7" fill="none" stroke="#5B4433" stroke-width="2.5"/><circle cx="59" cy="45" r="7" fill="none" stroke="#5B4433" stroke-width="2.5"/><line x1="48" y1="45" x2="52" y2="45" stroke="#5B4433" stroke-width="2.5"/><path d="M40 62 Q50 70 60 62" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 90 Q26 72 50 72 Q74 72 78 90Z" fill="#5B6E8C"/></svg>`,
 grandma:`<svg viewBox="0 0 100 100"><circle cx="50" cy="44" r="24" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M26 40 Q28 14 50 16 Q72 14 74 40 Q72 22 50 24 Q28 22 26 40Z" fill="#E2DEDA"/><circle cx="30" cy="34" r="7" fill="#E2DEDA"/><circle cx="70" cy="34" r="7" fill="#E2DEDA"/><circle cx="41" cy="46" r="3.4" fill="#3A2A1E"/><circle cx="59" cy="46" r="3.4" fill="#3A2A1E"/><ellipse cx="34" cy="54" rx="5" ry="3" fill="#E9A0A8" opacity=".6"/><ellipse cx="66" cy="54" rx="5" ry="3" fill="#E9A0A8" opacity=".6"/><path d="M42 62 Q50 69 58 62" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M22 90 Q26 72 50 72 Q74 72 78 90Z" fill="#B05A72"/></svg>`,
 kid:`<svg viewBox="0 0 100 100"><circle cx="50" cy="42" r="22" fill="#FBE0CC" stroke="#7A5B4A" stroke-width="2"/><path d="M28 36 Q32 16 50 18 Q68 16 72 36 Q62 26 50 28 Q38 26 28 36Z" fill="#4A3728"/><circle cx="42" cy="44" r="3.6" fill="#2A1C12"/><circle cx="58" cy="44" r="3.6" fill="#2A1C12"/><ellipse cx="35" cy="52" rx="4.5" ry="2.8" fill="#F0A0A8" opacity=".65"/><ellipse cx="65" cy="52" rx="4.5" ry="2.8" fill="#F0A0A8" opacity=".65"/><path d="M43 57 Q50 63 57 57" stroke="#7A5B4A" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M26 90 Q30 70 50 70 Q70 70 74 90Z" fill="#C9942F"/></svg>`,
-heartfam:`<svg viewBox="0 0 100 100"><path d="M50 86 C20 66 8 46 20 29 C30 15 48 19 50 35 C52 19 70 15 80 29 C92 46 80 66 50 86Z" fill="#B05A72"/><circle cx="38" cy="46" r="6" fill="#F6E3E9"/><circle cx="62" cy="46" r="6" fill="#F6E3E9"/><circle cx="50" cy="58" r="5" fill="#F6E3E9"/></svg>`
+heartfam:`<svg viewBox="0 0 100 100"><path d="M50 86 C20 66 8 46 20 29 C30 15 48 19 50 35 C52 19 70 15 80 29 C92 46 80 66 50 86Z" fill="#B05A72"/><circle cx="38" cy="46" r="6" fill="#F6E3E9"/><circle cx="62" cy="46" r="6" fill="#F6E3E9"/><circle cx="50" cy="58" r="5" fill="#F6E3E9"/></svg>`,
+passport:`<svg viewBox="0 0 100 100"><rect x="20" y="10" width="60" height="80" rx="7" fill="#3B4E8C"/><rect x="26" y="16" width="48" height="68" rx="4" fill="#4A6FA5"/><circle cx="50" cy="42" r="15" fill="none" stroke="#E4EDF7" stroke-width="3"/><ellipse cx="50" cy="42" rx="6.5" ry="15" fill="none" stroke="#E4EDF7" stroke-width="3"/><line x1="35" y1="42" x2="65" y2="42" stroke="#E4EDF7" stroke-width="3"/><rect x="36" y="66" width="28" height="4" rx="2" fill="#E4EDF7"/></svg>`,
+classroom:`<svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="46" rx="5" fill="#2F4A5E"/><rect x="16" y="20" width="68" height="34" rx="3" fill="#E7F1F5"/><text x="50" y="45" font-family="Noto Serif SC, serif" font-size="22" font-weight="900" fill="#0E8FA8" text-anchor="middle">你好</text><rect x="14" y="70" width="24" height="16" rx="3" fill="#C98A4B"/><rect x="62" y="70" width="24" height="16" rx="3" fill="#C98A4B"/><circle cx="26" cy="64" r="6" fill="#F6D9C4"/><circle cx="74" cy="64" r="6" fill="#F6D9C4"/></svg>`,
+greet:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#D1495B"/><path d="M36 34 Q30 20 40 18 Q38 28 44 34" fill="#FBE0CC"/><path d="M46 32 Q44 16 54 16 Q50 28 54 34" fill="#FBE0CC"/><circle cx="50" cy="52" r="18" fill="#FBE0CC"/><circle cx="43" cy="50" r="3" fill="#3A2A1E"/><circle cx="57" cy="50" r="3" fill="#3A2A1E"/><path d="M42 60 Q50 68 58 60" stroke="#7A5B4A" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+worldmap:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#0E8FA8"/><path d="M22 40 Q32 32 40 40 Q46 48 38 54 Q28 56 22 48Z" fill="#D8EEF4"/><path d="M52 28 Q64 26 70 36 Q74 46 64 50 Q56 46 52 36Z" fill="#D8EEF4"/><path d="M50 58 Q62 58 66 68 Q60 78 50 76 Q44 68 50 58Z" fill="#D8EEF4"/></svg>`,
+idcard:`<svg viewBox="0 0 100 100"><rect x="8" y="24" width="84" height="54" rx="7" fill="#E8A33D"/><rect x="16" y="32" width="30" height="38" rx="4" fill="#FBF1DC"/><circle cx="31" cy="46" r="8" fill="#C98A4B"/><path d="M20 66 Q24 56 31 56 Q38 56 42 66Z" fill="#C98A4B"/><rect x="52" y="38" width="30" height="5" rx="2.5" fill="#FBF1DC"/><rect x="52" y="50" width="30" height="5" rx="2.5" fill="#FBF1DC"/><rect x="52" y="62" width="20" height="5" rx="2.5" fill="#FBF1DC"/></svg>`,
+speechhi:`<svg viewBox="0 0 100 100"><path d="M12 20 H88 A8 8 0 0 1 96 28 V62 A8 8 0 0 1 88 70 H42 L24 88 V70 H12 A8 8 0 0 1 4 62 V28 A8 8 0 0 1 12 20Z" fill="#D8EEF4" stroke="#0E8FA8" stroke-width="4"/><text x="50" y="56" font-family="Noto Serif SC, serif" font-size="26" font-weight="900" fill="#0E8FA8" text-anchor="middle">你好</text></svg>`,
+teacherpt:`<svg viewBox="0 0 100 100"><circle cx="50" cy="36" r="18" fill="#F6D9C4" stroke="#7A5B4A" stroke-width="2"/><path d="M32 32 Q34 14 50 16 Q66 14 68 32 Q60 22 50 24 Q40 22 32 32Z" fill="#3A2A1E"/><circle cx="43" cy="37" r="6" fill="none" stroke="#4A6FA5" stroke-width="2.2"/><circle cx="57" cy="37" r="6" fill="none" stroke="#4A6FA5" stroke-width="2.2"/><line x1="49" y1="37" x2="51" y2="37" stroke="#4A6FA5" stroke-width="2.2"/><path d="M26 88 Q30 60 50 60 Q70 60 74 88Z" fill="#0E8FA8"/><line x1="72" y1="58" x2="92" y2="34" stroke="#7A5B4A" stroke-width="4" stroke-linecap="round"/></svg>`,
+avaDavid:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#3A4048"/><circle cx="50" cy="42" r="21" fill="#F3D3B6"/><path d="M27 40 Q24 14 50 16 Q76 14 73 40 Q68 24 50 26 Q32 24 27 40Z" fill="#6B4A2E"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><path d="M43 53 Q50 58 57 53" stroke="#8A6046" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#6F9E2F"/></svg>`,
+avaMary:`<svg viewBox="0 0 100 100"><rect width="100" height="100" fill="#3A4048"/><circle cx="50" cy="42" r="21" fill="#FBE0CC"/><path d="M26 44 Q24 12 50 14 Q76 12 74 44 Q72 22 50 24 Q28 22 26 44Z" fill="#D9A441"/><path d="M26 40 Q22 58 26 66 Q30 54 28 44Z" fill="#D9A441"/><path d="M74 40 Q78 58 74 66 Q70 54 72 44Z" fill="#D9A441"/><circle cx="41" cy="43" r="3.2" fill="#2A1C12"/><circle cx="59" cy="43" r="3.2" fill="#2A1C12"/><ellipse cx="34" cy="50" rx="4.2" ry="2.6" fill="#F09A9A" opacity=".6"/><ellipse cx="66" cy="50" rx="4.2" ry="2.6" fill="#F09A9A" opacity=".6"/><path d="M43 53 Q50 59 57 53" stroke="#B87A5A" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M20 100 Q24 68 50 68 Q76 68 80 100Z" fill="#F2662C"/></svg>`,
+homework:`<svg viewBox="0 0 100 100"><rect x="14" y="20" width="60" height="72" rx="5" fill="#FBF7EC" stroke="#8A8F80" stroke-width="3"/><line x1="26" y1="38" x2="62" y2="38" stroke="#B9BEB0" stroke-width="3.5" stroke-linecap="round"/><line x1="26" y1="52" x2="62" y2="52" stroke="#B9BEB0" stroke-width="3.5" stroke-linecap="round"/><line x1="26" y1="66" x2="48" y2="66" stroke="#B9BEB0" stroke-width="3.5" stroke-linecap="round"/><path d="M64 60 L88 34 L80 26 L56 52 L54 64Z" fill="#F2662C"/><path d="M54 64 L62 62 L56 56Z" fill="#23272E"/></svg>`,
+coffeecup:`<svg viewBox="0 0 100 100"><path d="M22 34 H70 V64 A18 18 0 0 1 52 82 H40 A18 18 0 0 1 22 64Z" fill="#FBF3E6" stroke="#8A6046" stroke-width="3"/><path d="M70 40 H80 A11 11 0 0 1 80 62 H70" fill="none" stroke="#8A6046" stroke-width="4"/><path d="M22 44 H70 V62 A16 16 0 0 1 54 78 H38 A16 16 0 0 1 22 62Z" fill="#7A4A2A"/><path d="M36 24 Q32 16 38 10 M50 24 Q46 16 52 10 M64 24 Q60 16 66 10" stroke="#C9C3B4" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`,
+micnote:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#6F9E2F"/><path d="M42 66 V40 L70 34 V60" stroke="#fff" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="36" cy="67" r="7" fill="#fff"/><circle cx="64" cy="61" r="7" fill="#fff"/></svg>`,
+calendarwk:`<svg viewBox="0 0 100 100"><rect x="12" y="22" width="76" height="64" rx="7" fill="#fff" stroke="#23272E" stroke-width="3.5"/><rect x="12" y="22" width="76" height="17" rx="7" fill="#23272E"/><rect x="28" y="12" width="7" height="17" rx="3.5" fill="#5F6672"/><rect x="65" y="12" width="7" height="17" rx="3.5" fill="#5F6672"/><rect x="24" y="48" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="44" y="48" width="12" height="11" rx="2.5" fill="#F2662C"/><rect x="64" y="48" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="24" y="66" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="44" y="66" width="12" height="11" rx="2.5" fill="#DBDCD2"/><rect x="64" y="66" width="12" height="11" rx="2.5" fill="#6F9E2F"/></svg>`,
+neonbar:`<svg viewBox="0 0 100 100"><rect x="10" y="14" width="80" height="52" rx="8" fill="#23272E"/><text x="50" y="48" font-family="Noto Serif SC, serif" font-size="26" font-weight="900" fill="#F2662C" text-anchor="middle">酒吧</text><rect x="18" y="56" width="64" height="3" rx="1.5" fill="#6F9E2F"/><rect x="44" y="66" width="12" height="16" fill="#5F6672"/><rect x="30" y="82" width="40" height="6" rx="3" fill="#3A4048"/></svg>`,
+phoneline:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#F2662C"/><path d="M34 28 Q29 26 27 32 L25 41 Q31 66 60 74 L69 72 Q75 70 73 64 L69 54 Q67 49 62 52 L57 55 Q47 50 44 41 L48 37 Q52 34 49 30 L42 21 Q39 17 34 21Z" fill="#fff" transform="translate(1,1) scale(0.94)"/></svg>`
 };
 const LATTICE_SVG = `<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 100 Q40 60 80 90 Q100 105 90 130 Q75 150 100 160"/><path d="M30 130 Q55 110 80 130"/><path d="M60 40 Q90 20 120 45 Q140 60 125 80"/></svg>`;
 /* Corner sticker — hình giáo viên do người dùng cung cấp */
@@ -441,259 +575,444 @@ const CORNER_STICKER = `<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA
 /* ---------- VOCAB DETAILS ----------
    Mọi từ trong bài khóa đều tra được. Mục old:true là từ đã học — không liệt kê ở hàng từ vựng. */
 const vocabDetails = {
-/* ===== 词语表 Bài 10 — 19 từ mới ===== */
-"照片":{p:"zhàopiàn",pos:"n.",hv:"Chiếu phiến",vi:"bức ảnh, tấm hình",usage:"Danh từ. Lượng từ: 张 (zhāng — tờ, tấm). 我家的照片 = ảnh gia đình tôi. Chụp ảnh là 照相 (zhàoxiàng).",
- radical:{char:"灬",name:"hỏa (lửa) — bốn chấm dưới chữ 照"}, mnemonic:"照 có bộ 灬 (lửa) ở dưới — cần ánh sáng mới soi rõ; 片 vẽ một mảnh mỏng cắt ra → 照片 = mảnh giấy ghi lại ánh sáng.", icon:"photoframe",
- examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"对，是我家的照片。",p:"Duì, shì wǒ jiā de zhàopiàn.",vi:"Đúng, là ảnh gia đình mình."},{h:"这张照片很好。",p:"Zhè zhāng zhàopiàn hěn hǎo.",vi:"Tấm ảnh này đẹp lắm."}]},
-"家":{p:"jiā",pos:"n.",hv:"Gia",vi:"nhà, gia đình",usage:"Danh từ. Trước 家 thường lược 的 vì quan hệ thân thiết: 我家 = nhà tôi (không cần nói 我的家). 你家有几口人？là câu hỏi chuẩn về gia đình.",
- radical:{char:"宀",name:"miên (mái nhà) — phía trên chữ 家"}, mnemonic:"家 = 宀 (mái nhà) + 豕 (con lợn) — nhà nào nuôi được lợn dưới mái là một gia đình no đủ.", icon:"home",
- examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"}]},
-"口":{p:"kǒu",pos:"mw.",hv:"Khẩu",vi:"(lượng từ đếm nhân khẩu)",usage:"Lượng từ CHỈ dùng để đếm số người trong một gia đình: 五口人 = năm nhân khẩu. Đếm người nói chung thì dùng 个: 三个学生, không nói 三口学生.",
- radical:{char:"口",name:"khẩu — bản thân nó là một bộ thủ"}, mnemonic:"口 vẽ hình cái miệng mở — mỗi miệng ăn là một nhân khẩu trong nhà; nên chỉ đếm người trong gia đình.", icon:"familygroup",
- examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"一共六口人？——不，七口。",p:"Yígòng liù kǒu rén? — Bù, qī kǒu.",vi:"Tổng cộng sáu người à? — Không, bảy người."}]},
-"爷爷":{p:"yéye",pos:"n.",hv:"Gia gia",vi:"ông nội",usage:"Danh từ chỉ CHA của bố. Ông ngoại (cha của mẹ) gọi là 外公 wàigōng hoặc 姥爷 lǎoye — tiếng Hán phân biệt rõ họ nội và họ ngoại.",
- radical:{char:"父",name:"phụ (cha) — phía trên chữ 爷"}, mnemonic:"爷 có bộ 父 (cha) trên đầu — người cha của cha mình, tức ông nội.", icon:"grandpa",
- examples:[{h:"我家有五口人：爷爷、奶奶、爸爸、妈妈和我。",p:"Wǒ jiā yǒu wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ.",vi:"Nhà tôi có năm người: ông nội, bà nội, bố, mẹ và tôi."},{h:"爷爷和奶奶在家。",p:"Yéye hé nǎinai zài jiā.",vi:"Ông bà nội đang ở nhà."},{h:"这是我爷爷的照片。",p:"Zhè shì wǒ yéye de zhàopiàn.",vi:"Đây là ảnh ông nội tôi."}]},
-"奶奶":{p:"nǎinai",pos:"n.",hv:"Nãi nãi",vi:"bà nội",usage:"Danh từ chỉ MẸ của bố. Bà ngoại gọi là 外婆 wàipó hoặc 姥姥 lǎolao.",
- radical:{char:"女",name:"nữ — bên trái chữ 奶"}, mnemonic:"奶 = 女 (nữ) + 乃 — người phụ nữ cho sữa, nuôi nấng cả nhà; lặp lại thành 奶奶 = bà nội.", icon:"grandma",
- examples:[{h:"爷爷、奶奶、爸爸、妈妈和我。",p:"Yéye, nǎinai, bàba, māma hé wǒ.",vi:"Ông nội, bà nội, bố, mẹ và tôi."},{h:"奶奶有一条狗。",p:"Nǎinai yǒu yì tiáo gǒu.",vi:"Bà nội có một con chó."},{h:"我奶奶在中国。",p:"Wǒ nǎinai zài Zhōngguó.",vi:"Bà nội tôi ở Trung Quốc."}]},
-"爸爸":{p:"bàba",pos:"n.",hv:"Ba ba",vi:"bố, cha",usage:"Danh từ, cách gọi thân mật. Trang trọng hơn là 父亲 fùqīn. Âm tiết thứ hai đọc nhẹ (khinh thanh).",
- radical:{char:"父",name:"phụ (cha) — phía trên chữ 爸"}, mnemonic:"爸 = 父 (cha) + 巴 (mượn âm ba) — chữ tượng thanh, gần giống tiếng gọi “ba” của trẻ con khắp thế giới.", icon:"familygroup",
- examples:[{h:"我家有爸爸、妈妈、哥哥、弟弟、妹妹。",p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei.",vi:"Nhà tôi có bố, mẹ, anh trai, em trai, em gái."},{h:"爸爸的爸爸是爷爷。",p:"Bàba de bàba shì yéye.",vi:"Bố của bố là ông nội."},{h:"我爸爸是老师。",p:"Wǒ bàba shì lǎoshī.",vi:"Bố tôi là giáo viên."}]},
-"妈妈":{p:"māma",pos:"n.",hv:"Ma ma",vi:"mẹ",usage:"Danh từ, cách gọi thân mật. Trang trọng hơn là 母亲 mǔqīn.",
- radical:{char:"女",name:"nữ — bên trái chữ 妈"}, mnemonic:"妈 = 女 (nữ) + 马 (mượn âm ma) — chữ hình thanh: bộ 女 cho nghĩa, 马 cho âm.", icon:"familygroup",
- examples:[{h:"爷爷、奶奶、爸爸、妈妈和我。",p:"Yéye, nǎinai, bàba, māma hé wǒ.",vi:"Ông nội, bà nội, bố, mẹ và tôi."},{h:"爸爸的妈妈是奶奶。",p:"Bàba de māma shì nǎinai.",vi:"Mẹ của bố là bà nội."},{h:"我妈妈有一条狗。",p:"Wǒ māma yǒu yì tiáo gǒu.",vi:"Mẹ tôi có một con chó."}]},
-"哥哥":{p:"gēge",pos:"n.",hv:"Ca ca",vi:"anh trai",usage:"Danh từ chỉ anh trai (lớn tuổi hơn mình). Tiếng Hán phân biệt rõ tuổi: 哥哥 (anh) ≠ 弟弟 (em trai), 姐姐 (chị) ≠ 妹妹 (em gái).",
- radical:{char:"口",name:"khẩu (miệng) — hai chữ 可 chồng lên tạo thành 哥"}, mnemonic:"哥 do hai chữ 可 chồng lên nhau — người ở tầng trên, sinh trước → anh.", icon:"kid",
- examples:[{h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?",vi:"Bạn không có anh chị à?"},{h:"我家有一个哥哥。",p:"Wǒ jiā yǒu yí ge gēge.",vi:"Nhà tôi có một anh trai."},{h:"哥哥、弟弟、妹妹和我。",p:"Gēge, dìdi, mèimei hé wǒ.",vi:"Anh trai, em trai, em gái và tôi."}]},
-"姐姐":{p:"jiějie",pos:"n.",hv:"Tỉ tỉ",vi:"chị gái",usage:"Danh từ chỉ chị gái (lớn tuổi hơn mình). Chú ý phân biệt với 小姐 (xiǎojie — cô, chị, dùng gọi người lạ) đã học ở Bài 9.",
- radical:{char:"女",name:"nữ — bên trái chữ 姐"}, mnemonic:"姐 = 女 (nữ) + 且 (hơn nữa, ở trên) — người con gái sinh trước mình → chị.", icon:"grandma",
- examples:[{h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?",vi:"Bạn không có anh chị à?"},{h:"我有一个姐姐，还有一个妹妹。",p:"Wǒ yǒu yí ge jiějie, hái yǒu yí ge mèimei.",vi:"Tôi có một chị gái, còn có một em gái nữa."},{h:"姐姐是留学生。",p:"Jiějie shì liúxuéshēng.",vi:"Chị gái tôi là du học sinh."}]},
-"家庭":{p:"jiātíng",pos:"n.",hv:"Gia đình",vi:"gia đình (đơn vị xã hội)",usage:"Danh từ mang sắc thái trang trọng, dùng khi nói khái quát: 中国家庭 = gia đình Trung Quốc. Khi nói về nhà mình thì dùng 家: 我家有五口人 (không nói 我家庭有五口人).",
- radical:{char:"广",name:"nghiễm (mái hiên) — bao chữ 庭"}, mnemonic:"庭 có bộ 广 (mái hiên) — cái sân trước nhà nơi cả nhà quây quần; 家庭 = mái nhà và cái sân, tức một hộ gia đình.", icon:"heartfam",
- examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"一个家庭有几口人？",p:"Yí ge jiātíng yǒu jǐ kǒu rén?",vi:"Một gia đình có mấy người?"},{h:"这是一个大家庭。",p:"Zhè shì yí ge dà jiātíng.",vi:"Đây là một gia đình lớn."}]},
-"一般":{p:"yìbān",pos:"adj./adv.",hv:"Nhất ban",vi:"thông thường, nói chung",usage:"Đặt TRƯỚC động từ để nói về thói quen, tình hình phổ biến: 一般只有一个孩子 = thường chỉ có một con. Cũng có nghĩa “bình thường, không đặc biệt”.",
- radical:{char:"舟",name:"chu (con thuyền) — bên trái chữ 般"}, mnemonic:"般 có bộ 舟 (thuyền) — nghĩa gốc là “loại, kiểu”; 一般 = cùng một kiểu, tức là thông thường như thế.", icon:"chart",
- examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"我们一般八点上课。",p:"Wǒmen yìbān bā diǎn shàngkè.",vi:"Chúng tôi thường tám giờ vào học."},{h:"一般是九点。",p:"Yìbān shì jiǔ diǎn.",vi:"Thường là chín giờ."}]},
-"只":{p:"zhǐ",pos:"adv.",hv:"Chỉ",vi:"chỉ, chỉ có",usage:"Phó từ giới hạn, đặt TRƯỚC động từ: 只有一个孩子 = chỉ có một con. Chú ý chữ 只 còn đọc zhī và làm lượng từ cho động vật nhỏ (一只猫).",
- radical:{char:"口",name:"khẩu (miệng) — phía trên chữ 只"}, mnemonic:"只 = 口 (miệng) trên hai nét chống xuống — chỉ một tiếng thốt ra, không hơn → “chỉ, chỉ có”.", icon:"exclaim",
- examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"我只有一个哥哥。",p:"Wǒ zhǐ yǒu yí ge gēge.",vi:"Tôi chỉ có một anh trai."},{h:"我只买两瓶水。",p:"Wǒ zhǐ mǎi liǎng píng shuǐ.",vi:"Tôi chỉ mua hai chai nước."}]},
-"孩子":{p:"háizi",pos:"n.",hv:"Hài tử",vi:"đứa trẻ; con cái",usage:"Danh từ. Lượng từ: 个. Vừa chỉ trẻ con nói chung, vừa chỉ con cái trong nhà: 一个孩子 = một người con.",
- radical:{char:"子",name:"tử (đứa con) — bên phải chữ 孩"}, mnemonic:"孩 = 子 (đứa trẻ) + 亥 — bộ 子 vẽ hình em bé quấn tã dang hai tay; hễ chữ nào có 子 thường liên quan tới trẻ nhỏ (学、字、孩).", icon:"kid",
- examples:[{h:"一般只有一个孩子。",p:"Yìbān zhǐ yǒu yí ge háizi.",vi:"Thường chỉ có một người con."},{h:"这个家庭有两个孩子。",p:"Zhège jiātíng yǒu liǎng ge háizi.",vi:"Gia đình này có hai người con."},{h:"孩子们在家。",p:"Háizimen zài jiā.",vi:"Bọn trẻ đang ở nhà."}]},
-"弟弟":{p:"dìdi",pos:"n.",hv:"Đệ đệ",vi:"em trai",usage:"Danh từ chỉ em trai (nhỏ tuổi hơn mình). Cặp đôi với 哥哥.",
- radical:{char:"弓",name:"cung (cây cung) — trong chữ 弟"}, mnemonic:"弟 vẽ sợi dây quấn quanh cây cọc theo thứ tự từ dưới lên — thứ tự lớn bé trong nhà → em.", icon:"kid",
- examples:[{h:"我家有爸爸、妈妈、哥哥、弟弟、妹妹。",p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei.",vi:"Nhà tôi có bố, mẹ, anh trai, em trai, em gái."},{h:"一个弟弟和一个妹妹。",p:"Yí ge dìdi hé yí ge mèimei.",vi:"Một em trai và một em gái."},{h:"我弟弟是学生。",p:"Wǒ dìdi shì xuésheng.",vi:"Em trai tôi là học sinh."}]},
-"妹妹":{p:"mèimei",pos:"n.",hv:"Muội muội",vi:"em gái",usage:"Danh từ chỉ em gái (nhỏ tuổi hơn mình). Cặp đôi với 姐姐.",
- radical:{char:"女",name:"nữ — bên trái chữ 妹"}, mnemonic:"妹 = 女 (nữ) + 未 (chưa tới) — người con gái sinh sau, chưa lớn bằng mình → em gái.", icon:"kid",
- examples:[{h:"哥哥、弟弟、妹妹，还有一条狗。",p:"Gēge, dìdi, mèimei, hái yǒu yì tiáo gǒu.",vi:"Anh trai, em trai, em gái, còn có một con chó nữa."},{h:"我有一个姐姐，还有一个妹妹。",p:"Wǒ yǒu yí ge jiějie, hái yǒu yí ge mèimei.",vi:"Tôi có một chị gái, còn có một em gái nữa."},{h:"妹妹很小。",p:"Mèimei hěn xiǎo.",vi:"Em gái tôi còn bé lắm."}]},
-"还":{p:"hái",pos:"adv.",hv:"Hoàn",vi:"còn, còn có… nữa",usage:"Phó từ BỔ SUNG (注释 của bài): kể thêm một thứ nữa ngoài những thứ vừa nói. Đặt TRƯỚC động từ, hay đi thành cụm 还有: …，还有一条狗 = …, còn có một con chó nữa.",
- radical:{char:"辶",name:"sước (bước đi) — bao chữ 还"}, mnemonic:"还 có bộ 辶 (bước đi) — quay lại thêm một lần nữa, kể thêm một thứ nữa → “còn, còn có”.", icon:"okhand",
- examples:[{h:"我家有爸爸、妈妈…，还有一条狗。",p:"Wǒ jiā yǒu bàba, māma…, hái yǒu yì tiáo gǒu.",vi:"Nhà tôi có bố, mẹ…, còn có một con chó nữa."},{h:"我有美国朋友、加拿大朋友，还有日本朋友。",p:"Wǒ yǒu Měiguó péngyou, Jiānádà péngyou, hái yǒu Rìběn péngyou.",vi:"Tôi có bạn Mỹ, bạn Canada, còn có cả bạn Nhật nữa."},{h:"我有一个姐姐，还有一个妹妹。",p:"Wǒ yǒu yí ge jiějie, hái yǒu yí ge mèimei.",vi:"Tôi có một chị gái, còn có một em gái nữa."}]},
-"条":{p:"tiáo",pos:"mw.",hv:"Điều",vi:"(lượng từ cho vật dài, ở đây dùng cho chó)",usage:"Lượng từ dùng cho vật DÀI và mềm: 一条狗, 一条鱼 (cá), 一条街 (con phố), 一条路. Chó dùng 条 vì thân dài; mèo thì dùng 只 (zhī).",
- radical:{char:"木",name:"mộc (cây) — phía dưới chữ 条"}, mnemonic:"条 có bộ 木 (cây) — cành cây nhỏ dài; nên dùng đếm mọi thứ có hình dài thuôn.", icon:"dogicon",
- examples:[{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."},{h:"我家有两条狗。",p:"Wǒ jiā yǒu liǎng tiáo gǒu.",vi:"Nhà tôi có hai con chó."},{h:"一条狗、一条街、一条路",p:"yì tiáo gǒu, yì tiáo jiē, yì tiáo lù",vi:"một con chó, một con phố, một con đường"}]},
-"狗":{p:"gǒu",pos:"n.",hv:"Cẩu",vi:"con chó",usage:"Danh từ. Lượng từ: 条 hoặc 只. 一条狗 = một con chó.",
- radical:{char:"犭",name:"khuyển (con chó) — bên trái chữ 狗"}, mnemonic:"狗 có bộ 犭(khuyển) — hình con chó đứng nghiêng; hễ chữ nào có 犭 đều chỉ loài thú bốn chân (猫、猪、狼).", icon:"dogicon",
- examples:[{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."},{h:"不对，还有一条狗。",p:"Bú duì, hái yǒu yì tiáo gǒu.",vi:"Không đúng, còn một con chó nữa mà."},{h:"这条狗很小。",p:"Zhè tiáo gǒu hěn xiǎo.",vi:"Con chó này bé lắm."}]},
-"这样":{p:"zhèyàng",pos:"pron.",hv:"Giá dạng",vi:"như thế này, thế à",usage:"Đại từ chỉ cách thức. 是这样 = ra là thế / thì ra là vậy — câu cảm thán khi vừa vỡ lẽ ra điều gì.",
- radical:{char:"木",name:"mộc (cây) — bên trái chữ 样"}, mnemonic:"样 = 木 (gỗ) + 羊 — cái khuôn gỗ để làm mẫu; 这样 = theo cái khuôn này, tức “như thế này”.", icon:"bubbleba",
- examples:[{h:"是这样……",p:"Shì zhèyàng…",vi:"Thì ra là vậy…"},{h:"是这样吗？",p:"Shì zhèyàng ma?",vi:"Là như thế à?"},{h:"这样很好。",p:"Zhèyàng hěn hǎo.",vi:"Như thế này rất tốt."}]},
+/* ===== 词语表 Bài 12 — 25 từ mới ===== */
+"喂":{p:"wèi",pos:"interj.",hv:"Uy",vi:"a lô (khi nghe điện thoại)",usage:"Thán từ mở đầu cuộc gọi (注释 của bài). Khi nhấc máy người Trung Quốc luôn nói 喂 trước rồi mới chào. Trong hội thoại này đọc nhẹ thành wéi cho lịch sự — wèi thanh 4 nghe hơi trống không.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 喂"}, mnemonic:"喂 có bộ 口 (miệng) — tiếng gọi bật ra từ miệng để thử xem đầu dây bên kia có nghe thấy không.", icon:"phoneline",
+ examples:[{h:"喂，你好！",p:"Wéi, nǐ hǎo!",vi:"A lô, xin chào!"},{h:"喂，大卫，是我，玛丽。",p:"Wéi, Dàwèi, shì wǒ, Mǎlì.",vi:"A lô, David à, mình đây, Mary đây."},{h:"喂，请问李军在吗？",p:"Wéi, qǐngwèn Lǐ Jūn zài ma?",vi:"A lô, cho hỏi Lý Quân có đó không ạ?"}]},
+"啊":{p:"à",pos:"interj.",hv:"A",vi:"à, ồ (tiếng vỡ lẽ)",usage:"Thán từ đứng ĐẦU câu, bật ra khi vừa nhận ra điều gì: 啊，玛丽，你好！= À, Mary à, chào cậu! Khác với 啊 (a) đứng CUỐI câu làm trợ từ cảm thán như 好啊！",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 啊"}, mnemonic:"啊 có bộ 口 — tiếng thốt ra tự nhiên. Nhớ hai vị trí: đầu câu là “à, ồ” (à), cuối câu là trợ từ làm mềm giọng (a).", icon:"speechhi",
+ examples:[{h:"啊，玛丽，你好！",p:"À, Mǎlì, nǐ hǎo!",vi:"À, Mary à, chào cậu!"},{h:"啊，是你！",p:"À, shì nǐ!",vi:"Ồ, là cậu à!"},{h:"啊，我知道了。",p:"À, wǒ zhīdào le.",vi:"À, mình hiểu rồi."}]},
+"在":{p:"zài",pos:"adv./prep.",hv:"Tại",vi:"đang (làm gì); ở",usage:"Đây là nghĩa MỚI: 在 đặt TRƯỚC động từ để chỉ hành động ĐANG diễn ra — 你在干什么呢？= cậu đang làm gì thế? Khác với 在 đã học ở Bài 4 là động từ chỉ vị trí (图书馆在那儿). Trong câu 我在酒吧喝咖啡呢 thì 在 vừa chỉ nơi chốn vừa gợi ý đang tiến hành.",
+ radical:{char:"土",name:"thổ (đất) — nằm trong chữ 在"}, mnemonic:"在 có bộ 土 (đất) — đang đứng trên một mảnh đất, tức đang hiện diện; từ “đang ở đó” mở rộng thành “đang làm”.", icon:"phoneline",
+ examples:[{h:"你在干什么呢？",p:"Nǐ zài gàn shénme ne?",vi:"Cậu đang làm gì thế?"},{h:"我在酒吧喝咖啡呢。",p:"Wǒ zài jiǔbā hē kāfēi ne.",vi:"Mình đang uống cà phê ở quán bar."},{h:"张红在唱歌呢。",p:"Zhāng Hóng zài chànggē ne.",vi:"Trương Hồng đang hát."}]},
+"干":{p:"gàn",pos:"v.",hv:"Cán",vi:"làm",usage:"Động từ khẩu ngữ, hay dùng trong câu hỏi 干什么？= làm gì? Sắc thái đời thường hơn 做. Chú ý chữ 干 còn đọc gān nghĩa là “khô”.",
+ radical:{char:"干",name:"can — bản thân nó là một bộ thủ"}, mnemonic:"干 vẽ một cái chày giã — công cụ lao động; nghĩa mở rộng thành “làm việc, làm”.", icon:"homework",
+ examples:[{h:"你在干什么呢？",p:"Nǐ zài gàn shénme ne?",vi:"Cậu đang làm gì thế?"},{h:"你呢？在干什么呢？",p:"Nǐ ne? Zài gàn shénme ne?",vi:"Còn cậu? Đang làm gì thế?"},{h:"他们在干什么？",p:"Tāmen zài gàn shénme?",vi:"Bọn họ đang làm gì vậy?"}]},
+"做":{p:"zuò",pos:"v.",hv:"Tố",vi:"làm, làm ra",usage:"Động từ. Trang trọng và cụ thể hơn 干, thường mang tân ngữ rõ ràng: 做作业 (làm bài tập), 做饭 (nấu cơm). Hỏi thì dùng 干什么, trả lời thì hay dùng 做.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 做"}, mnemonic:"做 = 亻(người) + 故 — người bắt tay vào gây dựng nên việc gì đó → làm.", icon:"homework",
+ examples:[{h:"做作业呢。",p:"Zuò zuòyè ne.",vi:"Đang làm bài tập."},{h:"你做什么呢？",p:"Nǐ zuò shénme ne?",vi:"Cậu đang làm gì thế?"},{h:"我在宿舍做作业呢。",p:"Wǒ zài sùshè zuò zuòyè ne.",vi:"Mình đang làm bài tập ở ký túc xá."}]},
+"作业":{p:"zuòyè",pos:"n.",hv:"Tác nghiệp",vi:"bài tập về nhà",usage:"Danh từ. Động từ đi kèm cố định là 做: 做作业 = làm bài tập. Không nói 干作业.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 作"}, mnemonic:"作 = 亻(người) + 乍 — người tạo tác ra thứ gì; 业 là nghiệp, việc phải hoàn thành → 作业 = phần việc phải làm.", icon:"homework",
+ examples:[{h:"做作业呢。",p:"Zuò zuòyè ne.",vi:"Đang làm bài tập."},{h:"所以作业很多。",p:"Suǒyǐ zuòyè hěn duō.",vi:"Cho nên bài tập rất nhiều."},{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập thế à?"}]},
+"每":{p:"měi",pos:"pron.",hv:"Mỗi",vi:"mỗi, từng",usage:"Đại từ. Gần như luôn đi cặp với 都: 每 + [danh từ] + 都 + [động từ] → 每天都有课 = ngày nào cũng có tiết. Trước danh từ đếm được thì cần lượng từ: 每个人.",
+ radical:{char:"母",name:"mẫu (mẹ) — phần dưới chữ 每"}, mnemonic:"每 gần với chữ 母 (mẹ) — người mẹ ngày nào cũng lặp lại từng ấy việc; nghĩa là “mỗi, từng cái một”.", icon:"calendarwk",
+ examples:[{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập à?"},{h:"我每天早上都喝咖啡。",p:"Wǒ měi tiān zǎoshang dōu hē kāfēi.",vi:"Sáng nào tôi cũng uống cà phê."},{h:"大卫每个周末都去酒吧。",p:"Dàwèi měi ge zhōumò dōu qù jiǔbā.",vi:"Cuối tuần nào David cũng đi quán bar."}]},
+"天":{p:"tiān",pos:"n.",hv:"Thiên",vi:"ngày; trời",usage:"Danh từ. 天 tự nó đã là đơn vị đếm nên KHÔNG cần lượng từ: nói 三天 chứ không nói 三个天. Ghép: 今天, 明天, 每天.",
+ radical:{char:"大",name:"đại (lớn) — phần dưới chữ 天"}, mnemonic:"天 = 一 (bầu trời) đè lên 大 (người dang tay) — thứ ở trên đầu người chính là trời; một vòng trời sáng tối là một ngày.", icon:"calendarwk",
+ examples:[{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập à?"},{h:"今天是星期三。",p:"Jīntiān shì xīngqīsān.",vi:"Hôm nay là thứ Tư."},{h:"我每天八点上课。",p:"Wǒ měi tiān bā diǎn shàngkè.",vi:"Ngày nào tôi cũng tám giờ vào học."}]},
+"多":{p:"duō",pos:"adj.",hv:"Đa",vi:"nhiều",usage:"Tính từ. Khi bổ nghĩa cho danh từ phải có 很 đứng trước: 很多作业 = rất nhiều bài tập — KHÔNG nói 多作业. Trái nghĩa: 少 (shǎo, ít).",
+ radical:{char:"夕",name:"tịch (buổi tối) — hai chữ 夕 chồng lên thành 多"}, mnemonic:"多 do hai chữ 夕 (buổi tối) chồng lên nhau — hết tối này tới tối khác, ngày này qua ngày nọ → nhiều.", icon:"homework",
+ examples:[{h:"所以作业很多。",p:"Suǒyǐ zuòyè hěn duō.",vi:"Cho nên bài tập rất nhiều."},{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập à?"},{h:"这儿有很多留学生。",p:"Zhèr yǒu hěn duō liúxuéshēng.",vi:"Ở đây có rất nhiều du học sinh."}]},
+"星期三":{p:"xīngqīsān",pos:"n.",hv:"Tinh kỳ tam",vi:"thứ Tư",usage:"Cách gọi thứ trong tuần rất dễ: 星期 + số. Nhưng phải lệch một bậc so với tiếng Việt — 星期一 là thứ HAI, 星期三 là thứ TƯ. Riêng Chủ nhật không dùng số mà nói 星期日 hoặc 星期天.",
+ radical:{char:"日",name:"nhật (mặt trời) — bên trái chữ 星"}, mnemonic:"星 = 日 (mặt trời) + 生 — những đốm sáng sinh ra trên trời; 星期 vốn nghĩa là “chu kỳ của các vì sao”, tức một tuần.", icon:"calendarwk",
+ examples:[{h:"今天是星期三。",p:"Jīntiān shì xīngqīsān.",vi:"Hôm nay là thứ Tư."},{h:"星期三你有课吗？",p:"Xīngqīsān nǐ yǒu kè ma?",vi:"Thứ Tư cậu có tiết không?"},{h:"他们从星期一到星期五都有课。",p:"Tāmen cóng xīngqīyī dào xīngqīwǔ dōu yǒu kè.",vi:"Từ thứ Hai đến thứ Sáu họ đều có tiết."}]},
+"从……到……":{p:"cóng…dào…",pos:"—",hv:"Tòng… đáo…",vi:"từ… đến…",usage:"Khung cố định chỉ khoảng thời gian hoặc quãng đường có ĐIỂM ĐẦU và ĐIỂM CUỐI. Cả cụm đứng TRƯỚC động từ: 从早上八点到中午十二点，我有四节课。",
+ radical:{char:"人",name:"nhân (người) — hai chữ 人 tạo thành 从"}, mnemonic:"从 vẽ một người đi theo sau một người khác — xuất phát từ đâu đó; 到 là tới nơi → 从…到… = đi từ mốc này tới mốc kia.", icon:"calendarwk",
+ examples:[{h:"从早上八点到中午十二点，我有四节课。",p:"Cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn, wǒ yǒu sì jié kè.",vi:"Từ tám giờ sáng đến mười hai giờ trưa, tôi có bốn tiết."},{h:"我从八点到十点有课。",p:"Wǒ cóng bā diǎn dào shí diǎn yǒu kè.",vi:"Tôi có tiết từ tám giờ đến mười giờ."},{h:"他们从星期一到星期五都有课。",p:"Tāmen cóng xīngqīyī dào xīngqīwǔ dōu yǒu kè.",vi:"Từ thứ Hai đến thứ Sáu họ đều có tiết."}]},
+"中午":{p:"zhōngwǔ",pos:"n.",hv:"Trung ngọ",vi:"buổi trưa",usage:"Danh từ thời gian, nằm giữa 上午 và 下午. Dãy đầy đủ: 早上 → 上午 → 中午 → 下午 → 晚上.",
+ radical:{char:"十",name:"thập — nét dọc xuyên chữ 午"}, mnemonic:"午 là giờ Ngọ, lúc mặt trời đứng bóng; 中 là giữa → 中午 = chính giữa ngày.", icon:"calendarwk",
+ examples:[{h:"从早上八点到中午十二点。",p:"Cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn.",vi:"Từ tám giờ sáng đến mười hai giờ trưa."},{h:"我们中午十二点下课。",p:"Wǒmen zhōngwǔ shí'èr diǎn xiàkè.",vi:"Chúng tôi mười hai giờ trưa tan học."},{h:"中午你在哪儿？",p:"Zhōngwǔ nǐ zài nǎr?",vi:"Buổi trưa cậu ở đâu?"}]},
+"节":{p:"jié",pos:"mw.",hv:"Tiết",vi:"tiết (lượng từ đếm tiết học)",usage:"Lượng từ chuyên dùng cho tiết học: 四节课 = bốn tiết. Nhớ theo cặp 节 + 课, đừng dùng 个.",
+ radical:{char:"艹",name:"thảo (cỏ) — phía trên chữ 节"}, mnemonic:"节 có bộ 艹 — đốt tre, mỗi đốt là một khúc rõ ràng; giờ học cũng chia thành từng khúc như thế → tiết học.", icon:"calendarwk",
+ examples:[{h:"我有四节课。",p:"Wǒ yǒu sì jié kè.",vi:"Tôi có bốn tiết."},{h:"你们今天有几节课？",p:"Nǐmen jīntiān yǒu jǐ jié kè?",vi:"Hôm nay các bạn có mấy tiết?"},{h:"上午两节，下午两节。",p:"Shàngwǔ liǎng jié, xiàwǔ liǎng jié.",vi:"Sáng hai tiết, chiều hai tiết."}]},
+"听写":{p:"tīngxiě",pos:"n./v.",hv:"Thính tả",vi:"bài chính tả, kiểm tra nghe viết",usage:"Danh từ kiêm động từ: 有听写 = có bài chính tả. 听 = nghe, 写 = viết → nghe rồi viết lại.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 听"}, mnemonic:"听 giản thể từ 聽 vốn có bộ 耳 (tai); 写 có bộ 宀 (mái nhà) che chữ nghĩa là ghi chép → nghe rồi chép.", icon:"homework",
+ examples:[{h:"明天还有听写。",p:"Míngtiān hái yǒu tīngxiě.",vi:"Ngày mai còn có bài chính tả nữa."},{h:"明天有听写吗？",p:"Míngtiān yǒu tīngxiě ma?",vi:"Ngày mai có kiểm tra chính tả không?"},{h:"我们每个星期都有听写。",p:"Wǒmen měi ge xīngqī dōu yǒu tīngxiě.",vi:"Tuần nào chúng tôi cũng có bài chính tả."}]},
+"所以":{p:"suǒyǐ",pos:"conj.",hv:"Sở dĩ",vi:"cho nên, vì vậy",usage:"Liên từ chỉ KẾT QUẢ, đứng đầu vế sau. Vế trước nêu lý do, vế sau nêu kết quả: 明天还有听写，所以作业很多。Thường đi cặp với 因为 (yīnwèi, bởi vì).",
+ radical:{char:"户",name:"hộ (cánh cửa) — bên trái chữ 所"}, mnemonic:"所 vốn nghĩa là “nơi chốn, chỗ”; 所以 nghĩa đen “chỗ mà từ đó dẫn tới”, tức là kết quả sinh ra từ nguyên nhân.", icon:"homework",
+ examples:[{h:"明天还有听写，所以作业很多。",p:"Míngtiān hái yǒu tīngxiě, suǒyǐ zuòyè hěn duō.",vi:"Mai còn có bài chính tả nữa, cho nên bài tập rất nhiều."},{h:"我有四节课，所以没有时间。",p:"Wǒ yǒu sì jié kè, suǒyǐ méiyǒu shíjiān.",vi:"Tôi có bốn tiết nên không có thời gian."},{h:"明天有课，所以我们十点就回宿舍。",p:"Míngtiān yǒu kè, suǒyǐ wǒmen shí diǎn jiù huí sùshè.",vi:"Mai có tiết nên mười giờ là bọn mình về ký túc xá."}]},
+"酒吧":{p:"jiǔbā",pos:"n.",hv:"Tửu ba",vi:"quán bar",usage:"Danh từ chỉ nơi chốn. 酒 = rượu, 吧 là chữ phiên âm từ “bar” tiếng Anh — chính là chữ 吧 làm trợ từ đã học ở Bài 7 và 8, ở đây chỉ mượn âm.",
+ radical:{char:"氵",name:"thủy (nước) — bên trái chữ 酒"}, mnemonic:"酒 = 氵(nước) + 酉 (vò rượu) — thứ nước ủ trong vò; ghép với 吧 mượn âm “bar” thành quán rượu kiểu Tây.", icon:"neonbar",
+ examples:[{h:"我在酒吧喝咖啡呢。",p:"Wǒ zài jiǔbā hē kāfēi ne.",vi:"Mình đang uống cà phê ở quán bar."},{h:"哪个酒吧？",p:"Nǎge jiǔbā?",vi:"Quán bar nào?"},{h:"学校书店对面的那个酒吧。",p:"Xuéxiào shūdiàn duìmiàn de nàge jiǔbā.",vi:"Cái quán đối diện hiệu sách của trường."}]},
+"喝":{p:"hē",pos:"v.",hv:"Hát",vi:"uống",usage:"Động từ, dùng cho mọi thứ nước: 喝咖啡, 喝水, 喝啤酒. Phân biệt với 吃 (chī, ăn) dùng cho đồ rắn.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 喝"}, mnemonic:"喝 có bộ 口 (miệng) — mọi chữ chỉ việc đưa thứ gì vào miệng đều mang bộ này (吃、喝、唱).", icon:"coffeecup",
+ examples:[{h:"我在酒吧喝咖啡呢。",p:"Wǒ zài jiǔbā hē kāfēi ne.",vi:"Mình đang uống cà phê ở quán bar."},{h:"我每天早上都喝咖啡。",p:"Wǒ měi tiān zǎoshang dōu hē kāfēi.",vi:"Sáng nào tôi cũng uống cà phê."},{h:"大卫正在喝啤酒呢。",p:"Dàwèi zhèngzài hē píjiǔ ne.",vi:"David đang uống bia."}]},
+"咖啡":{p:"kāfēi",pos:"n.",hv:"Ca phê",vi:"cà phê",usage:"Danh từ phiên âm từ “coffee”. Lượng từ: 杯 (bēi, cốc). Cả hai chữ đều có bộ 口 vì chỉ mượn âm.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái cả 咖 và 啡"}, mnemonic:"Chữ phiên âm tiếng nước ngoài trong tiếng Hán rất hay dùng bộ 口 để báo hiệu “đây chỉ là âm, đừng tìm nghĩa”: 咖啡, 咖喱, 啤酒.", icon:"coffeecup",
+ examples:[{h:"我在酒吧喝咖啡呢。",p:"Wǒ zài jiǔbā hē kāfēi ne.",vi:"Mình đang uống cà phê ở quán bar."},{h:"一杯咖啡多少钱？",p:"Yì bēi kāfēi duōshao qián?",vi:"Một cốc cà phê bao nhiêu tiền?"},{h:"我每天都喝咖啡。",p:"Wǒ měi tiān dōu hē kāfēi.",vi:"Ngày nào tôi cũng uống cà phê."}]},
+"书店":{p:"shūdiàn",pos:"n.",hv:"Thư điếm",vi:"hiệu sách",usage:"Danh từ chỉ nơi chốn. 书 = sách, 店 = cửa hàng. Cùng nhóm chữ 店: 商店 (cửa hàng), 饭店 (nhà hàng, khách sạn).",
+ radical:{char:"广",name:"nghiễm (mái hiên) — bao chữ 店"}, mnemonic:"店 có bộ 广 (mái hiên nhô ra) — cửa hàng ngày xưa là gian nhà có mái che phía trước để bày hàng.", icon:"dict",
+ examples:[{h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge.",vi:"Cái ở đối diện hiệu sách của trường ấy."},{h:"书店在图书馆旁边。",p:"Shūdiàn zài túshūguǎn pángbiān.",vi:"Hiệu sách ở cạnh thư viện."},{h:"我去书店买词典。",p:"Wǒ qù shūdiàn mǎi cídiǎn.",vi:"Tôi đi hiệu sách mua từ điển."}]},
+"对面":{p:"duìmiàn",pos:"n.",hv:"Đối diện",vi:"đối diện, phía trước mặt",usage:"Danh từ phương vị, thuộc nhóm đã học ở Bài 4 và Bài 7. Làm định ngữ thì thêm 的: 书店对面的那个酒吧 = quán bar đối diện hiệu sách.",
+ radical:{char:"面",name:"diện — chính là chữ 面"}, mnemonic:"对 = đối ứng, khớp nhau; 面 vẽ khuôn mặt → 对面 = chỗ mặt đối mặt với mình.", icon:"signpost",
+ examples:[{h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge.",vi:"Cái ở đối diện hiệu sách của trường ấy."},{h:"酒吧在书店对面。",p:"Jiǔbā zài shūdiàn duìmiàn.",vi:"Quán bar ở đối diện hiệu sách."},{h:"我家对面是图书馆。",p:"Wǒ jiā duìmiàn shì túshūguǎn.",vi:"Đối diện nhà tôi là thư viện."}]},
+"自己":{p:"zìjǐ",pos:"pron.",hv:"Tự kỷ",vi:"tự mình, một mình",usage:"Đại từ phản thân. Đứng sau chủ ngữ để nhấn “chính mình”: 你自己吗？= một mình cậu thôi à? Cũng dùng: 我自己做作业 = tôi tự làm bài.",
+ radical:{char:"自",name:"tự — bản thân nó là một bộ thủ"}, mnemonic:"自 vẽ hình cái mũi — người Trung Quốc chỉ vào mũi mình khi nói “tôi”, nên 自 nghĩa là bản thân.", icon:"nametag",
+ examples:[{h:"你自己吗？",p:"Nǐ zìjǐ ma?",vi:"Một mình cậu thôi à?"},{h:"不，还有我的同屋。",p:"Bù, hái yǒu wǒ de tóngwū.",vi:"Không, còn có bạn cùng phòng mình nữa."},{h:"我自己做作业。",p:"Wǒ zìjǐ zuò zuòyè.",vi:"Tôi tự làm bài tập."}]},
+"正在":{p:"zhèngzài",pos:"adv.",hv:"Chính tại",vi:"đang (nhấn mạnh)",usage:"Phó từ đặt TRƯỚC động từ, nhấn hành động ĐANG diễn ra ngay lúc nói — mạnh hơn 在 một chút. Câu thường kết thúc bằng 呢: 他们正在唱歌呢。",
+ radical:{char:"止",name:"chỉ (bàn chân) — phần dưới chữ 正"}, mnemonic:"正 vẽ bàn chân dừng đúng vạch — đúng lúc, ngay lúc này; ghép với 在 (đang ở) thành “đúng đang lúc”.", icon:"micnote",
+ examples:[{h:"他们正在唱歌呢。",p:"Tāmen zhèngzài chànggē ne.",vi:"Bọn họ đang hát."},{h:"我正在看电影呢。",p:"Wǒ zhèngzài kàn diànyǐng ne.",vi:"Tôi đang xem phim."},{h:"大卫正在喝啤酒呢。",p:"Dàwèi zhèngzài hē píjiǔ ne.",vi:"David đang uống bia."}]},
+"唱":{p:"chàng",pos:"v.",hv:"Xướng",vi:"hát",usage:"Động từ. Đi cặp cố định với 歌: 唱歌 = hát (hát bài hát). Đây là động từ ly hợp, có thể tách: 唱一个歌.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 唱"}, mnemonic:"唱 = 口 (miệng) + 昌 (rực rỡ) — cất tiếng từ miệng cho vang lên rộn ràng → hát.", icon:"micnote",
+ examples:[{h:"他们正在唱歌呢。",p:"Tāmen zhèngzài chànggē ne.",vi:"Bọn họ đang hát."},{h:"张红在唱歌呢。",p:"Zhāng Hóng zài chànggē ne.",vi:"Trương Hồng đang hát."},{h:"你会唱中国歌吗？",p:"Nǐ huì chàng Zhōngguó gē ma?",vi:"Bạn biết hát bài hát Trung Quốc không?"}]},
+"歌":{p:"gē",pos:"n.",hv:"Ca",vi:"bài hát",usage:"Danh từ. Lượng từ: 首 (shǒu) hoặc 个. Ghép: 唱歌 (hát), 中国歌 (bài hát Trung Quốc).",
+ radical:{char:"欠",name:"khiếm (há miệng thở ra) — bên phải chữ 歌"}, mnemonic:"歌 có bộ 欠 vẽ người há miệng phả hơi ra — hát là đưa hơi từ trong ngực ra ngoài thành giai điệu.", icon:"micnote",
+ examples:[{h:"他们正在唱歌呢。",p:"Tāmen zhèngzài chànggē ne.",vi:"Bọn họ đang hát."},{h:"这个歌很有名。",p:"Zhège gē hěn yǒumíng.",vi:"Bài hát này rất nổi tiếng."},{h:"我很喜欢中国歌。",p:"Wǒ hěn xǐhuan Zhōngguó gē.",vi:"Tôi rất thích bài hát Trung Quốc."}]},
+"回":{p:"huí",pos:"v.",hv:"Hồi",vi:"về, quay về",usage:"Động từ. Mang thẳng nơi chốn: 回宿舍 = về ký túc xá, 回家 = về nhà. Không cần thêm giới từ như tiếng Việt.",
+ radical:{char:"囗",name:"vi (vòng bao) — vòng ngoài chữ 回"}, mnemonic:"回 vẽ hai vòng tròn lồng nhau như nước xoáy quay lại chỗ cũ → quay về.", icon:"dorm",
+ examples:[{h:"我们十点就回宿舍。",p:"Wǒmen shí diǎn jiù huí sùshè.",vi:"Mười giờ là bọn mình về ký túc xá."},{h:"你几点回宿舍？",p:"Nǐ jǐ diǎn huí sùshè?",vi:"Mấy giờ cậu về ký túc xá?"},{h:"我现在回家。",p:"Wǒ xiànzài huí jiā.",vi:"Bây giờ tôi về nhà."}]},
 
 /* ===== Từ đã học ở các bài trước — tra được nhưng không liệt kê ===== */
-"玛丽":{old:true,p:"Mǎlì",pos:"n.pr.",hv:"Mã Lệ",vi:"Mary (tên riêng, nữ)",usage:"Đã học ở Bài 3. Du học sinh người Canada.",
- radical:null, mnemonic:null, icon:"familygroup",
- examples:[{h:"玛丽，你家都有什么人？",p:"Mǎlì, nǐ jiā dōu yǒu shénme rén?",vi:"Mary, nhà cậu có những ai?"},{h:"玛丽家有七口人。",p:"Mǎlì jiā yǒu qī kǒu rén.",vi:"Nhà Mary có bảy người."},{h:"玛丽有一条狗。",p:"Mǎlì yǒu yì tiáo gǒu.",vi:"Mary có một con chó."}]},
-"张红":{old:true,p:"Zhāng Hóng",pos:"n.pr.",hv:"Trương Hồng",vi:"Trương Hồng (tên riêng, nữ)",usage:"Đã học ở Bài 8. Nhân vật nữ người Trung Quốc.",
- radical:{char:"弓",name:"cung (cây cung) — bên trái chữ 张"}, mnemonic:"张 = 弓 (cung) + 长 — giương cây cung; là một họ rất phổ biến. 红 = màu đỏ.", icon:"grandma",
- examples:[{h:"张红：对，是我家的照片。",p:"Zhāng Hóng: Duì, shì wǒ jiā de zhàopiàn.",vi:"Trương Hồng: Đúng, là ảnh gia đình mình."},{h:"张红家有五口人。",p:"Zhāng Hóng jiā yǒu wǔ kǒu rén.",vi:"Nhà Trương Hồng có năm người."},{h:"张红没有哥哥姐姐。",p:"Zhāng Hóng méiyǒu gēge jiějie.",vi:"Trương Hồng không có anh chị."}]},
-"人":{old:true,p:"rén",pos:"n.",hv:"Nhân",vi:"người",usage:"Đã học ở bài trước. Ghép sau tên nước để chỉ quốc tịch: 中国人, 美国人. Đếm bằng 个, riêng người trong gia đình đếm bằng 口.",
- radical:{char:"人",name:"nhân — bản thân nó là một bộ thủ"}, mnemonic:"人 vẽ hình một người đang sải bước nhìn nghiêng; khi làm bộ thủ bên trái viết thành 亻 (你、他、们).", icon:"familygroup",
- examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"一共六口人？",p:"Yígòng liù kǒu rén?",vi:"Tổng cộng sáu người à?"}]},
-"个":{old:true,p:"ge",pos:"mw.",hv:"Cá",vi:"cái, người (lượng từ dùng chung)",usage:"Đã học ở Bài 4. Lượng từ phổ thông nhất, dùng được cho hầu hết danh từ chỉ người và đồ vật: 一个孩子, 一个哥哥, 一个学校.",
- radical:{char:"人",name:"nhân (người) — phía trên chữ 个"}, mnemonic:"个 vẽ cây tre chẻ đôi — mỗi nhánh là “một cái”; phần trên giống bộ 人 nên rất hay dùng đếm người.", icon:"okhand",
- examples:[{h:"一般只有一个孩子。",p:"Yìbān zhǐ yǒu yí ge háizi.",vi:"Thường chỉ có một người con."},{h:"一个哥哥、一个弟弟、一个妹妹。",p:"Yí ge gēge, yí ge dìdi, yí ge mèimei.",vi:"Một anh trai, một em trai, một em gái."},{h:"这个家庭有两个孩子。",p:"Zhège jiātíng yǒu liǎng ge háizi.",vi:"Gia đình này có hai người con."}]},
-"有":{old:true,p:"yǒu",pos:"v.",hv:"Hữu",vi:"có",usage:"Đã học ở Bài 7. Phủ định là 没有. Trọng tâm của bài này: 你家有几口人？／我家有五口人。",
- radical:{char:"月",name:"nguyệt (thịt) — phía dưới chữ 有"}, mnemonic:"有 vẽ bàn tay đang cầm miếng thịt 月 — trong tay đang giữ thứ gì đó.", icon:"okhand",
- examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."}]},
-"没有":{old:true,p:"méiyǒu",pos:"v.",hv:"Một hữu",vi:"không có",usage:"Đã học ở Bài 7. Dạng phủ định duy nhất của 有 — không bao giờ nói 不有.",
- radical:{char:"氵",name:"thủy (nước) — bên trái chữ 没"}, mnemonic:"没 có bộ 氵(nước) — vật chìm mất hút dưới nước → không còn.", icon:"exclaim",
- examples:[{h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?",vi:"Bạn không có anh chị à?"},{h:"没有，现在中国家庭一般只有一个孩子。",p:"Méiyǒu, xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Không có, hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"我没有弟弟。",p:"Wǒ méiyǒu dìdi.",vi:"Tôi không có em trai."}]},
-"几":{old:true,p:"jǐ",pos:"pron.",hv:"Kỷ",vi:"mấy (số nhỏ dưới 10)",usage:"Đã học ở Bài 6 và Bài 9. Bắt buộc có lượng từ đứng sau: 几口人, 几个孩子, 几条狗.",
- radical:{char:"几",name:"kỷ — bản thân nó là một bộ thủ"}, mnemonic:"几 vẽ cái bàn nhỏ hai chân — đếm được ngay bằng mắt nên dùng hỏi số ít.", icon:"qmark",
- examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"你有几个孩子？",p:"Nǐ yǒu jǐ ge háizi?",vi:"Bạn có mấy người con?"},{h:"你家有几条狗？",p:"Nǐ jiā yǒu jǐ tiáo gǒu?",vi:"Nhà bạn có mấy con chó?"}]},
-"什么":{old:true,p:"shénme",pos:"pron.",hv:"Thập ma",vi:"cái gì, gì; những ai",usage:"Đã học ở Bài 1. Trong 都有什么人 thì 什么人 nghĩa là “những ai, những người nào” — hỏi liệt kê chứ không hỏi số lượng.",
- radical:{char:"亻",name:"nhân đứng — bên trái chữ 什"}, mnemonic:"什 = 亻(người) + 十 (mười) — nhiều loại thứ khác nhau → hỏi “cái gì”.", icon:"qmark",
- examples:[{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"什么事？",p:"Shénme shì?",vi:"Có chuyện gì thế?"},{h:"这是什么？",p:"Zhè shì shénme?",vi:"Đây là cái gì?"}]},
-"都":{old:true,p:"dōu",pos:"adv.",hv:"Đô",vi:"đều, tất cả",usage:"Đã học ở Bài 8. Trong câu hỏi 你家都有什么人？thì 都 nhấn ý “liệt kê cho hết” — hãy kể ra tất cả.",
- radical:{char:"阝",name:"phụ (ấp) — bên phải chữ 都"}, mnemonic:"都 vốn là “kinh đô” (dū) — nơi tụ hội tất cả; đọc dōu thành “đều”.", icon:"okhand",
- examples:[{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"这些都是。",p:"Zhèxiē dōu shì.",vi:"Mấy cái này đều là."},{h:"我们都是留学生。",p:"Wǒmen dōu shì liúxuéshēng.",vi:"Chúng tôi đều là du học sinh."}]},
-"一共":{old:true,p:"yígòng",pos:"adv.",hv:"Nhất cộng",vi:"tổng cộng",usage:"Đã học ở Bài 9. Đặt trước động từ hoặc trước số: 一共六口人？",
- radical:{char:"八",name:"bát — phía dưới chữ 共"}, mnemonic:"共 vẽ hai bàn tay cùng nâng một vật — gộp chung lại; 一共 = gộp tất cả thành một.", icon:"chart",
- examples:[{h:"一共六口人？",p:"Yígòng liù kǒu rén?",vi:"Tổng cộng sáu người à?"},{h:"一共是九块四毛钱。",p:"Yígòng shì jiǔ kuài sì máo qián.",vi:"Tổng cộng là chín đồng bốn hào."},{h:"一共有几个孩子？",p:"Yígòng yǒu jǐ ge háizi?",vi:"Tổng cộng có mấy người con?"}]},
-"现在":{old:true,p:"xiànzài",pos:"n.",hv:"Hiện tại",vi:"bây giờ, hiện nay",usage:"Đã học ở Bài 6. Ở đây mang nghĩa “thời nay, hiện nay”: 现在中国家庭…",
- radical:{char:"王",name:"vương/ngọc — bên trái chữ 现"}, mnemonic:"现 = 王 (ngọc) + 见 (thấy) — viên ngọc lộ ra trước mắt; 在 = đang ở → lúc này.", icon:"clocknight",
- examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"现在几点？",p:"Xiànzài jǐ diǎn?",vi:"Bây giờ mấy giờ?"},{h:"现在我在家。",p:"Xiànzài wǒ zài jiā.",vi:"Bây giờ tôi đang ở nhà."}]},
-"中国":{old:true,p:"Zhōngguó",pos:"n.pr.",hv:"Trung Quốc",vi:"Trung Quốc",usage:"Đã học ở Bài 3. Người Trung Quốc = 中国人.",
- radical:{char:"囗",name:"vi (vòng bao) — bao ngoài chữ 国"}, mnemonic:"国 có bộ 囗 (đường biên bao quanh) ôm lấy 玉 (ngọc) — lãnh thổ có báu vật bên trong.", icon:"globe",
- examples:[{h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.",vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},{h:"中国家庭一般很小。",p:"Zhōngguó jiātíng yìbān hěn xiǎo.",vi:"Gia đình Trung Quốc thường khá ít người."},{h:"张红是中国人。",p:"Zhāng Hóng shì Zhōngguó rén.",vi:"Trương Hồng là người Trung Quốc."}]},
-"和":{old:true,p:"hé",pos:"conj.",hv:"Hòa",vi:"và, với",usage:"Đã học ở Bài 8. Chỉ nối DANH TỪ, thường đặt trước thành phần cuối cùng trong dãy liệt kê: 爷爷、奶奶、爸爸、妈妈和我。",
- radical:{char:"禾",name:"hòa (lúa) — bên trái chữ 和"}, mnemonic:"和 = 禾 (lúa) + 口 (miệng) — có lúa vào miệng thì hòa thuận, gắn với nhau.", icon:"handshake",
- examples:[{h:"爷爷、奶奶、爸爸、妈妈和我。",p:"Yéye, nǎinai, bàba, māma hé wǒ.",vi:"Ông nội, bà nội, bố, mẹ và tôi."},{h:"一个妹妹和你。",p:"Yí ge mèimei hé nǐ.",vi:"Một em gái và cậu."},{h:"我和玛丽都是留学生。",p:"Wǒ hé Mǎlì dōu shì liúxuéshēng.",vi:"Tôi và Mary đều là du học sinh."}]},
-"对":{old:true,p:"duì",pos:"adj.",hv:"Đối",vi:"đúng, phải",usage:"Đã học ở Bài 7. Dùng riêng để xác nhận: 对。= Đúng vậy. Phủ định: 不对 = không đúng.",
- radical:{char:"寸",name:"thốn — bên phải chữ 对"}, mnemonic:"对 gốc nghĩa “đối ứng, khớp nhau” — hai bên khớp nhau thì tức là đúng.", icon:"check",
- examples:[{h:"对，是我家的照片。",p:"Duì, shì wǒ jiā de zhàopiàn.",vi:"Đúng, là ảnh gia đình mình."},{h:"六口，对吧？",p:"Liù kǒu, duì ba?",vi:"Sáu người, đúng không?"},{h:"不对，还有一条狗。",p:"Bú duì, hái yǒu yì tiáo gǒu.",vi:"Không đúng, còn một con chó nữa."}]},
-"吧":{old:true,p:"ba",pos:"part.",hv:"Ba (trợ từ)",vi:"trợ từ cuối câu",usage:"Đã học ở Bài 7 (xác nhận phỏng đoán) và Bài 8 (đề nghị). Ở đây là nghĩa xác nhận: 对吧？= đúng không nhỉ?",
- radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 吧"}, mnemonic:"吧 có bộ 口 — một tiếng buông nhẹ cuối câu, như “nhỉ, nhé” trong tiếng Việt.", icon:"bubbleba",
- examples:[{h:"六口，对吧？",p:"Liù kǒu, duì ba?",vi:"Sáu người, đúng không nhỉ?"},{h:"你有自行车吧？",p:"Nǐ yǒu zìxíngchē ba?",vi:"Bạn có xe đạp đúng không?"},{h:"来我们学校玩儿吧！",p:"Lái wǒmen xuéxiào wánr ba!",vi:"Đến trường mình chơi đi!"}]},
-"这":{old:true,p:"zhè",pos:"pron.",hv:"Giá",vi:"này, đây",usage:"Đã học ở Bài 3. Trước danh từ cần có lượng từ: 这张照片.",
- radical:{char:"辶",name:"sước (bước đi) — bao quanh chữ 这"}, mnemonic:"这 có bộ 辶 (bước chân) — chỉ cần một bước là tới, tức ở ngay đây.", icon:"check",
- examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"这条狗很小。",p:"Zhè tiáo gǒu hěn xiǎo.",vi:"Con chó này bé lắm."},{h:"这个家庭有五口人。",p:"Zhège jiātíng yǒu wǔ kǒu rén.",vi:"Gia đình này có năm người."}]},
-"是":{old:true,p:"shì",pos:"v.",hv:"Thị",vi:"là; đúng",usage:"Đã học ở Bài 1. Chú ý: nói SỞ HỮU thì dùng 有, không dùng 是 — 我家有五口人 chứ không nói 我家是五口人.",
+"大卫":{old:true,p:"Dàwèi",pos:"n.pr.",hv:"Đại Vệ",vi:"David (tên riêng, nam)",usage:"Đã học ở Bài 1. Du học sinh người Mỹ. Trong bài này đang ở ký túc xá làm bài tập.",
+ radical:null, mnemonic:null, icon:"avaDavid",
+ examples:[{h:"喂，大卫，是我，玛丽。",p:"Wéi, Dàwèi, shì wǒ, Mǎlì.",vi:"A lô, David à, mình đây, Mary đây."},{h:"大卫在做作业呢。",p:"Dàwèi zài zuò zuòyè ne.",vi:"David đang làm bài tập."},{h:"大卫是美国人。",p:"Dàwèi shì Měiguó rén.",vi:"David là người Mỹ."}]},
+"玛丽":{old:true,p:"Mǎlì",pos:"n.pr.",hv:"Mã Lệ",vi:"Mary (tên riêng, nữ)",usage:"Đã học ở Bài 3. Du học sinh người Canada. Trong bài này đang ở quán bar đối diện hiệu sách.",
+ radical:null, mnemonic:null, icon:"avaMary",
+ examples:[{h:"是我，玛丽。",p:"Shì wǒ, Mǎlì.",vi:"Mình đây, Mary đây."},{h:"玛丽在酒吧喝咖啡呢。",p:"Mǎlì zài jiǔbā hē kāfēi ne.",vi:"Mary đang uống cà phê ở quán bar."},{h:"玛丽是加拿大人。",p:"Mǎlì shì Jiānádà rén.",vi:"Mary là người Canada."}]},
+"呢":{old:true,p:"ne",pos:"part.",hv:"Ni (trợ từ)",vi:"trợ từ cuối câu",usage:"Đã học ở Bài 2 (hỏi rút gọn 你呢？) và Bài 8 (nhấn giọng hỏi). Bài 12 học nghĩa thứ ba, quan trọng nhất: đặt cuối câu để chỉ hành động ĐANG diễn ra — 做作业呢 = đang làm bài tập.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 呢"}, mnemonic:"呢 có bộ 口 — tiếng ngân dài cuối câu, như đang kéo dài khoảnh khắc hiện tại ra.", icon:"speechhi",
+ examples:[{h:"做作业呢。",p:"Zuò zuòyè ne.",vi:"Đang làm bài tập."},{h:"你在干什么呢？",p:"Nǐ zài gàn shénme ne?",vi:"Cậu đang làm gì thế?"},{h:"你呢？在干什么呢？",p:"Nǐ ne? Zài gàn shénme ne?",vi:"Còn cậu? Đang làm gì thế?"}]},
+"好":{old:true,p:"hǎo",pos:"adj.",hv:"Hảo",vi:"tốt, khỏe",usage:"Đã học ở Bài 1. 你好 dùng được cả khi gọi điện, sau tiếng 喂.",
+ radical:{char:"女",name:"nữ — bên trái chữ 好"}, mnemonic:"好 = 女 (mẹ) + 子 (con) — mẹ con quây quần là điều tốt đẹp.", icon:"heart",
+ examples:[{h:"喂，你好！",p:"Wéi, nǐ hǎo!",vi:"A lô, xin chào!"},{h:"啊，玛丽，你好！",p:"À, Mǎlì, nǐ hǎo!",vi:"À, Mary à, chào cậu!"},{h:"你好吗？",p:"Nǐ hǎo ma?",vi:"Cậu khỏe không?"}]},
+"是":{old:true,p:"shì",pos:"v.",hv:"Thị",vi:"là; đúng",usage:"Đã học ở Bài 1. Khi gọi điện, 是我 = mình đây, là cách xưng danh chuẩn.",
  radical:{char:"日",name:"nhật (mặt trời) — phía trên chữ 是"}, mnemonic:"是 có bộ 日 trên đầu — chân lý sáng rõ như ban ngày.", icon:"check",
- examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"是我家的照片。",p:"Shì wǒ jiā de zhàopiàn.",vi:"Là ảnh gia đình mình."},{h:"是这样……",p:"Shì zhèyàng…",vi:"Thì ra là vậy…"}]},
-"的":{old:true,p:"de",pos:"part.",hv:"Đích (trợ từ)",vi:"trợ từ định ngữ: “của”",usage:"Đã học ở Bài 3. Lưu ý: với người thân và tổ chức thân thiết thì lược 的 — nói 我家, 我爸爸 chứ ít khi nói 我的家, 我的爸爸.",
- radical:{char:"白",name:"bạch (trắng) — bên trái chữ 的"}, mnemonic:"的 có bộ 白 (rõ ràng) — làm rõ thứ đó thuộc về ai.", icon:"check",
- examples:[{h:"这是你的照片吗？",p:"Zhè shì nǐ de zhàopiàn ma?",vi:"Đây là ảnh của cậu à?"},{h:"是我家的照片。",p:"Shì wǒ jiā de zhàopiàn.",vi:"Là ảnh của gia đình mình."},{h:"爸爸的爸爸是爷爷。",p:"Bàba de bàba shì yéye.",vi:"Bố của bố là ông nội."}]},
-"我":{old:true,p:"wǒ",pos:"pron.",hv:"Ngã",vi:"tôi, mình",usage:"Đã học ở Bài 1. 我家 = nhà tôi (lược 的).",
+ examples:[{h:"是我，玛丽。",p:"Shì wǒ, Mǎlì.",vi:"Mình đây, Mary đây."},{h:"今天是星期三。",p:"Jīntiān shì xīngqīsān.",vi:"Hôm nay là thứ Tư."},{h:"是吗？",p:"Shì ma?",vi:"Thế à?"}]},
+"我":{old:true,p:"wǒ",pos:"pron.",hv:"Ngã",vi:"tôi, mình",usage:"Đã học ở Bài 1. Số nhiều: 我们.",
  radical:{char:"戈",name:"qua (vũ khí cổ) — bên phải chữ 我"}, mnemonic:"我 có bộ 戈 (vũ khí) — cầm vũ khí bảo vệ bản thân.", icon:"nametag",
- examples:[{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"爸爸、妈妈和我。",p:"Bàba, māma hé wǒ.",vi:"Bố, mẹ và tôi."},{h:"我只有一个哥哥。",p:"Wǒ zhǐ yǒu yí ge gēge.",vi:"Tôi chỉ có một anh trai."}]},
-"你":{old:true,p:"nǐ",pos:"pron.",hv:"Nhĩ",vi:"bạn, cậu",usage:"Đã học ở Bài 1. 你家 = nhà bạn.",
+ examples:[{h:"是我，玛丽。",p:"Shì wǒ, Mǎlì.",vi:"Mình đây, Mary đây."},{h:"我有四节课。",p:"Wǒ yǒu sì jié kè.",vi:"Tôi có bốn tiết."},{h:"我在酒吧喝咖啡呢。",p:"Wǒ zài jiǔbā hē kāfēi ne.",vi:"Mình đang uống cà phê ở quán bar."}]},
+"我们":{old:true,p:"wǒmen",pos:"pron.",hv:"Ngã môn",vi:"chúng tôi, bọn mình",usage:"Đã học ở Bài 6. 我 + 们.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 们"}, mnemonic:"们 = 亻(người) + 门 (cửa) — cả nhóm cùng bước ra một cánh cửa.", icon:"friends",
+ examples:[{h:"我们十点就回宿舍。",p:"Wǒmen shí diǎn jiù huí sùshè.",vi:"Mười giờ là bọn mình về ký túc xá."},{h:"我们有四节课。",p:"Wǒmen yǒu sì jié kè.",vi:"Chúng tôi có bốn tiết."},{h:"我们每天都有作业。",p:"Wǒmen měi tiān dōu yǒu zuòyè.",vi:"Ngày nào chúng tôi cũng có bài tập."}]},
+"你":{old:true,p:"nǐ",pos:"pron.",hv:"Nhĩ",vi:"bạn, cậu",usage:"Đã học ở Bài 1. Số nhiều: 你们.",
  radical:{char:"亻",name:"nhân đứng — bên trái chữ 你"}, mnemonic:"你 có bộ 亻(người) — người đang đứng đối diện mình.", icon:"handshake",
- examples:[{h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?",vi:"Nhà bạn có mấy người?"},{h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?",vi:"Nhà bạn có những ai?"},{h:"一个妹妹和你。",p:"Yí ge mèimei hé nǐ.",vi:"Một em gái và cậu."}]},
-"不":{old:true,p:"bù",pos:"adv.",hv:"Bất",vi:"không",usage:"Đã học ở Bài 1. Dùng riêng để phủ nhận: 不，七口。= Không, bảy người. Phủ định của 有 vẫn phải là 没有.",
+ examples:[{h:"你在干什么呢？",p:"Nǐ zài gàn shénme ne?",vi:"Cậu đang làm gì thế?"},{h:"你自己吗？",p:"Nǐ zìjǐ ma?",vi:"Một mình cậu thôi à?"},{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập à?"}]},
+"你们":{old:true,p:"nǐmen",pos:"pron.",hv:"Nhĩ môn",vi:"các cậu",usage:"Đã học ở Bài 2 và Bài 6. 你 + 们.",
+ radical:{char:"亻",name:"nhân đứng — bên trái cả 你 và 们"}, mnemonic:"你 (bạn) + 们 (hậu tố số nhiều cho người) = các bạn.", icon:"friends",
+ examples:[{h:"明天你们没有课吗？",p:"Míngtiān nǐmen méiyǒu kè ma?",vi:"Mai các cậu không có tiết à?"},{h:"你们几点上课？",p:"Nǐmen jǐ diǎn shàngkè?",vi:"Mấy giờ các cậu vào học?"},{h:"你们每天都有听写吗？",p:"Nǐmen měi tiān dōu yǒu tīngxiě ma?",vi:"Ngày nào các cậu cũng có chính tả à?"}]},
+"他们":{old:true,p:"tāmen",pos:"pron.",hv:"Tha môn",vi:"họ, bọn họ",usage:"Đã học ở Bài 2. 他 + 们. Dùng cho nhóm toàn nam hoặc nhóm có cả nam lẫn nữ.",
+ radical:{char:"亻",name:"nhân đứng — bên trái cả 他 và 们"}, mnemonic:"他 (anh ấy) + 们 = họ. Nhóm toàn nữ thì viết 她们, đọc vẫn là tāmen.", icon:"friends",
+ examples:[{h:"他们正在唱歌呢。",p:"Tāmen zhèngzài chànggē ne.",vi:"Bọn họ đang hát."},{h:"他们每个人都知道。",p:"Tāmen měi ge rén dōu zhīdào.",vi:"Ai trong bọn họ cũng biết."},{h:"他们从星期一到星期五都有课。",p:"Tāmen cóng xīngqīyī dào xīngqīwǔ dōu yǒu kè.",vi:"Từ thứ Hai đến thứ Sáu họ đều có tiết."}]},
+"她":{old:true,p:"tā",pos:"pron.",hv:"Tha (nữ)",vi:"cô ấy, chị ấy",usage:"Đã học ở Bài 1. Dùng cho nữ; đọc giống hệt 他 (nam).",
+ radical:{char:"女",name:"nữ — bên trái chữ 她"}, mnemonic:"她 có bộ 女 (nữ) bên trái — chỉ một người phụ nữ được nhắc đến.", icon:"avaMary",
+ examples:[{h:"还有我的同屋和她的朋友。",p:"Hái yǒu wǒ de tóngwū hé tā de péngyou.",vi:"Còn có bạn cùng phòng mình và bạn của cô ấy."},{h:"她在唱歌呢。",p:"Tā zài chànggē ne.",vi:"Cô ấy đang hát."},{h:"她是加拿大人。",p:"Tā shì Jiānádà rén.",vi:"Cô ấy là người Canada."}]},
+"吗":{old:true,p:"ma",pos:"part.",hv:"Ma (trợ từ)",vi:"trợ từ nghi vấn cuối câu",usage:"Đã học ở Bài 1. Lưu ý: câu đã có 什么 hoặc kết thúc bằng 呢 chỉ hành động đang diễn ra thì KHÔNG thêm 吗.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 吗"}, mnemonic:"吗 có bộ 口 (miệng) — mở miệng cất tiếng hỏi.", icon:"qmark",
+ examples:[{h:"是吗？",p:"Shì ma?",vi:"Thế à?"},{h:"你自己吗？",p:"Nǐ zìjǐ ma?",vi:"Một mình cậu thôi à?"},{h:"明天你们没有课吗？",p:"Míngtiān nǐmen méiyǒu kè ma?",vi:"Mai các cậu không có tiết à?"}]},
+"什么":{old:true,p:"shénme",pos:"pron.",hv:"Thập ma",vi:"cái gì, gì",usage:"Đã học ở Bài 1. 干什么 = làm gì. Câu có 什么 thì không thêm 吗, nhưng có thể thêm 呢.",
+ radical:{char:"亻",name:"nhân đứng — bên trái chữ 什"}, mnemonic:"什 = 亻(người) + 十 (mười) — nhiều loại thứ khác nhau → hỏi “cái gì”.", icon:"qmark",
+ examples:[{h:"你在干什么呢？",p:"Nǐ zài gàn shénme ne?",vi:"Cậu đang làm gì thế?"},{h:"你现在干什么呢？",p:"Nǐ xiànzài gàn shénme ne?",vi:"Bây giờ cậu đang làm gì?"},{h:"你做什么呢？",p:"Nǐ zuò shénme ne?",vi:"Cậu đang làm gì đấy?"}]},
+"不":{old:true,p:"bù",pos:"adv.",hv:"Bất",vi:"không",usage:"Đã học ở Bài 1. Dùng riêng để phủ nhận cả câu: 不，还有我的同屋。Trước thanh 4 đọc bú: 不是 bú shì.",
  radical:{char:"一",name:"nhất — nét ngang trên đầu chữ 不"}, mnemonic:"不 giống cánh chim bay lên bị một vạch ngang chặn lại → phủ định.", icon:"exclaim",
- examples:[{h:"不，七口。",p:"Bù, qī kǒu.",vi:"Không, bảy người."},{h:"不对，还有一条狗。",p:"Bú duì, hái yǒu yì tiáo gǒu.",vi:"Không đúng, còn một con chó nữa."},{h:"不是，我不是老师。",p:"Bú shì, wǒ bú shì lǎoshī.",vi:"Không phải, tôi không phải giáo viên."}]},
-"一":{old:true,p:"yī / yì / yí",pos:"num.",hv:"Nhất",vi:"một (1)",usage:"Đã học ở Bài 6. Biến điệu: trước thanh 4 đọc yí (一个 yí ge), trước thanh 1/2/3 đọc yì (一条 yì tiáo, 一般 yìbān).",
- radical:{char:"一",name:"nhất — bản thân nó là một bộ thủ"}, mnemonic:"一 là một vạch ngang duy nhất — chữ đơn giản nhất trong Hán tự.", icon:"coin",
- examples:[{h:"一般只有一个孩子。",p:"Yìbān zhǐ yǒu yí ge háizi.",vi:"Thường chỉ có một người con."},{h:"还有一条狗。",p:"Hái yǒu yì tiáo gǒu.",vi:"Còn có một con chó nữa."},{h:"一个哥哥、一个弟弟。",p:"Yí ge gēge, yí ge dìdi.",vi:"Một anh trai, một em trai."}]},
-"五":{old:true,p:"wǔ",pos:"num.",hv:"Ngũ",vi:"năm (5)",usage:"Đã học ở Bài 6.",
- radical:{char:"二",name:"nhị — hai nét ngang kẹp chữ 五"}, mnemonic:"五 vẽ hai vạch trời đất kẹp một nét chéo giao nhau ở giữa.", icon:"coin",
- examples:[{h:"我家有五口人。",p:"Wǒ jiā yǒu wǔ kǒu rén.",vi:"Nhà tôi có năm người."},{h:"五口人：爷爷、奶奶、爸爸、妈妈和我。",p:"Wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ.",vi:"Năm người: ông nội, bà nội, bố, mẹ và tôi."},{h:"五个孩子",p:"wǔ ge háizi",vi:"năm người con"}]},
-"六":{old:true,p:"liù",pos:"num.",hv:"Lục",vi:"sáu (6)",usage:"Đã học ở Bài 6.",
- radical:{char:"亠",name:"đầu — nét trên đỉnh chữ 六"}, mnemonic:"六 vẽ hình mái nhà có hai chân chống.", icon:"coin",
- examples:[{h:"一共六口人？",p:"Yígòng liù kǒu rén?",vi:"Tổng cộng sáu người à?"},{h:"六口，对吧？",p:"Liù kǒu, duì ba?",vi:"Sáu người, đúng không?"},{h:"六个孩子",p:"liù ge háizi",vi:"sáu người con"}]},
-"七":{old:true,p:"qī",pos:"num.",hv:"Thất",vi:"bảy (7)",usage:"Đã học ở Bài 6.",
- radical:{char:"一",name:"nhất — nét ngang của chữ 七"}, mnemonic:"七 vẽ một vạch bị cắt ngang — nghĩa gốc là “cắt”, sau mượn làm số bảy.", icon:"coin",
- examples:[{h:"不，七口。",p:"Bù, qī kǒu.",vi:"Không, bảy người."},{h:"我家有七口人。",p:"Wǒ jiā yǒu qī kǒu rén.",vi:"Nhà tôi có bảy người."},{h:"七个人",p:"qī ge rén",vi:"bảy người"}]}
+ examples:[{h:"不是。今天是星期三。",p:"Bú shì. Jīntiān shì xīngqīsān.",vi:"Không phải. Hôm nay là thứ Tư."},{h:"不，还有我的同屋。",p:"Bù, hái yǒu wǒ de tóngwū.",vi:"Không, còn có bạn cùng phòng mình nữa."},{h:"我不喝咖啡。",p:"Wǒ bù hē kāfēi.",vi:"Tôi không uống cà phê."}]},
+"有":{old:true,p:"yǒu",pos:"v.",hv:"Hữu",vi:"có",usage:"Đã học ở Bài 7. Phủ định là 没有.",
+ radical:{char:"月",name:"nguyệt (thịt) — phía dưới chữ 有"}, mnemonic:"有 vẽ bàn tay đang cầm miếng thịt 月 — trong tay đang giữ thứ gì đó.", icon:"okhand",
+ examples:[{h:"我有四节课。",p:"Wǒ yǒu sì jié kè.",vi:"Tôi có bốn tiết."},{h:"明天还有听写。",p:"Míngtiān hái yǒu tīngxiě.",vi:"Mai còn có bài chính tả nữa."},{h:"有，我们十点就回宿舍。",p:"Yǒu, wǒmen shí diǎn jiù huí sùshè.",vi:"Có chứ, mười giờ là bọn mình về ký túc xá."}]},
+"没有":{old:true,p:"méiyǒu",pos:"v.",hv:"Một hữu",vi:"không có",usage:"Đã học ở Bài 7. Dạng phủ định duy nhất của 有.",
+ radical:{char:"氵",name:"thủy (nước) — bên trái chữ 没"}, mnemonic:"没 có bộ 氵(nước) — vật chìm mất hút dưới nước → không còn.", icon:"exclaim",
+ examples:[{h:"明天你们没有课吗？",p:"Míngtiān nǐmen méiyǒu kè ma?",vi:"Mai các cậu không có tiết à?"},{h:"我明天没有听写。",p:"Wǒ míngtiān méiyǒu tīngxiě.",vi:"Mai tôi không có bài chính tả."},{h:"今天没有作业。",p:"Jīntiān méiyǒu zuòyè.",vi:"Hôm nay không có bài tập."}]},
+"还":{old:true,p:"hái",pos:"adv.",hv:"Hoàn",vi:"còn, còn có… nữa",usage:"Đã học ở Bài 10. Phó từ bổ sung, đặt trước động từ: 明天还有听写 = mai còn có cả bài chính tả nữa.",
+ radical:{char:"辶",name:"sước (bước đi) — bao chữ 还"}, mnemonic:"还 có bộ 辶 (bước đi) — quay lại thêm một lần nữa, kể thêm một thứ nữa.", icon:"okhand",
+ examples:[{h:"明天还有听写。",p:"Míngtiān hái yǒu tīngxiě.",vi:"Mai còn có bài chính tả nữa."},{h:"不，还有我的同屋和她的朋友。",p:"Bù, hái yǒu wǒ de tóngwū hé tā de péngyou.",vi:"Không, còn có bạn cùng phòng mình và bạn của cô ấy nữa."},{h:"我还有一节课。",p:"Wǒ hái yǒu yì jié kè.",vi:"Tôi còn một tiết nữa."}]},
+"很":{old:true,p:"hěn",pos:"adv.",hv:"Ngận",vi:"rất",usage:"Đã học ở Bài 2. Đứng trước tính từ; trong câu khẳng định hầu như bắt buộc phải có: 很多, 很好.",
+ radical:{char:"彳",name:"xích (bước chân trái) — bên trái chữ 很"}, mnemonic:"很 có bộ 彳(bước đi) — mức độ cứ tiến thêm mãi lên → “rất”.", icon:"exclaim",
+ examples:[{h:"所以作业很多。",p:"Suǒyǐ zuòyè hěn duō.",vi:"Cho nên bài tập rất nhiều."},{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập à?"},{h:"这个歌很有名。",p:"Zhège gē hěn yǒumíng.",vi:"Bài hát này rất nổi tiếng."}]},
+"都":{old:true,p:"dōu",pos:"adv.",hv:"Đô",vi:"đều",usage:"Đã học ở Bài 8. Đặt sau chủ ngữ, trước động từ. Bài này học cặp cố định 每……都……",
+ radical:{char:"阝",name:"phụ (ấp) — bên phải chữ 都"}, mnemonic:"都 vốn là “kinh đô” (dū) — nơi tụ hội tất cả; đọc dōu thành “đều”.", icon:"okhand",
+ examples:[{h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?",vi:"Ngày nào cậu cũng nhiều bài tập à?"},{h:"我每天早上都喝咖啡。",p:"Wǒ měi tiān zǎoshang dōu hē kāfēi.",vi:"Sáng nào tôi cũng uống cà phê."},{h:"他们每个人都知道。",p:"Tāmen měi ge rén dōu zhīdào.",vi:"Ai trong bọn họ cũng biết."}]},
+"今天":{old:true,p:"jīntiān",pos:"n.",hv:"Kim thiên",vi:"hôm nay",usage:"Đã học ở Bài 7. Danh từ thời gian đứng trước động từ.",
+ radical:{char:"人",name:"nhân (người) — phía trên chữ 今"}, mnemonic:"今 vẽ mái che chụp xuống một vạch — khoảnh khắc ngay dưới chân mình.", icon:"calendarwk",
+ examples:[{h:"今天是星期三。",p:"Jīntiān shì xīngqīsān.",vi:"Hôm nay là thứ Tư."},{h:"今天我有四节课。",p:"Jīntiān wǒ yǒu sì jié kè.",vi:"Hôm nay tôi có bốn tiết."},{h:"今天晚上你有时间吗？",p:"Jīntiān wǎnshang nǐ yǒu shíjiān ma?",vi:"Tối nay cậu rảnh không?"}]},
+"明天":{old:true,p:"míngtiān",pos:"n.",hv:"Minh thiên",vi:"ngày mai",usage:"Đã học ở Bài 7.",
+ radical:{char:"日",name:"nhật (mặt trời) — bên trái chữ 明"}, mnemonic:"明 = 日 (mặt trời) + 月 (mặt trăng) — hết một vòng ngày đêm thì trời lại sáng.", icon:"calendarwk",
+ examples:[{h:"明天还有听写。",p:"Míngtiān hái yǒu tīngxiě.",vi:"Mai còn có bài chính tả nữa."},{h:"明天你们没有课吗？",p:"Míngtiān nǐmen méiyǒu kè ma?",vi:"Mai các cậu không có tiết à?"},{h:"明天你几点上课？",p:"Míngtiān nǐ jǐ diǎn shàngkè?",vi:"Mai mấy giờ cậu vào học?"}]},
+"课":{old:true,p:"kè",pos:"n.",hv:"Khóa",vi:"tiết học, buổi học",usage:"Đã học ở Bài 7. Lượng từ của nó là 节: 四节课.",
+ radical:{char:"讠",name:"ngôn (lời nói) — bên trái chữ 课"}, mnemonic:"课 = 讠(lời nói) + 果 (quả) — lời giảng kết thành quả trong đầu người học.", icon:"homework",
+ examples:[{h:"我有四节课。",p:"Wǒ yǒu sì jié kè.",vi:"Tôi có bốn tiết."},{h:"明天你们没有课吗？",p:"Míngtiān nǐmen méiyǒu kè ma?",vi:"Mai các cậu không có tiết à?"},{h:"上课呢。",p:"Shàngkè ne.",vi:"Đang trong giờ học."}]},
+"哪":{old:true,p:"nǎ",pos:"pron.",hv:"Na",vi:"nào (cái nào)",usage:"Đã học ở Bài 2 và Bài 3. Sau nó phải có lượng từ: 哪个酒吧 = quán bar nào.",
+ radical:{char:"口",name:"khẩu (miệng) — bên trái chữ 哪"}, mnemonic:"哪 = 口 (miệng) + 那 (kia) — mở miệng hỏi “cái kia là cái nào?”.", icon:"qmark",
+ examples:[{h:"哪个酒吧？",p:"Nǎge jiǔbā?",vi:"Quán bar nào?"},{h:"你要哪本？",p:"Nǐ yào nǎ běn?",vi:"Cậu lấy quyển nào?"},{h:"你是哪国人？",p:"Nǐ shì nǎ guó rén?",vi:"Cậu là người nước nào?"}]},
+"个":{old:true,p:"ge",pos:"mw.",hv:"Cá",vi:"cái (lượng từ dùng chung)",usage:"Đã học ở Bài 4. 哪个 = cái nào, 那个 = cái kia.",
+ radical:{char:"人",name:"nhân (người) — phía trên chữ 个"}, mnemonic:"个 vẽ cây tre chẻ đôi — mỗi nhánh là “một cái”.", icon:"okhand",
+ examples:[{h:"哪个酒吧？",p:"Nǎge jiǔbā?",vi:"Quán bar nào?"},{h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge.",vi:"Cái đối diện hiệu sách của trường ấy."},{h:"大卫每个周末都去酒吧。",p:"Dàwèi měi ge zhōumò dōu qù jiǔbā.",vi:"Cuối tuần nào David cũng đi quán bar."}]},
+"那":{old:true,p:"nà",pos:"pron.",hv:"Na",vi:"kia, đó",usage:"Đã học ở Bài 3. 那个 = cái kia. Chú ý thanh điệu: 那 nà (thanh 4) khác 哪 nǎ (thanh 3, dùng để hỏi).",
+ radical:{char:"阝",name:"phụ (ấp) — bên phải chữ 那"}, mnemonic:"那 có bộ 阝 (làng xóm) — chỉ về một nơi chốn khác ở phía xa kia.", icon:"signpost",
+ examples:[{h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge.",vi:"Cái đối diện hiệu sách của trường ấy."},{h:"那个酒吧很有名。",p:"Nàge jiǔbā hěn yǒumíng.",vi:"Quán bar kia rất nổi tiếng."},{h:"那是我的作业。",p:"Nà shì wǒ de zuòyè.",vi:"Kia là bài tập của tôi."}]},
+"的":{old:true,p:"de",pos:"part.",hv:"Đích (trợ từ)",vi:"trợ từ định ngữ: “của”",usage:"Đã học ở Bài 2 và Bài 3. 书店对面的那个 = cái ở đối diện hiệu sách.",
+ radical:{char:"白",name:"bạch (trắng) — bên trái chữ 的"}, mnemonic:"的 có bộ 白 (rõ ràng) — làm rõ thứ đó thuộc về ai, thuộc loại nào.", icon:"check",
+ examples:[{h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge.",vi:"Cái ở đối diện hiệu sách của trường."},{h:"我的同屋和她的朋友。",p:"Wǒ de tóngwū hé tā de péngyou.",vi:"Bạn cùng phòng của tôi và bạn của cô ấy."},{h:"这是我的作业。",p:"Zhè shì wǒ de zuòyè.",vi:"Đây là bài tập của tôi."}]},
+"学校":{old:true,p:"xuéxiào",pos:"n.",hv:"Học hiệu",vi:"trường học",usage:"Đã học ở Bài 4. 学校书店 = hiệu sách của trường (lược 的).",
+ radical:{char:"木",name:"mộc (cây) — bên trái chữ 校"}, mnemonic:"校 = 木 (gỗ) + 交 (giao nhau) — trường học xưa dựng bằng khung gỗ ghép.", icon:"univ",
+ examples:[{h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge.",vi:"Cái đối diện hiệu sách của trường ấy."},{h:"学校电影院有电影。",p:"Xuéxiào diànyǐngyuàn yǒu diànyǐng.",vi:"Rạp phim của trường có chiếu phim."},{h:"我们学校很大。",p:"Wǒmen xuéxiào hěn dà.",vi:"Trường chúng tôi rất rộng."}]},
+"同屋":{old:true,p:"tóngwū",pos:"n.",hv:"Đồng ốc",vi:"bạn cùng phòng",usage:"Đã học ở Bài 3. 同 = cùng, 屋 = phòng.",
+ radical:{char:"尸",name:"thi (mái che) — phía trên chữ 屋"}, mnemonic:"屋 có bộ 尸 (mái che) và 至 (đến) — nơi người ta trở về dưới một mái nhà.", icon:"friends",
+ examples:[{h:"还有我的同屋和她的朋友。",p:"Hái yǒu wǒ de tóngwū hé tā de péngyou.",vi:"Còn có bạn cùng phòng mình và bạn của cô ấy."},{h:"我同屋在唱歌呢。",p:"Wǒ tóngwū zài chànggē ne.",vi:"Bạn cùng phòng tôi đang hát."},{h:"她是我的同屋。",p:"Tā shì wǒ de tóngwū.",vi:"Cô ấy là bạn cùng phòng của tôi."}]},
+"朋友":{old:true,p:"péngyou",pos:"n.",hv:"Bằng hữu",vi:"bạn, bạn bè",usage:"Đã học ở Bài 3.",
+ radical:{char:"月",name:"nguyệt — hai chữ 月 ghép thành 朋"}, mnemonic:"朋 do hai chữ 月 giống hệt đứng cạnh nhau — hai người sóng đôi ngang hàng.", icon:"friends",
+ examples:[{h:"还有我的同屋和她的朋友。",p:"Hái yǒu wǒ de tóngwū hé tā de péngyou.",vi:"Còn có bạn cùng phòng mình và bạn của cô ấy."},{h:"我去见朋友。",p:"Wǒ qù jiàn péngyou.",vi:"Tôi đi gặp bạn."},{h:"他们是我的朋友。",p:"Tāmen shì wǒ de péngyou.",vi:"Họ là bạn của tôi."}]},
+"和":{old:true,p:"hé",pos:"conj.",hv:"Hòa",vi:"và, với",usage:"Đã học ở Bài 8. Chỉ nối danh từ, không nối hai câu.",
+ radical:{char:"禾",name:"hòa (lúa) — bên trái chữ 和"}, mnemonic:"和 = 禾 (lúa) + 口 (miệng) — có lúa vào miệng thì hòa thuận, gắn với nhau.", icon:"handshake",
+ examples:[{h:"我的同屋和她的朋友",p:"wǒ de tóngwū hé tā de péngyou",vi:"bạn cùng phòng tôi và bạn của cô ấy"},{h:"咖啡和啤酒",p:"kāfēi hé píjiǔ",vi:"cà phê và bia"},{h:"我和玛丽都是留学生。",p:"Wǒ hé Mǎlì dōu shì liúxuéshēng.",vi:"Tôi và Mary đều là du học sinh."}]},
+"宿舍":{old:true,p:"sùshè",pos:"n.",hv:"Túc xá",vi:"ký túc xá",usage:"Đã học ở Bài 4. 回宿舍 = về ký túc xá.",
+ radical:{char:"宀",name:"miên (mái nhà) — trên đầu cả 宿 và 舍"}, mnemonic:"宿 = mái nhà che người nằm nghỉ; 舍 cũng là nhà ở.", icon:"dorm",
+ examples:[{h:"我们十点就回宿舍。",p:"Wǒmen shí diǎn jiù huí sùshè.",vi:"Mười giờ là bọn mình về ký túc xá."},{h:"我在宿舍做作业呢。",p:"Wǒ zài sùshè zuò zuòyè ne.",vi:"Tôi đang làm bài tập ở ký túc xá."},{h:"你的宿舍在哪儿？",p:"Nǐ de sùshè zài nǎr?",vi:"Ký túc xá của cậu ở đâu?"}]},
+"早上":{old:true,p:"zǎoshang",pos:"n.",hv:"Tảo thượng",vi:"buổi sáng sớm",usage:"Đã học ở Bài 6. Đầu dãy thời gian trong ngày.",
+ radical:{char:"日",name:"nhật (mặt trời) — phía trên chữ 早"}, mnemonic:"早 = 日 (mặt trời) + 十 — mặt trời vừa nhô lên khỏi đường chân trời.", icon:"sunrise",
+ examples:[{h:"从早上八点到中午十二点。",p:"Cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn.",vi:"Từ tám giờ sáng đến mười hai giờ trưa."},{h:"我每天早上都喝咖啡。",p:"Wǒ měi tiān zǎoshang dōu hē kāfēi.",vi:"Sáng nào tôi cũng uống cà phê."},{h:"早上八点上课。",p:"Zǎoshang bā diǎn shàngkè.",vi:"Tám giờ sáng vào học."}]},
+"点":{old:true,p:"diǎn",pos:"n.",hv:"Điểm",vi:"giờ",usage:"Đã học ở Bài 6. 八点, 十二点, 十点.",
+ radical:{char:"灬",name:"hỏa (lửa) — bốn chấm dưới chữ 点"}, mnemonic:"点 có bộ 灬 (lửa) — ngày xưa thắp đèn theo canh giờ.", icon:"clock",
+ examples:[{h:"从早上八点到中午十二点。",p:"Cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn.",vi:"Từ tám giờ sáng đến mười hai giờ trưa."},{h:"我们十点就回宿舍。",p:"Wǒmen shí diǎn jiù huí sùshè.",vi:"Mười giờ là bọn mình về ký túc xá."},{h:"现在几点？",p:"Xiànzài jǐ diǎn?",vi:"Bây giờ mấy giờ?"}]},
+"就":{old:true,p:"jiù",pos:"adv.",hv:"Tựu",vi:"là (đã), ngay",usage:"Đã học ở Bài 8. Nhấn rằng việc xảy ra SỚM hoặc nhanh hơn người nghe tưởng: 十点就回宿舍 = mười giờ là đã về rồi.",
+ radical:{char:"京",name:"kinh — bên trái chữ 就"}, mnemonic:"就 = 京 + 尤 — đi thẳng một mạch tới đích, không lòng vòng.", icon:"clock",
+ examples:[{h:"我们十点就回宿舍。",p:"Wǒmen shí diǎn jiù huí sùshè.",vi:"Mười giờ là bọn mình về ký túc xá rồi."},{h:"十五分钟就到。",p:"Shíwǔ fēnzhōng jiù dào.",vi:"Mười lăm phút là tới."},{h:"电影一会儿就开始。",p:"Diànyǐng yíhuìr jiù kāishǐ.",vi:"Phim lát nữa là chiếu ngay."}]},
+"八":{old:true,p:"bā",pos:"num.",hv:"Bát",vi:"tám (8)",usage:"Đã học ở Bài 6.",
+ radical:{char:"八",name:"bát — bản thân nó là một bộ thủ"}, mnemonic:"八 vẽ hai nét tách ra hai bên — nghĩa gốc là “chia đôi”.", icon:"clock",
+ examples:[{h:"从早上八点到中午十二点。",p:"Cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn.",vi:"Từ tám giờ sáng đến mười hai giờ trưa."},{h:"我从八点到十点有课。",p:"Wǒ cóng bā diǎn dào shí diǎn yǒu kè.",vi:"Tôi có tiết từ tám giờ đến mười giờ."},{h:"八点上课。",p:"Bā diǎn shàngkè.",vi:"Tám giờ vào học."}]},
+"十二":{old:true,p:"shí'èr",pos:"num.",hv:"Thập nhị",vi:"mười hai (12)",usage:"Đã học ở Bài 6. Quy tắc 十 + số cho 11–19.",
+ radical:{char:"十",name:"thập (mười) — vế đầu của 十二"}, mnemonic:"十 (mười) + 二 (hai) = mười hai; đọc là shí'èr, có dấu ngắt để không lẫn thành shíer.", icon:"clock",
+ examples:[{h:"中午十二点。",p:"Zhōngwǔ shí'èr diǎn.",vi:"Mười hai giờ trưa."},{h:"我们十二点下课。",p:"Wǒmen shí'èr diǎn xiàkè.",vi:"Mười hai giờ chúng tôi tan học."},{h:"十一、十二、十三",p:"shíyī, shí'èr, shísān",vi:"mười một, mười hai, mười ba"}]},
+"四":{old:true,p:"sì",pos:"num.",hv:"Tứ",vi:"bốn (4)",usage:"Đã học ở Bài 6.",
+ radical:{char:"囗",name:"vi (vòng bao) — bao ngoài chữ 四"}, mnemonic:"四 vốn vẽ bốn vạch, sau biến thành hình cái miệng mở có hai nét bên trong.", icon:"clock",
+ examples:[{h:"我有四节课。",p:"Wǒ yǒu sì jié kè.",vi:"Tôi có bốn tiết."},{h:"四节课，作业很多。",p:"Sì jié kè, zuòyè hěn duō.",vi:"Bốn tiết, bài tập rất nhiều."},{h:"星期四有听写。",p:"Xīngqīsì yǒu tīngxiě.",vi:"Thứ Năm có bài chính tả."}]},
+"十":{old:true,p:"shí",pos:"num.",hv:"Thập",vi:"mười (10)",usage:"Đã học ở Bài 6.",
+ radical:{char:"十",name:"thập — bản thân nó là một bộ thủ"}, mnemonic:"十 là hai nét cắt ngang nhau như dấu thập — trọn một bó mười.", icon:"clock",
+ examples:[{h:"我们十点就回宿舍。",p:"Wǒmen shí diǎn jiù huí sùshè.",vi:"Mười giờ là bọn mình về ký túc xá."},{h:"从八点到十点有课。",p:"Cóng bā diǎn dào shí diǎn yǒu kè.",vi:"Có tiết từ tám giờ đến mười giờ."},{h:"十、二十、三十",p:"shí, èrshí, sānshí",vi:"mười, hai mươi, ba mươi"}]}
 };
 /* ---------- DIALOGUE DATA ---------- */
 function seg(t,v){ return {t:t, v:v||null}; }
-const dialogue1 = [
-{spk:"玛丽", segments:[seg("这","这"),seg("是","是"),seg("你","你"),seg("的","的"),seg("照片","照片"),seg("吗？")], p:"Zhè shì nǐ de zhàopiàn ma?", vi:"Đây là ảnh của cậu à?"},
-{spk:"张红", segments:[seg("对","对"),seg("，"),seg("是","是"),seg("我","我"),seg("家","家"),seg("的","的"),seg("照片","照片"),seg("。")], p:"Duì, shì wǒ jiā de zhàopiàn.", vi:"Đúng, là ảnh gia đình mình."},
-{spk:"玛丽", segments:[seg("你","你"),seg("家","家"),seg("有","有"),seg("几","几"),seg("口","口"),seg("人","人"),seg("？")], p:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà cậu có mấy người?"},
-{spk:"张红", segments:[seg("我","我"),seg("家","家"),seg("有","有"),seg("五","五"),seg("口","口"),seg("人","人"),seg("："),seg("爷爷","爷爷"),seg("、"),seg("奶奶","奶奶"),seg("、"),seg("爸爸","爸爸"),seg("、"),seg("妈妈","妈妈"),seg("和","和"),seg("我","我"),seg("。")], p:"Wǒ jiā yǒu wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ.", vi:"Nhà mình có năm người: ông nội, bà nội, bố, mẹ và mình."},
-{spk:"玛丽", segments:[seg("你","你"),seg("没有","没有"),seg("哥哥","哥哥"),seg("姐姐","姐姐"),seg("吗？")], p:"Nǐ méiyǒu gēge jiějie ma?", vi:"Cậu không có anh chị à?"},
-{spk:"张红", segments:[seg("没有","没有"),seg("，"),seg("现在","现在"),seg("中国","中国"),seg("家庭","家庭"),seg("一般","一般"),seg("只","只"),seg("有","有"),seg("一","一"),seg("个","个"),seg("孩子","孩子"),seg("。"),seg("玛丽","玛丽"),seg("，"),seg("你","你"),seg("家","家"),seg("都","都"),seg("有","有"),seg("什么","什么"),seg("人","人"),seg("？")], p:"Méiyǒu, xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi. Mǎlì, nǐ jiā dōu yǒu shénme rén?", vi:"Không có, hiện nay gia đình Trung Quốc thường chỉ có một con. Mary này, nhà cậu có những ai?"}
+const CALLERS = [
+ {name:"大卫", ctx:"宿舍 · đang làm bài tập", ava:"avaDavid", side:"l"},
+ {name:"玛丽", ctx:"酒吧 · đang uống cà phê", ava:"avaMary",  side:"r"}
 ];
-const dialogue1Vocab = ["照片","家","口","爷爷","奶奶","爸爸","妈妈","哥哥","姐姐","家庭","一般","只","孩子"];
+const dialogue1 = [
+{id:"A-01", spk:"大卫", segments:[seg("喂","喂"),seg("，"),seg("你","你"),seg("好","好"),seg("！")], p:"Wéi, nǐ hǎo!", vi:"A lô, xin chào!"},
+{id:"A-02", spk:"玛丽", segments:[seg("喂","喂"),seg("，"),seg("大卫","大卫"),seg("，"),seg("是","是"),seg("我","我"),seg("，"),seg("玛丽","玛丽"),seg("。")], p:"Wéi, Dàwèi, shì wǒ, Mǎlì.", vi:"A lô, David à, mình đây, Mary đây."},
+{id:"A-03", spk:"大卫", segments:[seg("啊","啊"),seg("，"),seg("玛丽","玛丽"),seg("，"),seg("你","你"),seg("好","好"),seg("！")], p:"À, Mǎlì, nǐ hǎo!", vi:"À, Mary à, chào cậu!"},
+{id:"A-04", spk:"玛丽", prog:true, segments:[seg("大卫","大卫"),seg("，"),seg("你","你"),seg("在","在"),seg("干","干"),seg("什么","什么"),seg("呢","呢"),seg("？")], p:"Dàwèi, nǐ zài gàn shénme ne?", vi:"David này, cậu đang làm gì thế?"},
+{id:"A-05", spk:"大卫", prog:true, segments:[seg("做","做"),seg("作业","作业"),seg("呢","呢"),seg("。")], p:"Zuò zuòyè ne.", vi:"Đang làm bài tập."},
+{id:"A-06", spk:"玛丽", segments:[seg("是","是"),seg("吗","吗"),seg("？你"),seg("每","每"),seg("天","天"),seg("都","都"),seg("有","有"),seg("很","很"),seg("多","多"),seg("作业","作业"),seg("吗","吗"),seg("？")], p:"Shì ma? Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?", vi:"Thế à? Ngày nào cậu cũng nhiều bài tập vậy sao?"}
+];
+const dialogue1Vocab = ["喂","啊","在","干","做","作业","每","天","多"];
 const dialogue1ProperNouns = [];
 
 const dialogue2 = [
-{spk:"玛丽", segments:[seg("我","我"),seg("家","家"),seg("有","有"),seg("爸爸","爸爸"),seg("、"),seg("妈妈","妈妈"),seg("、"),seg("哥哥","哥哥"),seg("、"),seg("弟弟","弟弟"),seg("、"),seg("妹妹","妹妹"),seg("，"),seg("还","还"),seg("有","有"),seg("一","一"),seg("条","条"),seg("狗","狗"),seg("。")], p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei, hái yǒu yì tiáo gǒu.", vi:"Nhà mình có bố, mẹ, anh trai, em trai, em gái, còn có một con chó nữa."},
-{spk:"张红", segments:[seg("一共","一共"),seg("六","六"),seg("口","口"),seg("人","人"),seg("？")], p:"Yígòng liù kǒu rén?", vi:"Tổng cộng sáu người à?"},
-{spk:"玛丽", segments:[seg("不","不"),seg("，"),seg("七","七"),seg("口","口"),seg("。")], p:"Bù, qī kǒu.", vi:"Không, bảy người."},
-{spk:"张红", segments:[seg("爸爸","爸爸"),seg("、"),seg("妈妈","妈妈"),seg("、"),seg("一","一"),seg("个","个"),seg("哥哥","哥哥"),seg("、"),seg("一","一"),seg("个","个"),seg("弟弟","弟弟"),seg("、"),seg("一","一"),seg("个","个"),seg("妹妹","妹妹"),seg("和","和"),seg("你","你"),seg("，"),seg("六","六"),seg("口","口"),seg("，"),seg("对","对"),seg("吧","吧"),seg("？")], p:"Bàba, māma, yí ge gēge, yí ge dìdi, yí ge mèimei hé nǐ, liù kǒu, duì ba?", vi:"Bố, mẹ, một anh trai, một em trai, một em gái và cậu, sáu người, đúng không?"},
-{spk:"玛丽", segments:[seg("不","不"),seg("对","对"),seg("，"),seg("还","还"),seg("有","有"),seg("一","一"),seg("条","条"),seg("狗","狗"),seg("。")], p:"Bú duì, hái yǒu yì tiáo gǒu.", vi:"Không đúng, còn một con chó nữa mà."},
-{spk:"张红", segments:[seg("是","是"),seg("这样","这样"),seg("……")], p:"Shì zhèyàng…", vi:"Thì ra là vậy…"}
+{id:"B-01", spk:"大卫", prog:true, segments:[seg("不","不"),seg("是","是"),seg("。"),seg("今天","今天"),seg("是","是"),seg("星期三","星期三"),seg("，"),seg("从","从……到……"),seg("早上","早上"),seg("八","八"),seg("点","点"),seg("到","从……到……"),seg("中午","中午"),seg("十二","十二"),seg("点","点"),seg("，我"),seg("有","有"),seg("四","四"),seg("节","节"),seg("课","课"),seg("，"),seg("明天","明天"),seg("还","还"),seg("有","有"),seg("听写","听写"),seg("，"),seg("所以","所以"),seg("作业","作业"),seg("很","很"),seg("多","多"),seg("。你"),seg("呢","呢"),seg("？"),seg("在","在"),seg("干","干"),seg("什么","什么"),seg("呢","呢"),seg("？")], p:"Bú shì. Jīntiān shì xīngqīsān, cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn, wǒ yǒu sì jié kè, míngtiān hái yǒu tīngxiě, suǒyǐ zuòyè hěn duō. Nǐ ne? Zài gàn shénme ne?", vi:"Không phải. Hôm nay thứ Tư, từ tám giờ sáng đến mười hai giờ trưa mình có bốn tiết, mai lại còn bài chính tả nữa, nên bài tập nhiều lắm. Còn cậu? Đang làm gì thế?"},
+{id:"B-02", spk:"玛丽", prog:true, segments:[seg("我","我"),seg("在","在"),seg("酒吧","酒吧"),seg("喝","喝"),seg("咖啡","咖啡"),seg("呢","呢"),seg("。")], p:"Wǒ zài jiǔbā hē kāfēi ne.", vi:"Mình đang uống cà phê ở quán bar."},
+{id:"B-03", spk:"大卫", segments:[seg("哪","哪"),seg("个","个"),seg("酒吧","酒吧"),seg("？")], p:"Nǎge jiǔbā?", vi:"Quán bar nào thế?"},
+{id:"B-04", spk:"玛丽", segments:[seg("学校","学校"),seg("书店","书店"),seg("对面","对面"),seg("的","的"),seg("那","那"),seg("个","个"),seg("。")], p:"Xuéxiào shūdiàn duìmiàn de nàge.", vi:"Cái đối diện hiệu sách của trường ấy."},
+{id:"B-05", spk:"大卫", segments:[seg("你","你"),seg("自己","自己"),seg("吗","吗"),seg("？")], p:"Nǐ zìjǐ ma?", vi:"Một mình cậu thôi à?"},
+{id:"B-06", spk:"玛丽", prog:true, segments:[seg("不","不"),seg("，"),seg("还","还"),seg("有","有"),seg("我","我"),seg("的","的"),seg("同屋","同屋"),seg("和","和"),seg("她","她"),seg("的","的"),seg("朋友","朋友"),seg("，"),seg("他们","他们"),seg("正在","正在"),seg("唱","唱"),seg("歌","歌"),seg("呢","呢"),seg("。")], p:"Bù, hái yǒu wǒ de tóngwū hé tā de péngyou, tāmen zhèngzài chànggē ne.", vi:"Không, còn có bạn cùng phòng mình và bạn của cô ấy nữa, bọn họ đang hát."},
+{id:"B-07", spk:"大卫", segments:[seg("明天","明天"),seg("你们","你们"),seg("没有","没有"),seg("课","课"),seg("吗","吗"),seg("？")], p:"Míngtiān nǐmen méiyǒu kè ma?", vi:"Mai các cậu không có tiết à?"},
+{id:"B-08", spk:"玛丽", segments:[seg("有","有"),seg("，"),seg("我们","我们"),seg("十","十"),seg("点","点"),seg("就","就"),seg("回","回"),seg("宿舍","宿舍"),seg("。")], p:"Yǒu, wǒmen shí diǎn jiù huí sùshè.", vi:"Có chứ, mười giờ là bọn mình về ký túc xá."}
 ];
-const dialogue2Vocab = ["弟弟","妹妹","还","条","狗","这样"];
+const dialogue2Vocab = ["星期三","从……到……","中午","节","听写","所以","酒吧","喝","咖啡","书店","对面","自己","正在","唱","歌","回"];
 const dialogue2ProperNouns = [];
 
 const grammar = [
-{title:"1 · 你家有几口人？— Hỏi về gia đình",example:"你家有几口人？／你家都有什么人？",explain:"Có hai câu hỏi khác nhau, đừng lẫn. 你家有几口人？hỏi SỐ LƯỢNG, trả lời bằng con số: 我家有五口人。 Còn 你家都有什么人？hỏi THÀNH PHẦN, trả lời bằng cách liệt kê: 我家有爸爸、妈妈、哥哥…… Chữ 都 trong câu thứ hai mang ý “kể cho hết ra”. Lưu ý dùng 有 chứ không dùng 是, và trước 家 thì lược 的 — nói 我家 chứ không nói 我的家.",more:["你家有几口人？　→　我家有五口人。","你家都有什么人？　→　我家有爸爸、妈妈和我。","一共六口人？　→　不，七口。","你有几个孩子？　→　我只有一个孩子。"]},
-{title:"2 · 量词 口 / 个 / 条 — Chọn đúng lượng từ",example:"我家有五口人。／还有一条狗。",explain:"Mỗi danh từ đi với một lượng từ riêng, phải học thuộc theo cặp. 口 CHỈ dùng đếm người trong gia đình: 五口人. Đếm người nói chung thì dùng 个: 一个哥哥, 三个学生 — không nói 三口学生. 条 dùng cho vật dài thuôn: 一条狗, 一条街, 一条路. 个 là lượng từ dùng chung, không chắc thì chọn 个.",more:["一口人（trong gia đình）　　一个人（người nói chung）","一个孩子　　一个哥哥　　一个学校","一条狗　　一条街　　一条路","一本书　　一瓶水　　一块钱　　一张照片"]},
-{title:"3 · 还 — Còn có… nữa (注释)",example:"…，还有一条狗。",explain:"还 là phó từ BỔ SUNG: sau khi đã kể xong một loạt, dùng 还有 để thêm một thứ nữa mà suýt quên. Đặt TRƯỚC động từ. Đây chính là chỗ gây hiểu nhầm buồn cười trong bài khóa — Trương Hồng đếm sáu người, còn Mary tính cả con chó thành bảy.",more:["我有美国朋友、加拿大朋友，还有日本朋友。","我有一个姐姐，还有一个妹妹。","我家有爸爸、妈妈，还有一条狗。","不对，还有一条狗。"]},
-{title:"4 · 单元语言点小结 — Tổng kết ngữ pháp Bài 6–9",example:"Bảng tổng kết của sách, đặt ở cuối Bài 10",explain:"Sách gom lại 14 điểm ngữ pháp đã học từ Bài 6 đến Bài 9 để ôn trước khi kiểm tra. Hãy đọc lại từng dòng và tự đặt một câu mới cho mỗi điểm.",more:["1. 钟点表达法　日本的大学早上几点上课？（Bài 6）","2. 数字表达法　六十五（Bài 6）","3. “有”字句　明天你有课吗？（Bài 7）","4. 吧 (1)　你有自行车吧？（Bài 7）","5. 方位名词 (2)　车在楼下车棚里。（Bài 7）","6. 时间名词做状语　今天晚上你有时间吗？（Bài 7）","7. 吧 (2)　来我们学校玩儿吧！（Bài 8）","8. 呢 (2)　去你们学校怎么走呢？（Bài 8）","9. 号码表达法　我的宿舍是东5号楼502室。（Bài 8）","10. “几”和“多少”(1)　你的房间号是多少？（Bài 8）","11. “几”和“多少”(2)　你买几瓶？／多少钱一瓶？（Bài 9）","12. “二”和“两”　十二／二号楼／两本／两块（Bài 9）","13. 量词　两瓶啤酒七块。（Bài 9）","14. 钱数表达法　一共是九块四毛钱。（Bài 9）"]}
+{title:"1 · (正在 / 在)……呢 — Hành động đang diễn ra",example:"你在干什么呢？／他们正在唱歌呢。",explain:"Tiếng Hán không chia động từ, nên muốn nói “đang làm gì” thì thêm dấu hiệu vào câu. Có ba mức, nghĩa gần như nhau, chỉ khác độ nhấn. Nhẹ nhất là chỉ thêm 呢 ở cuối: 做作业呢。Vừa phải là 在 + động từ + 呢: 我在喝咖啡呢。Nhấn mạnh nhất là 正在 + động từ + 呢: 他们正在唱歌呢。Câu hỏi dạng này KHÔNG dùng 吗 mà kết thúc bằng 呢.",more:["我正在看电影呢。","大卫正在喝啤酒呢。","张红在唱歌呢。","外面下雨呢。","A：你现在干什么呢？　B：上课呢。"]},
+{title:"2 · 每……都…… — Mỗi… đều…",example:"你每天都有很多作业吗？",explain:"每 và 都 hầu như luôn đi thành cặp: 每 nêu ra từng đơn vị, 都 chốt lại rằng KHÔNG CÓ NGOẠI LỆ. Vị trí cố định: 每 + [danh từ] đứng đầu, còn 都 đứng ngay trước động từ. Với danh từ đếm được thì 每 cần lượng từ: 每个人, 每个周末 — riêng 天 và 年 tự nó đã là đơn vị nên nói thẳng 每天, 每年.",more:["我每天早上都喝咖啡。","他们每个人都知道。","这儿每天都下雨。","大卫每个周末都去酒吧。"]},
+{title:"3 · 星期的表达法 — Cách gọi thứ trong tuần",example:"今天是星期三。",explain:"Chỉ cần ghép 星期 + số, nhưng phải nhớ tiếng Hán LỆCH MỘT BẬC so với tiếng Việt: 星期一 là thứ HAI chứ không phải thứ Nhất. Riêng Chủ nhật không dùng số mà nói 星期日 (văn viết) hoặc 星期天 (khẩu ngữ). Hỏi thứ mấy: 今天星期几？",more:["星期一　xīngqīyī　→　thứ Hai","星期二　xīngqī'èr　→　thứ Ba","星期三　xīngqīsān　→　thứ Tư","星期四　xīngqīsì　→　thứ Năm","星期五　xīngqīwǔ　→　thứ Sáu","星期六　xīngqīliù　→　thứ Bảy","星期日 / 星期天　xīngqīrì / xīngqītiān　→　Chủ nhật"]},
+{title:"4 · 从……到…… — Từ… đến…",example:"从早上八点到中午十二点，我有四节课。",explain:"Khung cố định nêu điểm ĐẦU và điểm CUỐI của một khoảng thời gian hoặc quãng đường. Cả cụm 从…到… đứng TRƯỚC động từ, thường tách ra đầu câu rồi mới nói phần chính. Đây là chỗ người Việt hay đặt sai vị trí vì tiếng Việt thường nói phần chính trước: “tôi có bốn tiết từ 8 giờ đến 12 giờ”.",more:["我从八点到十点有课。","中村从下午四点到晚上八点有时间。","他们从星期一到星期五都有课。","从学校到书店，骑自行车十五分钟就到。"]}
 ];
 
 /* ---------- ÔN TẬP ① · Sắp xếp câu ---------- */
 const reorderItems = [
-{chunks:["这","是","你的","照片","吗","？"], p:"Zhè shì nǐ de zhàopiàn ma?", vi:"Đây là ảnh của bạn à?"},
-{chunks:["你家","有","几","口","人","？"], p:"Nǐ jiā yǒu jǐ kǒu rén?", vi:"Nhà bạn có mấy người?"},
-{chunks:["我家","有","五","口","人","。"], p:"Wǒ jiā yǒu wǔ kǒu rén.", vi:"Nhà tôi có năm người."},
-{chunks:["你","没有","哥哥","姐姐","吗","？"], p:"Nǐ méiyǒu gēge jiějie ma?", vi:"Bạn không có anh chị à?"},
-{chunks:["现在","中国家庭","一般","只","有","一个","孩子","。"], p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi.", vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con."},
-{chunks:["玛丽","，","你家","都","有","什么","人","？"], p:"Mǎlì, nǐ jiā dōu yǒu shénme rén?", vi:"Mary, nhà bạn có những ai?"},
-{chunks:["我家","有","爸爸","妈妈","哥哥","弟弟","和","妹妹","。"], p:"Wǒ jiā yǒu bàba māma gēge dìdi hé mèimei.", vi:"Nhà tôi có bố, mẹ, anh trai, em trai và em gái."},
-{chunks:["不对","，","还有","一条","狗","。"], p:"Bú duì, hái yǒu yì tiáo gǒu.", vi:"Không đúng, còn có một con chó nữa."}
+{chunks:["喂","，","你好","！"], p:"Wéi, nǐ hǎo!", vi:"A lô, xin chào!"},
+{chunks:["你","在","干","什么","呢","？"], p:"Nǐ zài gàn shénme ne?", vi:"Bạn đang làm gì thế?"},
+{chunks:["你","每天","都","有","很多","作业","吗","？"], p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?", vi:"Ngày nào bạn cũng nhiều bài tập à?"},
+{chunks:["今天","是","星期三","。"], p:"Jīntiān shì xīngqīsān.", vi:"Hôm nay là thứ Tư."},
+{chunks:["从","早上八点","到","中午十二点","，","我","有","四节课","。"], p:"Cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn, wǒ yǒu sì jié kè.", vi:"Từ tám giờ sáng đến mười hai giờ trưa, tôi có bốn tiết."},
+{chunks:["明天","还有","听写","，","所以","作业","很多","。"], p:"Míngtiān hái yǒu tīngxiě, suǒyǐ zuòyè hěn duō.", vi:"Mai còn có bài chính tả nữa, nên bài tập rất nhiều."},
+{chunks:["我","在","酒吧","喝","咖啡","呢","。"], p:"Wǒ zài jiǔbā hē kāfēi ne.", vi:"Tôi đang uống cà phê ở quán bar."},
+{chunks:["他们","正在","唱歌","呢","。"], p:"Tāmen zhèngzài chànggē ne.", vi:"Bọn họ đang hát."}
 ];
 
 /* ---------- ÔN TẬP ② · Điền từ ---------- */
 const fillItems = [
-{bank:["口","条","个","本","瓶"], items:[
- {pre:"一（", post:"）人", ans:"口"},
- {pre:"一（", post:"）狗", ans:"条"},
- {pre:"一（", post:"）书", ans:"本"},
- {pre:"一（", post:"）水", ans:"瓶"},
- {pre:"一（", post:"）家庭", ans:"个"}
+{bank:["在","正在","呢","每","都"], items:[
+ {pre:"你", post:"干什么呢？", ans:"在"},
+ {pre:"他们", post:"唱歌呢。", ans:"正在"},
+ {pre:"做作业", post:"。", ans:"呢"},
+ {pre:"你", post:"天都有很多作业吗？", ans:"每"},
+ {pre:"我每天早上", post:"喝咖啡。", ans:"都"}
 ]},
-{bank:["家庭","一般","只","都","还"], items:[
- {pre:"现在中国", post:"一般只有一个孩子。", ans:"家庭"},
- {pre:"现在中国家庭", post:"只有一个孩子。", ans:"一般"},
- {pre:"现在中国家庭一般", post:"有一个孩子。", ans:"只"},
- {pre:"你家", post:"有什么人？", ans:"都"},
- {pre:"我家有爸爸、妈妈，", post:"有一条狗。", ans:"还"}
+{bank:["星期一","星期三","星期五","星期六","星期天"], items:[
+ {pre:"thứ Hai　→　", post:"", ans:"星期一"},
+ {pre:"thứ Tư　→　", post:"", ans:"星期三"},
+ {pre:"thứ Sáu　→　", post:"", ans:"星期五"},
+ {pre:"thứ Bảy　→　", post:"", ans:"星期六"},
+ {pre:"Chủ nhật　→　", post:"", ans:"星期天"}
 ]},
-{bank:["爷爷","奶奶","哥哥","姐姐","妹妹"], items:[
- {pre:"我家有五口人：", post:"、奶奶、爸爸、妈妈和我。", ans:"爷爷"},
- {pre:"我家有五口人：爷爷、", post:"、爸爸、妈妈和我。", ans:"奶奶"},
- {pre:"你没有", post:"姐姐吗？", ans:"哥哥"},
- {pre:"你没有哥哥", post:"吗？", ans:"姐姐"},
- {pre:"我有一个弟弟，还有一个", post:"。", ans:"妹妹"}
+{bank:["从","到","所以","还","就"], items:[
+ {pre:"", post:"早上八点到中午十二点，我有四节课。", ans:"从"},
+ {pre:"从早上八点", post:"中午十二点。", ans:"到"},
+ {pre:"明天", post:"有听写。", ans:"还"},
+ {pre:"作业很多，", post:"我不去酒吧。", ans:"所以"},
+ {pre:"我们十点", post:"回宿舍。", ans:"就"}
 ]}
 ];
 
 /* ---------- ÔN TẬP ③ · Dịch câu ---------- */
 const translateItems = [
-{vi:"Đây là ảnh của bạn à? — Đúng, là ảnh gia đình mình.",h:"这是你的照片吗？对，是我家的照片。",p:"Zhè shì nǐ de zhàopiàn ma? Duì, shì wǒ jiā de zhàopiàn."},
-{vi:"Nhà bạn có mấy người?",h:"你家有几口人？",p:"Nǐ jiā yǒu jǐ kǒu rén?"},
-{vi:"Nhà tôi có năm người: ông nội, bà nội, bố, mẹ và tôi.",h:"我家有五口人：爷爷、奶奶、爸爸、妈妈和我。",p:"Wǒ jiā yǒu wǔ kǒu rén: yéye, nǎinai, bàba, māma hé wǒ."},
-{vi:"Bạn không có anh chị à?",h:"你没有哥哥姐姐吗？",p:"Nǐ méiyǒu gēge jiějie ma?"},
-{vi:"Hiện nay gia đình Trung Quốc thường chỉ có một con.",h:"现在中国家庭一般只有一个孩子。",p:"Xiànzài Zhōngguó jiātíng yìbān zhǐ yǒu yí ge háizi."},
-{vi:"Nhà bạn có những ai?",h:"你家都有什么人？",p:"Nǐ jiā dōu yǒu shénme rén?"},
-{vi:"Nhà tôi có bố, mẹ, anh trai, em trai, em gái, còn có một con chó nữa.",h:"我家有爸爸、妈妈、哥哥、弟弟、妹妹，还有一条狗。",p:"Wǒ jiā yǒu bàba, māma, gēge, dìdi, mèimei, hái yǒu yì tiáo gǒu."},
-{vi:"Tổng cộng sáu người à? — Không, bảy người.",h:"一共六口人？不，七口。",p:"Yígòng liù kǒu rén? Bù, qī kǒu."},
-{vi:"Sáu người, đúng không? — Không đúng, còn một con chó nữa mà.",h:"六口，对吧？不对，还有一条狗。",p:"Liù kǒu, duì ba? Bú duì, hái yǒu yì tiáo gǒu."},
-{vi:"Tôi chỉ có một anh trai, còn có một em gái nữa.",h:"我只有一个哥哥，还有一个妹妹。",p:"Wǒ zhǐ yǒu yí ge gēge, hái yǒu yí ge mèimei."}
+{vi:"A lô, David à, mình đây, Mary đây.",h:"喂，大卫，是我，玛丽。",p:"Wéi, Dàwèi, shì wǒ, Mǎlì."},
+{vi:"Cậu đang làm gì thế? — Đang làm bài tập.",h:"你在干什么呢？做作业呢。",p:"Nǐ zài gàn shénme ne? Zuò zuòyè ne."},
+{vi:"Ngày nào cậu cũng nhiều bài tập vậy sao?",h:"你每天都有很多作业吗？",p:"Nǐ měi tiān dōu yǒu hěn duō zuòyè ma?"},
+{vi:"Hôm nay là thứ Tư, từ tám giờ sáng đến mười hai giờ trưa tôi có bốn tiết.",h:"今天是星期三，从早上八点到中午十二点，我有四节课。",p:"Jīntiān shì xīngqīsān, cóng zǎoshang bā diǎn dào zhōngwǔ shí'èr diǎn, wǒ yǒu sì jié kè."},
+{vi:"Mai còn có bài chính tả nữa, cho nên bài tập rất nhiều.",h:"明天还有听写，所以作业很多。",p:"Míngtiān hái yǒu tīngxiě, suǒyǐ zuòyè hěn duō."},
+{vi:"Tôi đang uống cà phê ở quán bar. — Quán bar nào?",h:"我在酒吧喝咖啡呢。哪个酒吧？",p:"Wǒ zài jiǔbā hē kāfēi ne. Nǎge jiǔbā?"},
+{vi:"Cái đối diện hiệu sách của trường ấy.",h:"学校书店对面的那个。",p:"Xuéxiào shūdiàn duìmiàn de nàge."},
+{vi:"Một mình cậu thôi à? — Không, còn có bạn cùng phòng mình nữa.",h:"你自己吗？不，还有我的同屋。",p:"Nǐ zìjǐ ma? Bù, hái yǒu wǒ de tóngwū."},
+{vi:"Bọn họ đang hát.",h:"他们正在唱歌呢。",p:"Tāmen zhèngzài chànggē ne."},
+{vi:"Mai các cậu không có tiết à? — Có chứ, mười giờ là bọn mình về ký túc xá.",h:"明天你们没有课吗？有，我们十点就回宿舍。",p:"Míngtiān nǐmen méiyǒu kè ma? Yǒu, wǒmen shí diǎn jiù huí sùshè."}
 ];
 
 /* ---------- ÔN TẬP ⑤ · MỞ RỘNG · Từ mới ngoài bài + đặt câu ---------- */
 const expandItems = [
-{w:"叔叔",p:"shūshu",vi:"chú (em trai của bố)",model:{h:"我家还有一个叔叔。",p:"Wǒ jiā hái yǒu yí ge shūshu.",vi:"Nhà tôi còn có một người chú nữa."}},
-{w:"阿姨",p:"āyí",vi:"dì, cô (chị em gái của mẹ)",model:{h:"阿姨家有几口人？",p:"Āyí jiā yǒu jǐ kǒu rén?",vi:"Nhà dì có mấy người?"}},
-{w:"儿子",p:"érzi",vi:"con trai",model:{h:"他家只有一个儿子。",p:"Tā jiā zhǐ yǒu yí ge érzi.",vi:"Nhà anh ấy chỉ có một người con trai."}},
-{w:"女儿",p:"nǚ'ér",vi:"con gái",model:{h:"我家有一个女儿，还有一个儿子。",p:"Wǒ jiā yǒu yí ge nǚ'ér, hái yǒu yí ge érzi.",vi:"Nhà tôi có một con gái, còn có một con trai nữa."}},
-{w:"猫",p:"māo",vi:"con mèo",model:{h:"我家有一条狗，还有一只猫。",p:"Wǒ jiā yǒu yì tiáo gǒu, hái yǒu yì zhī māo.",vi:"Nhà tôi có một con chó, còn có một con mèo nữa."}},
-{w:"只",p:"zhī",vi:"(lượng từ cho động vật nhỏ)",model:{h:"一只猫、两只狗",p:"yì zhī māo, liǎng zhī gǒu",vi:"một con mèo, hai con chó"}},
-{w:"张",p:"zhāng",vi:"(lượng từ cho vật phẳng: ảnh, giấy)",model:{h:"这张照片是我家的。",p:"Zhè zhāng zhàopiàn shì wǒ jiā de.",vi:"Tấm ảnh này là của gia đình tôi."}},
-{w:"岁",p:"suì",vi:"tuổi",model:{h:"我妹妹只有六岁。",p:"Wǒ mèimei zhǐ yǒu liù suì.",vi:"Em gái tôi mới có sáu tuổi."}},
-{w:"兄弟姐妹",p:"xiōngdì jiěmèi",vi:"anh chị em ruột",model:{h:"你有几个兄弟姐妹？",p:"Nǐ yǒu jǐ ge xiōngdì jiěmèi?",vi:"Bạn có mấy anh chị em?"}},
-{w:"独生子女",p:"dúshēng zǐnǚ",vi:"con một",model:{h:"现在中国家庭一般都是独生子女。",p:"Xiànzài Zhōngguó jiātíng yìbān dōu shì dúshēng zǐnǚ.",vi:"Hiện nay gia đình Trung Quốc thường đều là con một."}},
-{w:"照相",p:"zhào xiàng",vi:"chụp ảnh",model:{h:"我家一共七口人，一起照相吧！",p:"Wǒ jiā yígòng qī kǒu rén, yìqǐ zhàoxiàng ba!",vi:"Nhà tôi tổng cộng bảy người, cùng chụp ảnh nào!"}},
-{w:"可爱",p:"kě'ài",vi:"dễ thương, đáng yêu",model:{h:"这条狗很可爱。",p:"Zhè tiáo gǒu hěn kě'ài.",vi:"Con chó này dễ thương lắm."}}
+{w:"打电话",p:"dǎ diànhuà",vi:"gọi điện thoại",model:{h:"我正在给同屋打电话呢。",p:"Wǒ zhèngzài gěi tóngwū dǎ diànhuà ne.",vi:"Tôi đang gọi điện cho bạn cùng phòng."}},
+{w:"看书",p:"kàn shū",vi:"đọc sách",model:{h:"我在图书馆看书呢。",p:"Wǒ zài túshūguǎn kàn shū ne.",vi:"Tôi đang đọc sách ở thư viện."}},
+{w:"吃饭",p:"chī fàn",vi:"ăn cơm",model:{h:"他们正在食堂吃饭呢。",p:"Tāmen zhèngzài shítáng chīfàn ne.",vi:"Bọn họ đang ăn cơm ở nhà ăn."}},
+{w:"上网",p:"shàng wǎng",vi:"lên mạng",model:{h:"我每天晚上都上网。",p:"Wǒ měi tiān wǎnshang dōu shàngwǎng.",vi:"Tối nào tôi cũng lên mạng."}},
+{w:"休息",p:"xiūxi",vi:"nghỉ ngơi",model:{h:"从十二点到一点我们休息。",p:"Cóng shí'èr diǎn dào yī diǎn wǒmen xiūxi.",vi:"Từ mười hai giờ đến một giờ chúng tôi nghỉ."}},
+{w:"跳舞",p:"tiào wǔ",vi:"nhảy, khiêu vũ",model:{h:"他们在酒吧跳舞呢。",p:"Tāmen zài jiǔbā tiàowǔ ne.",vi:"Bọn họ đang nhảy ở quán bar."}},
+{w:"复习",p:"fùxí",vi:"ôn bài",model:{h:"明天有听写，所以我正在复习呢。",p:"Míngtiān yǒu tīngxiě, suǒyǐ wǒ zhèngzài fùxí ne.",vi:"Mai có bài chính tả nên tôi đang ôn bài."}},
+{w:"忙",p:"máng",vi:"bận",model:{h:"我每天都很忙。",p:"Wǒ měi tiān dōu hěn máng.",vi:"Ngày nào tôi cũng rất bận."}},
+{w:"周末",p:"zhōumò",vi:"cuối tuần",model:{h:"每个周末我都回家。",p:"Měi ge zhōumò wǒ dōu huí jiā.",vi:"Cuối tuần nào tôi cũng về nhà."}},
+{w:"茶",p:"chá",vi:"trà",model:{h:"我不喝咖啡，我在喝茶呢。",p:"Wǒ bù hē kāfēi, wǒ zài hē chá ne.",vi:"Tôi không uống cà phê, tôi đang uống trà."}},
+{w:"考试",p:"kǎoshì",vi:"kỳ thi, thi",model:{h:"从星期一到星期三都有考试。",p:"Cóng xīngqīyī dào xīngqīsān dōu yǒu kǎoshì.",vi:"Từ thứ Hai đến thứ Tư đều có thi."}},
+{w:"聊天儿",p:"liáo tiānr",vi:"tán gẫu, trò chuyện",model:{h:"我们正在聊天儿呢。",p:"Wǒmen zhèngzài liáotiānr ne.",vi:"Bọn mình đang tán gẫu."}}
 ];
 
 /* ---------- SLIDE SECTIONS ---------- */
 const slidesNew = [
- {type:'cover', season:'家'},
- {type:'dialogue', title:'课文（上）· 张红家有五口人', season:'口', funSet:0, lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1]},
- {type:'dialogue', title:'课文（下）· 玛丽家还有一条狗', season:'狗', funSet:1, lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[2,3]}
+ {type:'cover', season:'喂'},
+ {type:'dialogue', title:'课文（上）· 喂，你在干什么呢？', season:'业', funSet:0, callers:CALLERS, lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1]},
+ {type:'dialogue', title:'课文（下）· 我在酒吧喝咖啡呢', season:'吧', funSet:1, callers:CALLERS, lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[2,3]}
 ];
 const slidesReview = [
- {type:'reorder',   title:'Sắp xếp câu',    season:'口', tab:'① Sắp xếp câu'},
- {type:'fill',      title:'Điền từ',        season:'狗', tab:'② Điền từ'},
- {type:'translate', title:'Dịch câu',       season:'家', tab:'③ Dịch câu'},
- {type:'speaking',  title:'Luyện khẩu ngữ', season:'口', tab:'④ Khẩu ngữ'},
- {type:'expand',    title:'Mở rộng · Đặt câu với từ mới', season:'狗', tab:'⑤ Mở rộng'}
+ {type:'reorder',   title:'Sắp xếp câu',    season:'业', tab:'① Sắp xếp câu'},
+ {type:'fill',      title:'Điền từ',        season:'吧', tab:'② Điền từ'},
+ {type:'translate', title:'Dịch câu',       season:'喂', tab:'③ Dịch câu'},
+ {type:'speaking',  title:'Luyện khẩu ngữ', season:'业', tab:'④ Khẩu ngữ'},
+ {type:'expand',    title:'Mở rộng · Đặt câu với từ mới', season:'吧', tab:'⑤ Mở rộng'}
 ];
 
 const seasonMeta = {
- '家':{label:'Gia đình',  accent:'#B05A72', soft:'#F6E3E9'},
- '口':{label:'Nhân khẩu', accent:'#4E7C6B', soft:'#DFEBE4'},
- '狗':{label:'Thú cưng',  accent:'#5B6E8C', soft:'#E1E6EF'}
+ '喂':{label:'Cuộc gọi', accent:'#F2662C', soft:'#FDE7DC'},
+ '业':{label:'Bài tập',  accent:'#4A5260', soft:'#E3E5E9'},
+ '吧':{label:'Quán bar', accent:'#6F9E2F', soft:'#E7F1D8'}
 };
+
+/* =========================================================
+   AUDIO — HIỆN ĐANG TẮT, BÀI GIẢNG DÙNG GIỌNG ĐỌC MÁY.
+   Khối này để nguyên, không ảnh hưởng gì. Khi nào muốn dùng
+   bản thu của mình thì điền src + cues là tự động bật lại.
+   ---------------------------------------------------------
+   src    : tên file mp3 đặt CÙNG THƯ MỤC với file html này,
+            hoặc một đường dẫn/URL đầy đủ. Để trống "" thì
+            bài giảng tự dùng giọng đọc máy như trước.
+   offset : số giây cộng thêm cho mọi mốc (nếu audio có nhạc dạo).
+   cues   : mốc [bắt đầu, kết thúc] của từng câu.
+            Gõ được cả số giây (12.4) lẫn chuỗi "1:05.2".
+   Mã câu A-01…A-06 là 课文（上）, B-01…B-08 là 课文（下）.
+   ========================================================= */
+const AUDIO = {
+  src: "",
+  offset: 0,
+  /* true  = câu chưa có mốc thì đọc bằng giọng máy (mặc định)
+     false = chỉ dùng audio của bạn, câu chưa có mốc thì không phát gì */
+  useSpeech: true,
+  cues: {
+    "A-01": ["", ""],
+    "A-02": ["", ""],
+    "A-03": ["", ""],
+    "A-04": ["", ""],
+    "A-05": ["", ""],
+    "A-06": ["", ""],
+
+    "B-01": ["", ""],
+    "B-02": ["", ""],
+    "B-03": ["", ""],
+    "B-04": ["", ""],
+    "B-05": ["", ""],
+    "B-06": ["", ""],
+    "B-07": ["", ""],
+    "B-08": ["", ""],
+  }
+};
+function parseT(v){
+  if(v==null) return null;
+  if(typeof v === 'number') return v;
+  const s = String(v).trim();
+  if(!s) return null;
+  const parts = s.split(':').map(Number);
+  if(parts.some(isNaN)) return null;
+  return parts.length===3 ? parts[0]*3600+parts[1]*60+parts[2]
+       : parts.length===2 ? parts[0]*60+parts[1]
+       : parts[0];
+}
+function cueOf(id){
+  const c = AUDIO.cues[id];
+  if(!c) return null;
+  const a = parseT(c[0]), b = parseT(c[1]);
+  if(a==null||b==null||b<=a) return null;
+  return {start:a + (AUDIO.offset||0), end:b + (AUDIO.offset||0)};
+}
+let _auURL = null, _auName = '';
+const audioSrc = () => _auURL || (AUDIO.src && AUDIO.src.trim()) || '';
+const audioReady = () => !!audioSrc();
+let _au = null, _auStop = null, _auTimer = null;
+function getAudio(){
+  if(!_au || _au.dataset.src !== audioSrc()){
+    if(_au) _au.pause();
+    _au = new Audio(audioSrc()); _au.preload = 'auto'; _au.dataset.src = audioSrc();
+  }
+  return _au;
+}
+/* Cho phép chọn file audio ngay trên trang — dùng khi mở bằng file:// */
+function attachAudioFile(file){
+  if(!file) return;
+  if(_auURL) URL.revokeObjectURL(_auURL);
+  _auURL = URL.createObjectURL(file); _auName = file.name; _au = null;
+  render();
+}
+function speakIfAllowed(text){ if(AUDIO.useSpeech !== false) speak(text); }
+function speakSeqIfAllowed(arr){ if(AUDIO.useSpeech !== false) speakSequence(arr); }
+function stopAudio(){
+  if(_auTimer){ cancelAnimationFrame(_auTimer); _auTimer = null; }
+  if(_au){ _au.pause(); }
+  _auStop = null;
+  document.querySelectorAll('.bub.playing').forEach(b=>b.classList.remove('playing'));
+}
+function markPlaying(id){
+  document.querySelectorAll('.bub.playing').forEach(b=>b.classList.remove('playing'));
+  const el = document.querySelector('.turn[data-id="'+id+'"] .bub');
+  if(el){ el.classList.add('playing'); el.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+}
+/* Phát một câu theo timestamp; nếu chưa gắn audio thì dùng giọng máy */
+function playLine(id, fallbackText){
+  const cue = audioReady() ? cueOf(id) : null;
+  if(!cue){ speakIfAllowed(fallbackText); return; }
+  stopAudio();
+  const a = getAudio();
+  a.currentTime = cue.start; _auStop = cue.end;
+  markPlaying(id);
+  a.play().catch(()=>speakIfAllowed(fallbackText));
+  const watch = ()=>{
+    if(_auStop==null) return;
+    if(a.currentTime >= _auStop){ a.pause(); stopAudio(); return; }
+    _auTimer = requestAnimationFrame(watch);
+  };
+  _auTimer = requestAnimationFrame(watch);
+}
+/* Phát liên tục cả đoạn, tô sáng câu đang đọc */
+function playSection(lines){
+  const ids = lines.map(l=>l.id).filter(id=>cueOf(id));
+  if(!audioReady() || !ids.length){ speakSeqIfAllowed(lines.map(l=>l.segments.map(sg=>sg.t).join(''))); return; }
+  stopAudio();
+  const a = getAudio();
+  const first = cueOf(ids[0]), last = cueOf(ids[ids.length-1]);
+  a.currentTime = first.start; _auStop = last.end;
+  a.play().catch(()=>speakSeqIfAllowed(lines.map(l=>l.segments.map(sg=>sg.t).join(''))));
+  const watch = ()=>{
+    if(_auStop==null) return;
+    const t = a.currentTime;
+    if(t >= _auStop){ a.pause(); stopAudio(); return; }
+    const cur = ids.find(id=>{ const c = cueOf(id); return t >= c.start && t < c.end; });
+    if(cur) markPlaying(cur);
+    _auTimer = requestAnimationFrame(watch);
+  };
+  _auTimer = requestAnimationFrame(watch);
+}
 
 /* ---------- STATE ---------- */
 let section = 'new';
@@ -731,25 +1050,25 @@ function renderCover(){
   return `<div class="slide cover">
     <div class="cover-lattice corner-tl">${LATTICE_SVG}</div>
     <div class="cover-lattice corner-br">${LATTICE_SVG}</div>
-    ${sticker('s1','photoframe')}
-    ${sticker('s2','grandpa')}
-    ${sticker('s3','grandma')}
-    ${sticker('s4','kid')}
-    ${sticker('s5','dogicon')}
-    ${sticker('s6','heartfam')}
+    ${sticker('s1','phoneline')}
+    ${sticker('s2','homework')}
+    ${sticker('s3','coffeecup')}
+    ${sticker('s4','micnote')}
+    ${sticker('s5','calendarwk')}
+    ${sticker('s6','neonbar')}
     <div class="cover-card">
-      <div class="num">10</div>
+      <div class="num">12</div>
       <div class="eyebrow">博雅汉语 · Boya Chinese · 初级起步篇 I</div>
-      <div class="title-zh hanzi">你家有几口人</div>
-      <div class="title-py">Nǐ Jiā Yǒu Jǐ Kǒu Rén</div>
-      <div class="sub">Bài 10 · Nhà bạn có mấy người?</div>
+      <div class="title-zh hanzi">你在干什么呢</div>
+      <div class="title-py">Nǐ Zài Gàn Shénme Ne</div>
+      <div class="sub">Bài 12 · Cậu đang làm gì thế?</div>
     </div>
   </div>`;
 }
 
 const FUN_SETS = [
-  ['photoframe','grandpa','grandma','familygroup','sparkle','home'],
-  ['dogicon','kid','heartfam','bubbleba','sparkle','okhand']
+  ['homework','clocknight','calendarwk','sparkle','phoneline','hourglass'],
+  ['coffeecup','micnote','neonbar','sparkle','dict','bubbleba']
 ];
 function funStickers(setIndex){
   const set = FUN_SETS[setIndex % FUN_SETS.length];
@@ -757,19 +1076,31 @@ function funStickers(setIndex){
 }
 
 function renderDialogue(s){
-  const lines = s.lines.map(l=>{
+  const cast = s.callers || [];
+  const sideOf = n => (cast.find(c=>c.name===n)||{}).side || 'l';
+  const faceOf = n => (cast.find(c=>c.name===n)||{}).ava || 'avaDavid';
+
+  const turns = s.lines.map(l=>{
     const segHtml = l.segments.map(sg=> sg.v ? `<span class="vword" data-word="${sg.v}">${sg.t}</span>` : `<span>${sg.t}</span>`).join('');
     const plain = l.segments.map(sg=>sg.t).join('');
-    return `<div class="dline">
-      <div class="spk zh">${l.spk}</div>
-      <div class="content">
+    const tag = l.prog ? `<span class="prog-tag" title="Hành động đang diễn ra — mẫu (正在/在)……呢"><b><s></s><s></s><s></s></b>正在进行</span>` : '';
+    return `<div class="turn side-${sideOf(l.spk)}" data-id="${l.id||''}">
+      <div class="face">${ICONS[faceOf(l.spk)]||''}</div>
+      <div class="bub">
+        <div class="spk zh">${l.spk}</div>
         <div class="h hanzi">${segHtml}</div>
         <div class="p">${l.p}</div>
         <div class="vi">${l.vi}</div>
+        <div class="bub-tools">${tag}<button class="speak-btn mini" data-line="${l.id||''}" data-speak="${plain}" title="Nghe câu này">▶</button></div>
       </div>
-      <button class="speak-btn" data-speak="${plain}">▶</button>
     </div>`;
   }).join('');
+
+  const head = cast.map(c=>`<div class="cb-who">
+      <div class="cb-av">${ICONS[c.ava]||''}</div>
+      <div class="cb-txt"><strong>${c.name}</strong><small>${c.ctx}</small></div>
+    </div>`).join('<div class="cb-link"><i></i><i></i><i></i></div>');
+
   const chips = s.vocabWords.map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
   const properChips = (s.properNouns||[]).map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
   const grammarHtml = (s.grammarRefs||[]).map(gi=>{
@@ -782,16 +1113,26 @@ function renderDialogue(s){
       <ul class="gmore">${more}</ul>
     </div>`;
   }).join('');
+
   return `<div class="slide">
     <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
     ${funStickers(s.funSet||0)}
-    <div class="eyebrow">课文 · Bài khóa — chạm vào bất kỳ chữ nào có gạch chân để tra nghĩa (kể cả từ đã học)</div>
+    <div class="eyebrow">课文 · Bài khóa — một cuộc điện thoại. Chạm vào chữ có gạch chân để tra nghĩa (kể cả từ đã học)</div>
     <h2 class="hanzi">${s.title}</h2>
-    <div id="dialogueBlock">${lines}</div>
-    <div class="dialogue-toolbar">
-      <button class="reveal-btn" id="playAll">▶ Phát cả đoạn</button>
-      <button class="reveal-btn ghost" id="togglePy">Ẩn phiên âm</button>
-      <button class="reveal-btn ghost" id="toggleVi2">Ẩn nghĩa</button>
+    <div class="callwrap">
+      <div class="callbar">
+        ${head}
+        <div class="cb-status"><span class="live"></span>正在通话</div>
+      </div>
+      <div class="thread" id="dialogueBlock">${turns}</div>
+      <div class="callfoot">
+        <span class="hint">Chấm xanh <strong>正在进行</strong> đánh dấu câu dùng mẫu (正在/在)……呢</span>
+        <div class="dialogue-toolbar">
+          <button class="reveal-btn small" id="playAll">▶ Phát cả cuộc gọi</button>
+          <button class="reveal-btn ghost small" id="togglePy">Ẩn phiên âm</button>
+          <button class="reveal-btn ghost small" id="toggleVi2">Ẩn nghĩa</button>
+        </div>
+      </div>
     </div>
     <div class="chip-row"><span class="chip-label">词语表 · Từ mới của bài:</span>${chips}</div>
     ${properChips ? `<div class="chip-row"><span class="chip-label">专有名词 Tên riêng:</span>${properChips}</div>` : ''}
@@ -813,7 +1154,7 @@ function renderReorder(s){
       <div class="reorder-bank">${bankHtml}</div>
       <div class="reorder-actions">
         <button class="reveal-btn ghost small" data-i="${i}" data-act="reset">↻ Làm lại</button>
-        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#4E7C6B':'#A8453C'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
+        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#5F8F2A':'#C43C2E'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
         <button class="reveal-btn ghost small" data-i="${i}" data-act="revealOrder">${st.revealed?'Ẩn đáp án':'Đáp án tham khảo'}</button>
       </div>
       ${st.revealed ? `<div class="order-answer">
@@ -886,7 +1227,7 @@ function renderExpand(s){
     <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
     <div class="eyebrow">扩展练习 · Mở rộng — từ mới ngoài bài</div>
     <h2><span class="ex-badge">5</span>${s.title}</h2>
-    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Đây là những từ <strong>ngoài giáo trình</strong> nhưng cùng chủ đề gia đình &amp; lượng từ. Với mỗi từ, hãy tự đặt một câu có dùng ngữ pháp của bài (有几口人 / 一个＿ / 一条＿ / 只有 / 还有), rồi bấm Kiểm tra. Bấm <em>Câu mẫu</em> để đối chiếu.</p>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Đây là những từ <strong>ngoài giáo trình</strong> nhưng cùng chủ đề sinh hoạt hằng ngày. Với mỗi từ, hãy tự đặt một câu có dùng ngữ pháp của bài (在／正在……呢 / 每……都…… / 从……到……), rồi bấm Kiểm tra. Bấm <em>Câu mẫu</em> để đối chiếu.</p>
     <div class="fill-bank"><span class="bank-label">Từ mở rộng:</span>${chips}</div>
     <div class="expand-grid">${cards}</div>
   </div>`;
@@ -918,10 +1259,10 @@ function renderTranslate(s){
 
 function renderSpeaking(s){
   const cards = [
-    {icon:'photoframe', name:'照片', q:'这是你家的照片吗？'},
-    {icon:'familygroup', name:'几口人', q:'你家有几口人？'},
-    {icon:'grandpa', name:'爷爷奶奶', q:'你家都有什么人？'},
-    {icon:'dogicon', name:'一条狗', q:'你家还有小动物吗？'}
+    {icon:'phoneline', name:'打电话', q:'喂，你在干什么呢？'},
+    {icon:'homework', name:'做作业', q:'做作业呢。作业多吗？'},
+    {icon:'calendarwk', name:'星期', q:'今天星期几？从几点到几点有课？'},
+    {icon:'micnote', name:'唱歌', q:'他们正在干什么呢？'}
   ].map(c=>`<div class="speak-card"><div class="ic">${ICONS[c.icon]}</div><div class="name hanzi">${c.name}</div><div class="q">${c.q}</div></div>`).join('');
   const seen = new Set();
   const allVocab = dialogue1Vocab.concat(dialogue2Vocab, dialogue1ProperNouns, dialogue2ProperNouns).filter(w=>{ if(seen.has(w)) return false; seen.add(w); return true; });
@@ -931,22 +1272,22 @@ function renderSpeaking(s){
     <div class="eyebrow">口语练习 · Luyện khẩu ngữ</div>
     <h2><span class="ex-badge">4</span>${s.title}</h2>
     <div class="speak-topic">
-      <div class="speak-q">💬 Chủ đề: <strong>Đưa cho bạn xem ảnh gia đình mình rồi giới thiệu từng người. Nhớ dùng 有 chứ không dùng 是, đếm người trong nhà bằng 口, và kể thêm bằng 还有.</strong></div>
+      <div class="speak-q">💬 Chủ đề: <strong>Gọi điện cho bạn cùng lớp: hỏi xem bạn đang làm gì, kể lịch học hôm nay của mình, rồi hẹn nhau. Bắt buộc dùng mẫu (正在/在)……呢 ít nhất ba lần.</strong></div>
       <ul class="speak-guide">
-        <li>这是我家的照片。——你家有几口人？</li>
-        <li>我家有＿口人：＿＿、＿＿、＿＿和我。</li>
-        <li>你没有哥哥姐姐吗？——没有，我只有一个＿＿。</li>
-        <li>你家都有什么人？——我家有＿＿、＿＿，还有一条狗。</li>
+        <li>喂，你好！是我，＿＿。——啊，＿＿，你好！</li>
+        <li>你在干什么呢？——＿＿呢。</li>
+        <li>今天是星期＿，从＿点到＿点我有＿节课，所以＿＿。</li>
+        <li>你自己吗？——不，还有＿＿，他们正在＿＿呢。</li>
       </ul>
     </div>
     <div class="speak-cards">${cards}</div>
     <div class="pattern-box">
       <div class="eyebrow" style="margin:0;">句型参考 · Mẫu câu gợi ý</div>
       <ul class="gmore">
-        <li>［Ai］+ 家有几口人？　→　我家有 + ＿ + 口人。</li>
-        <li>［Ai］+ 家都有什么人？　→　我家有 + A、B、C。</li>
-        <li>只有 +［số］+［lượng từ］+［N］。　例：只有一个孩子。</li>
-        <li>……，还有 +［số］+［lượng từ］+［N］。　例：还有一条狗。</li>
+        <li>［Ai］+ 在 / 正在 +［động từ］+ 呢。　例：他们正在唱歌呢。</li>
+        <li>你在干什么呢？　→　＿＿呢。（không dùng 吗）</li>
+        <li>每 +［N］+ 都 +［động từ］。　例：我每天都有课。</li>
+        <li>从 +［mốc đầu］+ 到 +［mốc cuối］，＿＿。　例：从八点到十点有课。</li>
       </ul>
     </div>
     <div class="chip-row"><span class="chip-label">词语 Gợi ý từ vựng:</span>${chips}</div>
@@ -954,6 +1295,7 @@ function renderSpeaking(s){
 }
 
 function render(){
+  if(typeof stopAudio === 'function') stopAudio();
   const list = activeSlides();
   const idx = getCurrent();
   const s = list[idx];
@@ -989,10 +1331,16 @@ function render(){
 
 function attachEvents(s){
   document.querySelectorAll('[data-speak]').forEach(btn=>{
-    btn.addEventListener('click', ()=>speak(btn.getAttribute('data-speak')));
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-line');
+      if(id) playLine(id, btn.getAttribute('data-speak'));
+      else speak(btn.getAttribute('data-speak'));
+    });
   });
   const playAll = document.getElementById('playAll');
-  if(playAll) playAll.addEventListener('click', ()=>speakSequence(s.lines.map(l=>l.segments.map(sg=>sg.t).join(''))));
+  if(playAll) playAll.addEventListener('click', ()=>playSection(s.lines));
+  const auPick = document.getElementById('auPick');
+  if(auPick) auPick.addEventListener('change', e=>attachAudioFile(e.target.files[0]));
 
   const togglePy = document.getElementById('togglePy');
   if(togglePy) togglePy.addEventListener('click', ()=>{
@@ -1036,8 +1384,8 @@ function attachEvents(s){
         if(act==='revealFill'){ inp.value = it.ans; inp.classList.add('ok'); right++; return; }
         const val = normalizeStr(inp.value);
         if(!val){ fb.textContent='—'; fb.style.color='var(--ink-soft)'; return; }
-        if(val===normalizeStr(it.ans)){ inp.classList.add('ok'); fb.textContent='✓'; fb.style.color='#4E7C6B'; right++; }
-        else { inp.classList.add('no'); fb.textContent='✗'; fb.style.color='#A8453C'; }
+        if(val===normalizeStr(it.ans)){ inp.classList.add('ok'); fb.textContent='✓'; fb.style.color='#5F8F2A'; right++; }
+        else { inp.classList.add('no'); fb.textContent='✗'; fb.style.color='#C43C2E'; }
       });
       const sc = document.getElementById('fScore'+gi);
       if(act==='resetFill') sc.textContent='';
@@ -1065,17 +1413,17 @@ function attachEvents(s){
       const fb  = document.getElementById('xFb'+i);
       const card= document.getElementById('xCard'+i);
       card.style.borderColor = 'var(--line)';
-      if(!val){ fb.textContent='Hãy viết câu của bạn trước nhé.'; fb.style.color='#A8453C'; return; }
+      if(!val){ fb.textContent='Hãy viết câu của bạn trước nhé.'; fb.style.color='#C43C2E'; return; }
       const hasWord = val.includes(it.w);
-      const hasTime = /有|口|条|个|只|还|一般|都|家|几/.test(val);
+      const hasTime = /在|正在|呢|每|都|从|到|所以|还|就/.test(val);
       if(hasWord && hasTime){
-        fb.textContent='Tốt! Câu có từ 「'+it.w+'」 và dùng ngữ pháp của bài.'; fb.style.color='#4E7C6B';
+        fb.textContent='Tốt! Câu có từ 「'+it.w+'」 và dùng ngữ pháp của bài.'; fb.style.color='#5F8F2A';
         card.style.borderColor='var(--jade)';
       } else if(hasWord){
-        fb.textContent='Đã có từ 「'+it.w+'」 — thử dùng thêm 有／几口人／一个／一条／只／还有… của bài.'; fb.style.color='#8E4258';
+        fb.textContent='Đã có từ 「'+it.w+'」 — thử dùng thêm 在／正在……呢／每……都／从……到……／所以… của bài.'; fb.style.color='#B34A17';
         card.style.borderColor='var(--accent)';
       } else {
-        fb.textContent='Chưa thấy từ 「'+it.w+'」 trong câu.'; fb.style.color='#A8453C';
+        fb.textContent='Chưa thấy từ 「'+it.w+'」 trong câu.'; fb.style.color='#C43C2E';
         card.style.borderColor='var(--red)';
       }
     });
@@ -1098,13 +1446,13 @@ function attachEvents(s){
       const it = translateItems[i];
       const val = input.value.trim();
       item.classList.remove('t-correct','t-wrong');
-      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#A8453C'; return; }
+      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#C43C2E'; return; }
       const norm = normalizeStr(val);
       const isMatch = norm===normalizeStr(it.h) || norm===normalizeStr(it.p);
       if(isMatch){
-        fb.textContent = 'Chính xác!'; fb.style.color = '#4E7C6B'; item.classList.add('t-correct');
+        fb.textContent = 'Chính xác!'; fb.style.color = '#5F8F2A'; item.classList.add('t-correct');
       } else {
-        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#A8453C'; item.classList.add('t-wrong');
+        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#C43C2E'; item.classList.add('t-wrong');
       }
     });
   });
@@ -1178,7 +1526,7 @@ function openVocabModal(word){
   document.getElementById('vwPinyin').textContent = info.p;
   document.getElementById('vwHanviet').textContent = 'Âm Hán Việt: '+info.hv;
   document.getElementById('vwPos').innerHTML = '<span>'+info.pos+'</span>' +
-    (info.old ? '<span class="tag-old">Từ đã học — ôn lại</span>' : '<span class="tag-new">Từ mới Bài 10</span>');
+    (info.old ? '<span class="tag-old">Từ đã học — ôn lại</span>' : '<span class="tag-new">Từ mới Bài 12</span>');
   document.getElementById('vwMeaning').innerHTML = '<strong>Nghĩa:</strong> '+info.vi;
   document.getElementById('vwUsage').innerHTML = '<strong>Cách dùng:</strong> '+info.usage;
   const radSec = document.getElementById('vwRadicalSection');
