@@ -35,6 +35,27 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-
 #app{max-width:1120px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:18px 18px 90px;}
 
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 4px 18px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap;}
+.lib-back{display:flex;align-items:center;gap:5px;text-decoration:none;color:var(--ink-soft);border:1px solid var(--line);background:var(--card);padding:6px 12px 6px 9px;border-radius:999px;font-size:12px;font-weight:600;box-shadow:var(--shadow);transition:.15s;margin-right:6px;}
+.lib-back:hover{color:var(--ink);border-color:var(--accent);}
+.lib-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+.fs-btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:.15s;}
+.fs-btn:hover{color:var(--ink);border-color:var(--accent);}
+.fs-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+.fs-exit{position:fixed;top:16px;right:16px;z-index:80;display:none;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;font-size:16px;}
+.fs-exit svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
+body.presentation .fs-exit{display:flex;}
+body.presentation{background:#0B0F14;}
+body.presentation #app{max-width:100%;padding:0;min-height:100vh;display:flex;align-items:center;justify-content:center;}
+body.presentation header,body.presentation #reviewTabs{display:none;}
+body.presentation main{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;}
+body.presentation #stage{aspect-ratio:unset;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;}
+body.presentation .slide{aspect-ratio:16/9;width:min(100vw,177.78vh);height:min(100vh,56.25vw);margin:auto;border-radius:0;box-shadow:none;}
+body.presentation footer{background:transparent;padding:0 0 22px;}
+body.presentation .dots span{background:rgba(255,255,255,.3);}
+body.presentation .dots span.active{background:#fff;}
+body.presentation .nav-btn{background:rgba(255,255,255,.14);backdrop-filter:blur(6px);opacity:.55;transition:opacity .2s;}
+body.presentation .nav-btn:hover{opacity:1;}
+body.presentation .season-blob{display:none;}
 .brand{display:flex;align-items:center;gap:10px;}
 .brand .side-mark{font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;background:var(--ink);color:var(--paper);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 32px;}
 .brand .txt small{display:block;color:var(--ink-soft);font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
@@ -228,11 +249,18 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
 <div id="app">
   <header>
     <div class="brand">
+      <a href="index.html" class="lib-back" title="Quay lại thư viện bài học">
+        <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+        <span>Thư viện</span>
+      </a>
       <div class="side-mark">博</div>
       <div class="txt"><small>Boya Chinese · 初级起步篇 I</small><strong>Bài 5 · Vị trí &amp; phương hướng trong trường</strong></div>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
       <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">东</div><span id="weatherLabel">Phía đông</span></div>
+      <button class="fs-btn" id="fsBtn" title="Trình chiếu toàn màn hình">
+        <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      </button>
       <div class="mode-switch">
         <button id="navNew" class="active">
           <svg viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
@@ -256,6 +284,9 @@ footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,
       <button class="nav-btn" id="nextBtn">›</button>
     </div>
   </footer>
+  <button class="fs-exit" id="fsExit" title="Thoát trình chiếu (Esc)">
+    <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
+  </button>
 </div>
 
 <div class="vmodal" id="vocabModal">
@@ -852,6 +883,29 @@ document.addEventListener('click', (e)=>{
 });
 
 render();
+
+/* ---------- TRÌNH CHIẾU TOÀN MÀN HÌNH (fullscreen presentation) ---------- */
+function enterPresentation(){
+  const el = document.documentElement;
+  const req = el.requestFullscreen || el.webkitRequestFullscreen;
+  if(req){ req.call(el).catch(()=>{ document.body.classList.add('presentation'); }); }
+  else { document.body.classList.add('presentation'); }
+}
+function exitPresentation(){
+  if(document.fullscreenElement || document.webkitFullscreenElement){
+    (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+  } else {
+    document.body.classList.remove('presentation');
+  }
+}
+function onFullscreenChange(){
+  const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+  document.body.classList.toggle('presentation', isFs);
+}
+document.addEventListener('fullscreenchange', onFullscreenChange);
+document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+document.getElementById('fsBtn').addEventListener('click', enterPresentation);
+document.getElementById('fsExit').addEventListener('click', exitPresentation);
 </script>
 </body>
 </html>

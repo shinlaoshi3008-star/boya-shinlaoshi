@@ -6,6 +6,10 @@ Trang tổng hợp các bài học tương tác Boya Chinese I & II.
 - `index.html` — trang tổng hợp (trang chủ), chứa mảng `LESSONS` để gắn link từng bài
 - `Bai1.html`, `Bai5.html`, ... — từng bài học riêng lẻ
 
+## Tính năng trong mỗi bài học
+- Nút "Thư viện" (góc trên trái) — quay lại trang tổng hợp `index.html`
+- Nút hình vuông mũi tên (góc trên phải, cạnh badge) — bật chế độ Trình chiếu toàn màn hình (Fullscreen), phù hợp khi xuất ra TV/máy chiếu. Bấm nút tròn tối góc phải hoặc phím Esc để thoát.
+
 ## Thêm bài học mới
 1. Đặt file bài học mới (ví dụ `Bai2.html`) vào cùng thư mục với `index.html`
 2. Mở `index.html`, tìm mảng `LESSONS` trong thẻ `<script>`
