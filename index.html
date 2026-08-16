@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博雅汉语 · Thư viện bài học</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --paper:#F4F5F1;
+  --paper-deep:#E9EBE4;
+  --ink:#273140;
+  --ink-soft:#63707E;
+  --card:#FFFFFF;
+  --line:#DEE2D9;
+  --accent:#3F7D6B;
+  --accent-soft:#DCEAE4;
+  --jade:#3F7D6B;
+  --jade-soft:#DCEAE4;
+  --red:#B8564A;
+  --red-soft:#F3DEDA;
+  --shadow: 0 10px 30px rgba(39,49,64,0.07);
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;min-height:100vh;position:relative;overflow-x:hidden;}
+.hanzi{font-family:'Noto Serif SC',serif;}
+.zh{font-family:'Noto Sans SC','Inter',sans-serif;}
+
+.bg-blob{position:fixed;width:460px;height:460px;border-radius:50%;filter:blur(120px);opacity:.28;z-index:-1;transition:background-color .6s ease;pointer-events:none;}
+#blob1{top:-160px;left:40px;}
+#blob2{bottom:-180px;right:-100px;}
+
+#app{max-width:1180px;margin:0 auto;min-height:100vh;padding:22px 20px 70px;}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#EAF2FB 0%,#F7ECF3 45%,#FDF3E4 100%);padding:38px 40px;margin-bottom:26px;box-shadow:var(--shadow);}
+.hero-lattice{position:absolute;width:220px;height:220px;opacity:.14;color:#273140;z-index:0;}
+.hero-lattice svg{width:100%;height:100%;}
+.hl-tl{top:-50px;left:-50px;}
+.hl-br{bottom:-50px;right:-50px;transform:rotate(180deg);}
+.hero-inner{position:relative;z-index:2;}
+.hero-eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px;}
+.hero-title{font-family:'Noto Serif SC',serif;font-weight:900;font-size:36px;margin:0 0 6px;}
+.hero-sub{color:var(--ink-soft);font-size:14px;max-width:560px;line-height:1.6;margin-bottom:22px;}
+.corner-sticker{position:absolute;top:16px;right:20px;width:118px;height:118px;z-index:6;animation:stickerFloat 4.5s ease-in-out infinite;filter:drop-shadow(0 8px 14px rgba(39,49,64,.2));}
+.corner-sticker .sun{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(#FFE07A 0deg 11.25deg, #FFC53D 11.25deg 22.5deg);}
+.corner-sticker .ring{position:absolute;inset:-5px;border-radius:50%;border:2px dashed rgba(255,255,255,.9);}
+.corner-sticker .art{position:absolute;inset:0;}
+.corner-sticker .art svg{width:100%;height:100%;}
+@keyframes stickerFloat{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-5px) rotate(2deg);}}
+
+.hero-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.book-switch{display:flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--shadow);}
+.book-switch button{border:none;background:transparent;padding:10px 20px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;color:var(--ink-soft);transition:.2s;font-family:'Inter',sans-serif;}
+.book-switch button.active{background:var(--ink);color:var(--paper);}
+.search-box{flex:1;min-width:220px;position:relative;}
+.search-box input{width:100%;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:10px 16px 10px 38px;font-size:13.5px;font-family:'Inter',sans-serif;color:var(--ink);box-shadow:var(--shadow);}
+.search-box input:focus{outline:none;border-color:var(--accent);}
+.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:15px;height:15px;stroke:var(--ink-soft);fill:none;stroke-width:2;}
+.progress-pill{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:12.5px;color:var(--ink-soft);box-shadow:var(--shadow);white-space:nowrap;}
+.progress-pill b{color:var(--ink);}
+.progress-bar{width:60px;height:6px;border-radius:4px;background:var(--paper-deep);overflow:hidden;}
+.progress-bar i{display:block;height:100%;background:var(--accent);border-radius:4px;transition:width .4s ease;}
+
+/* ---------- BOOK PANELS ---------- */
+.book-panel{display:none;}
+.book-panel.active{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.unit-block{margin-bottom:30px;}
+.unit-head{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.unit-head .tag{font-family:'Noto Serif SC',serif;font-weight:900;font-size:20px;color:var(--accent);}
+.unit-head .range{font-size:12.5px;color:var(--ink-soft);letter-spacing:.03em;}
+
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+
+.lcard{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px 16px 14px;display:flex;flex-direction:column;gap:6px;min-height:118px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;cursor:pointer;}
+.lcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(39,49,64,.12);border-color:var(--accent);}
+.lcard.empty{cursor:default;background:var(--paper-deep);border-style:dashed;box-shadow:none;}
+.lcard.empty:hover{transform:none;box-shadow:none;border-color:var(--line);}
+.lcard.review{background:linear-gradient(160deg,var(--accent-soft),var(--card));border-color:var(--accent);}
+.lcard .num{font-family:'Noto Serif SC',serif;font-weight:900;font-size:26px;-webkit-text-stroke:1.4px var(--accent);color:transparent;line-height:1;}
+.lcard.empty .num{-webkit-text-stroke:1.4px var(--ink-soft);opacity:.5;}
+.lcard .lt{font-family:'Noto Serif SC',serif;font-size:16.5px;font-weight:700;line-height:1.3;}
+.lcard .lp{font-size:11px;color:var(--ink-soft);}
+.lcard .status{margin-top:auto;align-self:flex-start;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;}
+.lcard .status.ok{background:var(--jade-soft);color:var(--jade);}
+.lcard .status.pending{background:var(--paper-deep);color:var(--ink-soft);}
+.lcard .status.review-tag{background:var(--accent);color:#fff;}
+.lcard .go{position:absolute;top:14px;right:14px;width:24px;height:24px;border-radius:50%;background:var(--paper-deep);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-soft);opacity:0;transition:opacity .18s ease;}
+.lcard:hover .go{opacity:1;}
+
+.extra-block{margin-top:8px;}
+.extra-note{border:1px solid var(--line);background:var(--paper-deep);border-radius:14px;padding:14px 18px;font-size:12.5px;color:var(--ink-soft);line-height:1.7;}
+.extra-note code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'JetBrains Mono','Consolas',monospace;font-size:11.5px;color:var(--ink);}
+
+.no-result{display:none;text-align:center;padding:50px 20px;color:var(--ink-soft);font-size:13.5px;}
+.no-result.show{display:block;}
+
+footer.hubfoot{max-width:1180px;margin:0 auto;padding:10px 20px 30px;color:var(--ink-soft);font-size:11.5px;font-family:'Inter',sans-serif;text-align:center;}
+
+@media(max-width:640px){
+  .hero{padding:28px 22px;}
+  .hero-title{font-size:28px;}
+  .corner-sticker{width:78px;height:78px;top:10px;right:10px;}
+  .lesson-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+}
+</style>
+</head>
+<body>
+<div class="bg-blob" id="blob1"></div>
+<div class="bg-blob" id="blob2"></div>
+<div id="app">
+
+  <div class="hero">
+    <div class="hero-lattice hl-tl"><svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 100 Q40 60 80 90 Q100 105 90 130 Q75 150 100 160"/><path d="M30 130 Q55 110 80 130"/><path d="M60 40 Q90 20 120 45 Q140 60 125 80"/></svg></div>
+    <div class="hero-lattice hl-br"><svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 100 Q40 60 80 90 Q100 105 90 130 Q75 150 100 160"/><path d="M30 130 Q55 110 80 130"/><path d="M60 40 Q90 20 120 45 Q140 60 125 80"/></svg></div>
+    <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art" id="stickerArt"></div></div>
+
+    <div class="hero-inner">
+      <div class="hero-eyebrow">博雅汉语 · Boya Chinese</div>
+      <h1 class="hero-title hanzi">词语的花园 · Thư viện bài học</h1>
+      <p class="hero-sub">Nơi tổng hợp toàn bộ bài học tương tác Boya Chinese I &amp; II — mỗi bài gồm từ vựng có hoạt hình bút thuận, hội thoại, ngữ pháp và luyện tập. Chọn quyển, chọn bài để bắt đầu.</p>
+
+      <div class="hero-controls">
+        <div class="book-switch">
+          <button id="btnBook1" class="active">博雅汉语 I</button>
+          <button id="btnBook2">博雅汉语 II</button>
+        </div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="searchInput" placeholder="Tìm theo số bài, tên bài, pinyin...">
+        </div>
+        <div class="progress-pill" id="progressPill">
+          <span><b id="progressCount">0/0</b> bài đã có link</span>
+          <div class="progress-bar"><i id="progressBar" style="width:0%"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-panel active" id="panelBook1"></div>
+  <div class="book-panel" id="panelBook2"></div>
+  <div class="no-result" id="noResult">Không tìm thấy bài học nào khớp với từ khóa.</div>
+
+  <div class="extra-block">
+    <div class="extra-note">
+      💡 <b>Cách thêm bài học mới:</b> mở file này bằng trình soạn thảo văn bản, tìm mảng <code>LESSONS</code> trong thẻ <code>&lt;script&gt;</code>, điền <code>title</code>, <code>pinyin</code> và <code>file</code> (tên file .html của bài học, đặt cùng thư mục với trang này) cho từng bài — trang sẽ tự động hiện link. Có thể nhờ Claude cập nhật giúp bất cứ lúc nào.
+    </div>
+  </div>
+
+</div>
+<footer class="hubfoot">博雅汉语 · Boya Chinese — Thư viện bài học tương tác</footer>
+
+<script>
+/* ================== CẤU HÌNH DANH SÁCH BÀI HỌC ==================
+   Mỗi bài: { n: số thứ tự bài, title: tên bài (chữ Hán, để trống nếu chưa có),
+              pinyin: phiên âm, file: tên file .html (để trống "" nếu chưa có) }
+   Để trống title/pinyin/file => thẻ bài học sẽ hiện ở trạng thái "Sắp có".
+   Cứ mỗi 5 bài, trang sẽ tự chèn 1 thẻ "Ôn tập" — có thể sửa unitSize bên dưới. */
+
+const unitSize = 5;
+
+const LESSONS = {
+  book1: {
+    label: '博雅汉语 I', sub: '初级起步篇 I · Elementary Chinese I',
+    lessons: [
+      {n:1,  title:'你好',            pinyin:'Nǐ Hǎo',                         file:'Bai1.html'},
+      {n:2,  title:'',                pinyin:'',                                file:''},
+      {n:3,  title:'',                pinyin:'',                                file:''},
+      {n:4,  title:'',                pinyin:'',                                file:''},
+      {n:5,  title:'在北京大学的东边', pinyin:'Zài Běijīng Dàxué de Dōngbiān',  file:'Bai5.html'},
+      {n:6,  title:'',                pinyin:'',                                file:''},
+      {n:7,  title:'',                pinyin:'',                                file:''},
+      {n:8,  title:'',                pinyin:'',                                file:''},
+      {n:9,  title:'',                pinyin:'',                                file:''},
+      {n:10, title:'',                pinyin:'',                                file:''},
+      {n:11, title:'',                pinyin:'',                                file:''},
+      {n:12, title:'',                pinyin:'',                                file:''},
+      {n:13, title:'',                pinyin:'',                                file:''},
+      {n:14, title:'',                pinyin:'',                                file:''},
+      {n:15, title:'',                pinyin:'',                                file:''},
+      {n:16, title:'',                pinyin:'',                                file:''},
+      {n:17, title:'',                pinyin:'',                                file:''},
+      {n:18, title:'',                pinyin:'',                                file:''},
+      {n:19, title:'',                pinyin:'',                                file:''},
+      {n:20, title:'',                pinyin:'',                                file:''}
+    ]
+  },
+  book2: {
+    label: '博雅汉语 II', sub: '初级起步篇 II · Elementary Chinese II',
+    lessons: [
+      {n:1,  title:'', pinyin:'', file:''},
+      {n:2,  title:'', pinyin:'', file:''},
+      {n:3,  title:'', pinyin:'', file:''},
+      {n:4,  title:'', pinyin:'', file:''},
+      {n:5,  title:'', pinyin:'', file:''},
+      {n:6,  title:'', pinyin:'', file:''},
+      {n:7,  title:'', pinyin:'', file:''},
+      {n:8,  title:'', pinyin:'', file:''},
+      {n:9,  title:'', pinyin:'', file:''},
+      {n:10, title:'', pinyin:'', file:''},
+      {n:11, title:'', pinyin:'', file:''},
+      {n:12, title:'', pinyin:'', file:''},
+      {n:13, title:'', pinyin:'', file:''},
+      {n:14, title:'', pinyin:'', file:''},
+      {n:15, title:'', pinyin:'', file:''},
+      {n:16, title:'', pinyin:'', file:''},
+      {n:17, title:'', pinyin:'', file:''},
+      {n:18, title:'', pinyin:'', file:''},
+      {n:19, title:'', pinyin:'', file:''},
+      {n:20, title:'', pinyin:'', file:''}
+    ]
+  }
+};
+/* ================================================================= */
+
+const bookMeta = {
+  book1: {accent:'#3F7D6B', soft:'#DCEAE4'},
+  book2: {accent:'#B8564A', soft:'#F3DEDA'}
+};
+
+const CORNER_STICKER = `<svg viewBox="0 0 128 128">
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#F3A73D" transform="translate(16,22) scale(1.15)"/>
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#FFFFFF" opacity=".9" transform="translate(108,30) scale(0.85)"/>
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#F3A73D" transform="translate(100,96) scale(0.75)"/>
+<polygon points="20,40 46,32 46,64 20,70" fill="#FFF7E0" stroke="#7A4B2E" stroke-width="2.2"/>
+<polygon points="46,32 74,40 74,70 46,64" fill="#FFF7E0" stroke="#7A4B2E" stroke-width="2.2"/>
+<line x1="46" y1="32" x2="46" y2="64" stroke="#7A4B2E" stroke-width="2.2"/>
+<text x="33" y="53" font-family="Arial Black, Arial, sans-serif" font-size="10" font-weight="900" fill="#7A4B2E" text-anchor="middle" transform="rotate(-7 33 53)">SHIN</text>
+<text x="60" y="51" font-family="Arial Black, Arial, sans-serif" font-size="9.5" font-weight="900" fill="#7A4B2E" text-anchor="middle" transform="rotate(6 60 51)">CHÀO</text>
+<path d="M24 58 L28 62 L24 66 L28 70" stroke="#7A4B2E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#F3A73D" transform="translate(63,36) scale(0.55)"/>
+<path d="M40 112 Q64 122 88 112 L88 128 L40 128 Z" fill="#D94F3D"/>
+<path d="M42 108 Q30 96 26 80" stroke="#FBD7B8" stroke-width="8" fill="none" stroke-linecap="round"/>
+<circle cx="24" cy="77" r="6.5" fill="#FBD7B8" stroke="#5B3A22" stroke-width="1.5"/>
+<circle cx="64" cy="90" r="27" fill="#FBD7B8" stroke="#5B3A22" stroke-width="2.2"/>
+<path d="M39 80 Q41 58 64 60 Q87 58 89 80 Q80 66 64 68 Q48 66 39 80Z" fill="#3A2A1E"/>
+<circle cx="54" cy="92" r="5" fill="#2A1C12"/>
+<circle cx="74" cy="92" r="5" fill="#2A1C12"/>
+<circle cx="52.3" cy="90.3" r="1.6" fill="#fff"/>
+<circle cx="72.3" cy="90.3" r="1.6" fill="#fff"/>
+<ellipse cx="47" cy="99" rx="5.5" ry="3.2" fill="#F4A79A" opacity=".65"/>
+<ellipse cx="81" cy="99" rx="5.5" ry="3.2" fill="#F4A79A" opacity=".65"/>
+<path d="M56 104 Q64 110 72 104" stroke="#5B3A22" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+</svg>`;
+document.getElementById('stickerArt').innerHTML = CORNER_STICKER;
+
+let currentBook = 'book1';
+
+function buildLessonCard(book, item){
+  const has = !!(item.file && item.file.trim());
+  const title = item.title && item.title.trim() ? item.title : 'Chưa có nội dung';
+  const pinyin = item.pinyin && item.pinyin.trim() ? item.pinyin : '';
+  const cardInner = `
+    <div class="num">${String(item.n).padStart(2,'0')}</div>
+    <div class="lt hanzi">${title}</div>
+    <div class="lp">${pinyin}</div>
+    <div class="status ${has?'ok':'pending'}">${has?'Có sẵn':'Sắp có'}</div>
+    ${has? '<div class="go">→</div>' : ''}
+  `;
+  if(has){
+    const a = document.createElement('a');
+    a.className = 'lcard';
+    a.href = item.file;
+    a.setAttribute('data-search', (item.n+' '+title+' '+pinyin).toLowerCase());
+    a.innerHTML = cardInner;
+    return a;
+  } else {
+    const d = document.createElement('div');
+    d.className = 'lcard empty';
+    d.setAttribute('data-search', (item.n+' '+title+' '+pinyin).toLowerCase());
+    d.innerHTML = cardInner;
+    return d;
+  }
+}
+
+function buildReviewCard(startN, endN){
+  const d = document.createElement('div');
+  d.className = 'lcard review';
+  d.setAttribute('data-search', ('ôn tập review '+startN+' '+endN).toLowerCase());
+  d.innerHTML = `
+    <div class="num">复</div>
+    <div class="lt hanzi">复习 Ôn tập</div>
+    <div class="lp">Bài ${startN}–${endN}</div>
+    <div class="status review-tag">Tổng ôn</div>
+  `;
+  return d;
+}
+
+function renderBook(bookKey){
+  const data = LESSONS[bookKey];
+  const panel = document.getElementById(bookKey==='book1'?'panelBook1':'panelBook2');
+  panel.innerHTML = '';
+  const lessons = data.lessons;
+  for(let i=0;i<lessons.length;i+=unitSize){
+    const chunk = lessons.slice(i, i+unitSize);
+    const unitBlock = document.createElement('div');
+    unitBlock.className = 'unit-block';
+    const startN = chunk[0].n, endN = chunk[chunk.length-1].n;
+    unitBlock.innerHTML = `<div class="unit-head"><span class="tag">单元 ${Math.floor(i/unitSize)+1}</span><span class="range">Bài ${startN}–${endN}</span></div>`;
+    const grid = document.createElement('div');
+    grid.className = 'lesson-grid';
+    chunk.forEach(item=> grid.appendChild(buildLessonCard(bookKey, item)));
+    grid.appendChild(buildReviewCard(startN, endN));
+    unitBlock.appendChild(grid);
+    panel.appendChild(unitBlock);
+  }
+  updateProgress(bookKey);
+}
+
+function updateProgress(bookKey){
+  const lessons = LESSONS[bookKey].lessons;
+  const total = lessons.length;
+  const done = lessons.filter(l=> l.file && l.file.trim()).length;
+  document.getElementById('progressCount').textContent = done+'/'+total;
+  document.getElementById('progressBar').style.width = (total? (done/total*100):0)+'%';
+}
+
+function setBook(bookKey){
+  currentBook = bookKey;
+  document.getElementById('btnBook1').classList.toggle('active', bookKey==='book1');
+  document.getElementById('btnBook2').classList.toggle('active', bookKey==='book2');
+  document.getElementById('panelBook1').classList.toggle('active', bookKey==='book1');
+  document.getElementById('panelBook2').classList.toggle('active', bookKey==='book2');
+  document.documentElement.style.setProperty('--accent', bookMeta[bookKey].accent);
+  document.documentElement.style.setProperty('--accent-soft', bookMeta[bookKey].soft);
+  document.getElementById('blob1').style.background = bookMeta[bookKey].accent;
+  document.getElementById('blob2').style.background = bookMeta[bookKey].accent;
+  updateProgress(bookKey);
+  applyFilter();
+}
+
+document.getElementById('btnBook1').addEventListener('click', ()=>setBook('book1'));
+document.getElementById('btnBook2').addEventListener('click', ()=>setBook('book2'));
+
+function applyFilter(){
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const panel = document.getElementById(currentBook==='book1'?'panelBook1':'panelBook2');
+  let visibleCount = 0;
+  panel.querySelectorAll('.lcard').forEach(card=>{
+    const s = card.getAttribute('data-search') || '';
+    const match = !q || s.includes(q);
+    card.style.display = match ? '' : 'none';
+    if(match) visibleCount++;
+  });
+  panel.querySelectorAll('.unit-block').forEach(block=>{
+    const anyVisible = [...block.querySelectorAll('.lcard')].some(c=>c.style.display!=='none');
+    block.style.display = anyVisible ? '' : 'none';
+  });
+  document.getElementById('noResult').classList.toggle('show', q.length>0 && visibleCount===0);
+}
+document.getElementById('searchInput').addEventListener('input', applyFilter);
+
+renderBook('book1');
+renderBook('book2');
+setBook('book1');
+</script>
+</body>
+</html>
