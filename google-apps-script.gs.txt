@@ -1,0 +1,102 @@
+/**
+ * GOOGLE APPS SCRIPT — Cầu nối lưu điểm kiểm tra Boya Chinese vào Google Sheet
+ * ============================================================================
+ * CÁCH CÀI ĐẶT (làm 1 lần duy nhất):
+ *
+ * 1. Tạo một Google Sheet mới (hoặc dùng sheet có sẵn) tại sheets.google.com
+ *
+ * 2. Trong Sheet đó, vào menu Extensions (Tiện ích mở rộng) → Apps Script
+ *
+ * 3. Xóa hết code mẫu có sẵn trong file Code.gs, dán toàn bộ nội dung file này vào
+ *
+ * 4. Bấm biểu tượng 💾 Save (hoặc Ctrl+S)
+ *
+ * 5. Bấm nút "Deploy" (Triển khai) → "New deployment" (Triển khai mới)
+ *    - Bấm icon bánh răng cạnh "Select type" → chọn "Web app"
+ *    - Description: đặt tên tùy ý, ví dụ "Boya Quiz Webhook"
+ *    - Execute as: "Me" (tài khoản của bạn)
+ *    - Who has access: "Anyone" (Bất kỳ ai) — BẮT BUỘC chọn mục này để
+ *      trang kiểm tra (chạy trên máy học sinh) có thể gửi điểm về được
+ *    - Bấm "Deploy"
+ *
+ * 6. Google sẽ yêu cầu cấp quyền (Authorize access) — chọn tài khoản Google
+ *    của bạn, bấm "Advanced" → "Go to (tên project) (unsafe)" → "Allow"
+ *    (an toàn vì đây là script do chính bạn viết/dán, không phải bên thứ ba)
+ *
+ * 7. Sau khi Deploy xong, copy dòng "Web app URL" (dạng
+ *    https://script.google.com/macros/s/xxxxxxxxxxxxx/exec)
+ *
+ * 8. Dán URL đó vào biến SHEET_WEBHOOK_URL trong file kiểm tra (KT1-5.html),
+ *    tìm dòng: const SHEET_WEBHOOK_URL = '';
+ *    sửa thành: const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/xxxxx/exec';
+ *
+ * LƯU Ý: mỗi khi bạn SỬA code Apps Script này, phải Deploy lại
+ * (Deploy → Manage deployments → bấm icon bút chì → Version: "New version" → Deploy)
+ * thì thay đổi mới có hiệu lực, sửa code không tự áp dụng vào bản đã deploy trước đó.
+ *
+ * KẾT QUẢ SẼ ĐƯỢC LƯU vào 1 sheet (tab) tên "KetQua" trong đúng Google Sheet
+ * bạn mở Apps Script từ đó — nếu tab "KetQua" chưa tồn tại, script sẽ tự tạo
+ * kèm dòng tiêu đề, không cần bạn tạo tay.
+ * ============================================================================
+ */
+
+const SHEET_NAME = 'KetQua';
+
+function doPost(e) {
+  try {
+    const data = JSON.parse(e.postData.contents);
+    const sheet = getOrCreateSheet();
+
+    sheet.appendRow([
+      new Date(),                 // Thời gian nộp bài (giờ server)
+      data.name || '',            // Họ tên học viên
+      data.testId || '',          // Mã bài kiểm tra (vd: KT1-5)
+      data.testTitle || '',       // Tên bài kiểm tra
+      data.score != null ? data.score : '',   // Điểm đúng
+      data.total != null ? data.total : '',   // Tổng số câu
+      data.percent != null ? data.percent : '', // Phần trăm đúng
+      data.timeSeconds != null ? data.timeSeconds : '', // Thời gian làm bài (giây)
+      data.date || ''             // Thời điểm nộp bài (giờ trình duyệt học viên)
+    ]);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({status: 'ok'}))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({status: 'error', message: err.message}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function getOrCreateSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow([
+      'Thời gian nộp (server)', 'Họ tên học viên', 'Mã bài KT', 'Tên bài KT',
+      'Điểm đúng', 'Tổng số câu', 'Phần trăm (%)', 'Thời gian làm (giây)', 'Thời gian nộp (trình duyệt)'
+    ]);
+    sheet.getRange(1, 1, 1, 9).setFontWeight('bold');
+    sheet.setFrozenRows(1);
+  }
+  return sheet;
+}
+
+/* Hàm test nhanh ngay trong Apps Script editor (không bắt buộc):
+   chọn hàm này trong dropdown "Select function" rồi bấm Run,
+   nếu chạy không lỗi và thấy dòng mới xuất hiện trong sheet "KetQua" là đã hoạt động đúng. */
+function testDoPost() {
+  const fakeEvent = {
+    postData: {
+      contents: JSON.stringify({
+        testId: 'KT1-5', testTitle: 'Kiểm tra Bài 1–5 (test)',
+        name: 'Học viên thử nghiệm', score: 8, total: 10, percent: 80,
+        timeSeconds: 125, date: new Date().toISOString()
+      })
+    }
+  };
+  doPost(fakeEvent);
+}
