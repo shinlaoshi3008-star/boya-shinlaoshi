@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bài Kiểm Tra Ngữ Pháp HSK3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f2;
+    --surface: #ffffff;
+    --surface-2: #f1efe9;
+    --border: #e4ddd0;
+    --text: #2b2620;
+    --text-dim: #6f6656;
+    --accent: #b5482b;
+    --accent-soft: #f4e2da;
+    --accent-2: #2c6e5c;
+    --accent-2-soft: #dcece5;
+    --correct: #2c7a4b;
+    --correct-bg: #e5f4e9;
+    --wrong: #c23b3b;
+    --wrong-bg: #fbe8e6;
+    --radius: 14px;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1d1b17;
+      --surface: #262320;
+      --surface-2: #2f2b26;
+      --border: #423c33;
+      --text: #f1ece2;
+      --text-dim: #b5ab98;
+      --accent: #e2764f;
+      --accent-soft: #3d2a22;
+      --accent-2: #6db79b;
+      --accent-2-soft: #223a32;
+      --correct: #7ed6a0;
+      --correct-bg: #1f3a2a;
+      --wrong: #f29b9b;
+      --wrong-bg: #402323;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1d1b17;
+    --surface: #262320;
+    --surface-2: #2f2b26;
+    --border: #423c33;
+    --text: #f1ece2;
+    --text-dim: #b5ab98;
+    --accent: #e2764f;
+    --accent-soft: #3d2a22;
+    --accent-2: #6db79b;
+    --accent-2-soft: #223a32;
+    --correct: #7ed6a0;
+    --correct-bg: #1f3a2a;
+    --wrong: #f29b9b;
+    --wrong-bg: #402323;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.55;
+  }
+  .cjk { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 28px 18px 80px;
+  }
+  header.page-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  header.page-header h1 {
+    font-size: 1.5rem;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  header.page-header p {
+    margin: 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+
+  /* Main topic tabs */
+  .main-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .main-tab-btn {
+    flex: 0 0 auto;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  .main-tab-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .main-tab-btn.placeholder {
+    opacity: 0.5;
+    cursor: default;
+    border-style: dashed;
+  }
+
+  .topic-panel { display: none; }
+  .topic-panel.active { display: block; }
+
+  /* Sub tabs (Dạng 1/2/3) */
+  .sub-tabs {
+    display: flex;
+    gap: 6px;
+    background: var(--surface-2);
+    padding: 5px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  .sub-tab-btn {
+    flex: 1;
+    padding: 9px 8px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  .sub-tab-btn.active {
+    background: var(--surface);
+    color: var(--accent);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .dang-panel { display: none; }
+  .dang-panel.active { display: block; }
+
+  .dang-intro {
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .dang-intro b { color: var(--accent); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .q-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 6px;
+    border-radius: 8px;
+    background: var(--accent-2-soft);
+    color: var(--accent-2);
+    font-weight: 700;
+    font-size: 0.82rem;
+    margin-right: 8px;
+    flex: 0 0 auto;
+  }
+  .q-row {
+    display: flex;
+    align-items: flex-start;
+  }
+  .q-body { flex: 1; min-width: 0; }
+  .q-text {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  .blank-input {
+    width: 64px;
+    border: none;
+    border-bottom: 2px solid var(--accent);
+    background: transparent;
+    color: var(--text);
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-size: 1.02rem;
+    text-align: center;
+    padding: 2px 4px;
+    margin: 0 2px;
+  }
+  .blank-input:focus { outline: none; border-color: var(--accent-2); }
+  .blank-input.correct { border-color: var(--correct); background: var(--correct-bg); }
+  .blank-input.wrong { border-color: var(--wrong); background: var(--wrong-bg); }
+
+  textarea.free-input, input.free-input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--surface-2);
+    color: var(--text);
+    font-family: 'Noto Sans SC', 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 9px 11px;
+    resize: vertical;
+  }
+  textarea.free-input:focus, input.free-input:focus {
+    outline: none;
+    border-color: var(--accent-2);
+  }
+
+  .row-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn.primary { background: var(--accent-2); color: #fff; border-color: var(--accent-2); }
+  .btn:hover { filter: brightness(0.96); }
+  .verdict {
+    font-size: 0.83rem;
+    font-weight: 600;
+  }
+  .verdict.ok { color: var(--correct); }
+  .verdict.bad { color: var(--wrong); }
+
+  .answer-box {
+    display: none;
+    margin-top: 10px;
+    background: var(--accent-2-soft);
+    border-radius: 9px;
+    padding: 10px 13px;
+    font-size: 0.92rem;
+  }
+  .answer-box.show { display: block; }
+  .answer-box .label { font-weight: 700; color: var(--accent-2); margin-right: 4px; }
+  .answer-box .explain { color: var(--text-dim); margin-top: 4px; font-size: 0.85rem; }
+
+  .section-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    margin-top: 6px;
+  }
+  .score-display {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .score-display span { color: var(--accent); }
+
+  footer.page-footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 30px;
+  }
+
+  /* Grammar theory section */
+  .grammar-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .grammar-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 18px;
+    background: var(--accent-2-soft);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--accent-2);
+    text-align: left;
+  }
+  .grammar-toggle .chevron {
+    transition: transform 0.2s ease;
+    flex: 0 0 auto;
+  }
+  .grammar-box.open .grammar-toggle .chevron { transform: rotate(180deg); }
+  .grammar-content {
+    display: none;
+    padding: 16px 20px 20px;
+    font-size: 0.94rem;
+  }
+  .grammar-box.open .grammar-content { display: block; }
+  .grammar-content h3 {
+    font-size: 0.92rem;
+    color: var(--accent);
+    margin: 18px 0 6px;
+  }
+  .grammar-content h3:first-child { margin-top: 0; }
+  .grammar-content p { margin: 4px 0; }
+  .grammar-content ul { margin: 6px 0; padding-left: 20px; }
+  .grammar-content li { margin: 4px 0; }
+  .ex {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    margin: 2px 0 8px;
+  }
+  .ex .cjk { color: var(--text); }
+  .formula {
+    display: inline-block;
+    background: var(--surface-2);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-weight: 600;
+    margin: 3px 0;
+  }
+  .term-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 4px;
+    font-size: 0.88rem;
+  }
+  .term-table th, .term-table td {
+    border: 1px solid var(--border);
+    padding: 6px 9px;
+    text-align: left;
+  }
+  .term-table th {
+    background: var(--surface-2);
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+  .note-box {
+    background: var(--accent-soft);
+    border-radius: 9px;
+    padding: 10px 13px;
+    margin-top: 10px;
+    font-size: 0.88rem;
+  }
+  .note-box b { color: var(--accent); }
+
+  .fill-explain {
+    display: none;
+    margin-top: 10px;
+    background: var(--wrong-bg);
+    border-radius: 9px;
+    padding: 10px 13px;
+    font-size: 0.88rem;
+  }
+  .fill-explain.show { display: block; }
+  .fill-explain .label { font-weight: 700; color: var(--wrong); margin-right: 4px; }
+  .fill-explain .explain { color: var(--text-dim); margin-top: 4px; }
+
+  .answer-box.wrong-tint { background: var(--wrong-bg); }
+  .answer-box .label.wrong-label { color: var(--wrong); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-header">
+    <h1 class="cjk">📝 语法练习 · Bài Kiểm Tra Ngữ Pháp HSK3</h1>
+    <p>Chọn chủ đề, làm từng dạng bài rồi bấm "Kiểm tra" hoặc "Xem đáp án" để tự chấm.</p>
+  </header>
+
+  <nav class="main-tabs" id="mainTabs"></nav>
+
+  <div id="topicPanels"></div>
+
+  <footer class="page-footer">Giáo viên có thể bổ sung thêm chủ đề ngữ pháp khác vào các tab tiếp theo.</footer>
+</div>
+
+<script>
+/* ================= DATA ================= */
+// Mỗi topic có 3 "dang": fill (điền từ, tự chấm), build (sắp xếp câu, tự kiểm tra theo đáp án mẫu),
+// rewrite (viết lại / sửa câu, tự kiểm tra bằng cách xem đáp án).
+const TOPICS = [
+  {
+    id: "ketqua",
+    label: "Bổ Ngữ Kết Quả",
+    hint: "V + 完 / 好 / 错 / 懂 / 到 / 见 / 开 / 对 ...",
+    grammar: `
+      <p>Bổ ngữ kết quả (结果补语) đứng ngay sau động từ chính để chỉ <b>kết quả trực tiếp</b> hoặc tác động do hành động đó mang lại (làm xong, nghe hiểu, viết sai, nhìn thấy...).</p>
+
+      <h3>Cấu trúc cơ bản</h3>
+      <p><span class="formula">Khẳng định</span> Chủ ngữ + Động từ + Bổ ngữ kết quả + (Tân ngữ) + 了</p>
+      <span class="ex">VD: <span class="cjk">我吃完饭了。</span> (Tôi ăn xong cơm rồi.)</span>
+
+      <p><span class="formula">Phủ định</span> Chủ ngữ + 没 (没有) + Động từ + Bổ ngữ kết quả + (Tân ngữ)</p>
+      <span class="ex">VD: <span class="cjk">我没听懂老师的话。</span> (Tôi chưa nghe hiểu lời giáo viên.)</span>
+      <div class="note-box"><b>Lưu ý:</b> Tuyệt đối không dùng 了 trong câu phủ định.</div>
+
+      <p><span class="formula">Nghi vấn</span> Chủ ngữ + Động từ + Bổ ngữ kết quả + (Tân ngữ) + 了没有？ / ...了吗？</p>
+      <span class="ex">VD: <span class="cjk">你做好作业了没有？</span> (Bạn làm xong bài tập chưa?)</span>
+
+      <h3>Các bổ ngữ kết quả phổ biến nhất</h3>
+      <table class="term-table">
+        <tr><th>Chữ</th><th>Nghĩa</th><th>Ví dụ</th></tr>
+        <tr><td class="cjk">完</td><td>xong / hết</td><td class="cjk">做完 (làm xong), 卖完 (bán hết)</td></tr>
+        <tr><td class="cjk">懂</td><td>hiểu</td><td class="cjk">听懂 (nghe hiểu), 看懂 (đọc hiểu)</td></tr>
+        <tr><td class="cjk">错</td><td>sai</td><td class="cjk">写错 (viết sai), 说错 (nói sai)</td></tr>
+        <tr><td class="cjk">对</td><td>đúng</td><td class="cjk">答对 (trả lời đúng), 做对 (làm đúng)</td></tr>
+        <tr><td class="cjk">见</td><td>thấy / nhận biết qua giác quan</td><td class="cjk">看见 (nhìn thấy), 听见 (nghe thấy)</td></tr>
+        <tr><td class="cjk">好</td><td>xong và hoàn hảo, hài lòng</td><td class="cjk">做好 (làm xong xuôi), 准备好 (chuẩn bị sẵn sàng)</td></tr>
+        <tr><td class="cjk">到</td><td>đạt được mục đích / đến đâu</td><td class="cjk">买到 (mua được), 看到 (nhìn thấy), 学到 (học được)</td></tr>
+      </table>
+
+      <h3>Quy tắc quan trọng cần nhớ</h3>
+      <ul>
+        <li><b>Không chèn từ vào giữa:</b> Động từ và bổ ngữ kết quả dính chặt thành một khối. Không nói <span class="cjk">我吃饭完</span> mà phải nói <span class="cjk">我吃完饭</span>.</li>
+        <li><b>Vị trí tân ngữ:</b> Tân ngữ luôn đứng sau bổ ngữ kết quả.</li>
+      </ul>
+    `,
+    fillIntro: "Chọn bổ ngữ kết quả thích hợp điền vào chỗ trống. Gợi ý: 完 / 好 / 错 / 懂 / 到 / 见 / 开 / 对",
+    fill: [
+      { num: 1, text: "今天的作业太多了，我还没有做___。", blanks: [["完"]], explain: "完 chỉ hành động đã kết thúc/hoàn tất — câu nói bài tập chưa làm xong." },
+      { num: 2, text: "刚才经理说的话，你听___了吗？", blanks: [["懂"]], explain: "懂 = hiểu — 听懂 nghĩa là nghe và hiểu được nội dung." },
+      { num: 3, text: "听说你要去旅游，机票和饭店都买___、准备___了吗？", blanks: [["好"], ["好"]], explain: "好 chỉ kết quả hoàn tất và chu đáo: 买好 (mua xong), 准备好 (chuẩn bị sẵn sàng)." },
+      { num: 4, text: "真抱歉，我今天起晚了，没坐___第一班地铁。", blanks: [["到"]], explain: "到 chỉ việc đạt được mục đích — 没坐到 nghĩa là không kịp lên chuyến tàu đó." },
+      { num: 5, text: "老师，这道题我做___了吗？是不是需要再算一遍？", blanks: [["对"]], explain: "对 = đúng — hỏi xem đã làm đúng bài đó chưa." },
+      { num: 6, text: "对不起，我走___房间了，我的房间在隔壁。", blanks: [["错"]], explain: "错 = sai — 走错房间 nghĩa là đi nhầm phòng." },
+      { num: 7, text: "麻烦你帮我把窗户打___，房间里有点热。", blanks: [["开"]], explain: "开 = mở — 打开 là cụm cố định nghĩa là mở (cửa, cửa sổ...)." },
+      { num: 8, text: "刚才我在外面看___你的汉语老师了，她正要去超市。", blanks: [["见"]], explain: "见 chỉ kết quả nhận biết qua giác quan — 看见 nghĩa là nhìn thấy." },
+      { num: 9, text: "这本小说很有趣，我已经看___了。", blanks: [["完"]], explain: "完 chỉ hành động đã hoàn tất — 看完 nghĩa là đọc xong." },
+      { num: 10, text: "他在黑板上写___了五个汉字，大家都看得很清楚。", blanks: [["对", "好"]], explain: "对 (viết đúng) hoặc 好 (viết xong, đẹp) đều hợp lý trong ngữ cảnh này." }
+    ],
+    buildIntro: "Sắp xếp các từ cho sẵn thành câu hoàn chỉnh. Gõ câu đầy đủ của bạn vào ô bên dưới.",
+    buildRule: "Nhắc lại trật tự đúng: Chủ ngữ + Động từ + <b>Bổ ngữ kết quả</b> + (Tân ngữ) + 了. Tân ngữ luôn đứng <b>sau</b> bổ ngữ kết quả, không chèn từ nào vào giữa Động từ và Bổ ngữ kết quả.",
+    build: [
+      { num: 11, text: "衣服 / 没 / 洗 / 干净 / 哥哥 / 那些 / 。", answers: ["哥哥没洗干净那些衣服。", "那些衣服哥哥没洗干净。"] },
+      { num: 12, text: "已经 / 找到 / 妹妹 / 护照 / 她的 / 了 / 。", answers: ["妹妹已经找到她的护照了。"] },
+      { num: 13, text: "把 / 请 / 手机 / 关 / 考试的时候 / 上 / 。", answers: ["考试的时候请把手机关上。"] },
+      { num: 14, text: "听 / 明白 / 医生 / 的 / 话 / 我 / 没 / 。", answers: ["我没听明白医生的话。", "医生的话我没听明白。"] },
+      { num: 15, text: "已经 / 买 / 电影票 / 到 / 我们 / 了 / 的 / 晚上 / 。", answers: ["我们已经买到晚上的电影票了。"] },
+      { num: 16, text: "你 / 错 / 拿 / 了 / 伞 / 我的 / 。", answers: ["你拿错了我的伞。"] },
+      { num: 17, text: "做好 / 妈妈 / 已经 / 了 / 晚饭 / 早就 / 。", answers: ["妈妈早就已经做好晚饭了。"] },
+      { num: 18, text: "这首歌 / 听 / 过了 / 我 / 记 / 不 / 住 / 了 / 。", answers: ["这首歌我听过了，记不住了。"] },
+      { num: 19, text: "把 / 字 / 你 / 别 / 写 / 歪 / 了 / 。", answers: ["你别把字写歪了。"] },
+      { num: 20, text: "没 / 看 / 清楚 / 手机上的 / 我 / 字 / 。", answers: ["我没看清楚手机上的字。"] }
+    ],
+    rewriteIntro: "Viết lại câu hoặc sửa câu sai, sau đó bấm \"Xem đáp án\" để tự kiểm tra.",
+    rewrite: [
+      { num: 21, text: "我复习课文完了就去睡觉。", answer: "我复习完课文就去睡觉。", explain: "Tân ngữ phải đứng sau bổ ngữ kết quả." },
+      { num: 22, text: "这个汉字他不写错。", answer: "这个汉字他没写错。", explain: "Phủ định bổ ngữ kết quả dùng 没/没有, không dùng 不." },
+      { num: 23, text: "妹妹没有看懂没看懂这篇故事。", answer: "这篇故事妹妹看没看懂？ / 妹妹没有看懂这篇故事。", explain: "Bỏ lặp từ thừa." },
+      { num: 24, text: "Chuyển sang câu chữ 把: 我洗干净了那件红衬衫。", answer: "我把那件红衬衫洗干净了。" },
+      { num: 25, text: "Chuyển sang câu phủ định: 我听懂了老师教的新语法。", answer: "我没听懂老师教的新语法。" },
+      { num: 26, text: "我看那本书到了第100页。", answer: "我看那本书看到了第100页。", explain: "Cấu trúc Động từ + 到." },
+      { num: 27, text: "他的生日礼物，我准备好没有。", answer: "他的生日礼物，我准备好了没有？" },
+      { num: 28, text: "昨天的考试题很简单，我都做对。", answer: "昨天的考试题很简单，我都做对了。", explain: "Cần thêm 了 biểu thị kết quả hoàn thành." },
+      { num: 29, text: "Chuyển sang câu chữ 把: 弟弟吃完了桌子上的苹果。", answer: "弟弟把桌子上的苹果吃完了。" },
+      { num: 30, text: "昨晚我没有买到那本词典。 (Câu này đúng hay sai? Nếu sai hãy sửa lại)", answer: "Câu này ĐÚNG.", explain: "Biểu thị tối qua không mua được." }
+    ]
+  },
+  {
+    id: "trangthai",
+    label: "Bổ Ngữ Trạng Thái",
+    hint: "V + 得 + (rất/không) + tính từ",
+    grammar: `
+      <p>Bổ ngữ trạng thái (状态补语, còn gọi là bổ ngữ mức độ) đứng sau động từ để <b>miêu tả, đánh giá hoặc nhận xét</b> về trạng thái, tính chất, mức độ của hành động hoặc sự vật.</p>
+
+      <h3>Cấu trúc cơ bản</h3>
+      <p><span class="formula">Khẳng định</span> Chủ ngữ + Động từ + 得 + Tính từ / Cụm tính từ</p>
+      <span class="ex">VD: <span class="cjk">他跑得很快。</span> (Anh ấy chạy rất nhanh.)</span>
+
+      <p><span class="formula">Phủ định</span> Chủ ngữ + Động từ + 得 + 不 + Tính từ</p>
+      <span class="ex">VD: <span class="cjk">他说得不流利。</span> (Anh ấy nói không lưu loát.)</span>
+
+      <p><span class="formula">Nghi vấn</span> Chủ ngữ + Động từ + 得 + Tính từ + 不 + Tính từ？</p>
+      <span class="ex">VD: <span class="cjk">你来得早不早？</span> (Bạn đến có sớm không?)</span>
+
+      <h3>Quy tắc xử lý tân ngữ (lỗi sai kinh điển)</h3>
+      <p>Bổ ngữ trạng thái <b>không cho phép tân ngữ đứng ngay sau động từ chính</b>. Nếu câu có tân ngữ (học tiếng Trung, viết chữ Hán...), xử lý theo 2 cách:</p>
+      <ul>
+        <li><b>Cách 1 (Lặp lại động từ):</b> Chủ ngữ + Động từ + Tân ngữ + Động từ + 得 + Bổ ngữ<br>
+          <span class="ex">VD: <span class="cjk">他说汉语说得很好。</span> (Anh ấy nói tiếng Trung rất tốt.)</span></li>
+        <li><b>Cách 2 (Đưa tân ngữ lên trước):</b> Chủ ngữ + Tân ngữ + Động từ + 得 + Bổ ngữ<br>
+          <span class="ex">VD: <span class="cjk">他汉语说得很好。</span></span></li>
+      </ul>
+
+      <h3>Cách dùng nâng cao (chỉ mức độ cực đoan)</h3>
+      <p>Bổ ngữ trạng thái còn dùng để biểu thị một trạng thái bị tác động đến mức cực hạn:</p>
+      <p class="formula">Động từ/Tính từ + 得 + Cụm từ chỉ hậu quả</p>
+      <span class="ex">VD: <span class="cjk">我累得不想说话。</span> (Tôi mệt đến mức không muốn nói chuyện.)</span>
+      <span class="ex">VD: <span class="cjk">他高兴得跳了起来。</span> (Anh ấy vui đến mức nhảy dựng lên.)</span>
+    `,
+    fillIntro: "Điền từ thích hợp vào chỗ trống. Gợi ý điền: 得 / 很 / 不 / 极其 hoặc các tính từ thích hợp",
+    fill: [
+      { num: 31, text: "他汉语说___非常流利，像中国人一样。", blanks: [["得"]], explain: "Cấu trúc bắt buộc của bổ ngữ trạng thái là Động từ + 得 + tính từ/cụm miêu tả." },
+      { num: 32, text: "妹妹跳舞跳得___好看，大家都为她鼓掌。", blanks: [["很", "非常", "特别"]], explain: "Sau 得 cần một phó từ chỉ mức độ (很/非常/特别...) đứng trước tính từ." },
+      { num: 33, text: "昨晚小明睡得一___也不好，因为外面太吵了。", blanks: [["点", "点儿"]], explain: "睡得一点也不好 = ngủ không tốt một chút nào; dùng 一点/一点儿 + 也不 + tính từ." },
+      { num: 34, text: "你今天穿___真漂亮，是要去约会吗？", blanks: [["得"]], explain: "Cấu trúc V + 得 + tính từ để miêu tả trạng thái của hành động 穿 (mặc)." },
+      { num: 35, text: "这个孩子长___很像他的爸爸。", blanks: [["得"]], explain: "长得很像 = trông rất giống — cần 得 để nối động từ 长 với bổ ngữ 很像." },
+      { num: 36, text: "他平时不怎么运动，所以跑得___快。", blanks: [["不"]], explain: "Phủ định bổ ngữ trạng thái đặt 不 ngay sau 得, trước tính từ: 跑得不快 (chạy không nhanh)." },
+      { num: 37, text: "今天的考试太难了，同学们都考得不___。", blanks: [["错", "好"]], explain: "考得不错/考得不好 đều là cách nói quen thuộc, tùy sắc thái (不错 = khá tốt, mang tính mỉa mai nhẹ vì đề khó)." },
+      { num: 38, text: "姐姐做饭做___好不好吃？", blanks: [["得"]], explain: "Cấu trúc V + 得 + tính từ (dạng chính phản 好不好吃) để hỏi về mức độ." },
+      { num: 39, text: "听到这个好消息，他高兴___跳了起来。", blanks: [["得"]], explain: "高兴得跳了起来 = vui đến mức nhảy dựng lên — dùng 得 để dẫn vào bổ ngữ chỉ mức độ cực đoan." },
+      { num: 40, text: "这只小狗可爱是可爱，就是吃___太多了。", blanks: [["得"]], explain: "吃得太多了 = ăn quá nhiều — cần 得 để nối động từ với bổ ngữ mức độ." }
+    ],
+    buildIntro: "Sắp xếp các từ cho sẵn thành câu hoàn chỉnh. Gõ câu đầy đủ của bạn vào ô bên dưới.",
+    buildRule: "Nhắc lại trật tự đúng: Chủ ngữ + (Tân ngữ) + Động từ (+ Tân ngữ) + 得 + <b>Bổ ngữ trạng thái</b>. Nếu câu có tân ngữ, phải lặp lại động từ hoặc đưa tân ngữ lên đầu câu — tân ngữ không được đứng giữa Động từ và 得.",
+    build: [
+      { num: 41, text: "写 / 汉字 / 得 / 他 / 很 / 漂亮 / 。", answers: ["他写汉字写得很漂亮。", "他汉字写得很漂亮。"] },
+      { num: 42, text: "唱歌 / 唱歌 / 歌 / 弟弟 / 得 / 极其 / 好听 / 。", answers: ["弟弟唱歌唱得极其好听。", "弟弟歌唱得极其好听。"] },
+      { num: 43, text: "英语 / 说 / 得 / 怎么样 / 你的 / 朋友 / ？", answers: ["你的朋友英语说得怎么样？"] },
+      { num: 44, text: "早 / 每天 / 妈妈 / 起 / 得 / 都 / 很 / 。", answers: ["每天妈妈都起得很早。", "妈妈每天都起得很早。"] },
+      { num: 45, text: "慢 / 语法 / 老师 / 讲 / 得 / 比较 / 。", answers: ["老师语法讲得比较慢。", "老师讲语法讲得比较慢。"] },
+      { num: 46, text: "糟糕 / 这次 / 考 / 妹妹 / 得 / 很 / 。", answers: ["妹妹这次考得很糟糕。", "这次妹妹考得很糟糕。"] },
+      { num: 47, text: "准备 / 比赛 / 篮球 / 没 / 得 / 充分 / 他们 / 不太 / 。", answers: ["他们篮球比赛准备得不太充分。"] },
+      { num: 48, text: "走 / 累 / 觉得 / 得 / 大家都 / 快 / 太 / 了 / 。", answers: ["大家都觉得走得太快太累了。"] },
+      { num: 49, text: "那个 / 清楚 / 讲 / 故事 / 爷爷 / 得 / 很 / 。", answers: ["那个爷爷故事讲得很清楚。", "爷爷那个故事讲得很清楚。"] },
+      { num: 50, text: "咖啡 / 这家店 / 的 / 得 / 做 / 浓 / 很 / 。", answers: ["这家店的咖啡做得很浓。"] }
+    ],
+    rewriteIntro: "Viết lại câu hoặc sửa câu sai, sau đó bấm \"Xem đáp án\" để tự kiểm tra.",
+    rewrite: [
+      { num: 51, text: "他写汉字得很慢。", answer: "他写汉字写得很慢。 / 他汉字写得很慢。", explain: "Có tân ngữ phải lặp lại động từ hoặc đưa tân ngữ lên trước." },
+      { num: 52, text: "我哥哥打篮球得很好。", answer: "我哥哥打篮球打得很好。 / 我哥哥篮球打得很好。" },
+      { num: 53, text: "Chuyển sang dạng phủ định: 她起得很早。", answer: "她起得不早。", explain: "Phủ định đặt trước tính từ sau 得." },
+      { num: 54, text: "Chuyển sang câu hỏi dùng chính phản: 他跑得很快。", answer: "他跑得快不快？" },
+      { num: 55, text: "麦克说汉字说得很流利。", answer: "麦克说汉语说得很流利。 / 麦克写汉字写得很漂亮。", explain: "Sửa lỗi dùng sai động từ/tân ngữ." },
+      { num: 56, text: "听到生病的消息，妈妈哭得非常伤心。（Câu này đúng hay sai? Nếu sai hãy sửa lại）", answer: "Câu này ĐÚNG." },
+      { num: 57, text: "Chuyển câu sau dùng cấu trúc lặp lại động từ hoặc đưa tân ngữ lên trước: 我说汉语说得不好。", answer: "我汉语说得不好。" },
+      { num: 58, text: "他介绍这个地方得非常清楚。", answer: "他介绍得非常清楚。 / 这个地方他介绍得非常清楚。" },
+      { num: 59, text: "昨晚我睡得很不舒服。 (Câu này đúng hay sai?)", answer: "Câu này ĐÚNG." },
+      { num: 60, text: "Chuyển câu hỏi sau sang dùng \"怎么样\": 你考试考得好不好？", answer: "你考试考得怎么样？" }
+    ]
+  }
+];
+
+/* ================= HELPERS ================= */
+function norm(s) {
+  return (s || "")
+    .toLowerCase()
+    .replace(/[，。！？、\s.,!?]/g, "")
+    .trim();
+}
+
+function renderFillText(text, blanksCount, qid) {
+  const parts = text.split("___");
+  let html = "";
+  for (let i = 0; i < parts.length; i++) {
+    html += `<span class="cjk">${parts[i]}</span>`;
+    if (i < parts.length - 1) {
+      html += `<input type="text" class="blank-input cjk" id="${qid}-b${i}" maxlength="4" autocomplete="off">`;
+    }
+  }
+  return html;
+}
+
+/* ================= RENDER ================= */
+const mainTabsEl = document.getElementById("mainTabs");
+const topicPanelsEl = document.getElementById("topicPanels");
+
+TOPICS.forEach((topic, ti) => {
+  // main tab button
+  const btn = document.createElement("button");
+  btn.className = "main-tab-btn" + (ti === 0 ? " active" : "");
+  btn.textContent = topic.label;
+  btn.onclick = () => selectTopic(topic.id);
+  mainTabsEl.appendChild(btn);
+
+  // topic panel
+  const panel = document.createElement("section");
+  panel.className = "topic-panel" + (ti === 0 ? " active" : "");
+  panel.id = "topic-" + topic.id;
+
+  // grammar theory (collapsible)
+  if (topic.grammar) {
+    const gBox = document.createElement("div");
+    gBox.className = "grammar-box";
+    gBox.innerHTML = `
+      <button class="grammar-toggle" type="button">
+        <span>📖 Lý thuyết ngữ pháp — ${topic.label}</span>
+        <span class="chevron">▾</span>
+      </button>
+      <div class="grammar-content">${topic.grammar}</div>
+    `;
+    gBox.querySelector(".grammar-toggle").addEventListener("click", () => {
+      gBox.classList.toggle("open");
+    });
+    panel.appendChild(gBox);
+  }
+
+  const subTabs = document.createElement("div");
+  subTabs.className = "sub-tabs";
+  subTabs.innerHTML = `
+    <button class="sub-tab-btn active" data-d="fill">Dạng 1 · Điền từ</button>
+    <button class="sub-tab-btn" data-d="build">Dạng 2 · Sắp xếp câu</button>
+    <button class="sub-tab-btn" data-d="rewrite">Dạng 3 · Viết lại / Sửa câu</button>
+  `;
+  panel.appendChild(subTabs);
+
+  subTabs.querySelectorAll(".sub-tab-btn").forEach(sb => {
+    sb.onclick = () => selectDang(topic.id, sb.dataset.d);
+  });
+
+  // --- Dạng 1: fill ---
+  const fillPanel = document.createElement("div");
+  fillPanel.className = "dang-panel active";
+  fillPanel.id = `dang-${topic.id}-fill`;
+  fillPanel.innerHTML = `<div class="dang-intro"><b>${topic.label}</b> — ${topic.fillIntro}</div>`;
+  topic.fill.forEach(q => {
+    const qid = `${topic.id}-fill-${q.num}`;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="q-row">
+        <span class="q-num">${q.num}</span>
+        <div class="q-body">
+          <div class="q-text cjk">${renderFillText(q.text, q.blanks.length, qid)}</div>
+          <div class="fill-explain" id="${qid}-explain">
+            <span class="label">Đáp án đúng:</span><span class="cjk">${q.blanks.map(b => b.join(" / ")).join(" ; ")}</span>
+            ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+          </div>
+        </div>
+      </div>`;
+    fillPanel.appendChild(card);
+  });
+  const fillFooter = document.createElement("div");
+  fillFooter.className = "section-footer";
+  fillFooter.innerHTML = `
+    <div class="score-display" id="score-${topic.id}-fill">Chưa chấm</div>
+    <button class="btn primary" id="check-${topic.id}-fill">Kiểm tra đáp án</button>`;
+  fillPanel.appendChild(fillFooter);
+  panel.appendChild(fillPanel);
+
+  // --- Dạng 2: build ---
+  const buildPanel = document.createElement("div");
+  buildPanel.className = "dang-panel";
+  buildPanel.id = `dang-${topic.id}-build`;
+  buildPanel.innerHTML = `<div class="dang-intro"><b>${topic.label}</b> — ${topic.buildIntro}</div>`;
+  topic.build.forEach(q => {
+    const qid = `${topic.id}-build-${q.num}`;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="q-row">
+        <span class="q-num">${q.num}</span>
+        <div class="q-body">
+          <div class="q-text cjk">${q.text}</div>
+          <input type="text" class="free-input cjk" id="${qid}-input" placeholder="Gõ câu hoàn chỉnh của bạn ở đây...">
+          <div class="row-actions">
+            <button class="btn" data-check="${qid}">Kiểm tra</button>
+            <span class="verdict" id="${qid}-verdict"></span>
+          </div>
+          <div class="answer-box" id="${qid}-answer">
+            <span class="label">Đáp án mẫu:</span><span class="cjk">${q.answers.join(" &nbsp;|&nbsp; ")}</span>
+            <div class="explain">${topic.buildRule}</div>
+          </div>
+        </div>
+      </div>`;
+    buildPanel.appendChild(card);
+  });
+  panel.appendChild(buildPanel);
+
+  // --- Dạng 3: rewrite ---
+  const rewritePanel = document.createElement("div");
+  rewritePanel.className = "dang-panel";
+  rewritePanel.id = `dang-${topic.id}-rewrite`;
+  rewritePanel.innerHTML = `<div class="dang-intro"><b>${topic.label}</b> — ${topic.rewriteIntro}</div>`;
+  topic.rewrite.forEach(q => {
+    const qid = `${topic.id}-rewrite-${q.num}`;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="q-row">
+        <span class="q-num">${q.num}</span>
+        <div class="q-body">
+          <div class="q-text cjk">${q.text}</div>
+          <textarea class="free-input cjk" id="${qid}-input" rows="2" placeholder="Viết câu trả lời của bạn..."></textarea>
+          <div class="row-actions">
+            <button class="btn" data-reveal="${qid}">Xem đáp án</button>
+          </div>
+          <div class="answer-box" id="${qid}-answer">
+            <span class="label">Đáp án:</span><span class="cjk">${q.answer}</span>
+            ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+          </div>
+        </div>
+      </div>`;
+    rewritePanel.appendChild(card);
+  });
+  panel.appendChild(rewritePanel);
+
+  topicPanelsEl.appendChild(panel);
+});
+
+/* placeholder tab for future grammar topics */
+const placeholderBtn = document.createElement("button");
+placeholderBtn.className = "main-tab-btn placeholder";
+placeholderBtn.textContent = "+ Chủ đề khác (sắp có)";
+mainTabsEl.appendChild(placeholderBtn);
+
+/* ================= INTERACTIONS ================= */
+function selectTopic(id) {
+  document.querySelectorAll(".main-tab-btn").forEach(b => b.classList.remove("active"));
+  document.querySelectorAll(".topic-panel").forEach(p => p.classList.remove("active"));
+  [...mainTabsEl.children].forEach(b => {
+    if (b.textContent === TOPICS.find(t => t.id === id).label) b.classList.add("active");
+  });
+  document.getElementById("topic-" + id).classList.add("active");
+}
+
+function selectDang(topicId, d) {
+  const panel = document.getElementById("topic-" + topicId);
+  panel.querySelectorAll(".sub-tab-btn").forEach(b => b.classList.toggle("active", b.dataset.d === d));
+  panel.querySelectorAll(".dang-panel").forEach(p => p.classList.remove("active"));
+  document.getElementById(`dang-${topicId}-${d}`).classList.add("active");
+}
+
+// Dạng 1 checking
+TOPICS.forEach(topic => {
+  document.getElementById(`check-${topic.id}-fill`).addEventListener("click", () => {
+    let correct = 0, total = 0;
+    topic.fill.forEach(q => {
+      const qid = `${topic.id}-fill-${q.num}`;
+      let questionAllCorrect = true;
+      q.blanks.forEach((accepted, i) => {
+        total++;
+        const input = document.getElementById(`${qid}-b${i}`);
+        const val = norm(input.value);
+        const ok = accepted.some(a => norm(a) === val);
+        input.classList.remove("correct", "wrong");
+        input.classList.add(ok ? "correct" : "wrong");
+        if (ok) correct++;
+        else questionAllCorrect = false;
+      });
+      const explainBox = document.getElementById(`${qid}-explain`);
+      explainBox.classList.toggle("show", !questionAllCorrect);
+    });
+    document.getElementById(`score-${topic.id}-fill`).innerHTML =
+      `Kết quả: <span>${correct} / ${total}</span> đúng`;
+  });
+});
+
+// Dạng 2 checking
+document.querySelectorAll("[data-check]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const qid = btn.dataset.check;
+    const input = document.getElementById(`${qid}-input`);
+    const verdict = document.getElementById(`${qid}-verdict`);
+    const answerBox = document.getElementById(`${qid}-answer`);
+    const topicId = qid.split("-")[0];
+    const num = parseInt(qid.split("-")[2], 10);
+    const topic = TOPICS.find(t => t.id === topicId);
+    const q = topic.build.find(x => x.num === num);
+    const val = norm(input.value);
+    const ok = q.answers.some(a => norm(a) === val);
+    verdict.textContent = ok ? "✓ Chính xác!" : "✗ Chưa đúng — xem đáp án và giải thích bên dưới";
+    verdict.className = "verdict " + (ok ? "ok" : "bad");
+    answerBox.classList.toggle("show", true);
+    answerBox.classList.toggle("wrong-tint", !ok);
+    answerBox.querySelector(".label").classList.toggle("wrong-label", !ok);
+  });
+});
+
+// Dạng 3 reveal
+document.querySelectorAll("[data-reveal]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const qid = btn.dataset.reveal;
+    const box = document.getElementById(`${qid}-answer`);
+    box.classList.toggle("show");
+    btn.textContent = box.classList.contains("show") ? "Ẩn đáp án" : "Xem đáp án";
+  });
+});
+</script>
+</body>
+</html>
