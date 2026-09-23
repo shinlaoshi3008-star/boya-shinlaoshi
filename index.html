@@ -95,6 +95,15 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-
 .lcard .go{position:absolute;top:14px;right:14px;width:24px;height:24px;border-radius:50%;background:var(--paper-deep);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink-soft);opacity:0;transition:opacity .18s ease;}
 .lcard:hover .go{opacity:1;}
 
+/* ---------- GRAMMAR BLOCK ---------- */
+.grammar-block{margin-bottom:34px;}
+.grammar-block .unit-head .tag{color:var(--violet, #6E5AA8);}
+.grammar-block .lesson-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}
+.lcard.grammar{background:linear-gradient(160deg,#EDE7F7,var(--card));border-color:#8C77C4;}
+.lcard.grammar .num{-webkit-text-stroke:1.4px #6E5AA8;font-size:24px;}
+.lcard.grammar.empty .num{-webkit-text-stroke:1.4px var(--ink-soft);opacity:.5;}
+.lcard.grammar .status.grammar-tag{background:#6E5AA8;color:#fff;}
+
 .extra-block{margin-top:8px;}
 .extra-note{border:1px solid var(--line);background:var(--paper-deep);border-radius:14px;padding:14px 18px;font-size:12.5px;color:var(--ink-soft);line-height:1.7;}
 .extra-note code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:'JetBrains Mono','Consolas',monospace;font-size:11.5px;color:var(--ink);}
@@ -172,7 +181,8 @@ footer.hubfoot{max-width:1700px;font-size:13px;}
 
   <div class="extra-block">
     <div class="extra-note">
-      💡 <b>Cách thêm bài học mới:</b> mở file này bằng trình soạn thảo văn bản, tìm mảng <code>LESSONS</code> trong thẻ <code>&lt;script&gt;</code>, điền <code>title</code>, <code>pinyin</code> và <code>file</code> (tên file .html của bài học, đặt cùng thư mục với trang này) cho từng bài — trang sẽ tự động hiện link. Có thể nhờ Claude cập nhật giúp bất cứ lúc nào.
+      💡 <b>Cách thêm bài học mới:</b> mở file này bằng trình soạn thảo văn bản, tìm mảng <code>LESSONS</code> trong thẻ <code>&lt;script&gt;</code>, điền <code>title</code>, <code>pinyin</code> và <code>file</code> (tên file .html của bài học, đặt cùng thư mục với trang này) cho từng bài — trang sẽ tự động hiện link. Có thể nhờ Claude cập nhật giúp bất cứ lúc nào.<br><br>
+      📘 <b>Mục Ngữ pháp:</b> mỗi quyển (Boya I / Boya II) có một khối riêng "语法 Ngữ pháp" ở đầu trang. Thêm chuyên đề bằng cách điền vào mảng <code>GRAMMAR</code> (mỗi chuyên đề gồm <code>title</code> và <code>file</code>), tách biệt hoàn toàn với các bài học đánh số và bài kiểm tra.
     </div>
   </div>
 
@@ -271,8 +281,23 @@ const TESTS = {
   'book2-unit3': {file:'', label:'KT Bài 11–15'},
   'book2-unit4': {file:'', label:'KT Bài 16–20'},
   'book2-unit5': {file:'', label:'KT Bài 21–25'}
-  'book2-unit6': {file:'boya2/Ngữ pháp.html', label:'Ngữ pháp'}
 };
+
+/* ================== MỤC NGỮ PHÁP RIÊNG CHO TỪNG QUYỂN ==================
+   Mỗi chuyên đề: { title: tên chuyên đề ngữ pháp, file: tên file .html }
+   Mục này hiện thành một khối riêng "语法 Ngữ pháp" ở đầu mỗi quyển,
+   tách biệt với các bài học đánh số. Để trống mảng nếu quyển đó chưa có
+   chuyên đề ngữ pháp nào. */
+const GRAMMAR = {
+  book1: [
+    // { title:'Tên chuyên đề', file:'boya1/ten-file.html' }
+  ],
+  book2: [
+    { title:'Ngữ pháp tổng hợp', file:'boya2/Ngữ pháp.html' }
+  ]
+};
+/* ================================================================= */
+
 
 const bookMeta = {
   book1: {accent:'#3F7D6B', soft:'#DCEAE4'},
@@ -374,10 +399,53 @@ function buildTestCard(bookKey, unitIndex, startN, endN){
   }
 }
 
+function buildGrammarCard(bookKey, item, idx){
+  const has = !!(item.file && item.file.trim());
+  const title = item.title && item.title.trim() ? item.title : 'Chưa có chuyên đề';
+  const cardInner = `
+    <div class="num hanzi">语</div>
+    <div class="lt hanzi">${title}</div>
+    <div class="lp">Ngữ pháp</div>
+    <div class="status ${has?'grammar-tag':'pending'}">${has?'Xem bài':'Sắp có'}</div>
+    ${has? '<div class="go">→</div>' : ''}
+  `;
+  if(has){
+    const a = document.createElement('a');
+    a.className = 'lcard grammar';
+    a.href = item.file;
+    a.setAttribute('data-search', ('ngữ pháp grammar '+title).toLowerCase());
+    a.innerHTML = cardInner;
+    return a;
+  } else {
+    const d = document.createElement('div');
+    d.className = 'lcard grammar empty';
+    d.setAttribute('data-search', ('ngữ pháp grammar '+title).toLowerCase());
+    d.innerHTML = cardInner;
+    return d;
+  }
+}
+
+function renderGrammarBlock(bookKey){
+  const items = GRAMMAR[bookKey] || [];
+  const block = document.createElement('div');
+  block.className = 'unit-block grammar-block';
+  block.innerHTML = `<div class="unit-head"><span class="tag hanzi">语法</span><span class="range">Ngữ pháp</span></div>`;
+  const grid = document.createElement('div');
+  grid.className = 'lesson-grid';
+  if(items.length){
+    items.forEach((item, idx)=> grid.appendChild(buildGrammarCard(bookKey, item, idx)));
+  } else {
+    grid.appendChild(buildGrammarCard(bookKey, {title:'', file:''}, 0));
+  }
+  block.appendChild(grid);
+  return block;
+}
+
 function renderBook(bookKey){
   const data = LESSONS[bookKey];
   const panel = document.getElementById(bookKey==='book1'?'panelBook1':'panelBook2');
   panel.innerHTML = '';
+  panel.appendChild(renderGrammarBlock(bookKey));
   const lessons = data.lessons;
   for(let i=0;i<lessons.length;i+=unitSize){
     const chunk = lessons.slice(i, i+unitSize);
