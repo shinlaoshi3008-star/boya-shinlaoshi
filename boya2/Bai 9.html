@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第九课 Bài 9 – 我进不去了</title>
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3/dist/hanzi-writer.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+:root{--red:#B22A1F;--red2:#8E1D15;--gold:#C9962B;--ink:#2B2118;--paper:#F7F0E0;--card:#FFFBF1;--bamboo:#4F7A4A;--mute:#6B5B4B}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:"Be Vietnam Pro","Segoe UI",Arial,sans-serif;font-size:22px;line-height:1.55;color:var(--ink);background:var(--paper);
+background-image:radial-gradient(circle at 12px 12px,rgba(201,150,43,.13) 2px,transparent 3px);background-size:36px 36px;display:flex;flex-direction:column}
+.han{font-family:"Noto Serif SC","Songti SC","SimSun","Microsoft YaHei",serif}
+header{display:flex;align-items:center;gap:14px;padding:10px 22px;background:var(--red);color:#fff;border-bottom:4px solid var(--gold)}
+header svg{width:48px;height:48px;flex:none}
+header b{font-size:24px}
+header span{margin-left:auto;font-size:20px;opacity:.95}
+main{flex:1;min-height:0;position:relative}
+.slide{position:absolute;inset:0;overflow-y:auto;padding:26px 6vw 40px;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s}
+.slide.on{opacity:1;visibility:visible}
+h2{font-family:"Noto Serif SC",serif;font-size:42px;margin:0 0 6px;color:var(--red)}
+h2 small{font-family:"Be Vietnam Pro",sans-serif;font-size:26px;color:var(--mute);font-weight:500;margin-left:10px}
+.sub{font-size:22px;color:var(--mute);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:20px}
+.card{background:var(--card);border:2px solid var(--gold);border-radius:14px;padding:16px 20px;box-shadow:0 4px 0 rgba(178,42,31,.18)}
+.w{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.w .z{font-family:"Noto Serif SC",serif;font-size:46px;font-weight:900;color:var(--red);line-height:1.2}
+.w .p{font-size:24px;color:var(--bamboo);font-weight:700}
+.vi{font-size:24px;font-weight:700}
+.note{font-size:21px;color:var(--mute);margin:2px 0 6px}
+.ex{border-top:2px dashed var(--gold);margin-top:10px;padding-top:8px}
+.ex .z{font-family:"Noto Serif SC",serif;font-size:30px;line-height:1.5}
+.ex .p{font-size:21px;color:var(--bamboo)}
+.ex .v{font-size:21px;color:var(--mute);font-style:italic}
+.box{background:var(--card);border:2px solid var(--gold);border-radius:14px;padding:18px 24px;margin-bottom:20px}
+.box h3{margin:0 0 8px;font-size:28px;color:var(--red2)}
+.formula{font-size:28px;font-weight:700;background:#fff;border-left:8px solid var(--red);padding:8px 16px;margin:8px 0;border-radius:6px}
+.formula .han{color:var(--red)}
+.q{font-size:26px;margin:12px 0}
+.q .han{font-size:32px}
+button.rv{font:inherit;font-size:20px;font-weight:700;background:var(--red);color:#fff;border:0;border-radius:24px;padding:6px 18px;cursor:pointer;margin-top:6px}
+button.rv:hover{background:var(--red2)}
+.ans{opacity:0;max-height:0;overflow:hidden;margin-top:0;padding:0 16px;background:#FFF3D1;border-radius:10px;font-size:24px;transition:opacity .5s ease,max-height .5s ease,padding .5s ease,margin .5s ease}
+.ans.show{opacity:1;max-height:420px;padding:10px 16px;margin-top:8px}
+.ans .p{font-size:20px;color:var(--bamboo)}
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:100%}
+.hero .big{font-family:"Noto Serif SC",serif;font-size:96px;font-weight:900;color:var(--red);line-height:1.1}
+.hero .t{font-size:30px;margin:6px 0}
+.hero svg{width:190px;height:190px}
+nav{display:flex;align-items:center;gap:12px;padding:10px 22px;background:#fff7e3;border-top:3px solid var(--gold)}
+nav button{font:inherit;font-size:22px;font-weight:700;background:var(--red);color:#fff;border:0;border-radius:28px;padding:8px 26px;cursor:pointer}
+nav button:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:8px;flex:1;justify-content:center;flex-wrap:wrap}
+.dots i{width:16px;height:16px;border-radius:50%;background:#e6d7b4;border:2px solid var(--gold);cursor:pointer}
+.dots i.on{background:var(--red)}
+.tag{display:inline-block;background:var(--red);color:#fff;border-radius:6px;padding:0 10px;font-size:20px;margin-right:8px}
+
+.slide.on .card,.slide.on .box{animation:fi .7s ease both}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.card[data-k]{cursor:pointer;transition:background .35s ease,box-shadow .35s ease,border-color .35s ease}
+.card[data-k]:hover{background:#FFF1C9;border-color:var(--red);box-shadow:0 6px 0 rgba(178,42,31,.35)}
+.hint{font-size:18px;color:var(--red);margin-top:6px;opacity:.8}
+button{transition:background .35s ease,opacity .35s ease,border-color .35s ease}
+.ans.good{background:#D7EECD}.ans.badc{background:#F9D9D5}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.score{font-size:26px;font-weight:700;color:var(--bamboo)}
+.mc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:10px}
+.mc .ans{grid-column:1/-1}
+.opt{font:inherit;font-size:28px;text-align:left;background:#fff;color:var(--ink);border:2px solid var(--gold);border-radius:12px;padding:10px 16px;cursor:pointer;transition:background .4s ease,border-color .4s ease}
+.mc:not(.done) .opt:hover{background:#FFF1C9;border-color:var(--red)}
+.opt.ok{background:#CFEAC6;border-color:var(--bamboo)}.opt.bad{background:#F6C9C3;border-color:var(--red)}
+.mc.done .opt{cursor:default}
+.line{min-height:66px;border-bottom:3px dashed var(--gold);padding:6px;display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.pool{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 12px}
+.chip{font:inherit;font-family:"Noto Serif SC",serif;font-size:30px;background:#fff;color:var(--ink);border:2px solid var(--gold);border-radius:10px;padding:2px 14px;cursor:pointer;animation:fi .4s ease both}
+.chip:hover{border-color:var(--red);background:#FFF1C9}
+.wrong{color:var(--red);font-family:"Noto Serif SC",serif;font-size:30px}
+#ov{position:fixed;inset:0;background:rgba(43,33,24,.55);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s;z-index:50;padding:14px}
+#ov.on{opacity:1;visibility:visible}
+#pn{position:relative;background:var(--card);border:5px double var(--gold);border-radius:18px;max-width:780px;width:100%;max-height:92vh;overflow-y:auto;padding:22px 30px;transition:opacity .25s ease}
+#pn.sw{opacity:0}
+#pn h3{margin:14px 0 4px;font-size:26px;color:var(--red2)}
+#pn .x{position:absolute;top:10px;right:14px;font:inherit;font-size:22px;background:none;border:0;color:var(--red);cursor:pointer}
+.mnav{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:22px}
+@media(max-width:700px){body{font-size:20px}.grid{grid-template-columns:1fr}.hero .big{font-size:64px}h2{font-size:34px}header span{display:none}}
+
+header{flex-wrap:wrap}
+.brand{cursor:pointer;display:flex;align-items:center;gap:10px}
+.tabs{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:22px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.55);border-radius:26px;padding:6px 20px;cursor:pointer;transition:background .45s ease,color .45s ease}
+.tabs button:hover{background:rgba(255,255,255,.28)}
+.tabs button.on{background:#fff;color:var(--red)}
+.wrap{flex:1;min-height:0;display:flex}
+main{min-width:0}
+.slide{padding:26px 3.5vw 40px}
+aside{flex:none;width:0;opacity:0;visibility:hidden;overflow-y:auto;overflow-x:hidden;background:#FFF7E3;border-right:3px solid var(--gold);transition:width .5s ease,opacity .5s ease,visibility .5s}
+aside.on{width:290px;opacity:1;visibility:visible}
+aside>div{width:290px;padding-bottom:20px;animation:fi .6s ease both}
+aside h4{margin:18px 18px 8px;font-size:30px;color:var(--red);font-family:"Noto Serif SC",serif}
+aside button{display:block;width:266px;margin:8px 12px;text-align:left;font:inherit;font-size:22px;font-weight:700;padding:12px 16px;border:2px solid var(--gold);background:#fff;color:var(--ink);border-radius:12px;cursor:pointer;transition:background .45s ease,color .45s ease,border-color .45s ease}
+aside button:hover{background:#FFF1C9}
+aside button.on{background:var(--red);color:#fff;border-color:var(--red)}
+#ov{padding:2vh 2vw}
+#pn{max-width:none;width:96vw;height:94vh;max-height:none;overflow:hidden;display:flex;gap:26px;padding:24px 30px}
+.pl{flex:1;min-width:0;overflow-y:auto;padding-right:10px}
+.pr{flex:none;width:400px;overflow-y:auto;border-left:3px dashed var(--gold);padding-left:26px}
+#pn .ex .z{font-size:36px}#pn .ex .p{font-size:23px}#pn .ex .v{font-size:23px}
+.cws{display:grid;grid-template-columns:repeat(2,176px);gap:14px;margin:10px 0 14px}
+.cw{width:176px;height:176px;background-color:#fff;border:2px solid var(--gold);border-radius:8px;animation:fi .6s ease both;
+background-image:linear-gradient(to right,transparent calc(50% - 1px),#EBD9A8 calc(50% - 1px),#EBD9A8 calc(50% + 1px),transparent calc(50% + 1px)),linear-gradient(to bottom,transparent calc(50% - 1px),#EBD9A8 calc(50% - 1px),#EBD9A8 calc(50% + 1px),transparent calc(50% + 1px))}
+.cw svg{display:block}
+@media(max-width:800px){.wrap{flex-direction:column}aside{width:100%;height:0}aside.on{width:100%;height:auto}aside>div{width:100%;display:flex;flex-wrap:wrap}aside h4{width:100%}aside button{width:auto;margin:6px}#pn{flex-direction:column;overflow-y:auto}.pl,.pr{overflow:visible;width:auto;border:0;padding:0}.cws{grid-template-columns:repeat(auto-fill,176px)}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="panda" viewBox="0 0 100 100">
+<circle cx="22" cy="22" r="14" fill="#2B2118"/><circle cx="78" cy="22" r="14" fill="#2B2118"/>
+<ellipse cx="50" cy="56" rx="38" ry="34" fill="#fff" stroke="#2B2118" stroke-width="2"/>
+<ellipse cx="34" cy="50" rx="9" ry="12" fill="#2B2118" transform="rotate(25 34 50)"/><ellipse cx="66" cy="50" rx="9" ry="12" fill="#2B2118" transform="rotate(-25 66 50)"/>
+<circle cx="35" cy="49" r="3.5" fill="#fff"/><circle cx="65" cy="49" r="3.5" fill="#fff"/>
+<ellipse cx="50" cy="63" rx="6" ry="4.5" fill="#2B2118"/>
+<path d="M50 67v5M43 74q7 6 14 0" stroke="#2B2118" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<circle cx="26" cy="68" r="5" fill="#F4A6A0" opacity=".7"/><circle cx="74" cy="68" r="5" fill="#F4A6A0" opacity=".7"/>
+</symbol></defs></svg>
+
+<header>
+<svg><use href="#panda"/></svg>
+<div class="brand" onclick="go(0)" title="Về trang bìa"><b class="han">第九课</b> <b>Bài 9 · 我进不去了</b></div>
+<div class="tabs" id="tabs"></div>
+</header>
+<div class="wrap"><aside id="sb"></aside><main id="deck"></main></div>
+<nav><button id="prev">◀ Trước</button><div class="dots" id="dots"></div><button id="next">Sau ▶</button></nav>
+
+<div id="ov"><div id="pn"></div></div>
+<script>
+const esc=s=>s;
+// [hán, pinyin, nghĩa, ghi chú, ví dụ hán, ví dụ pinyin, ví dụ nghĩa]
+const N=[
+["腿","tuǐ","chân, cẳng chân","一条腿 (một cái chân) · 左腿 / 右腿","昨天我摔倒了，右腿扭伤了。","Zuótiān wǒ shuāi dǎo le, yòu tuǐ niǔshāng le.","Hôm qua tôi bị ngã, chân phải bị trẹo."],
+["窗户","chuānghu","cửa sổ","","屋子里挺热的，你快打开窗户吧。","Wūzi lǐ tǐng rè de, nǐ kuài dǎkāi chuānghu ba.","Trong phòng nóng quá, mau mở cửa sổ ra đi."],
+["隔壁","gébì","bên cạnh","","我家隔壁有一个酒吧，每天都有很多人来往。","Wǒ jiā gébì yǒu yí gè jiǔbā, měitiān dōu yǒu hěnduō rén láiwǎng.","Bên cạnh nhà tôi có một quán bar, ngày nào cũng có rất nhiều người qua lại."],
+["水房","shuǐfáng","phòng giặt, vệ sinh","","留学生的宿舍都有公用水房，生活很方便。","Liúxuéshēng de sùshè dōu yǒu gōngyòng shuǐfáng, shēnghuó hěn fāngbiàn.","Ký túc xá của lưu học sinh đều có phòng giặt chung, rất tiện lợi."],
+["墙","qiáng","bức tường","一片墙 (một bức tường)","墙上的照片就是我们在比赛中照的。","Qiáng shàng de zhàopiàn jiùshì wǒmen zài bǐsài zhōng zhào de.","Tấm ảnh trên tường là ảnh chúng tôi chụp trong trận đấu."],
+["钉子","dīngzi","cái đinh","一根钉子 · 一袋钉子 (một túi đinh)","墙上有一根钉子，你可以挂衣服。","Qiáng shàng yǒu yì gēn dīngzi, nǐ kěyǐ guà yīfu.","Trên tường có một cái đinh, bạn có thể treo quần áo lên đó."],
+["苍蝇","cāngyíng","con ruồi","一只苍蝇","桌子上落着一只苍蝇。","Zhuōzi shàng luòzhe yì zhī cāngyíng.","Có một con ruồi đậu trên bàn."],
+["蚊子","wénzi","con muỗi","一只蚊子","你手上有一只蚊子，快打死它！","Nǐ shǒu shàng yǒu yì zhī wénzi, kuài dǎ sǐ tā!","Trên tay bạn có một con muỗi kìa, mau đập nó đi!"],
+["巴掌","bāzhang","cái bạt tai, cái tát","一个巴掌","一看见我，他一句也没说就打了我一个巴掌，气死我了！","Yí kànjiàn wǒ, tā yí jù yě méi shuō jiù dǎ le wǒ yí gè bāzhang, qì sǐ wǒ le!","Vừa nhìn thấy tôi, anh ta chẳng nói chẳng rằng đã tát tôi một cái, tức chết đi được!"]];
+const V=[
+["拐","guǎi","đi khập khiễng","一拐一拐地走","昨天我从车上摔倒了，现在腿一拐一拐地走。","Zuótiān wǒ cóng chē shàng shuāi dǎo le, xiànzài tuǐ yì guǎi yì guǎi de zǒu.","Hôm qua tôi bị ngã xe, bây giờ chân đi khập khiễng."],
+["来不及","láibují","không kịp","≠ 来得及 (kịp) · làm vị ngữ, hoặc làm trạng ngữ: 来不及 / 来得及 + V","路上堵车堵得很厉害，恐怕来不及上课了。","Lùshàng dǔchē dǔ de hěn lìhai, kǒngpà láibují shàngkè le.","Tắc đường khủng khiếp, e là không kịp lên lớp rồi."],
+["跳","tiào","nhảy","","小猫从桌子上跳下来了。","Xiǎo māo cóng zhuōzi shàng tiào xiàlái le.","Con mèo con nhảy từ trên bàn xuống."],
+["摔","shuāi","ngã","摔倒 · 摔伤 (ngã bị thương) · 摔坏 (rơi hỏng)","他从树上跳下去时不小心摔伤了。","Tā cóng shù shàng tiào xiàqù shí bù xiǎoxīn shuāishāng le.","Lúc nhảy từ trên cây xuống, anh ấy không cẩn thận bị ngã bị thương."],
+["变成","biànchéng","biến thành, trở nên","","过了十年，河内市变成了一个现代的发展城市。","Guòle shí nián, Hénèi shì biànchéng le yí gè xiàndài de fāzhǎn chéngshì.","Trải qua 10 năm, Hà Nội đã trở thành một thành phố phát triển hiện đại."],
+["脱","tuō","cởi (quần áo)","脱衣服 · 脱鞋 · 脱下","他回家后，马上脱下大衣，然后躺在床上睡着了。","Tā huí jiā hòu, mǎshàng tuō xià dàyī, ránhòu tǎng zài chuángshàng shuìzháo le.","Về nhà, anh ấy cởi ngay áo khoác rồi nằm lên giường ngủ thiếp đi."],
+["挂","guà","treo; dập máy (điện thoại)","挂衣服 · 挂(上)电话 · 挂在……上","我还没说完他就挂上电话了。","Wǒ hái méi shuō wán tā jiù guà shàng diànhuà le.","Tôi còn chưa nói xong anh ấy đã dập máy."],
+["掉","diào","rơi","làm vị ngữ · làm bổ ngữ kết quả (hành động khiến vật biến mất): 吃掉 · 花掉 · 走掉","我的钱包从口袋里掉下去了。","Wǒ de qiánbāo cóng kǒudài lǐ diào xiàqù le.","Ví của tôi rơi ra khỏi túi."],
+["飞","fēi","bay","","那只蚊子在我面前飞来飞去。","Nà zhī wénzi zài wǒ miànqián fēi lái fēi qù.","Con muỗi kia cứ bay qua bay lại trước mặt tôi."],
+["落","luò","rơi, đậu","","有一片叶子落在地上。","Yǒu yí piàn yèzi luò zài dìshàng.","Có một chiếc lá rơi xuống đất."],
+["感到","gǎndào","cảm thấy","","他走了以后，我感到很伤心。","Tā zǒu le yǐhòu, wǒ gǎndào hěn shāngxīn.","Sau khi anh ấy đi, tôi cảm thấy rất đau lòng."]];
+const A=[
+["危险","wēixiǎn","nguy hiểm","làm tính từ / danh từ","这个工作太危险了，你找别的工作吧。","Zhège gōngzuò tài wēixiǎn le, nǐ zhǎo bié de gōngzuò ba.","Công việc này nguy hiểm quá, bạn tìm việc khác đi."],
+["近视","jìnshì","cận thị","","我的眼睛有点儿近视，看不清楚那么远的东西。","Wǒ de yǎnjing yǒudiǎnr jìnshì, kàn bù qīngchu nàme yuǎn de dōngxi.","Mắt tôi hơi cận, không nhìn rõ vật ở xa như vậy."],
+["清楚","qīngchu","rõ ràng","","老师说得很清楚，明天七点出发。","Lǎoshī shuō de hěn qīngchu, míngtiān qī diǎn chūfā.","Thầy nói rất rõ ràng, mai 7 giờ xuất phát."],
+["轻","qīng","nhẹ","","这个箱子比较轻，我可以自己拿。","Zhège xiāngzi bǐjiào qīng, wǒ kěyǐ zìjǐ ná.","Cái va li này khá nhẹ, tôi có thể tự xách."],
+["突然","tūrán","đột ngột, bất ngờ","làm phó từ (= 忽然) hoặc làm tính từ","我在上班的路上突然捡到了一个钱包。","Wǒ zài shàngbān de lùshàng tūrán jiǎn dào le yí gè qiánbāo.","Trên đường đi làm, tôi bất ngờ nhặt được một cái ví."]];
+const O=[
+["因为","yīnwèi","bởi vì (liên từ)","因为……所以…… · 因为……而……","因为我没带钱，所以买不到票。","Yīnwèi wǒ méi dài qián, suǒyǐ mǎi bú dào piào.","Vì tôi không mang tiền nên không mua được vé."],
+["层","céng","tầng (lượng từ)","","请你到第三层，302号会议室。","Qǐng nǐ dào dì sān céng, 302 hào huìyìshì.","Mời anh lên tầng 3, phòng họp số 302."],
+["只","zhī","lượng từ của con vật","一只猫 · 一只苍蝇 · 一只蚊子 · 一只小鸟","桌子上落着一只苍蝇。","Zhuōzi shàng luòzhe yì zhī cāngyíng.","Có một con ruồi đậu trên bàn."],
+["往","wǎng","về hướng nào đó (giới từ)","往 + từ chỉ nơi chốn / phương vị + V","往上看 / 往前走 / 往右拐。","Wǎng shàng kàn / wǎng qián zǒu / wǎng yòu guǎi.","Nhìn lên trên / đi về phía trước / rẽ phải."],
+["一下子","yíxiàzi","loáng một cái, trong nháy mắt (phó từ)","","他刚才还在这儿呢，一下子就走掉了。","Tā gāngcái hái zài zhèr ne, yíxiàzi jiù zǒu diào le.","Vừa nãy anh ta còn ở đây, loáng một cái đã đi mất."],
+["立刻","lìkè","ngay lập tức (phó từ)","","接到妈妈的电话，我立刻从学校跑回家去了。","Jiēdào māma de diànhuà, wǒ lìkè cóng xuéxiào pǎo huí jiā qù le.","Nhận được điện thoại của mẹ, tôi lập tức chạy từ trường về nhà."],
+["下去","xiàqù","bổ ngữ: hành động tiếp tục diễn ra","说下去 · 看下去 · 跑下去","休息十分钟以后，我们继续学下去。","Xiūxi shí fēnzhōng yǐhòu, wǒmen jìxù xué xiàqù.","Sau khi nghỉ 10 phút, chúng ta tiếp tục học."],
+["着","zháo","bổ ngữ: mục đích đã đạt được","睡着 · 找着 · 买着","我的护照你找着了没有？","Wǒ de hùzhào nǐ zhǎozháo le méiyǒu?","Hộ chiếu của tôi, anh tìm thấy chưa?"]];
+
+const QA=[
+["李军为什么进不去教室了？","Lǐ Jūn wèishénme jìn bú qù jiàoshì le?","因为他忘了带房间钥匙，所以进不去教室了。","Yīnwèi tā wàng le dài fángjiān yàoshi, suǒyǐ jìn bú qù jiàoshì le."],
+["他为什么要爬进房间去了？","Tā wèishénme yào pá jìn fángjiān qù le?","他要看足球比赛，可是进不了房间，他怕来不及，所以要从窗户爬进去。","Tā yào kàn zúqiú bǐsài, kěshì jìn bù liǎo fángjiān, tā pà láibují, suǒyǐ yào cóng chuānghu pá jìnqù."],
+["他怎么爬进去的？","Tā zěnme pá jìnqù de?","他房间在三层，隔壁是水房，他从水房窗户爬过去的。","Tā fángjiān zài sān céng, gébì shì shuǐfáng, tā cóng shuǐfáng chuānghu pá guòqù de."],
+["他的腿怎么一拐一拐的？","Tā de tuǐ zěnme yì guǎi yì guǎi de?","因为他往房间里跳时不小心摔倒了。","Yīnwèi tā wǎng fángjiān lǐ tiào shí bù xiǎoxīn shuāidǎo le."]];
+// [đề, pinyin đáp án/ đáp án hán, pinyin]
+const E1=[["高兴　马东　得　睡不着　怎么　也　了","马东高兴得怎么也睡不着了。","Mǎ Dōng gāoxìng de zěnme yě shuì bù zháo le."],
+["我　不了　做　难　作业　的　那么","我做不了那么难的作业。","Wǒ zuò bù liǎo nàme nán de zuòyè."],
+["张　搬　桌子　这　动　吗　得　你","这张桌子你搬得动吗？","Zhè zhāng zhuōzi nǐ bān de dòng ma?"],
+["来　跑　在　孩子们　房间　跑　里　去","孩子们在房间里跑来跑去。","Háizimen zài fángjiān lǐ pǎo lái pǎo qù."],
+["很清楚　这个句子　解释　老师　得","这个句子老师解释得很清楚。","Zhège jùzi lǎoshī jiěshì de hěn qīngchu."],
+["这　闻　香水　我　出来　是　不　什么","我闻不出来这是什么香水。","Wǒ wén bù chūlái zhè shì shénme xiāngshuǐ."]];
+const E2=[["他汉语学得好不好？",["他学得不好","他学汉语得不好","他学不好","他学得汉语不好"],0,"Tā xué de bù hǎo"],
+["这个广播你听得懂听不懂？",["我听得不懂","我听广播得不懂","我听得很懂","我听不懂"],3,"Wǒ tīng bù dǒng"],
+["你今天进城，六点以前回得来吗？",["回得不来","回不来","回不得来","不回得来"],1,"Huí bù lái"],
+["你姐姐做中国菜做得怎么样？",["她做中国菜得很好","她做得好中国菜","她做中国菜做得很好","她做得中国菜很好"],2,"Tā zuò Zhōngguó cài zuò de hěn hǎo"]];
+const E3=[["我认识这些字，我念出来。","我认识这些字，我念不出来。","Wǒ niàn bù chūlái."],
+["我不能搬得动这张桌子。","我搬不动这张桌子。","Wǒ bān bú dòng zhè zhāng zhuōzi."],
+["我看得不见黑板上的字。","我看不见黑板上的字。","Wǒ kàn bújiàn hēibǎn shàng de zì."],
+["我这个人不说好中文。","我这个人说不好中文。","Wǒ zhège rén shuō bù hǎo Zhōngwén."],
+["这个教室坐得下坐得不下三十个学生。","这个教室坐得下坐不下三十个学生？","Zhège jiàoshì zuò de xià zuò bú xià sānshí gè xuésheng?"],
+["明天早上我来得不了。","明天早上我来不了。","Míngtiān zǎoshang wǒ lái bù liǎo."],
+["这个电话号码你记得住记得不住？","这个电话号码你记得住记不住？","Zhège diànhuà hàomǎ nǐ jì de zhù jì bú zhù?"],
+["我猜这个谜语不着。","我猜不着这个谜语。","Wǒ cāi bù zháo zhège míyǔ."]];
+
+
+const H={
+"腿":["thoái",["我的腿很疼，不能走路。|Wǒ de tuǐ hěn téng, bù néng zǒu lù.|Chân tôi rất đau, không đi bộ được.","他的腿很长，跑得很快。|Tā de tuǐ hěn cháng, pǎo de hěn kuài.|Chân anh ấy rất dài, chạy rất nhanh."]],
+"窗户":["song hộ",["请把窗户关上，外面很冷。|Qǐng bǎ chuānghu guān shàng, wàimiàn hěn lěng.|Xin đóng cửa sổ lại, bên ngoài rất lạnh.","我喜欢坐在窗户旁边看书。|Wǒ xǐhuan zuò zài chuānghu pángbiān kàn shū.|Tôi thích ngồi cạnh cửa sổ đọc sách."]],
+"隔壁":["cách bích",["隔壁住着一位老师。|Gébì zhùzhe yí wèi lǎoshī.|Nhà bên cạnh có một thầy giáo ở.","我去隔壁借一把伞。|Wǒ qù gébì jiè yì bǎ sǎn.|Tôi sang nhà bên mượn một cái ô."]],
+"水房":["thủy phòng",["我去水房洗衣服。|Wǒ qù shuǐfáng xǐ yīfu.|Tôi đến phòng giặt giặt quần áo.","水房在三楼，不在二楼。|Shuǐfáng zài sān lóu, bú zài èr lóu.|Phòng giặt ở tầng 3, không ở tầng 2."]],
+"墙":["tường",["墙上挂着一张地图。|Qiáng shàng guàzhe yì zhāng dìtú.|Trên tường treo một tấm bản đồ.","这面墙是白色的。|Zhè miàn qiáng shì báisè de.|Bức tường này màu trắng."]],
+"钉子":["đinh tử",["请给我一个钉子。|Qǐng gěi wǒ yí gè dīngzi.|Làm ơn cho tôi một cái đinh.","他用钉子把照片挂在墙上。|Tā yòng dīngzi bǎ zhàopiàn guà zài qiáng shàng.|Anh ấy dùng đinh treo ảnh lên tường."]],
+"苍蝇":["thương dăng",["饭菜上有一只苍蝇。|Fàncài shàng yǒu yì zhī cāngyíng.|Trên thức ăn có một con ruồi.","夏天苍蝇很多。|Xiàtiān cāngyíng hěn duō.|Mùa hè có rất nhiều ruồi."]],
+"蚊子":["văn tử",["晚上蚊子咬了我。|Wǎnshang wénzi yǎo le wǒ.|Buổi tối muỗi cắn tôi.","房间里有蚊子，我睡不着。|Fángjiān lǐ yǒu wénzi, wǒ shuì bù zháo.|Trong phòng có muỗi, tôi không ngủ được."]],
+"巴掌":["ba chưởng",["他打了弟弟一巴掌。|Tā dǎ le dìdi yì bāzhang.|Anh ấy tát em trai một cái.","别打人巴掌，这样不好。|Bié dǎ rén bāzhang, zhèyàng bù hǎo.|Đừng tát người khác, như vậy không tốt."]],
+"拐":["quải",["他的腿受伤了，走路一拐一拐的。|Tā de tuǐ shòushāng le, zǒulù yì guǎi yì guǎi de.|Chân anh ấy bị thương, đi đường khập khiễng.","前面往左拐就是银行。|Qiánmiàn wǎng zuǒ guǎi jiù shì yínháng.|Phía trước rẽ trái là ngân hàng. (拐 còn có nghĩa là rẽ)"]],
+"来不及":["lai bất cập",["快走吧，不然就来不及了。|Kuài zǒu ba, bùrán jiù láibují le.|Đi nhanh đi, không thì không kịp mất.","太晚了，我来不及吃早饭。|Tài wǎn le, wǒ láibují chī zǎofàn.|Muộn quá, tôi không kịp ăn sáng."]],
+"跳":["khiêu",["孩子们在草地上跳舞。|Háizimen zài cǎodì shàng tiàowǔ.|Bọn trẻ nhảy múa trên bãi cỏ.","他跳得很高。|Tā tiào de hěn gāo.|Anh ấy nhảy rất cao."]],
+"摔":["suất",["下雨天路滑，我摔了一下。|Xiàyǔ tiān lù huá, wǒ shuāi le yí xià.|Trời mưa đường trơn, tôi bị ngã một cái.","小心，别把杯子摔坏了。|Xiǎoxīn, bié bǎ bēizi shuāihuài le.|Cẩn thận, đừng làm vỡ cái cốc."]],
+"变成":["biến thành",["天气变成阴天了。|Tiānqì biànchéng yīntiān le.|Thời tiết đã chuyển sang trời âm u.","他从小孩变成了大人。|Tā cóng xiǎohái biànchéng le dàrén.|Cậu ấy từ trẻ con trở thành người lớn."]],
+"脱":["thoát",["进门请脱鞋。|Jìn mén qǐng tuō xié.|Vào cửa xin cởi giày.","天气热了，他脱了外衣。|Tiānqì rè le, tā tuō le wàiyī.|Trời nóng rồi, anh ấy cởi áo khoác."]],
+"挂":["quải",["请把帽子挂在门后面。|Qǐng bǎ màozi guà zài mén hòumiàn.|Hãy treo mũ sau cánh cửa.","他说完就挂电话了。|Tā shuō wán jiù guà diànhuà le.|Nói xong anh ấy dập máy."]],
+"掉":["điệu",["我的手机掉在地上了。|Wǒ de shǒujī diào zài dìshàng le.|Điện thoại của tôi rơi xuống đất.","蛋糕被他吃掉了。|Dàngāo bèi tā chī diào le.|Cái bánh bị anh ấy ăn hết rồi."]],
+"飞":["phi",["小鸟在天上飞。|Xiǎo niǎo zài tiānshàng fēi.|Chim nhỏ bay trên trời.","我想像鸟一样飞。|Wǒ xiǎng xiàng niǎo yíyàng fēi.|Tôi muốn bay như chim."]],
+"落":["lạc",["秋天，树叶落下来了。|Qiūtiān, shùyè luò xiàlái le.|Mùa thu, lá cây rơi xuống.","一只小鸟落在树上。|Yì zhī xiǎo niǎo luò zài shù shàng.|Một chú chim đậu trên cây."]],
+"感到":["cảm đáo",["今天我感到很累。|Jīntiān wǒ gǎndào hěn lèi.|Hôm nay tôi cảm thấy rất mệt.","听到这个消息，他感到很高兴。|Tīngdào zhège xiāoxi, tā gǎndào hěn gāoxìng.|Nghe tin này, anh ấy cảm thấy rất vui."]],
+"危险":["nguy hiểm",["这条路很危险，别走。|Zhè tiáo lù hěn wēixiǎn, bié zǒu.|Con đường này rất nguy hiểm, đừng đi.","游泳的时候要小心危险。|Yóuyǒng de shíhou yào xiǎoxīn wēixiǎn.|Khi bơi cần cẩn thận nguy hiểm."]],
+"近视":["cận thị",["他看书太多，所以近视了。|Tā kàn shū tài duō, suǒyǐ jìnshì le.|Anh ấy đọc sách nhiều quá nên bị cận.","我近视，要戴眼镜。|Wǒ jìnshì, yào dài yǎnjìng.|Tôi bị cận, phải đeo kính."]],
+"清楚":["thanh sở",["请你说清楚一点儿。|Qǐng nǐ shuō qīngchu yìdiǎnr.|Bạn hãy nói rõ hơn một chút.","这个字我看得很清楚。|Zhège zì wǒ kàn de hěn qīngchu.|Chữ này tôi nhìn rất rõ."]],
+"轻":["khinh",["这个包很轻。|Zhège bāo hěn qīng.|Cái túi này rất nhẹ.","请你轻一点儿，孩子在睡觉。|Qǐng nǐ qīng yìdiǎnr, háizi zài shuìjiào.|Bạn nhẹ tay chút, con đang ngủ."]],
+"突然":["đột nhiên",["天突然下雨了。|Tiān tūrán xiàyǔ le.|Trời đột nhiên mưa.","他突然笑了起来。|Tā tūrán xiào le qǐlái.|Anh ấy bỗng bật cười."]],
+"因为":["nhân vị",["因为下雨，所以我没去公园。|Yīnwèi xiàyǔ, suǒyǐ wǒ méi qù gōngyuán.|Vì trời mưa nên tôi không đi công viên.","他因为生病没来上课。|Tā yīnwèi shēngbìng méi lái shàngkè.|Anh ấy vì ốm nên không đến lớp."]],
+"层":["tằng",["我家在五层。|Wǒ jiā zài wǔ céng.|Nhà tôi ở tầng 5.","这个商店一共有三层。|Zhège shāngdiàn yígòng yǒu sān céng.|Cửa hàng này có tổng cộng ba tầng."]],
+"只":["chích",["我家有两只小猫。|Wǒ jiā yǒu liǎng zhī xiǎo māo.|Nhà tôi có hai con mèo con.","树上有三只鸟。|Shù shàng yǒu sān zhī niǎo.|Trên cây có ba con chim."]],
+"往":["vãng",["请往前走，不要往后看。|Qǐng wǎng qián zǒu, búyào wǎng hòu kàn.|Hãy đi về phía trước, đừng nhìn lại phía sau.","这辆车往北京开。|Zhè liàng chē wǎng Běijīng kāi.|Chiếc xe này chạy về hướng Bắc Kinh."]],
+"一下子":["nhất hạ tử",["雨一下子就大了。|Yǔ yíxiàzi jiù dà le.|Mưa loáng một cái đã to.","他一下子想起来了。|Tā yíxiàzi xiǎng qǐlái le.|Anh ấy chợt nhớ ra."]],
+"立刻":["lập khắc",["听到铃声，学生们立刻坐好。|Tīngdào língshēng, xuéshengmen lìkè zuò hǎo.|Nghe chuông, học sinh lập tức ngồi ngay ngắn.","你立刻给他打电话吧。|Nǐ lìkè gěi tā dǎ diànhuà ba.|Bạn gọi điện cho anh ấy ngay đi."]],
+"下去":["hạ khứ",["你说下去，我在听。|Nǐ shuō xiàqù, wǒ zài tīng.|Bạn nói tiếp đi, tôi đang nghe.","这本书很好看，我想看下去。|Zhè běn shū hěn hǎokàn, wǒ xiǎng kàn xiàqù.|Cuốn sách này hay, tôi muốn đọc tiếp."]],
+"着":["trước (着 zháo)",["昨天太累了，我一躺下就睡着了。|Zuótiān tài lèi le, wǒ yì tǎngxià jiù shuìzháo le.|Hôm qua mệt quá, vừa nằm xuống tôi đã ngủ thiếp đi.","我找了半天也没找着钥匙。|Wǒ zhǎo le bàntiān yě méi zhǎozháo yàoshi.|Tìm mãi tôi cũng không tìm thấy chìa khóa."]]
+};
+const GR={N,V,A,O};
+const card=(w,k,i)=>`<div class="card" data-k="${k}" data-i="${i}"><div class="w"><span class="z">${w[0]}</span><span class="p">${w[1]}</span></div><div class="vi">${w[2]}</div>${w[3]?`<div class="note">▸ ${w[3]}</div>`:''}<div class="ex"><div class="z">${w[4]}</div><div class="p">${w[5]}</div><div class="v">${w[6]}</div></div><div class="hint">👆 Bấm để xem giải thích chi tiết</div></div>`;
+const vocab=(t,sb,d,k)=>`<h2>${t}</h2><p class="sub">${sb}</p><div class="grid">${d.map((w,i)=>card(w,k,i)).join('')}</div>`;
+const rv=a=>`<button class="rv" onclick="this.nextElementSibling.classList.toggle('show')">Xem đáp án</button><div class="ans">${a}</div>`;
+const S=[];
+S.push(`<div class="hero"><svg><use href="#panda"/></svg><div class="big">第九课</div><div class="t"><b>Bài 9</b></div><div class="big" style="font-size:72px">我进不去了</div><div class="t han" style="font-size:28px;color:#4F7A4A">Wǒ jìn bú qù le</div><div class="t">Tôi không vào được rồi</div><p class="sub" style="margin-top:22px">Chọn một mục ở thanh trên cùng để bắt đầu ↑</p></div>`);
+S.push(vocab('名词 <small>Danh từ</small>','生词 Từ mới · 词语分析 & 用法',N,'N'));
+S.push(vocab('动词 <small>Động từ</small>','11 động từ · kèm cách dùng',V,'V'));
+S.push(vocab('形容词 <small>Hình dung từ</small>','5 từ',A,'A'));
+S.push(vocab('其他词语 <small>Từ loại khác</small>','Liên từ, lượng từ, giới từ, phó từ, bổ ngữ',O,'O'));
+S.push(`<h2>语法重点 <small>1. Bổ ngữ khả năng</small></h2>
+<div class="box"><h3>1. 可能补语 · Bổ ngữ khả năng</h3>
+<div class="formula"><span class="tag">Khẳng định</span>S + V + <span class="han">得</span> + bổ ngữ</div>
+<div class="formula"><span class="tag">Phủ định</span>S + V + <span class="han">不</span> + bổ ngữ</div>
+<div class="formula"><span class="tag">Nghi vấn</span>S + V<span class="han">得</span>bổ ngữ + V<span class="han">不</span>bổ ngữ ?</div>
+<p><b>Ý nghĩa:</b> diễn tả khả năng hành động có thực hiện được hay không, do <b>ngoại cảnh</b> tác động; <u>không</u> dùng để nói năng lực vốn có của bản thân.</p>
+<p><b>Cấu tạo:</b> do bổ ngữ kết quả hoặc bổ ngữ xu hướng đảm nhiệm.</p></div>
+<div class="grid">
+<div class="card"><div class="ex" style="border:0;margin:0;padding:0"><div class="z">太远了，我看不清楚黑板上的字。</div><div class="p">Tài yuǎn le, wǒ kàn bù qīngchu hēibǎn shàng de zì.</div><div class="v">Xa quá, tôi không nhìn rõ chữ trên bảng.</div></div></div>
+<div class="card"><div class="ex" style="border:0;margin:0;padding:0"><div class="z">我说的话你听得懂听不懂？— 我听得懂。</div><div class="p">Wǒ shuō de huà nǐ tīng de dǒng tīng bù dǒng? — Wǒ tīng de dǒng.</div><div class="v">Lời tôi nói bạn nghe có hiểu không? – Tôi hiểu.</div></div></div>
+<div class="card"><div class="ex" style="border:0;margin:0;padding:0"><div class="z">你做的菜有点儿多，恐怕吃不完。</div><div class="p">Nǐ zuò de cài yǒudiǎnr duō, kǒngpà chī bù wán.</div><div class="v">Bạn nấu nhiều đồ quá, sợ là ăn không hết.</div></div></div>
+<div class="card"><div class="ex" style="border:0;margin:0;padding:0"><div class="z">那座山真高啊，我爬不上去。</div><div class="p">Nà zuò shān zhēn gāo a, wǒ pá bú shàngqù.</div><div class="v">Ngọn núi kia cao quá, tôi không leo lên được.</div></div></div></div>`);
+S.push(`<h2>语法重点 <small>2. 往 + 方位词 / 处所词 + V</small></h2>
+<div class="box"><h3>2. 往 + 方位词 / 处所词 + V</h3><p>Kết cấu chỉ <b>hướng</b> của động tác.</p><div class="formula"><span class="han">往</span> + phương vị từ / từ chỉ nơi chốn + V</div>
+<div class="ex"><div class="z">从山上往下看，风景美极了！</div><div class="p">Cóng shānshàng wǎng xià kàn, fēngjǐng měi jí le!</div><div class="v">Đứng từ trên núi nhìn xuống, phong cảnh đẹp vô cùng!</div></div>
+<div class="ex"><div class="z">你到前边的楼又往左拐就到。</div><div class="p">Nǐ dào qiánbian de lóu yòu wǎng zuǒ guǎi jiù dào.</div><div class="v">Đến tòa nhà phía trước, bạn rẽ trái tiếp là tới.</div></div>
+<div class="ex"><div class="z">小鸟往天上飞去了。</div><div class="p">Xiǎo niǎo wǎng tiānshàng fēi qù le.</div><div class="v">Con chim nhỏ bay lên trời rồi.</div></div></div>
+`);
+S.push(`<h2>语法重点 <small>3. V 来 V 去</small></h2>
+<div class="box"><h3>3. V 来 V 去</h3><p>Diễn tả hành động <b>lặp đi lặp lại</b>.</p><div class="formula">V <span class="han">来</span> V <span class="han">去</span></div>
+<div class="ex"><div class="z">他在房间里走来走去，不知道是想什么呢。</div><div class="p">Tā zài fángjiān lǐ zǒu lái zǒu qù, bù zhīdào shì xiǎng shénme ne.</div><div class="v">Anh ta đi đi lại lại trong phòng, không biết đang nghĩ gì.</div></div>
+<div class="ex"><div class="z">这本书太难了，我看来看去也看不懂。</div><div class="p">Zhè běn shū tài nán le, wǒ kàn lái kàn qù yě kàn bù dǒng.</div><div class="v">Quyển sách này khó quá, tôi đọc đi đọc lại cũng không hiểu.</div></div>
+<div class="ex"><div class="z">那只蚊子飞来飞去，我打不了它。</div><div class="p">Nà zhī wénzi fēi lái fēi qù, wǒ dǎ bù liǎo tā.</div><div class="v">Con muỗi kia bay qua bay lại, tôi không đập được nó.</div></div></div>`);
+S.push(`<h2>课文内容 <small>Bài khóa</small></h2>
+<div class="box"><div class="z han" style="font-size:32px;line-height:1.8">李军出去忘了带房间钥匙，回去的时候进不去房间。他要进去看足球比赛，他怕来不及，就从隔壁水房的窗户爬过去的。不过往房间里跳时，不小心摔倒了，他的腿现在一拐一拐的。</div>
+<p style="color:#4F7A4A">Lǐ Jūn chūqù wàng le dài fángjiān yàoshi, huíqù de shíhou jìn bú qù fángjiān. Tā yào jìnqù kàn zúqiú bǐsài, tā pà láibují, jiù cóng gébì shuǐfáng de chuānghu pá guòqù de. Búguò wǎng fángjiān lǐ tiào shí, bù xiǎoxīn shuāidǎo le, tā de tuǐ xiànzài yì guǎi yì guǎi de.</p></div>
+`);
+S.push(`<h2>回答问题 <small>Trả lời câu hỏi theo bài khóa</small></h2>
+${QA.map((q,i)=>`<div class="box"><div class="q"><b>${i+1}.</b> <span class="han">${q[0]}</span><br><span style="color:#4F7A4A;font-size:21px">${q[1]}</span></div>${rv(`<span class="han">${q[2]}</span><div class="p">${q[3]}</div>`)}</div>`).join('')}`);
+
+const sh=x=>{x=[...x];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x};
+const head=(t,sb,n)=>`<h2>${t}</h2><p class="sub">${sb}</p><div class="bar"><span class="score">Điểm: <b>0</b> / ${n}</span><button class="rv" onclick="rst(this)">↻ Làm lại</button></div>`;
+const mc=(o,c,fb)=>`<div class="mc" data-c="${c}">${o.map((t,j)=>`<button class="opt han" data-j="${j}"><b>${'ABCD'[j]}.</b> ${t}</button>`).join('')}<div class="ans">${fb}</div></div>`;
+const E3W=[["我认识这些字，我念不得出来。","我认识这些字，我不能念得出来。"],["我搬动不得这张桌子。","我不搬得动这张桌子。"],["我不看得见黑板上的字。","我看见不黑板上的字。"],["我这个人不说得好中文。","我这个人说得不好中文。"],["这个教室坐得下坐得不下三十个学生？","这个教室坐不得下三十个学生吗？"],["明天早上我不来得了。","明天早上我来了不。"],["这个电话号码你记不得住记得住？","这个电话号码你记住得不记住得？"],["我不猜得着这个谜语。","我猜着不这个谜语。"]];
+S.push(()=>head('练习一 <small>Bài 1: Sắp xếp câu</small>','Bấm vào các từ để xếp thành câu đúng, rồi bấm “Kiểm tra”',6)+E1.map((e,i)=>`<div class="box sent" data-a="${e[1].replace(/[。？]/g,'')}" data-r="${e[1]}|${e[2]}"><div class="q"><b>${i+1}.</b> Câu của bạn:</div><div class="line han"></div><div class="pool han">${e[0].split('　').map(w=>`<button class="chip">${w}</button>`).join('')}</div><button class="rv chk">Kiểm tra</button><div class="ans"></div></div>`).join(''));
+S.push(()=>head('练习二 <small>Bài 2: Chọn đáp án đúng</small>','Bấm vào đáp án bạn chọn',4)+E2.map((e,i)=>`<div class="box"><div class="q"><b>${i+1}.</b> <span class="han">${e[0]}</span></div>${mc(e[1],e[2],`✔ Đáp án: <b>${'ABCD'[e[2]]}.</b> <span class="han">${e[1][e[2]]}</span><div class="p">${e[3]}</div>`)}</div>`).join(''));
+S.push(()=>head('练习三 <small>Bài 3: Chữa lỗi sai</small>','Câu bên dưới có lỗi. Hãy chọn câu đã sửa đúng',8)+E3.map((e,i)=>{const o=sh([e[1],...E3W[i]]);return `<div class="box"><div class="q"><b>${i+1}.</b> Câu sai: <span class="wrong">${e[0]}</span></div>${mc(o,o.indexOf(e[1]),`✔ Đáp án: <span class="han">${e[1]}</span><div class="p">${e[2]}</div>`)}</div>`}).join('')+`<div class="hero" style="min-height:0;margin-top:20px"><svg style="width:120px;height:120px"><use href="#panda"/></svg><div class="han" style="font-size:36px;color:#B22A1F;font-weight:900">加油！Cố lên nhé!</div></div>`);
+
+const deck=document.getElementById('deck'),dots=document.getElementById('dots'),ov=document.getElementById('ov'),pn=document.getElementById('pn'),G=[];
+S.forEach((h,i)=>{G[i]=typeof h==='function'?h:()=>h;const sc=document.createElement('section');sc.className='slide';sc.innerHTML=G[i]();deck.appendChild(sc);const d=document.createElement('i');d.onclick=()=>go(i);dots.appendChild(d)});
+let cur=0,ck='N',ci=0;
+const TABS=[{n:'Từ mới',h:'生词',items:[['Danh từ 名词',1],['Động từ 动词',2],['Hình dung từ 形容词',3],['Từ loại khác 其他',4]]},
+{n:'Ngữ pháp',h:'语法',items:[['1. Bổ ngữ khả năng',5],['2. 往 + phương vị từ',6],['3. V 来 V 去',7]]},
+{n:'Bài khóa',h:'课文',items:[['Nội dung bài khóa',8],['Trả lời câu hỏi',9]]},
+{n:'Luyện tập',h:'练习',items:[['Bài 1: Sắp xếp câu',10],['Bài 2: Chọn đáp án',11],['Bài 3: Chữa lỗi sai',12]]}];
+const tabsEl=document.getElementById('tabs'),sb=document.getElementById('sb');let curT=-1;
+tabsEl.innerHTML=TABS.map((t,i)=>`<button data-t="${i}"><span class="han">${t.h}</span> ${t.n}</button>`).join('');
+tabsEl.onclick=e=>{const b=e.target.closest('button');if(b)go(TABS[+b.dataset.t].items[0][1])};
+sb.onclick=e=>{const b=e.target.closest('button');if(b)go(+b.dataset.s)};
+function go(n){cur=Math.max(0,Math.min(S.length-1,n));[...deck.children].forEach((e,i)=>{e.classList.toggle('on',i===cur);if(i===cur)e.scrollTop=0});[...dots.children].forEach((e,i)=>e.classList.toggle('on',i===cur));
+ const ti=TABS.findIndex(t=>t.items.some(x=>x[1]===cur));[...tabsEl.children].forEach((b,i)=>b.classList.toggle('on',i===ti));
+ if(ti!==curT){curT=ti;if(ti<0)sb.classList.remove('on');else{sb.innerHTML=`<div><h4 class="han">${TABS[ti].h} · ${TABS[ti].n}</h4>${TABS[ti].items.map(x=>`<button data-s="${x[1]}">${x[0]}</button>`).join('')}</div>`;sb.classList.add('on')}}
+ sb.querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.s===cur));
+ prev.disabled=cur===0;next.disabled=cur===S.length-1;location.hash=cur+1}
+prev.onclick=()=>go(cur-1);next.onclick=()=>go(cur+1);
+const pt=el=>{const b=el.closest('.slide').querySelector('.score b');b.textContent=+b.textContent+1};
+function rst(b){const sc=b.closest('.slide'),i=[...deck.children].indexOf(sc);sc.style.opacity=0;setTimeout(()=>{sc.innerHTML=G[i]();sc.scrollTop=0;sc.style.opacity=''},450)}
+const say=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=.8;speechSynthesis.speak(u)}catch(e){}};
+let WR=[];
+function drawW(t){const box=document.getElementById('cw');if(!box)return;WR.forEach(x=>{try{x.pauseAnimation()}catch(e){}});WR=[];box.innerHTML='';
+ if(typeof HanziWriter==='undefined'){box.innerHTML='<div class="note">Cần kết nối Internet để xem hoạt hình nét viết.</div>';return}
+ [...t].forEach(ch=>{const d=document.createElement('div');d.className='cw';box.appendChild(d);
+  try{const wr=HanziWriter.create(d,ch,{width:176,height:176,padding:10,strokeColor:'#B22A1F',radicalColor:'#4F7A4A',outlineColor:'#E2D2AE',strokeAnimationSpeed:1,delayBetweenStrokes:350,delayBetweenLoops:1400,showCharacter:false,onLoadCharDataError:()=>{d.innerHTML='<div class="note" style="padding:10px">Không tải được dữ liệu nét viết</div>'}});WR.push(wr);wr.loopCharacterAnimation()}catch(e){}})}
+function fillW(){const w=GR[ck][ci],h=H[w[0]];pn.innerHTML=`<button class="x" onclick="closeW()">✕</button><div class="pl"><div class="w"><span class="z" style="font-size:84px">${w[0]}</span><span class="p" style="font-size:36px">${w[1]}</span><button class="rv" onclick="say('${w[0]}')">🔊 Nghe</button></div><div style="margin:8px 0"><span class="tag">Âm Hán Việt</span><b style="font-size:32px;color:var(--red2)">${h[0]}</b></div><div class="vi" style="font-size:32px">${w[2]}</div>${w[3]?`<div class="note">▸ ${w[3]}</div>`:''}<h3>Ví dụ (trình độ HSK 3)</h3>${h[1].map(x=>{const q=x.split('|');return `<div class="ex"><div class="z">${q[0]}</div><div class="p">${q[1]}</div><div class="v">${q[2]}</div></div>`}).join('')}<h3>Ví dụ trong bài</h3><div class="ex"><div class="z">${w[4]}</div><div class="p">${w[5]}</div><div class="v">${w[6]}</div></div><div class="mnav"><button class="rv" onclick="stepW(-1)">◀ Từ trước</button><span>${ci+1} / ${GR[ck].length}</span><button class="rv" onclick="stepW(1)">Từ sau ▶</button></div></div><div class="pr"><h3 style="margin-top:0">✍️ Cách viết · thứ tự nét</h3><div id="cw" class="cws"></div><button class="rv" onclick="drawW('${w[0]}')">↻ Xem lại</button><p class="note" style="margin-top:12px">Hoạt hình tự lặp lại: viết từng nét theo đúng thứ tự.</p></div>`;drawW(w[0])}
+function showW(k,i,o){ck=k;ci=i;if(o){fillW();pn.scrollTop=0;ov.classList.add('on')}else{pn.classList.add('sw');setTimeout(()=>{fillW();pn.scrollTop=0;pn.classList.remove('sw')},260)}}
+function stepW(d){const n=GR[ck].length;showW(ck,(ci+d+n)%n)}
+function closeW(){ov.classList.remove('on');try{speechSynthesis.cancel()}catch(e){}}
+ov.onclick=e=>{if(e.target===ov)closeW()};
+deck.addEventListener('click',e=>{
+ const c=e.target.closest('.chip');
+ if(c){const b=c.closest('.sent');if(b.dataset.done)return;const ln=b.querySelector('.line'),pl=b.querySelector('.pool');(c.parentNode===pl?ln:pl).appendChild(c);b.querySelector('.ans').classList.remove('show');return}
+ const k=e.target.closest('.chk');
+ if(k){const b=k.closest('.sent'),a=b.querySelector('.ans'),u=[...b.querySelectorAll('.line .chip')].map(x=>x.textContent).join(''),ok=u===b.dataset.a,r=b.dataset.r.split('|');
+  a.className='ans show '+(ok?'good':'badc');a.innerHTML=ok?`✔ Chính xác!<div class="han" style="font-size:30px">${r[0]}</div><div class="p">${r[1]}</div>`:'✘ Chưa đúng, hãy sắp xếp lại nhé!';
+  if(ok){b.dataset.done=1;pt(b)}return}
+ const o=e.target.closest('.opt');
+ if(o){const m=o.closest('.mc');if(m.classList.contains('done'))return;m.classList.add('done');const c2=+m.dataset.c,j=+o.dataset.j;[...m.querySelectorAll('.opt')].forEach((x,n)=>{if(n===c2)x.classList.add('ok');else if(n===j)x.classList.add('bad')});m.querySelector('.ans').classList.add('show');if(j===c2)pt(m);return}
+ const w=e.target.closest('.card[data-k]');if(w)showW(w.dataset.k,+w.dataset.i,true)
+});
+addEventListener('keydown',e=>{const m=ov.classList.contains('on');if(e.key==='Escape')closeW();if(m){if(e.key==='ArrowRight')stepW(1);if(e.key==='ArrowLeft')stepW(-1);return}if(e.key==='ArrowRight'||e.key==='PageDown')go(cur+1);if(e.key==='ArrowLeft'||e.key==='PageUp')go(cur-1)});
+go((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>

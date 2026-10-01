@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博雅汉语 II · Bài 5 · 这家餐厅的菜不错</title>
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --paper:#F4F5F1;
+  --paper-deep:#E9EBE4;
+  --ink:#273140;
+  --ink-soft:#63707E;
+  --card:#FFFFFF;
+  --line:#DEE2D9;
+  --accent:#8FBF9F;
+  --accent-soft:#E4F1E7;
+  --jade:#3F7D6B;
+  --jade-soft:#DCEAE4;
+  --red:#B8564A;
+  --red-soft:#F3DEDA;
+  --shadow: 0 10px 30px rgba(39,49,64,0.07);
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;min-height:100vh;position:relative;overflow-x:hidden;}
+.hanzi{font-family:'Noto Serif SC',serif;}
+.zh{font-family:'Noto Sans SC','Inter',sans-serif;}
+
+.season-blob{position:fixed;width:460px;height:460px;border-radius:50%;filter:blur(110px);opacity:.32;z-index:-1;transition:background-color .8s ease;pointer-events:none;}
+#blob1{top:-150px;left:60px;}
+#blob2{bottom:-170px;right:-90px;}
+
+#app{max-width:1600px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:18px 26px 90px;}
+
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 4px 18px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap;}
+.lib-back{display:flex;align-items:center;gap:5px;text-decoration:none;color:var(--ink-soft);border:1px solid var(--line);background:var(--card);padding:6px 12px 6px 9px;border-radius:999px;font-size:12px;font-weight:600;box-shadow:var(--shadow);transition:.15s;margin-right:6px;}
+.lib-back:hover{color:var(--ink);border-color:var(--accent);}
+.lib-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;}
+.fs-btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:.15s;}
+.fs-btn:hover{color:var(--ink);border-color:var(--accent);}
+.fs-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+.fs-exit{position:fixed;top:16px;right:16px;z-index:80;display:none;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;align-items:center;justify-content:center;font-size:16px;}
+.fs-exit svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
+body.presentation .fs-exit{display:flex;}
+body.presentation{background:#0B0F14;}
+body.presentation #app{max-width:100%;padding:0;min-height:100vh;display:flex;align-items:center;justify-content:center;}
+body.presentation header,body.presentation #reviewTabs{display:none;}
+body.presentation main{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;}
+body.presentation #stage{aspect-ratio:unset;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;}
+body.presentation .slide{aspect-ratio:16/9;width:min(100vw,177.78vh);height:min(100vh,56.25vw);margin:auto;border-radius:0;box-shadow:none;}
+body.presentation footer{background:transparent;padding:0 0 22px;}
+body.presentation .dots span{background:rgba(255,255,255,.3);}
+body.presentation .dots span.active{background:#fff;}
+body.presentation .nav-btn{background:rgba(255,255,255,.14);backdrop-filter:blur(6px);opacity:.55;transition:opacity .2s;}
+body.presentation .nav-btn:hover{opacity:1;}
+body.presentation .season-blob{display:none;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand .side-mark{font-family:'Noto Serif SC',serif;font-weight:900;font-size:18px;background:var(--ink);color:var(--paper);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:0 0 32px;}
+.brand .txt small{display:block;color:var(--ink-soft);font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+.brand .txt strong{font-size:15px;letter-spacing:.01em;}
+
+.weather-badge{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 8px;box-shadow:var(--shadow);}
+.weather-badge .dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif SC',serif;font-weight:700;font-size:13px;color:#fff;transition:background-color .6s;}
+.weather-badge span{font-size:12px;color:var(--ink-soft);}
+
+.mode-switch{display:flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px;box-shadow:var(--shadow);}
+.mode-switch button{border:none;background:transparent;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink-soft);transition:.2s;display:flex;align-items:center;gap:6px;}
+.mode-switch button svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;}
+.mode-switch button.active{background:var(--ink);color:var(--paper);}
+
+#reviewTabs{display:none;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.review-tab{border:1px solid var(--line);background:var(--card);padding:10px 18px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink-soft);cursor:pointer;box-shadow:var(--shadow);}
+.review-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+main{flex:1;display:flex;flex-direction:column;}
+#stage{width:100%;aspect-ratio:16/9;}
+.slide{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:34px 44px;width:100%;height:100%;display:flex;flex-direction:column;gap:16px;animation:fade .35s ease;overflow-y:auto;}
+@keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;filter:brightness(.75);}
+.slide h2{margin:0;font-family:'Noto Serif SC',serif;font-size:24px;}
+
+.cover{padding:0;overflow:hidden;justify-content:center;background:linear-gradient(160deg,#EAF2FB 0%,#F7ECF3 45%,#FDF3E4 100%);}
+.cover-lattice{position:absolute;width:200px;height:200px;opacity:.16;z-index:1;color:#273140;}
+.cover-lattice svg{width:100%;height:100%;}
+.corner-tl{top:-40px;left:-40px;}
+.corner-br{bottom:-40px;right:-40px;transform:rotate(180deg);}
+.cover-sticker{position:absolute;z-index:2;filter:drop-shadow(0 6px 10px rgba(39,49,64,.15));}
+.cover-sticker .float-inner{animation:floaty 4.5s ease-in-out infinite;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+.s1{width:66px;height:66px;top:6%;left:5%;transform:rotate(-10deg);}
+.s2{width:72px;height:72px;top:7%;right:7%;transform:rotate(12deg);}
+.s3{width:52px;height:52px;bottom:10%;left:7%;transform:rotate(-14deg);}
+.s4{width:56px;height:56px;bottom:9%;right:9%;transform:rotate(10deg);}
+.s5{width:44px;height:44px;top:40%;left:2.5%;transform:rotate(-6deg);opacity:.9;}
+.s6{width:48px;height:48px;top:36%;right:3%;transform:rotate(8deg);opacity:.9;}
+.cover-card{position:relative;z-index:3;background:rgba(255,255,255,.72);backdrop-filter:blur(6px);border-radius:22px;padding:26px 44px;box-shadow:0 14px 34px rgba(39,49,64,.1);text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;margin:0 auto;max-width:480px;}
+.cover-card .num{font-family:'Noto Serif SC',serif;font-weight:900;font-size:48px;-webkit-text-stroke:2px var(--accent);color:transparent;line-height:1;}
+.cover-card .title-zh{font-family:'Noto Serif SC',serif;font-weight:900;font-size:34px;margin:2px 0;}
+.cover-card .title-py{color:var(--ink-soft);font-size:13px;letter-spacing:.04em;}
+.cover-card .sub{margin-top:8px;font-size:12.5px;color:var(--ink-soft);background:var(--paper-deep);padding:5px 14px;border-radius:999px;}
+
+.corner-sticker{position:absolute;top:12px;right:12px;width:118px;height:118px;z-index:6;animation:stickerFloat 4.5s ease-in-out infinite;filter:drop-shadow(0 8px 14px rgba(39,49,64,.2));}
+.corner-sticker .sun{position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(#FFE07A 0deg 11.25deg, #FFC53D 11.25deg 22.5deg);}
+.corner-sticker .ring{position:absolute;inset:-5px;border-radius:50%;border:2px dashed rgba(255,255,255,.9);}
+.corner-sticker .art{position:absolute;inset:0;}
+.corner-sticker .art svg{width:100%;height:100%;}
+@keyframes stickerFloat{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-5px) rotate(2deg);}}
+
+.campus-map{display:flex;align-items:center;gap:10px;background:var(--paper-deep);border-radius:14px;padding:12px 16px;flex-wrap:wrap;}
+.campus-map .node{display:flex;flex-direction:column;gap:2px;padding:6px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);}
+.campus-map .node b{font-family:'Noto Serif SC',serif;font-size:14.5px;}
+.campus-map .node small{color:var(--ink-soft);font-size:10.5px;}
+.campus-map .arrow{flex:1;min-width:70px;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.campus-map .arrow svg{width:100%;height:14px;}
+.campus-map .arrow span{font-size:10px;color:var(--jade);font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+
+.dline{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--line);}
+.dline:last-child{border-bottom:none;}
+.dline .spk{flex:0 0 66px;font-weight:700;font-size:12.5px;color:var(--jade);padding-top:4px;}
+.dline .content{flex:1;}
+.dline .h{font-family:'Noto Serif SC',serif;font-size:19px;line-height:1.45;}
+.dline .p{color:var(--ink-soft);font-size:12px;margin-top:3px;}
+.dline .vi{font-size:12px;margin-top:5px;color:var(--ink);background:var(--paper-deep);display:inline-block;padding:2px 9px;border-radius:8px;}
+#dialogueBlock.hide-py .p{display:none;}
+#dialogueBlock.hide-vi .vi{display:none;}
+.speak-btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:12px;flex:0 0 28px;}
+.speak-btn:hover{background:var(--accent-soft);}
+.dialogue-toolbar{display:flex;gap:10px;flex-wrap:wrap;}
+.vword{border-bottom:2px dotted var(--accent);cursor:pointer;padding:0 1px;border-radius:3px;transition:.15s;}
+.vword:hover{background:var(--accent-soft);}
+.chip-row{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:2px;padding-top:12px;border-top:1px solid var(--line);}
+.chip-label{font-size:11.5px;color:var(--ink-soft);margin-right:2px;}
+.vchip{border:1px solid var(--line);background:var(--paper);padding:4px 11px;border-radius:999px;font-family:'Noto Serif SC',serif;font-size:14px;cursor:pointer;transition:.15s;}
+.vchip:hover{background:var(--accent-soft);border-color:var(--accent);}
+
+.gram-section{display:flex;flex-direction:column;gap:14px;padding-top:14px;border-top:1px solid var(--line);}
+.gram-card{display:flex;flex-direction:column;gap:6px;}
+.gram-title{font-family:'Noto Serif SC',serif;font-size:15.5px;font-weight:700;}
+.gexample{font-family:'Noto Serif SC',serif;font-size:18px;background:var(--jade-soft);padding:10px 14px;border-radius:12px;border-left:4px solid var(--jade);}
+.gexplain{font-size:13.3px;line-height:1.55;}
+.gmore{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
+.gmore li{font-family:'Noto Serif SC',serif;font-size:14.5px;background:var(--paper-deep);padding:6px 12px;border-radius:10px;}
+
+.reveal-btn{align-self:flex-start;border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:8px 16px;border-radius:999px;font-size:12.5px;cursor:pointer;font-weight:600;}
+.reveal-btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.reveal-btn.small{padding:5px 12px;font-size:11.5px;}
+
+.reorder-item{border:1px solid var(--line);border-radius:14px;padding:12px 16px;background:var(--paper);display:flex;flex-direction:column;gap:8px;transition:background-color .35s ease,border-color .35s ease;}
+.reorder-item.correct{border-color:var(--jade);background:var(--jade-soft);animation:pulseCorrect .45s ease;}
+.reorder-item.wrong{border-color:var(--red);background:var(--red-soft);animation:shakeWrong .45s ease;}
+.reorder-idx{font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
+.reorder-answer{min-height:38px;display:flex;flex-wrap:wrap;gap:7px;align-items:center;border:1px dashed var(--line);border-radius:10px;padding:6px 9px;background:#fff;transition:background-color .3s ease,border-color .3s ease;}
+.reorder-answer .placeholder{font-size:12.5px;color:var(--ink-soft);transition:opacity .25s ease;}
+.reorder-bank{display:flex;flex-wrap:wrap;gap:7px;}
+.chunk{border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-family:'Noto Serif SC',serif;font-size:15px;cursor:pointer;background:#fff;transition:transform .15s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease;animation:chunkPop .28s cubic-bezier(.34,1.56,.64,1);will-change:transform;}
+.chunk:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(39,49,64,.1);}
+.chunk:active{transform:translateY(0) scale(.96);}
+.chunk.ans{background:var(--accent-soft);border-color:var(--accent);animation:chunkDrop .28s cubic-bezier(.34,1.56,.64,1);}
+.chunk.bank:hover{background:var(--accent-soft);}
+.reorder-actions{display:flex;align-items:center;gap:10px;}
+.fb-note{font-size:12.5px;font-weight:600;animation:fbIn .3s ease;}
+@keyframes chunkPop{from{opacity:0;transform:scale(.6);}to{opacity:1;transform:scale(1);}}
+@keyframes chunkDrop{0%{opacity:0;transform:translateY(-10px) scale(.85);}60%{opacity:1;transform:translateY(2px) scale(1.03);}100%{transform:translateY(0) scale(1);}}
+@keyframes shakeWrong{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+@keyframes pulseCorrect{0%{transform:scale(1);}35%{transform:scale(1.015);}100%{transform:scale(1);}}
+@keyframes fbIn{from{opacity:0;transform:translateY(-3px);}to{opacity:1;transform:translateY(0);}}
+
+.translate-item{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--paper);display:flex;flex-direction:column;gap:8px;}
+.translate-vi{font-size:14px;font-weight:600;}
+.translate-input{border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-family:'Noto Serif SC',serif;font-size:15px;width:100%;resize:none;background:#fff;}
+.translate-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.translate-feedback{font-size:12.5px;font-weight:600;}
+.translate-answer{display:none;background:var(--jade-soft);border:1px solid var(--jade);border-radius:10px;padding:9px 13px;}
+.translate-answer.shown{display:block;}
+.translate-answer .h{font-family:'Noto Serif SC',serif;font-size:16.5px;}
+.translate-answer .p{font-size:12px;color:var(--jade);margin-top:2px;}
+.translate-item.t-correct{border-color:var(--jade);}
+.translate-item.t-wrong{border-color:var(--red);}
+
+.speak-topic{border:1px solid var(--line);background:var(--accent-soft);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;}
+.speak-q{font-size:13.5px;}
+.speak-guide{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px;font-family:'Noto Serif SC',serif;font-size:14.5px;}
+.speak-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.speak-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.speak-card .ic{width:44px;height:44px;}
+.speak-card .name{font-family:'Noto Serif SC',serif;font-size:14.5px;font-weight:700;}
+.speak-card .q{font-size:11px;color:var(--ink-soft);}
+.pattern-box{border:1px solid var(--line);background:var(--paper-deep);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;}
+
+footer{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(180deg,rgba(244,245,241,0),var(--paper) 30%);padding:16px 0 20px;z-index:9;}
+.nav-wrap{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;padding:0 18px;}
+.nav-btn{border:none;background:var(--ink);color:var(--paper);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:15px;flex:0 0 40px;box-shadow:var(--shadow);}
+.nav-btn:disabled{opacity:.3;cursor:default;}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+.dots span{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;}
+.dots span.active{background:var(--accent);width:22px;border-radius:5px;filter:brightness(.8);}
+
+.vmodal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px;}
+.vmodal-backdrop{position:absolute;inset:0;background:rgba(39,49,64,.55);opacity:0;transition:opacity .3s;}
+.vmodal.open .vmodal-backdrop{opacity:1;}
+.vmodal-card{position:relative;width:min(900px,100%);max-height:90vh;overflow:auto;background:var(--card);border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.28);transform:scale(.82) translateY(18px);opacity:0;transition:transform .38s cubic-bezier(.2,.8,.2,1),opacity .28s;}
+.vmodal.open .vmodal-card{transform:scale(1) translateY(0);opacity:1;}
+.vmodal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:14px;z-index:2;}
+.vmodal-close:hover{background:var(--accent-soft);}
+.vmodal-body{display:flex;align-items:stretch;}
+.vmodal-left{flex:2;padding:34px 30px;display:flex;flex-direction:column;gap:14px;}
+.vmodal-right{flex:1;background:var(--paper-deep);padding:28px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border-left:1px solid var(--line);}
+.vword-hanzi{font-family:'Noto Serif SC',serif;font-weight:900;font-size:48px;}
+.vword-pinyin{color:var(--accent);filter:brightness(.7);font-size:17px;}
+.vword-hanviet{font-size:13px;color:var(--ink-soft);}
+.vword-pos{display:inline-block;font-size:11px;text-transform:uppercase;background:var(--paper-deep);padding:2px 8px;border-radius:6px;color:var(--ink-soft);width:fit-content;}
+.vword-meaning,.vword-usage{font-size:14.5px;line-height:1.65;}
+.radical-box{display:flex;align-items:center;gap:14px;background:var(--accent-soft);border-radius:14px;padding:12px 16px;}
+.radical-badge{font-size:26px;background:#fff;border:1px solid var(--line);border-radius:10px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;flex:0 0 46px;}
+.radical-text{flex:1;}
+.radical-name{font-size:11.5px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
+.mnemonic-text{font-size:13.5px;line-height:1.55;margin-top:2px;}
+.radical-icon{width:44px;height:44px;flex:0 0 44px;}
+.radical-icon svg{width:100%;height:100%;}
+.vword-examples{display:flex;flex-direction:column;gap:10px;margin-top:2px;}
+.ex-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px;}
+.ex-h{font-size:18px;}
+.ex-p{font-size:12.5px;color:var(--accent);filter:brightness(.7);margin-top:2px;}
+.ex-vi{font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+.stroke-col{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;}
+.stroke-box{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.stroke-target{background:#fff;border:1px solid var(--line);border-radius:12px;width:110px;height:110px;}
+.stroke-char{font-size:13px;color:var(--ink-soft);}
+
+@media(max-width:800px){
+  #stage{aspect-ratio:auto;}
+  .slide{padding:24px 20px;overflow-y:visible;}
+}
+@media(max-width:640px){
+  .cover-card{padding:22px 20px;}
+  .cover-card .title-zh{font-size:28px;}
+  .vmodal-body{flex-direction:column;}
+  .vmodal-right{border-left:none;border-top:1px solid var(--line);}
+  .speak-cards{grid-template-columns:repeat(2,1fr);}
+  .corner-sticker{width:78px;height:78px;top:8px;right:8px;}
+}
+
+/* ===== Chuẩn thiết kế mới: font to hơn + giao diện tận dụng toàn màn hình ===== */
+.slide{padding:40px 56px;}
+.slide h2{font-size:29px;}
+.eyebrow{font-size:14px;}
+.dline{padding:13px 0;}
+.dline .spk{font-size:14.5px;flex:0 0 76px;}
+.dline .h{font-size:24px;}
+.dline .p{font-size:15px;}
+.dline .vi{font-size:15px;padding:4px 12px;}
+.vchip{font-size:16px;padding:6px 15px;}
+.chip-label{font-size:13px;}
+.gram-title{font-size:18px;}
+.gexample{font-size:21px;padding:12px 16px;}
+.gexplain{font-size:15px;}
+.gmore li{font-size:16px;}
+.speak-q{font-size:15px;}
+.speak-guide{font-size:16px;}
+.speak-card .name{font-size:16px;}
+.speak-card .q{font-size:12.5px;}
+.reorder-idx{font-size:12.5px;}
+.chunk{font-size:17px;padding:8px 16px;}
+.reveal-btn{font-size:14px;padding:9px 18px;}
+.translate-vi{font-size:16px;}
+.translate-input{font-size:17px;}
+.translate-answer .h{font-size:18px;}
+.vword-hanzi{font-size:56px;}
+.vword-pinyin{font-size:19px;}
+.vword-hanviet{font-size:15px;}
+.vword-meaning,.vword-usage{font-size:16px;}
+.mnemonic-text{font-size:15px;}
+.radical-name{font-size:13px;}
+.ex-h{font-size:20px;}
+.ex-p,.ex-vi{font-size:14px;}
+.cover-card{padding:32px 54px;max-width:600px;}
+.cover-card .title-zh{font-size:42px;}
+.cover-card .title-py{font-size:15px;}
+.cover-card .sub{font-size:14px;}
+.cover-card .num{font-size:56px;}
+.campus-map .node b{font-size:17px;}
+.campus-map .node small{font-size:12.5px;}
+.campus-map .arrow span{font-size:11.5px;}
+@media(min-width:1500px){
+  #stage{max-width:1500px;margin:0 auto;}
+}
+</style>
+</head>
+<body>
+<div class="season-blob" id="blob1"></div>
+<div class="season-blob" id="blob2"></div>
+<div id="app">
+  <header>
+    <div class="brand">
+      <a href="../index.html" class="lib-back" title="Quay lại thư viện bài học">
+        <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>
+        <span>Thư viện</span>
+      </a>
+      <div class="side-mark">博</div>
+      <div class="txt"><small>Boya Chinese · 初级起步篇 II</small><strong>Bài 5 · Nhà hàng &amp; ẩm thực</strong></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="weather-badge" id="weatherBadge"><div class="dot" id="weatherDot">厅</div><span id="weatherLabel">Nhà hàng</span></div>
+      <button class="fs-btn" id="fsBtn" title="Trình chiếu toàn màn hình">
+        <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      </button>
+      <div class="mode-switch">
+        <button id="navNew" class="active">
+          <svg viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5V4.5Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+          Bài mới
+        </button>
+        <button id="navReview">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Ôn tập
+        </button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="reviewTabs"></div>
+    <div id="stage"><div class="slide" id="slideArea"></div></div>
+  </main>
+  <footer>
+    <div class="nav-wrap">
+      <button class="nav-btn" id="prevBtn">‹</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav-btn" id="nextBtn">›</button>
+    </div>
+  </footer>
+  <button class="fs-exit" id="fsExit" title="Thoát trình chiếu (Esc)">
+    <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><line x1="4" y1="4" x2="20" y2="20"/></svg>
+  </button>
+</div>
+
+<div class="vmodal" id="vocabModal">
+  <div class="vmodal-backdrop"></div>
+  <div class="vmodal-card">
+    <button class="vmodal-close" id="vmodalClose">✕</button>
+    <div class="vmodal-body">
+      <div class="vmodal-left">
+        <div>
+          <div class="vword-hanzi hanzi" id="vwHanzi"></div>
+          <div class="vword-pinyin" id="vwPinyin"></div>
+          <div class="vword-hanviet" id="vwHanviet"></div>
+          <div class="vword-pos" id="vwPos"></div>
+        </div>
+        <div class="vword-meaning" id="vwMeaning"></div>
+        <div class="vword-usage" id="vwUsage"></div>
+        <div id="vwRadicalSection"></div>
+        <div class="vword-examples" id="vwExamples"></div>
+      </div>
+      <div class="vmodal-right">
+        <div class="eyebrow" style="margin:0;">笔顺 · Cách viết</div>
+        <div class="stroke-col" id="strokePanel"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+/* ---------- ICONS ---------- */
+const ICONS = {
+book:`<svg viewBox="0 0 100 100"><path d="M50 25 C40 15 20 15 12 22 V78 C20 71 40 71 50 81 C60 71 80 71 88 78 V22 C80 15 60 15 50 25Z" fill="#D08B5B"/><line x1="50" y1="25" x2="50" y2="81" stroke="#8A5A2B" stroke-width="3"/></svg>`,
+globe:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#7FA6D6"/><ellipse cx="50" cy="50" rx="16" ry="38" fill="none" stroke="#fff" stroke-width="3"/><line x1="12" y1="50" x2="88" y2="50" stroke="#fff" stroke-width="3"/><ellipse cx="50" cy="50" rx="38" ry="16" fill="none" stroke="#fff" stroke-width="3"/></svg>`,
+link:`<svg viewBox="0 0 100 100"><circle cx="38" cy="50" r="20" fill="none" stroke="#E3B15E" stroke-width="9"/><circle cx="62" cy="50" r="20" fill="none" stroke="#D08B5B" stroke-width="9"/></svg>`,
+chat:`<svg viewBox="0 0 100 100"><path d="M15 25 h70 a8 8 0 0 1 8 8 v34 a8 8 0 0 1 -8 8 H45 L28 90 V75 H15 a8 8 0 0 1 -8 -8 V33 a8 8 0 0 1 8 -8 Z" fill="#8FBF9F"/><circle cx="35" cy="50" r="4" fill="#fff"/><circle cx="50" cy="50" r="4" fill="#fff"/><circle cx="65" cy="50" r="4" fill="#fff"/></svg>`,
+cap:`<svg viewBox="0 0 100 100"><polygon points="50,20 90,38 50,56 10,38" fill="#273140"/><polygon points="50,56 78,44 78,64 50,76 22,64 22,44" fill="#3A4B5E"/><line x1="90" y1="38" x2="90" y2="62" stroke="#C9564D" stroke-width="3"/><circle cx="90" cy="65" r="3" fill="#C9564D"/></svg>`,
+clock:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#F3C969"/><line x1="50" y1="50" x2="50" y2="28" stroke="#273140" stroke-width="4" stroke-linecap="round"/><line x1="50" y1="50" x2="66" y2="58" stroke="#273140" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="4" fill="#273140"/></svg>`,
+compassE:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#F3E1D2" stroke="#D08B5B" stroke-width="3"/><polygon points="30,50 62,34 62,44 78,44 78,56 62,56 62,66" fill="#D08B5B"/></svg>`,
+compassW:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#E4EAF3" stroke="#7FA6D6" stroke-width="3"/><polygon points="70,50 38,34 38,44 22,44 22,56 38,56 38,66" fill="#7FA6D6"/></svg>`,
+hold:`<svg viewBox="0 0 100 100"><path d="M25 55 Q25 30 50 30 Q75 30 75 55 L75 70 Q75 80 65 80 H35 Q25 80 25 70 Z" fill="#E3B15E"/><circle cx="50" cy="45" r="10" fill="#F6D9C4"/></svg>`,
+wave:`<svg viewBox="0 0 100 100"><circle cx="50" cy="55" r="30" fill="#F6D9C4"/><path d="M40 30 Q35 15 45 12 Q42 25 48 30" fill="#F6D9C4"/><path d="M50 28 Q48 10 58 10 Q54 24 58 30" fill="#F6D9C4"/><path d="M60 30 Q60 15 68 15 Q66 26 66 32" fill="#F6D9C4"/><circle cx="42" cy="58" r="3" fill="#7A5B4A"/><circle cx="58" cy="58" r="3" fill="#7A5B4A"/><path d="M38 68 Q50 78 62 68" stroke="#7A5B4A" stroke-width="4" fill="none" stroke-linecap="round"/></svg>`,
+go:`<svg viewBox="0 0 100 100"><ellipse cx="40" cy="35" rx="10" ry="16" fill="#8FBF9F" transform="rotate(-15 40 35)"/><ellipse cx="62" cy="65" rx="10" ry="16" fill="#8FBF9F" transform="rotate(15 62 65)"/></svg>`,
+ball:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="#fff" stroke="#273140" stroke-width="3"/><path d="M50 14 L58 40 L50 50 L42 40Z" fill="#273140"/><path d="M50 86 L58 60 L50 50 L42 60Z" fill="#273140"/><path d="M14 50 L40 42 L50 50 L40 58Z" fill="#273140"/><path d="M86 50 L60 42 L50 50 L60 58Z" fill="#273140"/></svg>`,
+door:`<svg viewBox="0 0 100 100"><rect x="28" y="14" width="44" height="76" rx="4" fill="#AFC6E0" stroke="#7FA6D6" stroke-width="3"/><circle cx="62" cy="52" r="4" fill="#273140"/></svg>`,
+board:`<svg viewBox="0 0 100 100"><rect x="14" y="20" width="72" height="48" rx="4" fill="#3F7D6B"/><line x1="24" y1="34" x2="60" y2="34" stroke="#fff" stroke-width="3" stroke-linecap="round"/><line x1="24" y1="46" x2="70" y2="46" stroke="#fff" stroke-width="3" stroke-linecap="round"/><line x1="24" y1="58" x2="50" y2="58" stroke="#fff" stroke-width="3" stroke-linecap="round"/><rect x="30" y="68" width="40" height="6" rx="2" fill="#D9C89A"/></svg>`,
+beside:`<svg viewBox="0 0 100 100"><circle cx="35" cy="50" r="20" fill="#E3B15E"/><circle cx="70" cy="50" r="12" fill="#8FBF9F"/><path d="M50 50 h8" stroke="#273140" stroke-width="3" stroke-dasharray="2 3"/></svg>`,
+check:`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="#8FBF9F"/><path d="M32 52 L44 64 L70 36" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+bike:`<svg viewBox="0 0 100 100"><circle cx="28" cy="70" r="16" fill="none" stroke="#3F7D6B" stroke-width="5"/><circle cx="72" cy="70" r="16" fill="none" stroke="#3F7D6B" stroke-width="5"/><path d="M28 70 L45 40 L72 70 M45 40 L38 70 M45 40 L60 40" stroke="#273140" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 40 L66 30" stroke="#273140" stroke-width="4" stroke-linecap="round"/></svg>`,
+car:`<svg viewBox="0 0 100 100"><rect x="15" y="45" width="70" height="22" rx="6" fill="#D08B5B"/><path d="M28 45 L38 28 H62 L72 45Z" fill="#D08B5B"/><rect x="34" y="32" width="12" height="12" fill="#F3E1D2"/><rect x="54" y="32" width="12" height="12" fill="#F3E1D2"/><circle cx="30" cy="68" r="9" fill="#273140"/><circle cx="70" cy="68" r="9" fill="#273140"/></svg>`,
+people:`<svg viewBox="0 0 100 100"><circle cx="35" cy="30" r="12" fill="#E3B15E"/><path d="M18 78 Q18 52 35 52 Q52 52 52 78Z" fill="#E3B15E"/><circle cx="66" cy="34" r="10" fill="#7FA6D6"/><path d="M52 80 Q52 58 66 58 Q80 58 80 80Z" fill="#7FA6D6"/></svg>`,
+map:`<svg viewBox="0 0 100 100"><path d="M15 30 L38 20 L60 30 L85 22 L85 65 L62 75 L40 65 L15 75Z" fill="#8FBF9F" stroke="#3F7D6B" stroke-width="3" stroke-linejoin="round"/><line x1="38" y1="20" x2="38" y2="65" stroke="#3F7D6B" stroke-width="2" stroke-dasharray="4 3"/><line x1="62" y1="30" x2="62" y2="75" stroke="#3F7D6B" stroke-width="2" stroke-dasharray="4 3"/></svg>`,
+river:`<svg viewBox="0 0 100 100"><path d="M10 35 Q30 20 50 35 T90 35" stroke="#7FA6D6" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M10 55 Q30 40 50 55 T90 55" stroke="#7FA6D6" stroke-width="6" fill="none" stroke-linecap="round" opacity=".7"/><path d="M10 75 Q30 60 50 75 T90 75" stroke="#7FA6D6" stroke-width="6" fill="none" stroke-linecap="round" opacity=".45"/></svg>`,
+flag:`<svg viewBox="0 0 100 100"><line x1="30" y1="15" x2="30" y2="88" stroke="#273140" stroke-width="4" stroke-linecap="round"/><path d="M30 20 L78 30 L30 45Z" fill="#C9564D"/><circle cx="30" cy="88" r="6" fill="#273140"/></svg>`,
+scale:`<svg viewBox="0 0 100 100"><line x1="50" y1="15" x2="50" y2="80" stroke="#273140" stroke-width="4"/><line x1="20" y1="30" x2="80" y2="30" stroke="#273140" stroke-width="4" stroke-linecap="round"/><path d="M20 30 L10 55 Q20 65 30 55Z" fill="#E3B15E" stroke="#273140" stroke-width="2"/><path d="M80 30 L70 55 Q80 65 90 55Z" fill="#7FA6D6" stroke="#273140" stroke-width="2"/><rect x="35" y="80" width="30" height="8" rx="2" fill="#273140"/></svg>`,
+bowl:`<svg viewBox="0 0 100 100"><path d="M15 45 Q15 75 50 75 Q85 75 85 45Z" fill="#E3B15E" stroke="#8A6427" stroke-width="3"/><ellipse cx="50" cy="45" rx="35" ry="10" fill="#FBEDD4" stroke="#8A6427" stroke-width="3"/><path d="M35 40 Q40 30 50 38 Q60 28 65 40" stroke="#D08B5B" stroke-width="4" fill="none" stroke-linecap="round"/></svg>`,
+money:`<svg viewBox="0 0 100 100"><rect x="15" y="30" width="70" height="40" rx="6" fill="#8FBF9F" stroke="#3F7D6B" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="#FBEDD4" stroke="#8A6427" stroke-width="2"/><text x="50" y="56" font-size="16" text-anchor="middle" fill="#8A6427" font-family="Arial" font-weight="bold">¥</text></svg>`,
+waiter:`<svg viewBox="0 0 100 100"><circle cx="50" cy="28" r="14" fill="#F6D9C4"/><path d="M30 85 Q30 55 50 55 Q70 55 70 85Z" fill="#7FA6D6"/><rect x="16" y="56" width="20" height="6" rx="2" fill="#fff" transform="rotate(-15 16 56)"/><circle cx="14" cy="54" r="9" fill="#fff" stroke="#DEE2D9" stroke-width="2"/></svg>`,
+pepper:`<svg viewBox="0 0 100 100"><path d="M35 20 Q45 10 55 20 L60 25" stroke="#3F7D6B" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M50 25 Q80 30 75 60 Q70 85 45 80 Q25 75 30 50 Q35 30 50 25Z" fill="#C9564D"/></svg>`,
+belly:`<svg viewBox="0 0 100 100"><circle cx="50" cy="55" r="35" fill="#E3B15E"/><circle cx="40" cy="48" r="4" fill="#273140"/><circle cx="60" cy="48" r="4" fill="#273140"/><path d="M38 65 Q50 75 62 65" stroke="#273140" stroke-width="3" fill="none" stroke-linecap="round"/></svg>`
+};
+const LATTICE_SVG = `<svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 100 Q40 60 80 90 Q100 105 90 130 Q75 150 100 160"/><path d="M30 130 Q55 110 80 130"/><path d="M60 40 Q90 20 120 45 Q140 60 125 80"/></svg>`;
+/* Corner sticker "SHIN CHÀO" — nhân vật linh vật gốc do mình thiết kế, KHÔNG dựa trên bất kỳ nhân vật hoạt hình có bản quyền nào */
+const CORNER_STICKER = `<svg viewBox="0 0 128 128">
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#F3A73D" transform="translate(16,22) scale(1.15)"/>
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#FFFFFF" opacity=".9" transform="translate(108,30) scale(0.85)"/>
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#F3A73D" transform="translate(100,96) scale(0.75)"/>
+<polygon points="20,40 46,32 46,64 20,70" fill="#FFF7E0" stroke="#7A4B2E" stroke-width="2.2"/>
+<polygon points="46,32 74,40 74,70 46,64" fill="#FFF7E0" stroke="#7A4B2E" stroke-width="2.2"/>
+<line x1="46" y1="32" x2="46" y2="64" stroke="#7A4B2E" stroke-width="2.2"/>
+<text x="33" y="53" font-family="Arial Black, Arial, sans-serif" font-size="10" font-weight="900" fill="#7A4B2E" text-anchor="middle" transform="rotate(-7 33 53)">SHIN</text>
+<text x="60" y="51" font-family="Arial Black, Arial, sans-serif" font-size="9.5" font-weight="900" fill="#7A4B2E" text-anchor="middle" transform="rotate(6 60 51)">CHÀO</text>
+<path d="M24 58 L28 62 L24 66 L28 70" stroke="#7A4B2E" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="0,0 5,-6.5 6,-2 10,-2 6.8,0.8 8,5 3.8,2.6 -0.4,5 1,0.6 -2.2,-2 2,-2" fill="#F3A73D" transform="translate(63,36) scale(0.55)"/>
+<path d="M40 112 Q64 122 88 112 L88 128 L40 128 Z" fill="#D94F3D"/>
+<path d="M42 108 Q30 96 26 80" stroke="#FBD7B8" stroke-width="8" fill="none" stroke-linecap="round"/>
+<circle cx="24" cy="77" r="6.5" fill="#FBD7B8" stroke="#5B3A22" stroke-width="1.5"/>
+<circle cx="64" cy="90" r="27" fill="#FBD7B8" stroke="#5B3A22" stroke-width="2.2"/>
+<path d="M39 80 Q41 58 64 60 Q87 58 89 80 Q80 66 64 68 Q48 66 39 80Z" fill="#3A2A1E"/>
+<circle cx="54" cy="92" r="5" fill="#2A1C12"/>
+<circle cx="74" cy="92" r="5" fill="#2A1C12"/>
+<circle cx="52.3" cy="90.3" r="1.6" fill="#fff"/>
+<circle cx="72.3" cy="90.3" r="1.6" fill="#fff"/>
+<ellipse cx="47" cy="99" rx="5.5" ry="3.2" fill="#F4A79A" opacity=".65"/>
+<ellipse cx="81" cy="99" rx="5.5" ry="3.2" fill="#F4A79A" opacity=".65"/>
+<path d="M56 104 Q64 110 72 104" stroke="#5B3A22" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+</svg>`;
+
+/* ---------- VOCAB DETAILS ---------- */
+const vocabDetails = {
+"位":{p:"wèi",pos:"mw.",hv:"Vị",vi:"vị (lượng từ lịch sự đếm người)",usage:"Lượng từ lịch sự dùng để đếm người, thể hiện sự tôn trọng — giống chữ \"vị\" trong tiếng Việt (hai vị khách).",
+ radical:null, mnemonic:"位 vốn nghĩa \"vị trí, ngôi vị\", dùng làm lượng từ lịch sự khi đếm người.", icon:"people",
+ examples:[{h:"两位女士吃饱了吗？",p:"Liǎng wèi nǚshì chībǎo le ma?",vi:"Hai vị nữ sĩ ăn no chưa ạ?"},{h:"请问，您几位？",p:"Qǐngwèn, nín jǐ wèi?",vi:"Xin hỏi, quý khách có mấy vị ạ?"},{h:"那位老师姓王。",p:"Nà wèi lǎoshī xìng Wáng.",vi:"Vị thầy giáo đó họ Vương."}]},
+"女士":{p:"nǚshì",pos:"n.",hv:"Nữ sĩ",vi:"quý cô, quý bà",usage:"Danh từ lịch sự dùng để gọi phụ nữ, tương đương \"Madam\".",
+ radical:{char:"女",name:"nữ — bên trái chữ 女士"}, mnemonic:"女 (nữ) + 士 (sĩ, người có học thức/địa vị) → cách gọi lịch sự dành cho phụ nữ.", icon:"people",
+ examples:[{h:"两位女士吃饱了吗？",p:"Liǎng wèi nǚshì chībǎo le ma?",vi:"Hai vị nữ sĩ ăn no chưa ạ?"},{h:"这位女士想点什么？",p:"Zhè wèi nǚshì xiǎng diǎn shénme?",vi:"Vị quý cô này muốn gọi món gì ạ?"},{h:"女士们，先生们，欢迎大家！",p:"Nǚshìmen, xiānshengmen, huānyíng dàjiā!",vi:"Kính thưa quý bà, quý ông, xin chào mừng mọi người!"}]},
+"饱":{p:"bǎo",pos:"adj.",hv:"Bão",vi:"no",usage:"Tính từ chỉ trạng thái ăn no, trái nghĩa với 饿 (đói).",
+ radical:{char:"饣",name:"thực (ăn) — bên trái chữ 饱"}, mnemonic:"饱 có bộ 饣 (ăn) bên trái → ăn đến mức đầy bụng = no.", icon:"belly",
+ examples:[{h:"够了，我已经吃好了。",p:"Gòu le, wǒ yǐjīng chīhǎo le.",vi:"Đủ rồi, tôi ăn xong rồi."},{h:"我吃饱了，谢谢。",p:"Wǒ chībǎo le, xièxie.",vi:"Tôi ăn no rồi, cảm ơn."},{h:"你吃饱了吗？要不要再来一碗？",p:"Nǐ chībǎo le ma? Yào bu yào zài lái yì wǎn?",vi:"Bạn ăn no chưa? Có muốn ăn thêm một bát nữa không?"}]},
+"点":{p:"diǎn",pos:"v.",hv:"Điểm",vi:"gọi (món ăn)",usage:"Động từ dùng khi chọn món trong thực đơn tại nhà hàng.",
+ radical:{char:"灬",name:"hỏa — phần dưới chữ 点"}, mnemonic:"点 vốn nghĩa \"một chấm nhỏ\", mở rộng thành \"chọn ra, gọi món\" — như chấm bút vào tên món trong thực đơn.", icon:"bowl",
+ examples:[{h:"要不要再点一个菜？",p:"Yào bu yào zài diǎn yí ge cài?",vi:"Có muốn gọi thêm một món nữa không?"},{h:"我们先点两个菜吧。",p:"Wǒmen xiān diǎn liǎng ge cài ba.",vi:"Chúng ta gọi trước hai món đi."},{h:"你想点什么？",p:"Nǐ xiǎng diǎn shénme?",vi:"Bạn muốn gọi món gì?"}]},
+"家":{p:"jiā",pos:"mw.",hv:"Gia",vi:"lượng từ cho cơ sở kinh doanh",usage:"Lượng từ dùng cho nhà hàng, cửa hiệu, công ty...",
+ radical:{char:"宀",name:"miên (mái nhà) — phía trên chữ 家"}, mnemonic:"家 vốn nghĩa \"nhà\", mở rộng thành lượng từ đếm cửa hàng, công ty (một \"nhà\" hàng, một \"nhà\" sách).", icon:null,
+ examples:[{h:"这家餐厅的菜真不错。",p:"Zhè jiā cāntīng de cài zhēn búcuò.",vi:"Món ăn của nhà hàng này thật không tệ."},{h:"附近有一家新开的咖啡店。",p:"Fùjìn yǒu yì jiā xīn kāi de kāfēidiàn.",vi:"Gần đây có một tiệm cà phê mới mở."},{h:"这条街上有很多家饭馆。",p:"Zhè tiáo jiē shang yǒu hěn duō jiā fànguǎn.",vi:"Con phố này có rất nhiều quán ăn."}]},
+"餐厅":{p:"cāntīng",pos:"n.",hv:"Xan sảnh",vi:"nhà hàng, phòng ăn",usage:"Danh từ chỉ nơi phục vụ bữa ăn, có thể là nhà hàng hoặc phòng ăn trong một tòa nhà.",
+ radical:null, mnemonic:"餐 (bữa ăn) + 厅 (sảnh, phòng lớn) → phòng dùng bữa = nhà hàng.", icon:"bowl",
+ examples:[{h:"这家餐厅的菜真不错。",p:"Zhè jiā cāntīng de cài zhēn búcuò.",vi:"Món ăn của nhà hàng này thật không tệ."},{h:"学校的餐厅八点开门。",p:"Xuéxiào de cāntīng bā diǎn kāimén.",vi:"Nhà ăn của trường mở cửa lúc 8 giờ."},{h:"我们在那家餐厅见面吧。",p:"Wǒmen zài nà jiā cāntīng jiànmiàn ba.",vi:"Chúng ta gặp nhau ở nhà hàng đó nhé."}]},
+"经常":{p:"jīngcháng",pos:"adv.",hv:"Kinh thường",vi:"thường xuyên",usage:"Phó từ chỉ tần suất cao, đặt trước động từ.",
+ radical:null, mnemonic:"经 (trải qua) + 常 (thường) → lặp đi lặp lại thường xuyên.", icon:null,
+ examples:[{h:"以前你经常来这儿吗？",p:"Yǐqián nǐ jīngcháng lái zhèr ma?",vi:"Trước đây bạn có thường xuyên đến đây không?"},{h:"他经常一个人去图书馆。",p:"Tā jīngcháng yí ge rén qù túshūguǎn.",vi:"Anh ấy thường xuyên một mình đi thư viện."},{h:"我们经常一起吃晚饭。",p:"Wǒmen jīngcháng yìqǐ chī wǎnfàn.",vi:"Chúng tôi thường xuyên ăn tối cùng nhau."}]},
+"饭馆":{p:"fànguǎn",pos:"n.",hv:"Phạn quán",vi:"quán ăn",usage:"Danh từ chỉ nơi bán đồ ăn, quy mô thường nhỏ hơn 餐厅.",
+ radical:{char:"饣",name:"thực (ăn) — bên trái chữ 饭"}, mnemonic:"饭 (cơm) + 馆 (quán, nơi tiếp khách) → quán ăn.", icon:"bowl",
+ examples:[{h:"有的时候去饭馆。",p:"Yǒude shíhou qù fànguǎn.",vi:"Có lúc thì đi quán ăn."},{h:"这家饭馆的价钱不贵。",p:"Zhè jiā fànguǎn de jiàqian bú guì.",vi:"Giá cả của quán ăn này không đắt."},{h:"附近哪家饭馆比较好吃？",p:"Fùjìn nǎ jiā fànguǎn bǐjiào hǎochī?",vi:"Quán ăn nào gần đây tương đối ngon?"}]},
+"偶尔":{p:"ǒu'ěr",pos:"adv.",hv:"Ngẫu nhĩ",vi:"thỉnh thoảng",usage:"Phó từ chỉ tần suất thấp, trái nghĩa với 经常.",
+ radical:null, mnemonic:"偶 (ngẫu nhiên) + 尔 (trợ từ) → chuyện xảy ra không thường xuyên = thỉnh thoảng.", icon:null,
+ examples:[{h:"偶尔也自己做。",p:"Ǒu'ěr yě zìjǐ zuò.",vi:"Thỉnh thoảng cũng tự nấu."},{h:"我偶尔会去健身房。",p:"Wǒ ǒu'ěr huì qù jiànshēnfáng.",vi:"Thỉnh thoảng tôi cũng đi phòng gym."},{h:"他偶尔给我打电话。",p:"Tā ǒu'ěr gěi wǒ dǎ diànhuà.",vi:"Thỉnh thoảng anh ấy gọi điện cho tôi."}]},
+"还是":{p:"háishi",pos:"adv.",hv:"Hoàn thị",vi:"hóa ra vẫn là / hay là",usage:"Phó từ diễn tả điều bất ngờ (vẫn là...), hoặc liên từ dùng trong câu hỏi lựa chọn.",
+ radical:null, mnemonic:"还 (vẫn) + 是 (là) → hóa ra vẫn là như vậy; cũng dùng để hỏi lựa chọn \"hay là\".", icon:null,
+ examples:[{h:"我还是第一次听说。",p:"Wǒ háishi dì yī cì tīngshuō.",vi:"Tôi vẫn là lần đầu tiên nghe nói đến."},{h:"你喝茶还是喝咖啡？",p:"Nǐ hē chá háishi hē kāfēi?",vi:"Bạn uống trà hay uống cà phê?"},{h:"想来想去，还是觉得在家吃饭方便。",p:"Xiǎng lái xiǎng qù, háishi juéde zài jiā chīfàn fāngbiàn.",vi:"Nghĩ đi nghĩ lại, vẫn thấy ăn ở nhà tiện hơn."}]},
+"第":{p:"dì",pos:"pref.",hv:"Đệ",vi:"tiền tố chỉ thứ tự",usage:"Tiền tố đặt trước số từ để tạo số thứ tự: 第一 = thứ nhất.",
+ radical:{char:"竹",name:"trúc (tre) — phía trên chữ 第"}, mnemonic:"第 có bộ 竹 (tre) trên đầu — ngày xưa dùng thẻ tre đánh số thứ tự → tiền tố chỉ thứ tự.", icon:null,
+ examples:[{h:"我还是第一次听说。",p:"Wǒ háishi dì yī cì tīngshuō.",vi:"Tôi vẫn là lần đầu tiên nghe nói đến."},{h:"这是我第二次来中国。",p:"Zhè shì wǒ dì èr cì lái Zhōngguó.",vi:"Đây là lần thứ hai tôi đến Trung Quốc."},{h:"他考了第一名。",p:"Tā kǎo le dì yī míng.",vi:"Anh ấy thi được hạng nhất."}]},
+"煮":{p:"zhǔ",pos:"v.",hv:"Chử",vi:"nấu, luộc",usage:"Động từ chỉ hành động nấu chín thức ăn bằng nước sôi.",
+ radical:{char:"灬",name:"hỏa — phần dưới chữ 煮"}, mnemonic:"煮 có bộ 灬 (lửa) bên dưới → dùng lửa nấu chín = nấu, luộc.", icon:"bowl",
+ examples:[{h:"水平最高的当然是煮方便面。",p:"Shuǐpíng zuì gāo de dāngrán shì zhǔ fāngbiànmiàn.",vi:"Trình độ cao nhất đương nhiên là nấu mì ăn liền."},{h:"妈妈在煮饭。",p:"Māma zài zhǔ fàn.",vi:"Mẹ đang nấu cơm."},{h:"这个鸡蛋煮了几分钟？",p:"Zhège jīdàn zhǔ le jǐ fēnzhōng?",vi:"Quả trứng này luộc mấy phút rồi?"}]},
+"方便面":{p:"fāngbiànmiàn",pos:"n.",hv:"Phương tiện diện",vi:"mì ăn liền",usage:"Danh từ chỉ loại mì chế biến nhanh, tiện lợi.",
+ radical:null, mnemonic:"方便 (tiện lợi) + 面 (mì) → mì tiện lợi = mì ăn liền.", icon:"bowl",
+ examples:[{h:"水平最高的当然是煮方便面。",p:"Shuǐpíng zuì gāo de dāngrán shì zhǔ fāngbiànmiàn.",vi:"Trình độ cao nhất đương nhiên là nấu mì ăn liền."},{h:"晚上我饿了，就煮了一包方便面。",p:"Wǎnshang wǒ è le, jiù zhǔ le yì bāo fāngbiànmiàn.",vi:"Buổi tối tôi đói, liền nấu một gói mì ăn liền."},{h:"方便面对身体不太好，少吃一点儿。",p:"Fāngbiànmiàn duì shēntǐ bú tài hǎo, shǎo chī yìdiǎnr.",vi:"Mì ăn liền không tốt lắm cho sức khỏe, ăn ít thôi."}]},
+"肚子":{p:"dùzi",pos:"n.",hv:"Đỗ tử",vi:"bụng",usage:"Danh từ chỉ bộ phận cơ thể — bụng.",
+ radical:{char:"月",name:"nhục (thịt/thân thể) — bên trái chữ 肚"}, mnemonic:"肚 có bộ 月 (thân thể) bên trái → bộ phận cơ thể = bụng.", icon:"belly",
+ examples:[{h:"肚子早就有意见了。",p:"Dùzi zǎo jiù yǒu yìjiàn le.",vi:"Cái bụng đã sớm có ý kiến rồi."},{h:"我肚子饿了。",p:"Wǒ dùzi è le.",vi:"Bụng tôi đói rồi."},{h:"吃太多，肚子有点儿不舒服。",p:"Chī tài duō, dùzi yǒudiǎnr bù shūfu.",vi:"Ăn quá nhiều, bụng hơi khó chịu."}]},
+"早":{p:"zǎo",pos:"adv.",hv:"Tảo",vi:"sớm",usage:"Phó từ/tính từ chỉ thời điểm sớm.",
+ radical:{char:"日",name:"nhật (mặt trời) — phía trên chữ 早"}, mnemonic:"早 có bộ 日 (mặt trời) trên đầu, mặt trời vừa mọc → sớm.", icon:null,
+ examples:[{h:"肚子早就有意见了。",p:"Dùzi zǎo jiù yǒu yìjiàn le.",vi:"Cái bụng đã sớm có ý kiến rồi."},{h:"我明天早上要早点儿起床。",p:"Wǒ míngtiān zǎoshang yào zǎo diǎnr qǐchuáng.",vi:"Sáng mai tôi phải dậy sớm một chút."},{h:"他比我早到了十分钟。",p:"Tā bǐ wǒ zǎo dào le shí fēnzhōng.",vi:"Anh ấy đến sớm hơn tôi mười phút."}]},
+"告诉":{p:"gàosu",pos:"v.",hv:"Cáo tố",vi:"nói cho biết, báo cho biết",usage:"Động từ dùng khi truyền đạt thông tin cho ai đó.",
+ radical:{char:"讠",name:"ngôn (lời nói) — bên trái chữ 诉"}, mnemonic:"告 (báo) + 诉 (nói, thưa) → nói cho ai đó biết.", icon:null,
+ examples:[{h:"朋友告诉我，有一家火锅店是最近刚开张的。",p:"Péngyou gàosu wǒ, yǒu yì jiā huǒguōdiàn shì zuìjìn gāng kāizhāng de.",vi:"Bạn tôi nói cho tôi biết, có một quán lẩu mới khai trương gần đây."},{h:"请告诉我你的电话号码。",p:"Qǐng gàosu wǒ nǐ de diànhuà hàomǎ.",vi:"Làm ơn cho tôi biết số điện thoại của bạn."},{h:"老师告诉我们明天有考试。",p:"Lǎoshī gàosu wǒmen míngtiān yǒu kǎoshì.",vi:"Thầy giáo báo cho chúng tôi biết ngày mai có bài kiểm tra."}]},
+"火锅":{p:"huǒguō",pos:"n.",hv:"Hỏa oa",vi:"lẩu",usage:"Danh từ chỉ món ăn nhúng trong nồi nước dùng đun sôi trên bàn.",
+ radical:{char:"火",name:"hỏa (lửa) — bên trái chữ 火锅"}, mnemonic:"火 (lửa) + 锅 (nồi) → nồi đặt trên lửa để nhúng đồ ăn = lẩu.", icon:"bowl",
+ examples:[{h:"有一家火锅店是最近刚开张的。",p:"Yǒu yì jiā huǒguōdiàn shì zuìjìn gāng kāizhāng de.",vi:"Có một quán lẩu mới khai trương gần đây."},{h:"冬天吃火锅最舒服了。",p:"Dōngtiān chī huǒguō zuì shūfu le.",vi:"Mùa đông ăn lẩu là thoải mái nhất."},{h:"我们今晚去吃火锅吧。",p:"Wǒmen jīnwǎn qù chī huǒguō ba.",vi:"Tối nay chúng ta đi ăn lẩu đi."}]},
+"最近":{p:"zuìjìn",pos:"n.",hv:"Tối cận",vi:"gần đây, dạo này",usage:"Danh từ/phó từ chỉ thời gian, chỉ khoảng thời gian gần hiện tại.",
+ radical:null, mnemonic:"最 (nhất) + 近 (gần) → gần nhất về mặt thời gian = gần đây, dạo này.", icon:null,
+ examples:[{h:"有一家火锅店是最近刚开张的。",p:"Yǒu yì jiā huǒguōdiàn shì zuìjìn gāng kāizhāng de.",vi:"Có một quán lẩu mới khai trương gần đây."},{h:"最近你忙不忙？",p:"Zuìjìn nǐ máng bu máng?",vi:"Dạo này bạn có bận không?"},{h:"我最近在学做中国菜。",p:"Wǒ zuìjìn zài xué zuò Zhōngguó cài.",vi:"Dạo này tôi đang học nấu món Trung Quốc."}]},
+"开张":{p:"kāizhāng",pos:"v.",hv:"Khai trương",vi:"khai trương",usage:"Động từ chỉ việc cửa hàng bắt đầu mở cửa kinh doanh.",
+ radical:null, mnemonic:"开 (mở) + 张 (mở rộng, căng ra) → mở cửa hàng lần đầu = khai trương.", icon:null,
+ examples:[{h:"有一家火锅店是最近刚开张的。",p:"Yǒu yì jiā huǒguōdiàn shì zuìjìn gāng kāizhāng de.",vi:"Có một quán lẩu mới khai trương gần đây."},{h:"这家书店下个月开张。",p:"Zhè jiā shūdiàn xià ge yuè kāizhāng.",vi:"Hiệu sách này tháng sau khai trương."},{h:"开张那天，来了很多客人。",p:"Kāizhāng nà tiān, lái le hěn duō kèrén.",vi:"Ngày khai trương, có rất nhiều khách đến."}]},
+"酒水":{p:"jiǔshuǐ",pos:"n.",hv:"Tửu thủy",vi:"đồ uống (rượu, nước giải khát)",usage:"Danh từ chỉ các loại đồ uống phục vụ trong nhà hàng.",
+ radical:null, mnemonic:"酒 (rượu) + 水 (nước) → đồ uống nói chung trong nhà hàng.", icon:null,
+ examples:[{h:"酒水免费。",p:"Jiǔshuǐ miǎnfèi.",vi:"Đồ uống miễn phí."},{h:"这家餐厅的酒水种类很多。",p:"Zhè jiā cāntīng de jiǔshuǐ zhǒnglèi hěn duō.",vi:"Đồ uống của nhà hàng này có nhiều loại."},{h:"酒水另外算钱。",p:"Jiǔshuǐ lìngwài suàn qián.",vi:"Đồ uống tính tiền riêng."}]},
+"免费":{p:"miǎn fèi",pos:"v-o.",hv:"Miễn phí",vi:"miễn phí",usage:"Cụm động-tân chỉ việc không phải trả tiền.",
+ radical:null, mnemonic:"免 (miễn, khỏi phải) + 费 (phí, chi phí) → không mất phí = miễn phí.", icon:"money",
+ examples:[{h:"酒水免费。",p:"Jiǔshuǐ miǎnfèi.",vi:"Đồ uống miễn phí."},{h:"这个活动免费参加。",p:"Zhège huódòng miǎnfèi cānjiā.",vi:"Hoạt động này tham gia miễn phí."},{h:"今天喝咖啡免费。",p:"Jīntiān hē kāfēi miǎnfèi.",vi:"Hôm nay uống cà phê miễn phí."}]},
+"跟":{p:"gēn",pos:"prep.",hv:"Cân",vi:"với, cùng",usage:"Giới từ dùng để chỉ đối tượng cùng thực hiện hành động.",
+ radical:{char:"足",name:"túc (chân) — bên trái chữ 跟"}, mnemonic:"跟 có bộ 足 (chân) bên trái, nghĩa gốc là đi theo gót chân ai đó → cùng, với.", icon:null,
+ examples:[{h:"我是跟几个朋友一起去的。",p:"Wǒ shì gēn jǐ ge péngyou yìqǐ qù de.",vi:"Tôi là đi cùng với vài người bạn."},{h:"你想跟谁一起吃饭？",p:"Nǐ xiǎng gēn shéi yìqǐ chīfàn?",vi:"Bạn muốn ăn cơm cùng ai?"},{h:"这件事跟我没有关系。",p:"Zhè jiàn shì gēn wǒ méiyǒu guānxi.",vi:"Việc này không liên quan đến tôi."}]},
+"环境":{p:"huánjìng",pos:"n.",hv:"Hoàn cảnh",vi:"môi trường, khung cảnh",usage:"Danh từ chỉ không gian, khung cảnh xung quanh.",
+ radical:{char:"王",name:"ngọc — bên trái chữ 环"}, mnemonic:"环 (vòng, bao quanh) + 境 (cảnh, ranh giới) → không gian bao quanh = môi trường.", icon:null,
+ examples:[{h:"那儿的环境不错。",p:"Nàr de huánjìng búcuò.",vi:"Môi trường ở đó không tệ."},{h:"这个城市的环境越来越好了。",p:"Zhège chéngshì de huánjìng yuè lái yuè hǎo le.",vi:"Môi trường của thành phố này ngày càng tốt hơn."},{h:"图书馆的学习环境很安静。",p:"Túshūguǎn de xuéxí huánjìng hěn ānjìng.",vi:"Môi trường học tập của thư viện rất yên tĩnh."}]},
+"服务员":{p:"fúwùyuán",pos:"n.",hv:"Phục vụ viên",vi:"nhân viên phục vụ",usage:"Danh từ chỉ người làm việc phục vụ khách hàng, thường ở nhà hàng, khách sạn.",
+ radical:{char:"月",name:"nhục — bên trong chữ 服"}, mnemonic:"服务 (phục vụ) + 员 (nhân viên) → người làm công việc phục vụ.", icon:"waiter",
+ examples:[{h:"服务员的态度也很热情。",p:"Fúwùyuán de tàidu yě hěn rèqíng.",vi:"Thái độ của nhân viên phục vụ cũng rất nhiệt tình."},{h:"服务员，请给我一杯水。",p:"Fúwùyuán, qǐng gěi wǒ yì bēi shuǐ.",vi:"Phục vụ ơi, cho tôi một cốc nước."},{h:"这家饭馆的服务员都很年轻。",p:"Zhè jiā fànguǎn de fúwùyuán dōu hěn niánqīng.",vi:"Nhân viên phục vụ của quán ăn này đều rất trẻ."}]},
+"态度":{p:"tàidu",pos:"n.",hv:"Thái độ",vi:"thái độ",usage:"Danh từ chỉ cách cư xử, biểu hiện đối với người khác hoặc sự việc.",
+ radical:{char:"心",name:"tâm (tấm lòng) — phía dưới chữ 态"}, mnemonic:"态 có bộ 心 (tấm lòng) bên dưới → cách thể hiện tâm ý ra bên ngoài = thái độ.", icon:null,
+ examples:[{h:"服务员的态度也很热情。",p:"Fúwùyuán de tàidu yě hěn rèqíng.",vi:"Thái độ của nhân viên phục vụ cũng rất nhiệt tình."},{h:"他学习的态度很认真。",p:"Tā xuéxí de tàidu hěn rènzhēn.",vi:"Thái độ học tập của anh ấy rất nghiêm túc."},{h:"你对这件事的态度是什么？",p:"Nǐ duì zhè jiàn shì de tàidu shì shénme?",vi:"Thái độ của bạn đối với việc này là gì?"}]},
+"价钱":{p:"jiàqian",pos:"n.",hv:"Giá tiền",vi:"giá cả",usage:"Danh từ chỉ số tiền phải trả cho một món hàng/dịch vụ.",
+ radical:{char:"钅",name:"kim (kim loại) — bên trái chữ 钱"}, mnemonic:"价 (giá trị) + 钱 (tiền, có bộ kim loại vì tiền xu ngày xưa làm bằng kim loại) → giá cả.", icon:"money",
+ examples:[{h:"价钱也算公道。",p:"Jiàqian yě suàn gōngdao.",vi:"Giá cả cũng được coi là phải chăng."},{h:"这件衣服的价钱不便宜。",p:"Zhè jiàn yīfu de jiàqian bù piányi.",vi:"Giá của bộ quần áo này không rẻ."},{h:"你能不能便宜一点儿价钱？",p:"Nǐ néng bu néng piányi yìdiǎnr jiàqian?",vi:"Bạn có thể bớt giá một chút không?"}]},
+"算":{p:"suàn",pos:"v.",hv:"Toán",vi:"được coi là, tính là",usage:"Động từ chỉ việc đánh giá, xem như một mức độ nào đó.",
+ radical:{char:"竹",name:"trúc (tre) — phía trên chữ 算"}, mnemonic:"算 có bộ 竹 (tre) trên đầu — ngày xưa dùng que tre để tính toán → tính toán, coi như.", icon:null,
+ examples:[{h:"价钱也算公道。",p:"Jiàqian yě suàn gōngdao.",vi:"Giá cả cũng được coi là phải chăng."},{h:"这个价钱算便宜的了。",p:"Zhège jiàqian suàn piányi de le.",vi:"Giá này được coi là rẻ rồi."},{h:"他的汉语算说得不错的了。",p:"Tā de Hànyǔ suàn shuō de búcuò de le.",vi:"Tiếng Trung của anh ấy được coi là nói khá tốt rồi."}]},
+"公道":{p:"gōngdao",pos:"adj.",hv:"Công đạo",vi:"công bằng, phải chăng",usage:"Tính từ miêu tả sự hợp lý, không thiên vị, thường dùng cho giá cả.",
+ radical:null, mnemonic:"公 (công bằng) + 道 (đạo lý) → hợp lẽ công bằng = phải chăng.", icon:"scale",
+ examples:[{h:"价钱也算公道。",p:"Jiàqian yě suàn gōngdao.",vi:"Giá cả cũng được coi là phải chăng."},{h:"这家店的价钱很公道。",p:"Zhè jiā diàn de jiàqian hěn gōngdao.",vi:"Giá cả của cửa hàng này rất phải chăng."},{h:"老板做生意很公道。",p:"Lǎobǎn zuò shēngyi hěn gōngdao.",vi:"Ông chủ làm ăn rất công bằng."}]},
+"辣":{p:"là",pos:"adj.",hv:"Lạt",vi:"cay",usage:"Tính từ miêu tả vị cay.",
+ radical:{char:"辛",name:"tân (cay đắng) — bên trong chữ 辣"}, mnemonic:"辣 có bộ 辛 (cay, vất vả) → vị cay.", icon:"pepper",
+ examples:[{h:"就是味道辣了一些。",p:"Jiùshì wèidao là le yìxiē.",vi:"Chỉ là mùi vị hơi cay một chút."},{h:"我不太能吃辣。",p:"Wǒ bú tài néng chī là.",vi:"Tôi không ăn cay được lắm."},{h:"四川菜一般都很辣。",p:"Sìchuān cài yìbān dōu hěn là.",vi:"Món Tứ Xuyên thường đều rất cay."}]},
+"一些":{p:"yìxiē",pos:"q.",hv:"Nhất ta",vi:"một số, một ít",usage:"Số lượng từ chỉ số lượng không xác định, nhỏ.",
+ radical:null, mnemonic:"一 (một) + 些 (số lượng ít) → một ít, một số.", icon:null,
+ examples:[{h:"就是味道辣了一些。",p:"Jiùshì wèidao là le yìxiē.",vi:"Chỉ là mùi vị hơi cay một chút."},{h:"我买了一些水果。",p:"Wǒ mǎi le yìxiē shuǐguǒ.",vi:"Tôi đã mua một ít trái cây."},{h:"这个班有一些留学生。",p:"Zhège bān yǒu yìxiē liúxuéshēng.",vi:"Lớp này có một số du học sinh."}]}
+};
+/* ---------- DIALOGUE DATA ---------- */
+function seg(t,v){ return {t:t, v:v||null}; }
+const dialogue1 = [
+{spk:"大卫", segments:[seg("两"),seg("位","位"),seg("女士","女士"),seg("吃"),seg("饱","饱"),seg("了吗？要不要再"),seg("点","点"),seg("一个菜？")], p:"Liǎng wèi nǚshì chībǎo le ma? Yào bu yào zài diǎn yí ge cài?", vi:"Hai vị nữ sĩ ăn no chưa ạ? Có muốn gọi thêm một món nữa không?"},
+{spk:"玛丽", segments:[seg("够了，我已经吃好了。")], p:"Gòu le, wǒ yǐjīng chīhǎo le.", vi:"Đủ rồi, tôi ăn xong rồi."},
+{spk:"安娜", segments:[seg("我也吃"),seg("饱","饱"),seg("了。这"),seg("家","家"),seg("餐厅","餐厅"),seg("的菜真不错。大卫，以前你"),seg("经常","经常"),seg("来这儿吗？")], p:"Wǒ yě chībǎo le. Zhè jiā cāntīng de cài zhēn búcuò. Dàwèi, yǐqián nǐ jīngcháng lái zhèr ma?", vi:"Tôi cũng no rồi. Món ăn của nhà hàng này thật không tệ. David, trước đây bạn có thường đến đây không?"},
+{spk:"大卫", segments:[seg("不常来，一个星期两三次吧。")], p:"Bù cháng lái, yí ge xīngqī liǎng-sān cì ba.", vi:"Không thường đến, một tuần khoảng hai ba lần thôi."},
+{spk:"安娜", segments:[seg("你每天都在哪儿吃饭？")], p:"Nǐ měi tiān dōu zài nǎr chī fàn?", vi:"Mỗi ngày bạn đều ăn cơm ở đâu?"},
+{spk:"大卫", segments:[seg("有的时候在食堂，有的时候去"),seg("饭馆","饭馆"),seg("，"),seg("偶尔","偶尔"),seg("也自己做。")], p:"Yǒude shíhou zài shítáng, yǒude shíhou qù fànguǎn, ǒu'ěr yě zìjǐ zuò.", vi:"Có lúc ở căng tin, có lúc đi quán ăn, thỉnh thoảng cũng tự nấu."},
+{spk:"玛丽", segments:[seg("你会做饭？我"),seg("还是","还是"),seg("第","第"),seg("一次听说。")], p:"Nǐ huì zuò fàn? Wǒ háishi dì yī cì tīngshuō.", vi:"Bạn biết nấu ăn à? Tôi vẫn là lần đầu tiên nghe nói đến đấy."},
+{spk:"大卫", segments:[seg("很少做。自己做饭比在外面吃便宜，不过没有"),seg("饭馆","饭馆"),seg("的菜那么好吃。")], p:"Hěn shǎo zuò. Zìjǐ zuò fàn bǐ zài wàimian chī piányi, búguò méiyǒu fànguǎn de cài nàme hǎochī.", vi:"Ít khi nấu lắm. Tự nấu ăn rẻ hơn ăn ngoài, nhưng không ngon bằng món ở quán ăn."},
+{spk:"安娜", segments:[seg("你会做什么饭？")], p:"Nǐ huì zuò shénme fàn?", vi:"Bạn biết nấu món gì?"},
+{spk:"大卫", segments:[seg("水平最高的当然是"),seg("煮","煮"),seg("方便面","方便面"),seg("。")], p:"Shuǐpíng zuì gāo de dāngrán shì zhǔ fāngbiànmiàn.", vi:"Trình độ cao nhất đương nhiên là nấu mì ăn liền."},
+{spk:"玛丽", segments:[seg("那你和我一样啊！")], p:"Nà nǐ hé wǒ yíyàng a!", vi:"Vậy thì bạn giống tôi rồi!"}
+];
+const dialogue1Vocab = ["位","女士","饱","点","家","餐厅","经常","饭馆","偶尔","还是","第","煮","方便面"];
+const dialogue1ProperNouns = [];
+
+const dialogue2 = [
+{spk:"大卫", segments:[seg("今天是周末，我打算去外面吃饭。每天都吃食堂的饭，"),seg("肚子","肚子"),seg("早","早"),seg("就有意见了。")], p:"Jīntiān shì zhōumò, wǒ dǎsuàn qù wàimian chī fàn. Měi tiān dōu chī shítáng de fàn, dùzi zǎo jiù yǒu yìjiàn le.", vi:"Hôm nay là cuối tuần, tôi định ra ngoài ăn cơm. Ngày nào cũng ăn cơm căng tin, cái bụng đã sớm có ý kiến rồi."},
+{spk:"大卫", segments:[seg("朋友"),seg("告诉","告诉"),seg("我，有一"),seg("家","家"),seg("火锅","火锅"),seg("店是"),seg("最近","最近"),seg("刚"),seg("开张","开张"),seg("的，"),seg("酒水","酒水"),seg("免费","免费"),seg("。")], p:"Péngyou gàosu wǒ, yǒu yì jiā huǒguōdiàn shì zuìjìn gāng kāizhāng de, jiǔshuǐ miǎnfèi.", vi:"Bạn nói cho tôi biết, có một quán lẩu mới khai trương gần đây, đồ uống miễn phí."},
+{spk:"大卫", segments:[seg("我一听就打算去那儿了。我是"),seg("跟","跟"),seg("几个朋友一起去的，一个人去没有意思，人多比较热闹。")], p:"Wǒ yì tīng jiù dǎsuàn qù nàr le. Wǒ shì gēn jǐ ge péngyou yìqǐ qù de, yí ge rén qù méiyǒu yìsi, rén duō bǐjiào rènao.", vi:"Tôi vừa nghe liền định đi đến đó. Tôi đi cùng với vài người bạn, đi một mình thì chẳng có gì thú vị, đông người thì náo nhiệt hơn."},
+{spk:"大卫", segments:[seg("那"),seg("家","家"),seg("餐厅","餐厅"),seg("离学校不太远，走路十多分钟就到了。")], p:"Nà jiā cāntīng lí xuéxiào bú tài yuǎn, zǒu lù shí duō fēnzhōng jiù dào le.", vi:"Nhà hàng đó cách trường không xa lắm, đi bộ hơn mười phút là đến."},
+{spk:"大卫", segments:[seg("那儿的"),seg("环境","环境"),seg("不错，"),seg("服务员","服务员"),seg("的"),seg("态度","态度"),seg("也很热情，"),seg("价钱","价钱"),seg("也"),seg("算","算"),seg("公道","公道"),seg("，就是味道"),seg("辣","辣"),seg("了"),seg("一些","一些"),seg("。")], p:"Nàr de huánjìng búcuò, fúwùyuán de tàidu yě hěn rèqíng, jiàqian yě suàn gōngdao, jiùshì wèidao là le yìxiē.", vi:"Môi trường ở đó không tệ, thái độ của nhân viên phục vụ cũng rất nhiệt tình, giá cả cũng được coi là phải chăng, chỉ là mùi vị hơi cay một chút."}
+];
+const dialogue2Vocab = ["肚子","早","告诉","火锅","最近","开张","酒水","免费","跟","环境","服务员","态度","价钱","算","公道","辣","一些"];
+const dialogue2ProperNouns = [];
+
+const grammar = [
+{title:"Ôn lại · \u201c比\u201d 字句 (đã học Bài 2)",example:"自己做饭比在外面吃便宜，不过没有饭馆的菜那么好吃。",explain:"Nhắc lại cấu trúc so sánh hơn kém A + 比 + B + tính từ đã học ở Bài 2, tiếp tục vận dụng trong ngữ cảnh mới (so sánh tự nấu ăn với ăn ngoài).",more:["他的汉语水平比我高。","这个房间比那个大。","自己做饭比在外面吃便宜。"]},
+{title:"Ôn lại · 有的……有的…… (đã học Bài 4)",example:"有的时候在食堂，有的时候去饭馆，偶尔也自己做。",explain:"Nhắc lại điểm ngữ pháp đã học ở Bài 4: diễn tả các phương án/hành động khác nhau trong cùng một nhóm.",more:["有的开车，有的坐车。","有的人喜欢喝茶，有的人喜欢喝咖啡。","有的时候在食堂，有的时候去饭馆。"]},
+{title:"Ôn lại · A 没有 B (+这么/那么) + adj. (đã học Bài 4)",example:"没有饭馆的菜那么好吃。",explain:"Nhắc lại dạng phủ định của câu chữ 比 đã học ở Bài 4: A + 没有 + B + (这么/那么) + tính từ.",more:["美国的自行车没有中国的这么多。","这个房间没有那个大。","自己做的菜没有饭馆的那么好吃。"]}
+];
+
+/* ---------- REVIEW: Bài 1 · Sắp xếp câu ----------
+   Chuẩn Boya II (skill boya2-exercise-standard): HSK3-4, câu ghép có ngữ cảnh,
+   KHÔNG trùng ví dụ đã dùng trong hội thoại/ngữ pháp ở trên. */
+const reorderItems = [
+{chunks:["这家餐厅","的服务员","态度","特别","热情"]},
+{chunks:["虽然这儿的菜","有点儿辣","但是","价钱很公道"]},
+{chunks:["他每天都吃食堂的饭","肚子","早就","有意见了"]},
+{chunks:["朋友告诉我","学校旁边","新开张了","一家火锅店"]},
+{chunks:["这家饭馆","的酒水免费","所以","客人特别多"]},
+{chunks:["我很少自己做饭","偶尔","才","煮一次方便面"]},
+{chunks:["他","跟","几个朋友","一起去吃火锅"]},
+{chunks:["这儿的环境不错","但是","服务员的态度","不太好"]},
+{chunks:["我","还是","第一次","来这家餐厅吃饭"]},
+{chunks:["这条街上","有一些","新开张的饭馆","价钱都不贵"]}
+];
+
+/* ---------- REVIEW: Bài 2 · Dịch câu ---------- */
+const translateItems = [
+{vi:"Hai vị khách này ăn no rồi, không cần gọi thêm món nữa.",h:"这两位客人吃饱了，不用再点菜了。",p:"Zhè liǎng wèi kèrén chībǎo le, búyòng zài diǎn cài le."},
+{vi:"Tôi thỉnh thoảng tự nấu ăn, nhưng thường xuyên hơn là ra ngoài quán ăn.",h:"我偶尔自己做饭，但是更经常去外面的饭馆吃。",p:"Wǒ ǒu'ěr zìjǐ zuòfàn, dànshì gèng jīngcháng qù wàimian de fànguǎn chī."},
+{vi:"Bạn tôi nói cho tôi biết, quán lẩu mới khai trương gần đây có đồ uống miễn phí.",h:"我朋友告诉我，最近刚开张的火锅店酒水免费。",p:"Wǒ péngyou gàosu wǒ, zuìjìn gāng kāizhāng de huǒguōdiàn jiǔshuǐ miǎnfèi."},
+{vi:"Môi trường của nhà hàng này không tệ, nhưng thái độ của nhân viên phục vụ hơi lạnh nhạt.",h:"这家餐厅的环境不错，不过服务员的态度有点儿冷淡。",p:"Zhè jiā cāntīng de huánjìng búcuò, búguò fúwùyuán de tàidu yǒudiǎnr lěngdàn."},
+{vi:"Giá cả của quán ăn này khá phải chăng, chỉ là món ăn hơi cay so với khẩu vị của tôi.",h:"这家饭馆的价钱算公道，就是菜对我来说有点儿辣。",p:"Zhè jiā fànguǎn de jiàqian suàn gōngdao, jiùshì cài duì wǒ lái shuō yǒudiǎnr là."},
+{vi:"Mỗi ngày tôi đều ăn cơm ở căng tin, dạo này bụng đã bắt đầu có ý kiến rồi.",h:"我每天都在食堂吃饭，最近肚子已经开始有意见了。",p:"Wǒ měitiān dōu zài shítáng chīfàn, zuìjìn dùzi yǐjīng kāishǐ yǒu yìjiàn le."},
+{vi:"Đây là lần đầu tiên tôi nấu mì ăn liền, hóa ra không khó như tôi tưởng.",h:"这是我第一次煮方便面，还是没有我想的那么难。",p:"Zhè shì wǒ dì yī cì zhǔ fāngbiànmiàn, háishi méiyǒu wǒ xiǎng de nàme nán."},
+{vi:"Cô ấy thường một mình đi ăn ngoài, một mình đi cũng không thấy chán.",h:"她经常一个人去外面吃饭，一个人去也不觉得没意思。",p:"Tā jīngcháng yí ge rén qù wàimian chīfàn, yí ge rén qù yě bù juéde méi yìsi."},
+{vi:"Chúng tôi cùng vài người bạn đi ăn lẩu, người đông nên rất náo nhiệt.",h:"我们跟几个朋友一起去吃火锅，人多所以很热闹。",p:"Wǒmen gēn jǐ ge péngyou yìqǐ qù chī huǒguō, rén duō suǒyǐ hěn rènao."},
+{vi:"Tuy giá cả của nhà hàng này khá phải chăng, nhưng vị hơi cay so với tôi.",h:"虽然这家餐厅的价钱算公道，但是味道对我来说有点儿辣。",p:"Suīrán zhè jiā cāntīng de jiàqian suàn gōngdao, dànshì wèidao duì wǒ lái shuō yǒudiǎnr là."}
+];
+
+/* ---------- SLIDE SECTIONS ---------- */
+const slidesNew = [
+ {type:'cover', season:'厅'},
+ {type:'dialogue', title:'课文一 · 大卫、玛丽和安娜', season:'厅', lines: dialogue1, vocabWords: dialogue1Vocab, properNouns: dialogue1ProperNouns, grammarRefs:[0,1,2]},
+ {type:'dialogue', title:'课文二 · 大卫的周末', season:'味', lines: dialogue2, vocabWords: dialogue2Vocab, properNouns: dialogue2ProperNouns, grammarRefs:[]}
+];
+const slidesReview = [
+ {type:'reorder', title:'Bài 1 · Sắp xếp câu', season:'公', tab:'Bài 1 · Sắp xếp câu'},
+ {type:'translate', title:'Bài 2 · Dịch câu', season:'厅', tab:'Bài 2 · Dịch câu'},
+ {type:'speaking', title:'Bài 3 · Luyện khẩu ngữ', season:'味', tab:'Bài 3 · Khẩu ngữ'}
+];
+
+const seasonMeta = {
+ '厅':{label:'Nhà hàng', accent:'#E3B15E', soft:'#FBEDD4'},
+ '味':{label:'Hương vị', accent:'#C9564D', soft:'#F3DEDA'},
+ '公':{label:'Công bằng', accent:'#7FA6D6', soft:'#E4EAF3'}
+};
+
+/* ---------- STATE ---------- */
+let section = 'new';
+let currentNew = 0;
+let currentReview = 0;
+
+function activeSlides(){ return section==='new' ? slidesNew : slidesReview; }
+function getCurrent(){ return section==='new' ? currentNew : currentReview; }
+function setCurrent(i){ if(section==='new') currentNew=i; else currentReview=i; }
+
+function normalizeStr(s){ return (s||'').replace(/[，。？！,.\?!\s]/g,'').toLowerCase(); }
+
+function speak(text){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'zh-CN'; u.rate = 0.92;
+  const v = speechSynthesis.getVoices().find(v=>v.lang && v.lang.startsWith('zh'));
+  if(v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+function speakSequence(lines){
+  speechSynthesis.cancel();
+  lines.forEach(l=>{
+    const u = new SpeechSynthesisUtterance(l);
+    u.lang='zh-CN'; u.rate=0.92;
+    const v = speechSynthesis.getVoices().find(v=>v.lang && v.lang.startsWith('zh'));
+    if(v) u.voice = v;
+    speechSynthesis.speak(u);
+  });
+}
+/* ---------- RENDER ---------- */
+function renderCover(){
+  const sticker = (cls, icon) => `<div class="cover-sticker ${cls}"><div class="float-inner">${ICONS[icon]}</div></div>`;
+  return `<div class="slide cover">
+    <div class="cover-lattice corner-tl">${LATTICE_SVG}</div>
+    <div class="cover-lattice corner-br">${LATTICE_SVG}</div>
+    ${sticker('s1','bowl')}
+    ${sticker('s2','pepper')}
+    ${sticker('s3','waiter')}
+    ${sticker('s4','money')}
+    ${sticker('s5','belly')}
+    ${sticker('s6','scale')}
+    <div class="cover-card">
+      <div class="num">05</div>
+      <div class="eyebrow">博雅汉语 · Boya Chinese · 初级起步篇 II</div>
+      <div class="title-zh hanzi">这家餐厅的菜不错</div>
+      <div class="title-py">Zhè Jiā Cāntīng de Cài Búcuò</div>
+      <div class="sub">Bài 5 · Món ăn của nhà hàng này không tệ</div>
+    </div>
+  </div>`;
+}
+
+function renderDialogue(s){
+  const lines = s.lines.map(l=>{
+    const segHtml = l.segments.map(sg=> sg.v ? `<span class="vword" data-word="${sg.v}">${sg.t}</span>` : `<span>${sg.t}</span>`).join('');
+    const plain = l.segments.map(sg=>sg.t).join('');
+    return `<div class="dline">
+      <div class="spk zh">${l.spk}</div>
+      <div class="content">
+        <div class="h hanzi">${segHtml}</div>
+        <div class="p">${l.p}</div>
+        <div class="vi">${l.vi}</div>
+      </div>
+      <button class="speak-btn" data-speak="${plain}">▶</button>
+    </div>`;
+  }).join('');
+  const chips = s.vocabWords.map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
+  const properChips = (s.properNouns||[]).map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
+  const grammarHtml = (s.grammarRefs||[]).map(gi=>{
+    const g = grammar[gi];
+    const more = g.more.map(m=>`<li>${m}</li>`).join('');
+    return `<div class="gram-card">
+      <div class="gram-title">${g.title}</div>
+      <div class="gexample hanzi">${g.example}</div>
+      <div class="gexplain">${g.explain}</div>
+      <ul class="gmore">${more}</ul>
+    </div>`;
+  }).join('');
+  const mapHtml = s===undefined ? '' : '';
+  return `<div class="slide">
+    <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
+    <div class="eyebrow">课文 · Bài khóa — chạm vào chữ có gạch chân để xem giải thích từ</div>
+    <h2 class="hanzi">${s.title}</h2>
+    <div id="dialogueBlock">${lines}</div>
+    <div class="dialogue-toolbar">
+      <button class="reveal-btn" id="playAll">▶ Phát cả đoạn</button>
+      <button class="reveal-btn ghost" id="togglePy">Ẩn phiên âm</button>
+      <button class="reveal-btn ghost" id="toggleVi2">Ẩn nghĩa</button>
+    </div>
+    <div class="chip-row"><span class="chip-label">词语 Từ mới trong bài:</span>${chips}</div>
+    ${properChips ? `<div class="chip-row"><span class="chip-label">专有名词 Tên riêng:</span>${properChips}</div>` : ''}
+    ${grammarHtml? `<div class="gram-section"><div class="eyebrow">语言点 · Ngữ pháp liên quan</div>${grammarHtml}</div>` : ''}
+  </div>`;
+}
+
+function renderReorder(s){
+  s._state = s._state || reorderItems.map(it=>({answer:[], bank:[...it.chunks].sort(()=>Math.random()-0.5), checked:false}));
+  const items = reorderItems.map((it,i)=>{
+    const st = s._state[i];
+    const answerHtml = st.answer.length ? st.answer.map((c,ci)=>`<button class="chunk ans" data-i="${i}" data-act="remove" data-ci="${ci}">${c}</button>`).join('') : '<span class="placeholder">Bấm các từ bên dưới theo đúng thứ tự...</span>';
+    const bankHtml = st.bank.filter(c=>!st.answer.includes(c)).map(c=>`<button class="chunk bank" data-i="${i}" data-act="add" data-word="${c}">${c}</button>`).join('');
+    const isCorrect = st.checked ? JSON.stringify(st.answer)===JSON.stringify(it.chunks) : null;
+    return `<div class="reorder-item ${st.checked?(isCorrect?'correct':'wrong'):''}">
+      <div class="reorder-idx">Câu ${i+1}</div>
+      <div class="reorder-answer hanzi">${answerHtml}</div>
+      <div class="reorder-bank">${bankHtml}</div>
+      <div class="reorder-actions">
+        <button class="reveal-btn ghost small" data-i="${i}" data-act="reset">↻ Làm lại</button>
+        ${st.checked ? `<span class="fb-note" style="color:${isCorrect?'#3F7D6B':'#B84A3E'}">${isCorrect?'Chính xác!':'Chưa đúng, thử lại nhé.'}</span>` : `<button class="reveal-btn small" data-i="${i}" data-act="check">Kiểm tra</button>`}
+      </div>
+    </div>`;
+  }).join('');
+  return `<div class="slide">
+    <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
+    <div class="eyebrow">语序练习 · Sắp xếp câu</div>
+    <h2>${s.title}</h2>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Bấm các cụm từ theo đúng thứ tự để tạo thành câu hoàn chỉnh, sau đó bấm Kiểm tra.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">${items}</div>
+  </div>`;
+}
+
+function renderTranslate(s){
+  const items = translateItems.map((it,i)=>`
+    <div class="translate-item" id="tItem${i}">
+      <div class="translate-vi">${i+1}. ${it.vi}</div>
+      <textarea class="translate-input" id="tInput${i}" rows="2" placeholder="Gõ thử câu tiếng Trung (hoặc pinyin) của bạn ở đây..."></textarea>
+      <div class="translate-actions">
+        <button class="reveal-btn small" data-act="checkTranslate" data-i="${i}">Kiểm tra</button>
+        <button class="reveal-btn ghost small" data-act="revealTranslate" data-i="${i}">Xem đáp án gợi ý</button>
+        <span class="translate-feedback" id="tFeedback${i}"></span>
+      </div>
+      <div class="translate-answer" id="tAnswer${i}">
+        <div class="hanzi h">${it.h}</div>
+        <div class="p">${it.p}</div>
+      </div>
+    </div>`).join('');
+  return `<div class="slide">
+    <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
+    <div class="eyebrow">翻译练习 · Dịch câu</div>
+    <h2>${s.title}</h2>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin:0;">Dịch các câu sau sang tiếng Trung (gõ hanzi hoặc pinyin đều được), bấm Kiểm tra để tự chấm nhanh.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">${items}</div>
+  </div>`;
+}
+
+function renderSpeaking(s){
+  const cards = [
+    {icon:'bowl', name:'餐厅', q:'你最喜欢的餐厅叫什么名字？'},
+    {icon:'waiter', name:'服务员', q:'那儿服务员的态度怎么样？'},
+    {icon:'money', name:'价钱', q:'那儿的价钱贵不贵？算公道吗？'},
+    {icon:'pepper', name:'辣', q:'你喜欢吃辣的菜吗？'}
+  ].map(c=>`<div class="speak-card"><div class="ic">${ICONS[c.icon]}</div><div class="name hanzi">${c.name}</div><div class="q">${c.q}</div></div>`).join('');
+  const allVocab = dialogue1Vocab.concat(dialogue2Vocab, dialogue1ProperNouns, dialogue2ProperNouns);
+  const chips = allVocab.map(w=>`<button class="vchip" data-word="${w}">${w}</button>`).join('');
+  return `<div class="slide">
+    <div class="corner-sticker"><div class="sun"></div><div class="ring"></div><div class="art">${CORNER_STICKER}</div></div>
+    <div class="eyebrow">口语练习 · Luyện khẩu ngữ</div>
+    <h2>${s.title}</h2>
+    <div class="speak-topic">
+      <div class="speak-q">💬 Chủ đề: <strong>Hãy kể về thói quen ăn uống của bạn — thường ăn ở đâu, thỉnh thoảng có tự nấu không — và giới thiệu một nhà hàng bạn thích.</strong></div>
+      <ul class="speak-guide">
+        <li>你每天都在哪儿吃饭？食堂、饭馆，还是自己做？</li>
+        <li>你会做饭吗？你做得最好的是什么？</li>
+        <li>你喜欢的那家餐厅，环境、服务员的态度、价钱怎么样？</li>
+        <li>那家餐厅的菜辣不辣？你喜欢吃辣的吗？</li>
+      </ul>
+    </div>
+    <div class="speak-cards">${cards}</div>
+    <div class="pattern-box">
+      <div class="eyebrow" style="margin:0;">句型参考 · Mẫu câu gợi ý</div>
+      <ul class="gmore">
+        <li>有的时候……，有的时候……</li>
+        <li>……比……（更）+ 形容词</li>
+        <li>……没有……那么 + 形容词</li>
+        <li>价钱算公道 / 服务员态度很好</li>
+      </ul>
+    </div>
+    <div class="chip-row"><span class="chip-label">词语 Gợi ý từ vựng:</span>${chips}</div>
+  </div>`;
+}
+
+function render(){
+  const list = activeSlides();
+  const idx = getCurrent();
+  const s = list[idx];
+
+  document.getElementById('navNew').classList.toggle('active', section==='new');
+  document.getElementById('navReview').classList.toggle('active', section==='review');
+
+  document.getElementById('weatherDot').textContent = s.season;
+  document.getElementById('weatherDot').style.background = seasonMeta[s.season].accent;
+  document.getElementById('weatherLabel').textContent = seasonMeta[s.season].label;
+  document.documentElement.style.setProperty('--accent', seasonMeta[s.season].accent);
+  document.documentElement.style.setProperty('--accent-soft', seasonMeta[s.season].soft);
+  document.getElementById('blob1').style.background = seasonMeta[s.season].accent;
+  document.getElementById('blob2').style.background = seasonMeta[s.season].accent;
+
+  let html = '';
+  if(s.type==='cover') html = renderCover();
+  else if(s.type==='dialogue') html = renderDialogue(s);
+  else if(s.type==='reorder') html = renderReorder(s);
+  else if(s.type==='translate') html = renderTranslate(s);
+  else if(s.type==='speaking') html = renderSpeaking(s);
+
+  document.getElementById('slideArea').outerHTML = html.replace('class="slide','id="slideArea" class="slide');
+
+  attachEvents(s);
+  renderDots();
+  renderReviewTabs();
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').disabled = idx===list.length-1;
+}
+
+function attachEvents(s){
+  document.querySelectorAll('[data-speak]').forEach(btn=>{
+    btn.addEventListener('click', ()=>speak(btn.getAttribute('data-speak')));
+  });
+  const playAll = document.getElementById('playAll');
+  if(playAll) playAll.addEventListener('click', ()=>speakSequence(s.lines.map(l=>l.segments.map(sg=>sg.t).join(''))));
+
+  const togglePy = document.getElementById('togglePy');
+  if(togglePy) togglePy.addEventListener('click', ()=>{
+    const block = document.getElementById('dialogueBlock');
+    block.classList.toggle('hide-py');
+    togglePy.textContent = block.classList.contains('hide-py') ? 'Hiện phiên âm' : 'Ẩn phiên âm';
+  });
+  const toggleVi2 = document.getElementById('toggleVi2');
+  if(toggleVi2) toggleVi2.addEventListener('click', ()=>{
+    const block = document.getElementById('dialogueBlock');
+    block.classList.toggle('hide-vi');
+    toggleVi2.textContent = block.classList.contains('hide-vi') ? 'Hiện nghĩa' : 'Ẩn nghĩa';
+  });
+
+  document.querySelectorAll('[data-act="add"],[data-act="remove"],[data-act="check"],[data-act="reset"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = parseInt(btn.getAttribute('data-i'));
+      const st = s._state[i];
+      const act = btn.getAttribute('data-act');
+      if(act==='add'){ st.answer.push(btn.getAttribute('data-word')); }
+      else if(act==='remove'){ st.answer.splice(parseInt(btn.getAttribute('data-ci')),1); }
+      else if(act==='check'){ st.checked = true; }
+      else if(act==='reset'){ st.answer=[]; st.checked=false; st.bank=[...reorderItems[i].chunks].sort(()=>Math.random()-0.5); }
+      render();
+    });
+  });
+
+  document.querySelectorAll('[data-act="revealTranslate"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.getAttribute('data-i');
+      const ans = document.getElementById('tAnswer'+i);
+      ans.classList.toggle('shown');
+      btn.textContent = ans.classList.contains('shown') ? 'Ẩn đáp án' : 'Xem đáp án gợi ý';
+    });
+  });
+  document.querySelectorAll('[data-act="checkTranslate"]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const i = btn.getAttribute('data-i');
+      const input = document.getElementById('tInput'+i);
+      const fb = document.getElementById('tFeedback'+i);
+      const item = document.getElementById('tItem'+i);
+      const it = translateItems[i];
+      const val = input.value.trim();
+      item.classList.remove('t-correct','t-wrong');
+      if(!val){ fb.textContent = 'Hãy gõ câu trả lời trước đã nhé.'; fb.style.color = '#B84A3E'; return; }
+      const norm = normalizeStr(val);
+      const isMatch = norm===normalizeStr(it.h) || norm===normalizeStr(it.p);
+      if(isMatch){
+        fb.textContent = 'Chính xác!'; fb.style.color = '#3F7D6B'; item.classList.add('t-correct');
+      } else {
+        fb.textContent = 'Chưa khớp đáp án gợi ý — xem thêm để so sánh nhé.'; fb.style.color = '#B84A3E'; item.classList.add('t-wrong');
+      }
+    });
+  });
+}
+
+function renderDots(){
+  const dots = document.getElementById('dots');
+  if(section==='review'){ dots.innerHTML=''; return; }
+  const list = activeSlides();
+  const idx = getCurrent();
+  dots.innerHTML = list.map((_,i)=>`<span class="${i===idx?'active':''}" data-i="${i}"></span>`).join('');
+  dots.querySelectorAll('span').forEach(d=>d.addEventListener('click', ()=>{ setCurrent(parseInt(d.getAttribute('data-i'))); render(); }));
+}
+
+function renderReviewTabs(){
+  const el = document.getElementById('reviewTabs');
+  if(section!=='review'){ el.style.display='none'; el.innerHTML=''; return; }
+  el.style.display='flex';
+  el.innerHTML = slidesReview.map((sl,i)=>`<button class="review-tab ${i===currentReview?'active':''}" data-i="${i}">${sl.tab}</button>`).join('');
+  el.querySelectorAll('.review-tab').forEach(b=>b.addEventListener('click', ()=>{ currentReview = parseInt(b.getAttribute('data-i')); render(); }));
+}
+
+document.getElementById('prevBtn').addEventListener('click', ()=>{ const i=getCurrent(); if(i>0){ setCurrent(i-1); render(); } });
+document.getElementById('nextBtn').addEventListener('click', ()=>{ const i=getCurrent(); const list=activeSlides(); if(i<list.length-1){ setCurrent(i+1); render(); } });
+document.addEventListener('keydown', (e)=>{
+  const modalOpen = document.getElementById('vocabModal').classList.contains('open');
+  if(modalOpen){ if(e.key==='Escape'){ closeVocabModal(); } return; }
+  if(document.activeElement && (document.activeElement.tagName==='TEXTAREA' || document.activeElement.tagName==='INPUT')) return;
+  const i=getCurrent(); const list=activeSlides();
+  if(e.key==='ArrowRight' && i<list.length-1){ setCurrent(i+1); render(); }
+  if(e.key==='ArrowLeft' && i>0){ setCurrent(i-1); render(); }
+});
+document.getElementById('navNew').addEventListener('click', ()=>{ section='new'; render(); });
+document.getElementById('navReview').addEventListener('click', ()=>{ section='review'; render(); });
+
+/* ---------- VOCAB MODAL ---------- */
+function buildStrokePanel(word){
+  const panel = document.getElementById('strokePanel');
+  panel.innerHTML='';
+  panel._writers = [];
+  const chars = Array.from(word);
+  const boxSize = 110;
+  chars.forEach((ch,i)=>{
+    const wrap = document.createElement('div');
+    wrap.className='stroke-box';
+    const id = 'hw-'+i+'-'+Date.now();
+    wrap.innerHTML = `<div class="stroke-target" id="${id}"></div><div class="stroke-char hanzi">${ch}</div>`;
+    panel.appendChild(wrap);
+    try{
+      const writer = HanziWriter.create(id, ch, {
+        width: boxSize, height: boxSize, padding:6,
+        showOutline:true, strokeAnimationSpeed:1, delayBetweenStrokes:180,
+        strokeColor:'#273140', outlineColor:'#DEE2D9', radicalColor:'#8FBF9F'
+      });
+      panel._writers.push(writer);
+      setTimeout(()=>{
+        if(typeof writer.loopCharacterAnimation === 'function'){
+          writer.loopCharacterAnimation({delayBetweenLoops:900});
+        } else {
+          writer.animateCharacter();
+        }
+      }, 300 + i*200);
+    }catch(e){ console.warn('HanziWriter lỗi tải chữ', ch, e); }
+  });
+}
+
+function openVocabModal(word){
+  const info = vocabDetails[word];
+  if(!info) return;
+  document.getElementById('vwHanzi').textContent = word;
+  document.getElementById('vwPinyin').textContent = info.p;
+  document.getElementById('vwHanviet').textContent = 'Âm Hán Việt: '+info.hv;
+  document.getElementById('vwPos').textContent = info.pos;
+  document.getElementById('vwMeaning').innerHTML = '<strong>Nghĩa:</strong> '+info.vi;
+  document.getElementById('vwUsage').innerHTML = '<strong>Cách dùng:</strong> '+info.usage;
+  const radSec = document.getElementById('vwRadicalSection');
+  if(info.radical){
+    radSec.innerHTML = `<div class="radical-box">
+      <div class="radical-badge hanzi">${info.radical.char}</div>
+      <div class="radical-text">
+        <div class="radical-name">Bộ ${info.radical.name}</div>
+        <div class="mnemonic-text">${info.mnemonic||''}</div>
+      </div>
+      ${info.icon && ICONS[info.icon] ? `<div class="radical-icon">${ICONS[info.icon]}</div>` : ''}
+    </div>`;
+  } else {
+    radSec.innerHTML = info.mnemonic ? `<div class="mnemonic-text">${info.mnemonic}</div>` : '';
+  }
+  document.getElementById('vwExamples').innerHTML = info.examples.map(ex=>`<div class="ex-item"><div class="hanzi ex-h">${ex.h}</div><div class="ex-p">${ex.p}</div><div class="ex-vi">${ex.vi}</div></div>`).join('');
+  buildStrokePanel(word);
+  const modal = document.getElementById('vocabModal');
+  modal.style.display='flex';
+  requestAnimationFrame(()=> requestAnimationFrame(()=> modal.classList.add('open')));
+}
+function closeVocabModal(){
+  const modal = document.getElementById('vocabModal');
+  modal.classList.remove('open');
+  setTimeout(()=>{ if(!modal.classList.contains('open')) modal.style.display='none'; }, 320);
+}
+
+document.addEventListener('click', (e)=>{
+  const w = e.target.closest('.vword,.vchip');
+  if(w){ openVocabModal(w.getAttribute('data-word')); return; }
+  if(e.target.id==='vmodalClose' || e.target.classList.contains('vmodal-backdrop')){ closeVocabModal(); }
+});
+
+render();
+
+/* ---------- TRÌNH CHIẾU TOÀN MÀN HÌNH (fullscreen presentation) ---------- */
+function enterPresentation(){
+  const el = document.documentElement;
+  const req = el.requestFullscreen || el.webkitRequestFullscreen;
+  if(req){ req.call(el).catch(()=>{ document.body.classList.add('presentation'); }); }
+  else { document.body.classList.add('presentation'); }
+}
+function exitPresentation(){
+  if(document.fullscreenElement || document.webkitFullscreenElement){
+    (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+  } else {
+    document.body.classList.remove('presentation');
+  }
+}
+function onFullscreenChange(){
+  const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+  document.body.classList.toggle('presentation', isFs);
+}
+document.addEventListener('fullscreenchange', onFullscreenChange);
+document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+document.getElementById('fsBtn').addEventListener('click', enterPresentation);
+document.getElementById('fsExit').addEventListener('click', exitPresentation);
+</script>
+</body>
+</html>

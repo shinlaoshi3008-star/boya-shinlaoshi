@@ -199,68 +199,340 @@ footer.hubfoot{max-width:1700px;font-size:13px;}
 const unitSize = 5;
 
 const LESSONS = {
-  book1: {
-    label: '博雅汉语 I', sub: '初级起步篇 I · Elementary Chinese I',
-    lessons: [
-      {n:1,   title:'你好',                pinyin:'Nǐ Hǎo',                        file:'boya1/Bai1.html'},
-      {n:2,   title:'你是哪国人', pinyin:'Nǐ Shì Nǎ Guó Rén', file:'boya1/Bai2.html'},
-      {n:3,   title:'那是你的书吗', pinyin:'Nàshì Nǐ de Shū Ma', file:'boya1/Bai3.html'},
-      {n:4,   title:'我叫李明', pinyin:'Wǒ Jiào Lǐ Míng', file:'boya1/Bai4.html'},
-      {n:5,   title:'在北京大学的东边',          pinyin:'Zài Běijīng Dàxué de Dōngbiān', file:'boya1/Bai5.html'},
-      {n:6,   title:'现在几点', pinyin:'Xiànzài Jǐ Diǎn', file:'boya1/Bai6.html'},
-      {n:7,   title:'明天你有课吗', pinyin:'Míngtiān Nǐ Yǒu Kè Ma', file:'boya1/Bai7.html'},
-      {n:8,   title:'你的电话号码是多少', pinyin:'Nǐ de Diànhuà Hào Mǎ Shì Duōshǎ', file:'boya1/Bai8.html'},
-      {n:9,   title:'多少钱一瓶', pinyin:'Duōshǎ Qián Yī Píng', file:'boya1/Bai9.html'},
-      {n:10,  title:'你家有几口人', pinyin:'Nǐ jiā yǒu jǐ kǒu rén', file:'boya1/Bai10.html'},
-      {n:11,  title:'北京的冬天比较冷', pinyin:'Běijīng de Dōngtiān Bǐjiào Lěng', file:'boya1/Bai11.html'},
-      {n:12,  title:'你在干什么呢', pinyin:'Nǐ zài gàn shénme ne', file:'boya1/Bai12.html'},
-      {n:13,  title:'我去图书馆借书', pinyin:'Wǒ Qù Túshūguǎn Jiè Shū', file:'boya1/Bai13.html'},
-      {n:14,  title:'我喜欢浅颜色的', pinyin:'Wǒ Xǐhuān Qiǎn Yánsè de', file:'boya1/Bai14.html'},
-      {n:15,  title:'明天是我朋友的生日', pinyin:'Míngtiān Shì Wǒ Péngyou de Shēngrì', file:'boya1/Bai15.html'},
-      {n:16,  title:'周末你干什么', pinyin:'Zhōumò Nǐ Gàn shénme', file:'boya1/Bai16.html'},
-      {n:17,  title:'做客（一）', pinyin:'Zuò Kè (Yī)', file:'boya1/Bai17.html'},
-      {n:18,  title:'做客（二）', pinyin:'Zuò Kè (Èr)', file:'boya1/Bai18.html'},
-      {n:19,  title:'现在习惯了', pinyin:'Xiànzài xíguàn le', file:'boya1/Bai19.html'},
-      {n:20,  title:'看病人', pinyin:'Kàn Bìngrén', file:'boya1/Bai20.html'},
-      {n:21,  title:'', pinyin:'', file:''},
-      {n:22,  title:'', pinyin:'', file:''},
-      {n:23,  title:'', pinyin:'', file:''},
-      {n:24,  title:'', pinyin:'', file:''},
-      {n:25,  title:'', pinyin:'', file:''},
-      {n:26,  title:'', pinyin:'', file:''},
-      {n:27,  title:'', pinyin:'', file:''},
-      {n:28,  title:'', pinyin:'', file:''},
-      {n:29,  title:'', pinyin:'', file:''}
+  "book1": {
+    "label": "博雅汉语 I",
+    "sub": "初级起步篇 I · Elementary Chinese I",
+    "lessons": [
+      {
+        "n": 1,
+        "title": "你好",
+        "pinyin": "Nǐ Hǎo",
+        "file": "boya1/Bai1.html"
+      },
+      {
+        "n": 2,
+        "title": "你是哪国人",
+        "pinyin": "Nǐ Shì Nǎ Guó Rén",
+        "file": "boya1/Bai2.html"
+      },
+      {
+        "n": 3,
+        "title": "那是你的书吗",
+        "pinyin": "Nàshì Nǐ de Shū Ma",
+        "file": "boya1/Bai3.html"
+      },
+      {
+        "n": 4,
+        "title": "我叫李明",
+        "pinyin": "Wǒ Jiào Lǐ Míng",
+        "file": "boya1/Bai4.html"
+      },
+      {
+        "n": 5,
+        "title": "在北京大学的东边",
+        "pinyin": "Zài Běijīng Dàxué de Dōngbiān",
+        "file": "boya1/Bai5.html"
+      },
+      {
+        "n": 6,
+        "title": "现在几点",
+        "pinyin": "Xiànzài Jǐ Diǎn",
+        "file": "boya1/Bai6.html"
+      },
+      {
+        "n": 7,
+        "title": "明天你有课吗",
+        "pinyin": "Míngtiān Nǐ Yǒu Kè Ma",
+        "file": "boya1/Bai7.html"
+      },
+      {
+        "n": 8,
+        "title": "你的电话号码是多少",
+        "pinyin": "Nǐ de Diànhuà Hào Mǎ Shì Duōshǎ",
+        "file": "boya1/Bai8.html"
+      },
+      {
+        "n": 9,
+        "title": "多少钱一瓶",
+        "pinyin": "Duōshǎ Qián Yī Píng",
+        "file": "boya1/Bai9.html"
+      },
+      {
+        "n": 10,
+        "title": "你家有几口人",
+        "pinyin": "Nǐ jiā yǒu jǐ kǒu rén",
+        "file": "boya1/Bai10.html"
+      },
+      {
+        "n": 11,
+        "title": "北京的冬天比较冷",
+        "pinyin": "Běijīng de Dōngtiān Bǐjiào Lěng",
+        "file": "boya1/Bai11.html"
+      },
+      {
+        "n": 12,
+        "title": "你在干什么呢",
+        "pinyin": "Nǐ zài gàn shénme ne",
+        "file": "boya1/Bai12.html"
+      },
+      {
+        "n": 13,
+        "title": "我去图书馆借书",
+        "pinyin": "Wǒ Qù Túshūguǎn Jiè Shū",
+        "file": "boya1/Bai13.html"
+      },
+      {
+        "n": 14,
+        "title": "我喜欢浅颜色的",
+        "pinyin": "Wǒ Xǐhuān Qiǎn Yánsè de",
+        "file": "boya1/Bai14.html"
+      },
+      {
+        "n": 15,
+        "title": "明天是我朋友的生日",
+        "pinyin": "Míngtiān Shì Wǒ Péngyou de Shēngrì",
+        "file": "boya1/Bai15.html"
+      },
+      {
+        "n": 16,
+        "title": "周末你干什么",
+        "pinyin": "Zhōumò Nǐ Gàn shénme",
+        "file": "boya1/Bai16.html"
+      },
+      {
+        "n": 17,
+        "title": "做客（一）",
+        "pinyin": "Zuò Kè (Yī)",
+        "file": "boya1/Bai17.html"
+      },
+      {
+        "n": 18,
+        "title": "做客（二）",
+        "pinyin": "Zuò Kè (Èr)",
+        "file": "boya1/Bai18.html"
+      },
+      {
+        "n": 19,
+        "title": "现在习惯了",
+        "pinyin": "Xiànzài xíguàn le",
+        "file": "boya1/Bai19.html"
+      },
+      {
+        "n": 20,
+        "title": "看病人",
+        "pinyin": "Kàn Bìngrén",
+        "file": "boya1/Bai20.html"
+      },
+      {
+        "n": 21,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 22,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 23,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 24,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 25,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 26,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 27,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 28,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 29,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      }
     ]
   },
-  book2: {
-    label: '博雅汉语 II', sub: '初级起步篇 II · Elementary Chinese II',
-    lessons: [
-      {n:1,  title:'飞机晚点了', pinyin:'Fēijī Wǎndiǎn le', file:'boya2/Bai1.html'},
-      {n:2,   title:'', pinyin:'', file:''},
-      {n:3,   title:'', pinyin:'', file:''},
-      {n:4,   title:'美国没有这么多自行车', pinyin:'Měiguó Méiyǒu Zhème Duō Zìxíngchē', file:'boya2/Bai4.html'},
-      {n:5,   title:'', pinyin:'', file:''},
-      {n:6,   title:'', pinyin:'', file:''},
-      {n:7,   title:'', pinyin:'', file:''},
-      {n:8,   title:'', pinyin:'', file:''},
-      {n:9,   title:'', pinyin:'', file:''},
-      {n:10,  title:'', pinyin:'', file:''},
-      {n:11,  title:'', pinyin:'', file:''},
-      {n:12,  title:'', pinyin:'', file:''},
-      {n:13,  title:'', pinyin:'', file:''},
-      {n:14,  title:'', pinyin:'', file:''},
-      {n:15,  title:'', pinyin:'', file:''},
-      {n:16,  title:'', pinyin:'', file:''},
-      {n:17,  title:'', pinyin:'', file:''},
-      {n:18,  title:'', pinyin:'', file:''},
-      {n:19,  title:'', pinyin:'', file:''},
-      {n:20,  title:'', pinyin:'', file:''},
-      {n:21,  title:'', pinyin:'', file:''},
-      {n:22,  title:'', pinyin:'', file:''},
-      {n:23,  title:'', pinyin:'', file:''},
-      {n:24,  title:'', pinyin:'', file:''},
-      {n:25,  title:'', pinyin:'', file:''}
+  "book2": {
+    "label": "博雅汉语 II",
+    "sub": "初级起步篇 II · Elementary Chinese II",
+    "lessons": [
+      {
+        "n": 1,
+        "title": "\u0016飞机晚点了",
+        "pinyin": "\u0016Fēijī Wǎndiǎn le",
+        "file": "boya2/Bai1.html"
+      },
+      {
+        "n": 2,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 3,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 4,
+        "title": "美国没有这么多自行车",
+        "pinyin": "Měiguó Méiyǒu Zhème Duō Zìxíngchē",
+        "file": "boya2/Bai4.html"
+      },
+      {
+        "n": 5,
+        "title": "这家餐厅的菜不错",
+        "pinyin": "Zhè Jiā Cāntīng de Cài Búcuò",
+        "file": "boya2/Bai5-Boya2.html"
+      },
+      {
+        "n": 6,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 7,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 8,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 9,
+        "title": "我进不去了",
+        "pinyin": "Wǒ jìn bú qù le",
+        "file": "boya2/Bai 9.html"
+      },
+      {
+        "n": 10,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 11,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 12,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 13,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 14,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 15,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 16,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 17,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 18,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 19,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 20,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 21,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 22,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 23,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 24,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      },
+      {
+        "n": 25,
+        "title": "",
+        "pinyin": "",
+        "file": ""
+      }
     ]
   }
 };
@@ -270,17 +542,50 @@ const LESSONS = {
    đơn vị (unit) 5 bài. Khóa là "book1-unit1", "book1-unit2"... tính theo
    thứ tự đơn vị trong LESSONS ở trên. Để trống "file" nếu chưa có bài kiểm tra. */
 const TESTS = {
-  'book1-unit1': {file:'boya1/KT1-5.html', label:'KT Bài 1–5'},
-  'book1-unit2': {file:'', label:'KT Bài 6–10'},
-  'book1-unit3': {file:'', label:'KT Bài 11–15'},
-  'book1-unit4': {file:'', label:'KT Bài 16–20'},
-  'book1-unit5': {file:'', label:'KT Bài 21–25'},
-  'book1-unit6': {file:'', label:'KT Bài 26–29'},
-  'book2-unit1': {file:'boya2/KT2-Bai1-5.html', label:'KT Bài 1–5'},
-  'book2-unit2': {file:'', label:'KT Bài 6–10'},
-  'book2-unit3': {file:'', label:'KT Bài 11–15'},
-  'book2-unit4': {file:'', label:'KT Bài 16–20'},
-  'book2-unit5': {file:'', label:'KT Bài 21–25'}
+  "book1-unit1": {
+    "file": "boya1/KT1-5.html",
+    "label": "KT Bài 1–5"
+  },
+  "book1-unit2": {
+    "file": "",
+    "label": "KT Bài 6–10"
+  },
+  "book1-unit3": {
+    "file": "",
+    "label": "KT Bài 11–15"
+  },
+  "book1-unit4": {
+    "file": "",
+    "label": "KT Bài 16–20"
+  },
+  "book1-unit5": {
+    "file": "",
+    "label": "KT Bài 21–25"
+  },
+  "book1-unit6": {
+    "file": "",
+    "label": "KT Bài 26–29"
+  },
+  "book2-unit1": {
+    "file": "boya2/KT2-Bai1-5.html",
+    "label": "KT Bài 1–5"
+  },
+  "book2-unit2": {
+    "file": "",
+    "label": "KT Bài 6–10"
+  },
+  "book2-unit3": {
+    "file": "",
+    "label": "KT Bài 11–15"
+  },
+  "book2-unit4": {
+    "file": "",
+    "label": "KT Bài 16–20"
+  },
+  "book2-unit5": {
+    "file": "",
+    "label": "KT Bài 21–25"
+  }
 };
 
 /* ================== MỤC NGỮ PHÁP RIÊNG CHO TỪNG QUYỂN ==================
@@ -289,11 +594,16 @@ const TESTS = {
    tách biệt với các bài học đánh số. Để trống mảng nếu quyển đó chưa có
    chuyên đề ngữ pháp nào. */
 const GRAMMAR = {
-  book1: [
-    // { title:'Tên chuyên đề', file:'boya1/ten-file.html' }
-  ],
-  book2: [
-    { title:'Ngữ pháp tổng hợp', file:'boya2/Ngữ pháp.html' }
+  "book1": [],
+  "book2": [
+    {
+      "title": "Ngữ pháp tổng hợp",
+      "file": "boya2/Ngữ pháp.html"
+    },
+    {
+      "title": "Ôn tập Ngữ pháp Boya 1",
+      "file": "boya2/boya1_grammar_test.html"
+    }
   ]
 };
 /* ================================================================= */

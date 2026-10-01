@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn Tập Ngữ Pháp Boya 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f2;
+    --surface: #ffffff;
+    --surface-2: #f1efe9;
+    --border: #e4ddd0;
+    --text: #2b2620;
+    --text-dim: #6f6656;
+    --accent: #b5482b;
+    --accent-soft: #f4e2da;
+    --accent-2: #2c6e5c;
+    --accent-2-soft: #dcece5;
+    --correct: #2c7a4b;
+    --correct-bg: #e5f4e9;
+    --wrong: #c23b3b;
+    --wrong-bg: #fbe8e6;
+    --radius: 14px;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1d1b17; --surface: #262320; --surface-2: #2f2b26; --border: #423c33;
+      --text: #f1ece2; --text-dim: #b5ab98; --accent: #e2764f; --accent-soft: #3d2a22;
+      --accent-2: #6db79b; --accent-2-soft: #223a32;
+      --correct: #7ed6a0; --correct-bg: #1f3a2a; --wrong: #f29b9b; --wrong-bg: #402323;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1d1b17; --surface: #262320; --surface-2: #2f2b26; --border: #423c33;
+    --text: #f1ece2; --text-dim: #b5ab98; --accent: #e2764f; --accent-soft: #3d2a22;
+    --accent-2: #6db79b; --accent-2-soft: #223a32;
+    --correct: #7ed6a0; --correct-bg: #1f3a2a; --wrong: #f29b9b; --wrong-bg: #402323;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; line-height:1.55; }
+  .cjk { font-family:'Noto Sans SC','Inter',sans-serif; }
+  .wrap { max-width: 880px; margin:0 auto; padding: 26px 16px 80px; }
+  header.page-header { text-align:center; margin-bottom: 20px; }
+  header.page-header h1 { font-size: 1.4rem; margin:0 0 6px; letter-spacing:-0.01em; }
+  header.page-header p { margin:0; color:var(--text-dim); font-size:0.92rem; }
+
+  .main-tabs { display:flex; gap:7px; overflow-x:auto; padding-bottom:4px; margin-bottom:18px; -webkit-overflow-scrolling: touch; }
+  .main-tab-btn { flex:0 0 auto; padding:9px 14px; border-radius:999px; border:1px solid var(--border); background:var(--surface); color:var(--text-dim); font-weight:600; font-size:0.85rem; cursor:pointer; white-space:nowrap; }
+  .main-tab-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  .topic-panel { display:none; }
+  .topic-panel.active { display:block; }
+
+  .dang-intro { background:var(--accent-soft); border-radius:var(--radius); padding:12px 16px; margin-bottom:16px; font-size:0.9rem; }
+  .dang-intro b { color:var(--accent); }
+  .sub-head { font-weight:700; font-size:0.95rem; margin: 18px 0 10px; color:var(--accent-2); }
+  .sub-head:first-child { margin-top:0; }
+
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:14px 17px; margin-bottom:11px; }
+  .q-num { display:inline-flex; align-items:center; justify-content:center; min-width:34px; height:24px; padding:0 6px; border-radius:8px; background:var(--accent-2-soft); color:var(--accent-2); font-weight:700; font-size:0.78rem; margin-right:8px; flex:0 0 auto; }
+  .q-row { display:flex; align-items:flex-start; }
+  .q-body { flex:1; min-width:0; }
+  .q-text { font-size:1.02rem; margin-bottom:8px; }
+
+  .blank-input { width:60px; border:none; border-bottom:2px solid var(--accent); background:transparent; color:var(--text); font-family:'Noto Sans SC','Inter',sans-serif; font-size:1rem; text-align:center; padding:2px 4px; margin:0 2px; }
+  .blank-input:focus { outline:none; border-color:var(--accent-2); }
+  .blank-input.correct { border-color:var(--correct); background:var(--correct-bg); }
+  .blank-input.wrong { border-color:var(--wrong); background:var(--wrong-bg); }
+
+  textarea.free-input, input.free-input { width:100%; border:1px solid var(--border); border-radius:9px; background:var(--surface-2); color:var(--text); font-family:'Noto Sans SC','Inter',sans-serif; font-size:0.98rem; padding:8px 10px; resize:vertical; }
+  textarea.free-input:focus, input.free-input:focus { outline:none; border-color:var(--accent-2); }
+
+  .row-actions { display:flex; align-items:center; gap:10px; margin-top:8px; flex-wrap:wrap; }
+  .btn { border:1px solid var(--border); border-radius:8px; padding:6px 13px; font-size:0.81rem; font-weight:600; cursor:pointer; background:var(--surface-2); color:var(--text); }
+  .btn.primary { background:var(--accent-2); color:#fff; border-color:var(--accent-2); }
+  .verdict { font-size:0.81rem; font-weight:600; }
+  .verdict.ok { color:var(--correct); }
+  .verdict.bad { color:var(--wrong); }
+
+  .answer-box { display:none; margin-top:9px; background:var(--accent-2-soft); border-radius:9px; padding:9px 12px; font-size:0.9rem; }
+  .answer-box.show { display:block; }
+  .answer-box.wrong-tint { background:var(--wrong-bg); }
+  .answer-box .label { font-weight:700; color:var(--accent-2); margin-right:4px; }
+  .answer-box .label.wrong-label { color:var(--wrong); }
+  .answer-box .explain { color:var(--text-dim); margin-top:4px; font-size:0.84rem; }
+
+  .letter-badge { display:inline-flex; align-items:center; justify-content:center; min-width:20px; height:20px; padding:0 3px; border-radius:5px; background:var(--surface-2); border:1px solid var(--border); font-weight:700; font-size:0.78rem; margin:0 2px; color:var(--text-dim); }
+  .letter-badge.pickable { cursor:pointer; }
+  .letter-badge.selected { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .letter-badge.correct { background:var(--correct); border-color:var(--correct); color:#fff; }
+  .letter-badge.wrong { background:var(--wrong); border-color:var(--wrong); color:#fff; }
+  select.pos-select { font-family:'Noto Sans SC','Inter',sans-serif; border:1px solid var(--accent); border-radius:6px; padding:2px 4px; font-size:0.88rem; background:var(--surface); color:var(--text); margin:0 2px 4px; }
+  select.pos-select.correct { border-color:var(--correct); background:var(--correct-bg); }
+  select.pos-select.wrong { border-color:var(--wrong); background:var(--wrong-bg); }
+
+  .section-footer { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:13px 17px; margin: 4px 0 20px; }
+  .score-display { font-weight:700; font-size:0.92rem; }
+  .score-display span { color:var(--accent); }
+
+  .qgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; }
+  .qgrid .mini-item { display:flex; align-items:center; font-size:0.95rem; }
+  .qgrid .mini-num { color:var(--text-dim); font-size:0.8rem; margin-right:4px; min-width:16px; }
+
+  footer.page-footer { text-align:center; color:var(--text-dim); font-size:0.78rem; margin-top:26px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-header">
+    <h1 class="cjk">📘 《博雅汉语1》 重点语法复习</h1>
+    <p>Ôn tập trọng điểm ngữ pháp Boya 1 — làm bài rồi bấm "Kiểm tra" / "Xem đáp án" để tự chấm.</p>
+  </header>
+  <nav class="main-tabs" id="mainTabs"></nav>
+  <div id="topicPanels"></div>
+  <footer class="page-footer">Một số bài (đặt câu, hoàn thành câu, sửa câu) mang tính mở — đáp án hiển thị chỉ là gợi ý mẫu, có thể còn cách viết đúng khác.</footer>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const norm = s => (s||"").toLowerCase().replace(/[，。！？、\s.,!?]/g,"").trim();
+
+const TOPICS = [
+  { id:"fangwei", label:"1. 方位词", type:"correction",
+    intro:"Phương vị từ — Sửa lại câu sai cho đúng.",
+    items:[
+      {num:"1.1", text:"博物馆是马路东边。", answer:"博物馆在马路东边。", explain:"Câu chỉ vị trí dùng cấu trúc \"A + 在 + vị trí\", không dùng \"是\"."},
+      {num:"1.2", text:"公园东边在中国银行。", answer:"中国银行在公园东边。", explain:"Chủ ngữ phải là vật cần xác định vị trí (ngân hàng); cụm \"công viên phía đông\" chỉ là nơi chốn, không làm chủ ngữ của \"在\" theo cách này."},
+      {num:"1.3", text:"学校里边是一个邮局。", answer:"学校里边有一个邮局。", explain:"Câu biểu thị sự tồn tại (có gì ở một nơi) dùng \"有\", không dùng \"是\"."},
+      {num:"1.4", text:"食堂在南边图书馆。", answer:"食堂在图书馆南边。", explain:"Cấu trúc đúng: [Danh từ chỉ nơi] + phương vị từ, tức \"图书馆南边\" chứ không phải \"南边图书馆\"."}
+    ]
+  },
+  { id:"liangci", label:"2. 量词", type:"fill",
+    intro:"Lượng từ — Điền lượng từ thích hợp vào chỗ trống.",
+    items:[
+      {num:1, text:"一___雨伞", blanks:[["把"]]},
+      {num:2, text:"四___箱子", blanks:[["个"]]},
+      {num:3, text:"七___词典", blanks:[["本"]]},
+      {num:4, text:"两___香水儿", blanks:[["瓶"]]},
+      {num:5, text:"五___书", blanks:[["本"]]},
+      {num:6, text:"八___笔", blanks:[["支","根"]]},
+      {num:7, text:"三___老师", blanks:[["位","个"]]},
+      {num:8, text:"六___光盘", blanks:[["张"]]},
+      {num:9, text:"一___衣服", blanks:[["件"]]},
+      {num:10, text:"六___椅子", blanks:[["把"]]},
+      {num:11, text:"两___啤酒", blanks:[["瓶"]]},
+      {num:12, text:"一___汤", blanks:[["碗"]]},
+      {num:13, text:"一___自行车", blanks:[["辆"]]},
+      {num:14, text:"两___照片", blanks:[["张"]]},
+      {num:15, text:"一___鞋", blanks:[["双"]]},
+      {num:16, text:"一___水", blanks:[["杯","瓶"]]},
+      {num:17, text:"六___电脑", blanks:[["台"]]},
+      {num:18, text:"三___人", blanks:[["个","位"]]},
+      {num:19, text:"一___房子", blanks:[["座","间"]]},
+      {num:20, text:"十___刀", blanks:[["把"]]},
+      {num:21, text:"五___裙子", blanks:[["条"]]},
+      {num:22, text:"一___雨", blanks:[["场"]]},
+      {num:23, text:"三___课", blanks:[["节","门"]]},
+      {num:24, text:"两___苹果", blanks:[["个"]]},
+      {num:25, text:"一___蛋糕", blanks:[["块","个"]]},
+      {num:26, text:"一___月", blanks:[["个"]]},
+      {num:27, text:"三___信", blanks:[["封"]]}
+    ]
+  },
+  { id:"de", label:"3. 结构助词「的」", type:"correction",
+    intro:"Thêm \"的\" vào vị trí thích hợp trong câu.",
+    items:[
+      {num:"3.1", text:"这是谁汉语书？", answer:"这是谁的汉语书？"},
+      {num:"3.2", text:"你是哪个大学学生？", answer:"你是哪个大学的学生？"},
+      {num:"3.3", text:"他们都是很好人。", answer:"他们都是很好的人。"},
+      {num:"3.4", text:"玛丽老师是王老师。", answer:"Câu này không cần thêm \"的\" — đã đúng ngữ pháp.", explain:"Đây là câu đẳng lập (hai vế cùng chỉ danh xưng), không mang quan hệ sở hữu nên không thêm \"的\". Nếu ý câu gốc là khác, nên kiểm tra lại ngữ cảnh với giáo viên."},
+      {num:"3.5", text:"这是我爸爸汉语词典。", answer:"这是我爸爸的汉语词典。"},
+      {num:"3.6", text:"那是田芳好朋友。", answer:"那是田芳的好朋友。"},
+      {num:"3.7", text:"他们是我们班老师。", answer:"他们是我们班的老师。"},
+      {num:"3.8", text:"在比赛中获奖那个大学生是韩国人。", answer:"在比赛中获奖的那个大学生是韩国人。"},
+      {num:"3.9", text:"你上星期从图书馆借来那两本书在哪儿了？", answer:"你上星期从图书馆借来的那两本书在哪儿了？"},
+      {num:"3.10", text:"爸爸昨天在商店给我买那条裤子很漂亮", answer:"爸爸昨天在商店给我买的那条裤子很漂亮。"}
+    ]
+  },
+  { id:"liandong", label:"4. 连动句", type:"sample",
+    intro:"Câu liên động — Hoàn thành câu (đáp án dưới đây chỉ là câu mẫu, có thể viết câu khác đúng ngữ pháp).",
+    items:[
+      {num:"4.1", text:"麦克不常去图书馆______。", sample:"麦克不常去图书馆借书。", explain:"Cấu trúc câu liên động: V1(去) + nơi chốn + V2(mục đích)."},
+      {num:"4.2", text:"他来中国______。", sample:"他来中国学习汉语。"},
+      {num:"4.3", text:"田芳每天都上网______。", sample:"田芳每天都上网聊天。"},
+      {num:"4.4", text:"上课的时候，老师常常用汉语______。", sample:"上课的时候，老师常常用汉语讲课。", explain:"Cấu trúc: 用 + phương tiện + V2."},
+      {num:"4.5", text:"他常常用笔______。", sample:"他常常用笔写信。"},
+      {num:"4.6", text:"我们坐飞机______吧。", sample:"我们坐飞机去吧。"}
+    ]
+  },
+  { id:"zhuangtai", label:"5. 状态补语", type:"correction",
+    intro:"Bổ ngữ trạng thái — Sửa lại câu sai cho đúng.",
+    items:[
+      {num:"5.1", text:"我们朋友丁力英语说不错。", answer:"我们的朋友丁力英语说得不错。", explain:"Thiếu \"的\" sau 我们 (sở hữu) và thiếu \"得\" trước bổ ngữ trạng thái."},
+      {num:"5.2", text:"他打篮球得越来越好。", answer:"他打篮球打得越来越好。", explain:"Có tân ngữ (篮球) chen giữa động từ và 得 nên phải lặp lại động từ trước 得."},
+      {num:"5.3", text:"因为今天考试，所以同学们都来了很早。", answer:"因为今天考试，所以同学们都来得很早。", explain:"Miêu tả mức độ của hành động phải dùng 得, không dùng 了."},
+      {num:"5.4", text:"你哥哥排球打得很好极了。", answer:"你哥哥排球打得好极了。", explain:"Không dùng đồng thời cả \"很\" và \"极了\" — chỉ giữ một mức độ phó từ."},
+      {num:"5.5", text:"他法语不说得很慢", answer:"他法语说得不很慢。", explain:"Phủ định của bổ ngữ trạng thái đặt \"不\" ngay sau 得, không đặt trước động từ."}
+    ]
+  },
+  { id:"leyq", label:"6. 语气助词「了」", type:"fill",
+    intro:"Điền \"不\" hoặc \"没有\" vào chỗ trống.",
+    items:[
+      {num:"6.1", text:"昨天我___去商店，我去书店了。", blanks:[["没","没有"]], explain:"Phủ định hành động đã xảy ra trong quá khứ dùng 没(有)."},
+      {num:"6.2", text:"我明天___商店，我去书店了。", blanks:[["不"]], explain:"Phủ định kế hoạch/dự định trong tương lai dùng 不."},
+      {num:"6.3", text:"你觉得昨天的电影怎么样？我___看，不知道。", blanks:[["没","没有"]], explain:"Phủ định hành động chưa xảy ra/chưa hoàn thành dùng 没(有)."},
+      {num:"6.4", text:"昨天你去___去图书馆。", blanks:[["没"]], explain:"Dạng câu hỏi chính phản \"去没去\" (có đi hay không)."},
+      {num:"6.5", text:"我___常给父母写信。", blanks:[["不"]], explain:"Phủ định thói quen/tần suất dùng 不."}
+    ]
+  },
+  { id:"ledt", label:"7. 动态助词「了」", type:"letterPick",
+    intro:"Chọn vị trí (A/B/C/D) thích hợp để điền \"了\" vào câu.",
+    items:[
+      {num:"7.1", text:"昨晚他吃完A晚饭B就到C办公室去D。", answer:"D", explain:"\"了\" đặt cuối câu vì đây là chuỗi hành động liên tiếp đã xảy ra: 昨晚他吃完晚饭就到办公室去了。"},
+      {num:"7.2", text:"A他们B喝酒C没有D？", answer:"C", explain:"Câu hỏi chính phản \"V了没有\": 他们喝酒了没有？"},
+      {num:"7.3", text:"我敲A半天B门，也没有C把门敲开D。", answer:"A", explain:"\"了\" theo sau động từ chỉ hành động kéo dài đã xảy ra: 我敲了半天门。"},
+      {num:"7.4", text:"这个练习不A难B，我们都作C完D。", answer:"D", explain:"\"了\" đặt cuối câu, sau bổ ngữ kết quả 完: 我们都作完了。"},
+      {num:"7.5", text:"谁也不会料到A事情没办成B还惹出C一大堆麻烦D。", answer:"C", explain:"\"了\" đặt ngay sau động từ 惹出, trước tân ngữ: 还惹出了一大堆麻烦。"},
+      {num:"7.6", text:"山南海北，A我们也分B开C好多年呢D。", answer:"C", explain:"\"了\" đặt ngay sau bổ ngữ kết quả 开, trước 好多年: 分开了好多年。"}
+    ]
+  },
+  { id:"jiucai", label:"8. 就 / 才", type:"letterFill",
+    intro:"Chọn từ thích hợp (trong ngoặc) điền vào đúng vị trí chữ cái trong câu.",
+    items:[
+      {num:"8.1", text:"A过B几天，C她D二十岁了。", pool:["就","再"], blanks:{A:"再", C:"就"}, explain:"再过几天 (còn ít lâu nữa) ... 她就二十岁了 (nhấn mạnh sắp tới)."},
+      {num:"8.2", text:"A飞机下午B开，C你怎么D现在E来了。", pool:["才","就"], blanks:{B:"就", D:"才"}, explain:"下午就开 (khá sớm) — 怎么才现在来了 (muộn, vừa mới)."},
+      {num:"8.3", text:"他们A上午B出发了，你怎么C现在D来？", pool:["才","就"], blanks:{B:"就", C:"才"}, explain:"上午就出发了 (sớm) — 怎么才现在来 (muộn)."},
+      {num:"8.4", text:"我A还B学会，C你D教我吧！", pool:["再","没"], blanks:{B:"没", D:"再"}, explain:"还没学会 (chưa học được) — 你再教我吧 (dạy thêm lần nữa)."},
+      {num:"8.5", text:"我A累极了，B想C休息休息。", pool:["又"], blanks:{B:"又"}, explain:"又 nhấn mạnh thêm một trạng thái/nhu cầu nữa: 累极了，又想休息休息。"},
+      {num:"8.6", text:"怎么A住了两天B走了，C住几天吧！", pool:["再","才","就"], blanks:{A:"才", B:"就", C:"再"}, explain:"才住了两天 (mới chỉ) — 两天就走了 (đã vội) — 再住几天吧 (ở thêm)。"}
+    ]
+  },
+  { id:"jieguo", label:"9. 结果补语", type:"mixed",
+    intro:"Bổ ngữ kết quả — Bài 1: sửa câu sai. Bài 2: điền bổ ngữ kết quả thích hợp.",
+    correction:[
+      {num:1, text:"我做作业完了就去找你。", answer:"我做完作业就去找你。", explain:"Bổ ngữ kết quả phải đứng ngay sau động từ, trước tân ngữ."},
+      {num:2, text:"开会完了就去吃饭。", answer:"开完会就去吃饭。", explain:"会 là tân ngữ của 开, phải đứng sau bổ ngữ kết quả 完."},
+      {num:3, text:"这个故事我不听懂。", answer:"这个故事我没听懂。", explain:"Phủ định bổ ngữ kết quả luôn dùng 没(有), không dùng 不."},
+      {num:4, text:"我买那本小说到了。", answer:"我买到那本小说了。", explain:"Bổ ngữ kết quả 到 đứng ngay sau động từ 买, trước tân ngữ; 了 đặt cuối câu."},
+      {num:5, text:"昨天晚上我不找到小高。", answer:"昨天晚上我没找到小高。", explain:"Phủ định hành động đã xảy ra dùng 没."},
+      {num:6, text:"我不看清楚黑板上的字。", answer:"我没看清楚黑板上的字。", explain:"Tương tự, phủ định dùng 没."},
+      {num:7, text:"孩子们都睡了着了。", answer:"孩子们都睡着了。", explain:"Chỉ cần một 了 ở cuối câu, không lặp lại 了 sau động từ 睡."},
+      {num:8, text:"他能翻译这些句子对。", answer:"他能把这些句子翻译对。", explain:"Bổ ngữ kết quả phải đứng liền sau động từ; với tân ngữ dài/xác định nên dùng câu chữ 把 để đưa tân ngữ lên trước."}
+    ],
+    fill:[
+      {num:1, text:"我这个星期应该写___那篇文章。", blanks:[["完"]], explain:"写完 = viết xong."},
+      {num:2, text:"想学___汉语一定要注意学习方法。", blanks:[["好"]], explain:"学好 = học giỏi, học tốt."},
+      {num:3, text:"上课时，老师站___前边讲课。", blanks:[["在"]], explain:"站在 = đứng ở (một vị trí)."},
+      {num:4, text:"他一躺下就睡___了。", blanks:[["着"]], explain:"睡着 = ngủ được, thiếp đi."},
+      {num:5, text:"我跟他约___了，明天七点见面。", blanks:[["好"]], explain:"约好 = hẹn xong, đã thống nhất."},
+      {num:6, text:"那个句子你会翻译___汉语吗？", blanks:[["成"]], explain:"翻译成 = dịch thành, dịch sang."}
+    ]
+  },
+  { id:"datcau", label:"10. Đặt câu", type:"sample",
+    intro:"Đặt câu với các kết cấu sau (đáp án chỉ là câu mẫu, có nhiều cách viết đúng khác).",
+    items:[
+      {num:"a", text:"每……都……", sample:"我们班每个学生都很努力。"},
+      {num:"b", text:"从……到……", sample:"我们从早上八点学习到中午十二点。"},
+      {num:"c", text:"先……然后……", sample:"我们先吃饭，然后去看电影。"},
+      {num:"d", text:"太……了", sample:"今天太热了！"},
+      {num:"e", text:"有点儿……", sample:"这件衣服有点儿贵。"},
+      {num:"f", text:"A……还是B……", sample:"你喝茶还是喝咖啡？"},
+      {num:"g", text:"如果……（的话），……就……", sample:"如果明天下雨的话，我们就不去公园了。"},
+      {num:"h", text:"快/要/快要……了", sample:"电影快要开始了。"}
+    ]
+  }
+];
+
+/* ================= RENDER HELPERS ================= */
+function renderFillText(text, qid) {
+  const parts = text.split("___");
+  let html = "";
+  for (let i=0;i<parts.length;i++){
+    html += `<span class="cjk">${parts[i]}</span>`;
+    if (i < parts.length-1) html += `<input type="text" class="blank-input cjk" id="${qid}-b${i}" maxlength="4" autocomplete="off">`;
+  }
+  return html;
+}
+
+function correctionCard(topicId, q, idx, keyPrefix){
+  const qid = `${topicId}-${keyPrefix||'c'}-${idx}`;
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="q-row">
+      <span class="q-num">${q.num}</span>
+      <div class="q-body">
+        <div class="q-text cjk">${q.text}</div>
+        <textarea class="free-input cjk" id="${qid}-input" rows="2" placeholder="Viết lại câu đúng..."></textarea>
+        <div class="row-actions">
+          <button class="btn" data-reveal="${qid}">Xem đáp án</button>
+        </div>
+        <div class="answer-box" id="${qid}-answer">
+          <span class="label">Đáp án:</span><span class="cjk">${q.answer}</span>
+          ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+        </div>
+      </div>
+    </div>`;
+  return card;
+}
+
+function sampleCard(topicId, q, idx){
+  const qid = `${topicId}-s-${idx}`;
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="q-row">
+      <span class="q-num">${q.num}</span>
+      <div class="q-body">
+        <div class="q-text cjk">${q.text}</div>
+        <textarea class="free-input cjk" id="${qid}-input" rows="2" placeholder="Viết câu của bạn..."></textarea>
+        <div class="row-actions">
+          <button class="btn" data-reveal="${qid}">Xem đáp án mẫu</button>
+        </div>
+        <div class="answer-box" id="${qid}-answer">
+          <span class="label">Đáp án mẫu:</span><span class="cjk">${q.sample}</span>
+          ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+        </div>
+      </div>
+    </div>`;
+  return card;
+}
+
+function fillCard(topicId, q, idx, keyPrefix){
+  const qid = `${topicId}-${keyPrefix||'f'}-${idx}`;
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="q-row">
+      <span class="q-num">${q.num}</span>
+      <div class="q-body">
+        <div class="q-text cjk">${renderFillText(q.text, qid)}</div>
+        <div class="answer-box" id="${qid}-explain">
+          <span class="label">Đáp án đúng:</span><span class="cjk">${q.blanks.map(b=>b.join(" / ")).join(" ; ")}</span>
+          ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+        </div>
+      </div>
+    </div>`;
+  return card;
+}
+
+function letterPickCard(topicId, q, idx){
+  const qid = `${topicId}-lp-${idx}`;
+  const parts = q.text.split(/([A-Z])/);
+  let html = "";
+  parts.forEach(p=>{
+    if (/^[A-Z]$/.test(p)) html += `<span class="letter-badge pickable" data-letter="${p}" data-qid="${qid}">${p}</span>`;
+    else html += `<span class="cjk">${p}</span>`;
+  });
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="q-row">
+      <span class="q-num">${q.num}</span>
+      <div class="q-body">
+        <div class="q-text cjk">${html}</div>
+        <div class="row-actions">
+          <button class="btn primary" data-checklp="${qid}">Kiểm tra</button>
+          <span class="verdict" id="${qid}-verdict"></span>
+        </div>
+        <div class="answer-box" id="${qid}-answer">
+          <span class="label">Vị trí đúng:</span> ${q.answer}
+          ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+        </div>
+      </div>
+    </div>`;
+  card.dataset.answer = q.answer;
+  return card;
+}
+
+function letterFillCard(topicId, q, idx){
+  const qid = `${topicId}-lf-${idx}`;
+  const parts = q.text.split(/([A-Z])/);
+  let html = "";
+  parts.forEach(p=>{
+    if (/^[A-Z]$/.test(p)){
+      if (q.blanks[p]){
+        const opts = q.pool.map(w=>`<option value="${w}">${w}</option>`).join("");
+        html += `<span class="letter-badge">${p}</span><select class="pos-select cjk" id="${qid}-${p}"><option value="">–</option>${opts}</select>`;
+      } else {
+        html += `<span class="letter-badge">${p}</span>`;
+      }
+    } else html += `<span class="cjk">${p}</span>`;
+  });
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="q-row">
+      <span class="q-num">${q.num}</span>
+      <div class="q-body">
+        <div class="q-text cjk">${html}</div>
+        <div class="row-actions">
+          <button class="btn primary" data-checklf="${qid}">Kiểm tra</button>
+          <span class="verdict" id="${qid}-verdict"></span>
+        </div>
+        <div class="answer-box" id="${qid}-answer">
+          <span class="label">Đáp án:</span> ${Object.entries(q.blanks).map(([k,v])=>`${k}=${v}`).join(", ")}
+          ${q.explain ? `<div class="explain">${q.explain}</div>` : ""}
+        </div>
+      </div>
+    </div>`;
+  card.dataset.qref = JSON.stringify(q.blanks);
+  return card;
+}
+
+/* ================= BUILD PAGE ================= */
+const mainTabsEl = document.getElementById("mainTabs");
+const topicPanelsEl = document.getElementById("topicPanels");
+
+TOPICS.forEach((topic, ti) => {
+  const btn = document.createElement("button");
+  btn.className = "main-tab-btn" + (ti===0 ? " active":"");
+  btn.textContent = topic.label;
+  btn.onclick = () => selectTopic(topic.id);
+  mainTabsEl.appendChild(btn);
+
+  const panel = document.createElement("section");
+  panel.className = "topic-panel" + (ti===0 ? " active":"");
+  panel.id = "topic-" + topic.id;
+  panel.innerHTML = `<div class="dang-intro cjk"><b>${topic.label}</b> — ${topic.intro}</div>`;
+
+  if (topic.type === "correction") {
+    topic.items.forEach((q,idx)=> panel.appendChild(correctionCard(topic.id,q,idx)));
+  } else if (topic.type === "sample") {
+    topic.items.forEach((q,idx)=> panel.appendChild(sampleCard(topic.id,q,idx)));
+  } else if (topic.type === "fill") {
+    topic.items.forEach((q,idx)=> panel.appendChild(fillCard(topic.id,q,idx)));
+    const footer = document.createElement("div");
+    footer.className = "section-footer";
+    footer.innerHTML = `<div class="score-display" id="score-${topic.id}">Chưa chấm</div><button class="btn primary" id="check-${topic.id}">Kiểm tra đáp án</button>`;
+    panel.appendChild(footer);
+  } else if (topic.type === "letterPick") {
+    topic.items.forEach((q,idx)=> panel.appendChild(letterPickCard(topic.id,q,idx)));
+  } else if (topic.type === "letterFill") {
+    topic.items.forEach((q,idx)=> panel.appendChild(letterFillCard(topic.id,q,idx)));
+  } else if (topic.type === "mixed") {
+    const h1 = document.createElement("div");
+    h1.className = "sub-head cjk";
+    h1.textContent = "练习1：改错句";
+    panel.appendChild(h1);
+    topic.correction.forEach((q,idx)=> panel.appendChild(correctionCard(topic.id,q,idx,'c1')));
+
+    const h2 = document.createElement("div");
+    h2.className = "sub-head cjk";
+    h2.textContent = "练习2：填上适当的结果补语";
+    panel.appendChild(h2);
+    topic.fill.forEach((q,idx)=> panel.appendChild(fillCard(topic.id,q,idx,'f2')));
+    const footer = document.createElement("div");
+    footer.className = "section-footer";
+    footer.innerHTML = `<div class="score-display" id="score-${topic.id}">Chưa chấm</div><button class="btn primary" id="check-${topic.id}">Kiểm tra đáp án (Bài 2)</button>`;
+    panel.appendChild(footer);
+  }
+
+  topicPanelsEl.appendChild(panel);
+});
+
+/* ================= INTERACTIONS ================= */
+function selectTopic(id){
+  document.querySelectorAll(".main-tab-btn").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".topic-panel").forEach(p=>p.classList.remove("active"));
+  [...mainTabsEl.children].forEach(b=>{ if (b.textContent === TOPICS.find(t=>t.id===id).label) b.classList.add("active"); });
+  document.getElementById("topic-"+id).classList.add("active");
+}
+
+// reveal (correction & sample)
+document.addEventListener("click", (e)=>{
+  const btn = e.target.closest("[data-reveal]");
+  if (!btn) return;
+  const qid = btn.dataset.reveal;
+  const box = document.getElementById(`${qid}-answer`);
+  box.classList.toggle("show");
+  btn.textContent = box.classList.contains("show") ? "Ẩn đáp án" : btn.textContent.replace("Ẩn","Xem");
+});
+
+// fill-type check (per topic, including 'mixed' fill section num2)
+TOPICS.forEach(topic=>{
+  if (topic.type === "fill"){
+    document.getElementById(`check-${topic.id}`).addEventListener("click", ()=>{
+      let correct=0, total=0;
+      topic.items.forEach((q,idx)=>{
+        const qid = `${topic.id}-f-${idx}`;
+        let allOk = true;
+        q.blanks.forEach((accepted,i)=>{
+          total++;
+          const input = document.getElementById(`${qid}-b${i}`);
+          const ok = accepted.some(a=>norm(a)===norm(input.value));
+          input.classList.remove("correct","wrong");
+          input.classList.add(ok?"correct":"wrong");
+          if (ok) correct++; else allOk = false;
+        });
+        document.getElementById(`${qid}-explain`).classList.toggle("show", !allOk);
+      });
+      document.getElementById(`score-${topic.id}`).innerHTML = `Kết quả: <span>${correct}/${total}</span> đúng`;
+    });
+  }
+  if (topic.type === "mixed"){
+    document.getElementById(`check-${topic.id}`).addEventListener("click", ()=>{
+      let correct=0, total=0;
+      topic.fill.forEach((q,idx)=>{
+        const qid = `${topic.id}-f2-${idx}`;
+        let allOk = true;
+        q.blanks.forEach((accepted,i)=>{
+          total++;
+          const input = document.getElementById(`${qid}-b${i}`);
+          const ok = accepted.some(a=>norm(a)===norm(input.value));
+          input.classList.remove("correct","wrong");
+          input.classList.add(ok?"correct":"wrong");
+          if (ok) correct++; else allOk = false;
+        });
+        document.getElementById(`${qid}-explain`).classList.toggle("show", !allOk);
+      });
+      document.getElementById(`score-${topic.id}`).innerHTML = `Kết quả: <span>${correct}/${total}</span> đúng (Bài 2)`;
+    });
+  }
+});
+
+// letterPick: select letter
+document.addEventListener("click", (e)=>{
+  const badge = e.target.closest(".letter-badge.pickable");
+  if (!badge) return;
+  const qid = badge.dataset.qid;
+  document.querySelectorAll(`.letter-badge[data-qid="${qid}"]`).forEach(b=>b.classList.remove("selected","correct","wrong"));
+  badge.classList.add("selected");
+});
+
+// letterPick: check
+document.addEventListener("click", (e)=>{
+  const btn = e.target.closest("[data-checklp]");
+  if (!btn) return;
+  const qid = btn.dataset.checklp;
+  const card = btn.closest(".card");
+  const answer = card.dataset.answer;
+  const selected = card.querySelector(".letter-badge.selected");
+  const verdict = document.getElementById(`${qid}-verdict`);
+  const answerBox = document.getElementById(`${qid}-answer`);
+  if (!selected){
+    verdict.textContent = "Hãy chọn một vị trí trước.";
+    verdict.className = "verdict bad";
+    return;
+  }
+  const chosen = selected.dataset.letter;
+  const ok = chosen === answer;
+  card.querySelectorAll(".letter-badge").forEach(b=>{
+    b.classList.remove("correct","wrong");
+    if (b.dataset.letter === answer) b.classList.add("correct");
+    else if (b === selected && !ok) b.classList.add("wrong");
+  });
+  verdict.textContent = ok ? "✓ Chính xác!" : "✗ Chưa đúng — xem đáp án bên dưới";
+  verdict.className = "verdict " + (ok?"ok":"bad");
+  answerBox.classList.toggle("show", true);
+  answerBox.classList.toggle("wrong-tint", !ok);
+});
+
+// letterFill: check
+document.addEventListener("click", (e)=>{
+  const btn = e.target.closest("[data-checklf]");
+  if (!btn) return;
+  const qid = btn.dataset.checklf;
+  const card = btn.closest(".card");
+  const blanks = JSON.parse(card.dataset.qref);
+  const verdict = document.getElementById(`${qid}-verdict`);
+  const answerBox = document.getElementById(`${qid}-answer`);
+  let allOk = true;
+  Object.entries(blanks).forEach(([label, word])=>{
+    const sel = document.getElementById(`${qid}-${label}`);
+    const ok = sel.value === word;
+    sel.classList.remove("correct","wrong");
+    sel.classList.add(ok?"correct":"wrong");
+    if (!ok) allOk = false;
+  });
+  verdict.textContent = allOk ? "✓ Chính xác!" : "✗ Còn chỗ chưa đúng — xem đáp án bên dưới";
+  verdict.className = "verdict " + (allOk?"ok":"bad");
+  answerBox.classList.toggle("show", true);
+  answerBox.classList.toggle("wrong-tint", !allOk);
+});
+</script>
+</body>
+</html>

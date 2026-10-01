@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>博雅汉语1 · Đọc hiểu 2 và 3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700;900&display=swap">
+<style>
+:root{--bg:#e9f0ec;--ink:#14302a;--jade:#2b7a68;--mist:#cfe0d8;--seal:#c8322b;--paper:#fbfdfc;--mute:#4f6b63}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 clamp(15px,1.4vw,18px)/1.6 "Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;padding:clamp(14px,3vw,40px)}
+.wrap{max-width:1240px;margin:auto;display:grid;gap:28px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.seal{width:56px;aspect-ratio:1;display:grid;place-items:center;background:var(--seal);color:#fff;font:900 30px/1 "Noto Serif SC",serif;border-radius:4px;transform:rotate(-4deg);font-style:normal;box-shadow:inset 0 0 0 3px var(--seal),inset 0 0 0 5px rgba(255,255,255,.55)}
+h1{font:900 clamp(22px,3vw,36px)/1.2 "Noto Serif SC",serif}
+h2{font:900 clamp(21px,2.3vw,30px)/1.3 "Noto Serif SC",serif;border-left:8px solid var(--jade);padding-left:14px}
+h3{font:900 clamp(18px,1.8vw,23px)/1.3 "Noto Serif SC",serif;margin-bottom:10px}
+.tabs{display:flex;gap:8px;margin-left:auto;align-items:center;flex-wrap:wrap}
+.tabs button{font:inherit;color:inherit;background:var(--paper);border:2px solid var(--mist);border-radius:8px;padding:6px 16px;cursor:pointer}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tabs label{cursor:pointer;margin-left:8px}
+button:focus-visible,li:focus-visible,.gc:focus-visible,.ans:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+.para{display:grid;gap:16px}
+.main{display:grid;gap:20px;grid-template-columns:minmax(0,2fr) minmax(240px,1fr);align-items:start}
+@media (max-width:860px){.main{grid-template-columns:1fr}}
+.box{background:var(--paper);border:2px solid var(--mist);border-radius:12px;padding:clamp(14px,2vw,26px)}
+.hint{color:var(--mute);font-size:.9em}
+.T{font-size:clamp(22px,2.5vw,32px);line-height:2.3}
+.py .T{line-height:1.6}
+.py .T w{display:inline-flex;flex-direction:column;align-items:center;margin:0 1px}
+.py .T w::before{content:attr(data-p) " ";font-size:.42em;color:var(--jade);line-height:1.3;white-space:nowrap}
+w{cursor:pointer;border-radius:4px}
+w:hover{background:var(--mist)}
+w.nw{font-weight:700;text-decoration:underline dotted var(--jade);text-underline-offset:6px;text-decoration-thickness:2px}
+w.sel{background:var(--ink);color:#fff}
+.g{background:hsl(var(--h) 85% 88%);border-bottom:3px solid hsl(var(--h) 55% 42%);border-radius:3px;padding:0 1px}
+.g.hot{outline:3px solid hsl(var(--h) 60% 35%);background:hsl(var(--h) 90% 80%)}
+.lk{margin-top:14px;padding:10px 16px;background:var(--bg);border-radius:8px;min-height:3.2em;font-size:1.05em}
+.lk b{font:900 1.5em "Noto Serif SC",serif;margin-right:8px}
+.lk i{color:var(--jade);font-style:normal;font-weight:500;margin-right:10px}
+ul{list-style:none;padding:0;display:grid;gap:6px}
+.V li{padding:8px 12px;border-radius:8px;border:2px solid var(--mist);cursor:pointer}
+.V li:hover,.V li.sel{border-color:var(--jade);background:#e3f1ea}
+.V b{font:900 1.3em "Noto Serif SC",serif;margin-right:8px}
+.V small{color:var(--jade);font-size:.9em;font-weight:500}
+.V span{display:block;color:var(--mute)}
+.G,.X{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.gc{background:var(--paper);border:2px solid var(--mist);border-left:8px solid hsl(var(--h) 55% 42%);border-radius:10px;padding:14px 18px;cursor:pointer}
+.gc.hot{border-color:hsl(var(--h) 55% 42%);background:hsl(var(--h) 90% 96%)}
+.gc h4{font:900 1.25em "Noto Serif SC",serif}
+.gc .f{display:inline-block;margin:6px 0;padding:2px 10px;border-radius:6px;background:hsl(var(--h) 85% 88%);font-weight:700}
+.gc p{margin-bottom:4px}
+.gc .ex{border-top:1px dashed var(--mist);padding-top:6px;margin-top:6px}
+.gc em{font-style:normal;font-weight:700;background:hsl(var(--h) 85% 88%);border-radius:3px;padding:0 2px}
+.gc small{display:block;color:var(--mute)}
+.q{font-weight:700;margin-bottom:6px}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt{background:var(--paper);border:2px solid var(--mist);border-radius:8px;padding:7px 14px;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.opt.ok{background:#d5efe3;border-color:var(--jade)}
+.opt.no{background:#f8dcd9;border-color:var(--seal)}
+.ans{border:2px dashed var(--jade);border-radius:10px;padding:10px 16px;cursor:pointer}
+.ans .a{display:none;color:var(--jade);font-weight:700}
+.ans.on .a{display:block}
+.ans:not(.on)::after{content:"Bấm để xem đáp án";color:var(--mute);font-size:.9em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<i class="seal">读</i>
+<h1>博雅汉语1 · Đọc hiểu 2 và 3<br><span style="font-size:.6em;font-weight:700;color:var(--mute)">Bài khoá, từ mới, ngữ pháp và luyện tập theo từng đoạn</span></h1>
+<div class="tabs" id="tabs"></div>
+</header>
+<p class="hint">Bấm vào từ để tra. Từ gạch chấm là từ mới. Phần tô màu là ngữ pháp của đoạn, bấm vào để xem giải thích ngay bên dưới đoạn đó.</p>
+<div id="B" class="wrap"></div>
+</div>
+<script>
+const BOOKS=[{"n":5,"xt":"Sửa câu sai","ps":[{"t":"大卫{Dàwèi|David}问{wèn|hỏi}玛丽{Mǎlì|Mary}今天{jīntiān|hôm nay}去{qù|đi}«102了{le|đã (hoàn thành)}»哪里{nǎlǐ|ở đâu}，«101*因为{yīnwèi|bởi vì}»他{tā|anh ấy}打电话{dǎ diànhuà|gọi điện thoại}给{gěi|cho}她{tā|cô ấy}，但{dàn|nhưng}她{tā|cô ấy}«103没有{méiyǒu|không (phủ định quá khứ)}»*接{jiē|nghe (điện thoại)}。玛丽{Mǎlì|Mary}说{shuō|nói}手机{shǒujī|điện thoại}没电{méi diàn|hết pin}了{le|(trạng thái mới)}，她{tā|cô ấy}去{qù|đi}«102了{le|đã (hoàn thành)}»图书馆{túshūguǎn|thư viện}，还{hái|còn}在{zài|ở}那里{nàlǐ|ở đó}看{kàn|xem, đọc}«102了{le|đã (hoàn thành)}»一个上午{yí ge shàngwǔ|một buổi sáng}的{de|(trợ từ)}书{shū|sách}。大卫{Dàwèi|David}*称赞{chēngzàn|khen ngợi}她{tā|cô ấy}*用功{yònggōng|chăm chỉ}。","x":"","g":[102,101,103]},{"t":"*接着{jiēzhe|tiếp theo}，玛丽{Mǎlì|Mary}看到{kàndào|nhìn thấy}中村{Zhōngcūn|Nakamura}«105在{zài|đang}»给{gěi|cho}朋友{péngyou|bạn bè}写{xiě|viết}*明信片{míngxìnpiàn|bưu thiếp}。中村{Zhōngcūn|Nakamura}说{shuō|nói}*圣诞节{Shèngdàn Jié|Giáng sinh}«104快{kuài|sắp}»到{dào|đến}«104了{le|(sắp xảy ra)}»，新年{xīnnián|năm mới}也{yě|cũng}«104要{yào|sắp}»来{lái|đến}«104了{le|(sắp xảy ra)}»，«101*所以{suǒyǐ|cho nên}»要{yào|cần}寄{jì|gửi}*贺卡{hèkǎ|thiệp chúc mừng}给{gěi|cho}朋友们{péngyoumen|các bạn}。«101*由于{yóuyú|do, bởi vì}»*亲戚{qīnqi|họ hàng}朋友{péngyou|bạn bè}多{duō|nhiều}，他{tā|anh ấy}已经{yǐjīng|đã}写{xiě|viết}«102了{le|đã (hoàn thành)}»一个小时{yí ge xiǎoshí|một tiếng}。玛丽{Mǎlì|Mary}告诉{gàosu|nói cho biết}中村{Zhōngcūn|Nakamura}邮局{yóujú|bưu điện}人{rén|người}很多{hěn duō|rất đông}，«107让{ràng|bảo, để}»他{tā|anh ấy}*一会儿{yíhuìr|một lát}再{zài|rồi mới}去{qù|đi}寄{jì|gửi}，«101因为{yīnwèi|bởi vì}»她{tā|cô ấy}«106刚{gāng|vừa}»去{qù|đi}买{mǎi|mua}邮票{yóupiào|tem}，排{pái|xếp}«102了{le|đã (hoàn thành)}»半个小时{bàn ge xiǎoshí|nửa tiếng}的{de|(trợ từ)}队{duì|hàng}。中村{Zhōngcūn|Nakamura}决定{juédìng|quyết định}一会儿{yíhuìr|một lát}再{zài|rồi mới}去{qù|đi}。","x":"*春节{Chūnjié|Tết Nguyên đán (từ mới, không có trong bài)}*排队{páiduì|xếp hàng (từ tách: 排了…的队)}","g":[105,104,101,102,107,106]},{"t":"«104快{kuài|sắp}»考试{kǎoshì|thi}«104了{le|(sắp xảy ra)}»，玛丽{Mǎlì|Mary}«101因为{yīnwèi|bởi vì}»自己{zìjǐ|bản thân}*基础{jīchǔ|nền tảng}不{bù|không}好{hǎo|tốt}，«101所以{suǒyǐ|cho nên}»很{hěn|rất}努力{nǔlì|chăm chỉ}学习{xuéxí|học}。考完试{kǎo wán shì|thi xong}后{hòu|sau}他们{tāmen|họ}«110就{jiù|thì}»能{néng|có thể}放{fàng|nghỉ}两天{liǎng tiān|hai ngày}假{jià|kỳ nghỉ}了{le|(trạng thái mới)}，大卫{Dàwèi|David}打算{dǎsuàn|dự định}假期{jiàqī|kỳ nghỉ}去{qù|đi}东北{Dōngběi|Đông Bắc}旅行{lǚxíng|du lịch}，他{tā|anh ấy}«107请{qǐng|mời, rủ}»玛丽{Mǎlì|Mary}«108跟{gēn|cùng}»他{tā|anh ấy}«108一起{yìqǐ|cùng nhau}»去{qù|đi}，下个周末{xià ge zhōumò|cuối tuần sau}«110就{jiù|ngay}»*出发{chūfā|xuất phát}。玛丽{Mǎlì|Mary}说{shuō|nói}还要{hái yào|còn phải}*考虑{kǎolǜ|cân nhắc}«109一下{yíxià|một chút}»。","x":"*放假{fàngjià|nghỉ (từ tách: 放两天假)}","g":[104,101,110,107,108,109]}],"ex":[["今天大卫打电话给玛丽，但她不接到。","今天大卫打电话给玛丽，但她没接电话。"],["今天她到了图书馆，看一个上午书。","今天她去了图书馆，看了一个上午(的)书。"],["玛丽看着中村寄明信片给朋友。","玛丽看到中村在给朋友写明信片。"],["快到圣诞节，新年也要来了，所以他需要寄贺卡。","圣诞节快到了，新年也要来了，所以他要寄贺卡。"],["虽然他亲戚朋友很多，他已经写了一个小时的明信片。","由于(因为)他亲戚朋友多，所以他已经写了一个小时的明信片。"],["因为邮局有很多人，所以,玛丽让中村明天去寄车。","因为邮局有很多人，所以玛丽让中村一会儿再去寄。"],["玛丽刚去买邮票，差不多排半小时的队。","玛丽刚去买邮票，排了半个小时的队。"],["大卫打算假期去东北，然后请一起玛丽去旅行。","大卫打算假期去东北旅行，请玛丽跟他一起去。"]]},{"n":6,"xt":"Chọn đáp án đúng","ps":[{"t":"«1*快{kuài|sắp}»放假{fàngjià|nghỉ lễ}«1了{le|(sắp xảy ra)}»，李军{Lǐ Jūn|Lý Quân}和{hé|và}大卫{Dàwèi|David}*讨论{tǎolùn|thảo luận}了{}*各自{gèzì|mỗi người}的{}*假期{jiàqī|kỳ nghỉ}*计划{jìhuà|kế hoạch}。大卫{Dàwèi|David}打算{dǎsuàn|dự định}去{qù|đi}旅行{lǚxíng|du lịch}，«3因为{yīnwèi|bởi vì}»他{tā|anh ấy}在{zài|ở}中国{Zhōngguó|Trung Quốc}*待{dāi|ở lại}了{}«1快{kuài|gần}»半年{bàn nián|nửa năm}«1了{le|(đã gần)}»，«8*一直{yìzhí|luôn luôn}»在{zài|ở}北京{Běijīng|Bắc Kinh}，想{xiǎng|muốn}去{qù|đi}别的{bié de|khác}地方{dìfang|nơi}«7看看{kànkan|xem thử}»。«2虽然{suīrán|mặc dù}»他{tā|anh ấy}还没有{hái méiyǒu|vẫn chưa}决定{juédìng|quyết định}去{qù|đi}哪儿{nǎr|đâu}，«2但{dàn|nhưng}»他{tā|anh ấy}的{}朋友{péngyou|bạn bè}*建议{jiànyì|đề nghị}去{qù|đi}哈尔滨{Hā'ěrbīn|Cáp Nhĩ Tân}。李军{Lǐ Jūn|Lý Quân}告诉{gàosu|nói với}大卫{Dàwèi|David}哈尔滨{Hā'ěrbīn|Cáp Nhĩ Tân}冬天{dōngtiān|mùa đông}非常{fēicháng|rất}冷{lěng|lạnh}，不过{búguò|có điều}大卫{Dàwèi|David}听说{tīngshuō|nghe nói}那里{nàlǐ|ở đó}的{}*风景{fēngjǐng|phong cảnh}十分{shífēn|vô cùng}美丽{měilì|đẹp}，他{tā|anh ấy}想{xiǎng|muốn}去{qù|đi}*欣赏{xīnshǎng|thưởng thức}«7一下{yíxià|một chút}»雪景{xuějǐng|cảnh tuyết}。他{tā|anh ấy}觉得{juéde|thấy}旅行{lǚxíng|du lịch}可以{kěyǐ|có thể}*放松{fàngsōng|thư giãn}心情{xīnqíng|tâm trạng}，*体验{tǐyàn|trải nghiệm}不同{bù tóng|khác nhau}的{}文化{wénhuà|văn hoá}。","x":"","g":[1,3,8,7,2]},{"t":"李军{Lǐ Jūn|Lý Quân}没有{méiyǒu|không có}和{hé|cùng}朋友{péngyou|bạn}一起{yìqǐ|cùng nhau}旅行{lǚxíng|du lịch}的{}计划{jìhuà|kế hoạch}。他{tā|anh ấy}打算{dǎsuàn|dự định}留{liú|ở lại}在{zài|ở}学校{xuéxiào|trường}认真{rènzhēn|nghiêm túc}复习{fùxí|ôn tập}功课{gōngkè|bài vở}，«3因为{yīnwèi|bởi vì}»«1快要{kuàiyào|sắp}»毕业{bìyè|tốt nghiệp}«1了{le|(sắp xảy ra)}»，他{tā|anh ấy}希望{xīwàng|hy vọng}能{néng|có thể}考上{kǎoshàng|thi đỗ}*研究生{yánjiūshēng|nghiên cứu sinh}。李军{Lǐ Jūn|Lý Quân}«4*对{duì|đối với}»中国{Zhōngguó|Trung Quốc}古代{gǔdài|cổ đại}历史{lìshǐ|lịch sử}非常{fēicháng|rất}«4*感兴趣{gǎn xìngqù|hứng thú}»，他{tā|anh ấy}希望{xīwàng|hy vọng}可以{kěyǐ|có thể}考上{kǎoshàng|thi đỗ}张大明{Zhāng Dàmíng|Trương Đại Minh}教授{jiàoshòu|giáo sư}的{}研究生{yánjiūshēng|nghiên cứu sinh}，继续{jìxù|tiếp tục}学习{xuéxí|học}。«5*除了{chúle|ngoài… ra}»学习{xuéxí|học}，李军{Lǐ Jūn|Lý Quân}«5还{hái|còn}»想着{xiǎngzhe|nghĩ đến}回家{huíjiā|về nhà}«7看看{kànkan|thăm}»爸爸{bàba|bố}妈妈{māma|mẹ}，«3因为{yīnwèi|bởi vì}»他们{tāmen|họ}很{hěn|rất}想念{xiǎngniàn|nhớ}他{tā|anh ấy}。他{tā|anh ấy}*计划{jìhuà|lên kế hoạch}要{yào|cần}好好{hǎohǎo|cẩn thận}安排{ānpái|sắp xếp}时间{shíjiān|thời gian}，«6*既要{jì yào|vừa phải}»努力{nǔlì|cố gắng}学习{xuéxí|học}，«6也要{yě yào|cũng phải}»多{duō|nhiều}«7*陪陪{péipei|ở bên (陪)}»家人{jiārén|gia đình}，让{ràng|để}这个{zhège|này}假期{jiàqī|kỳ nghỉ}过{guò|trải qua}得{de|(bổ ngữ)}更{gèng|hơn}*有意义{yǒu yìyì|có ý nghĩa}。","x":"","g":[3,1,4,5,7,6]}],"ex":[["1. 从对话中，我们可以知道大卫对哈尔滨的什么最感兴趣？",["哈尔滨的历史文化","哈尔滨的美食","哈尔滨的冰雪风景","哈尔滨的生活方式"],2],["2. 李军为什么选择留在学校而不是去旅行？",["他不喜欢旅行","他的朋友不和他一起去","他要准备研究生考试","他没有钱去旅行"],2],["3. 以下哪个说法是正确的？",["李军已经决定春节不回家了。","大卫已经去过中国很多地方了。","大卫认为哈尔滨冬天非常暖和。","李军对中国古代历史很感兴趣。"],3],["4. 以下哪个说法是错误的？",["大卫想去哈尔滨看看雪景。","李军想考张大明教授的研究生。","大卫已经决定不去哈尔滨了。","李军也想回家看看爸爸妈妈。"],2],["5. 根据对话内容，哪个说法是正确的？",["李军的父母住在哈尔滨。","大卫在中国已经住了快一年了。","李军和大卫都打算回家过春节。","大卫的朋友建议他去哈尔滨。"],3]]},{"n":7,"xt":"Trả lời câu hỏi","ps":[{"t":"«9*在{zài|trong}»考试{kǎoshì|thi}«9*期间{qījiān|thời gian}»，同学们{tóngxuémen|các bạn}都{dōu|đều}很{hěn|rất}*紧张{jǐnzhāng|căng thẳng}。玛丽{Mǎlì|Mary}问{wèn|hỏi}张红{Zhāng Hóng|Trương Hồng}，她们{tāmen|họ}什么时候{shénme shíhou|khi nào}开始{kāishǐ|bắt đầu}考试{kǎoshì|thi}。张红{Zhāng Hóng|Trương Hồng}告诉{gàosu|nói với}她{tā|cô ấy}他们{tāmen|họ}«10已经{yǐjīng|đã}»开始{kāishǐ|bắt đầu}考试{kǎoshì|thi}«10了{le|}»，上个星期{shàng ge xīngqī|tuần trước}考{kǎo|thi}«10了{le|đã}»两{liǎng|hai}*门{mén|môn (lượng từ)}，这个星期{zhège xīngqī|tuần này}还有{hái yǒu|còn}一门{yì mén|một môn}«11就{jiù|là}»*结束{jiéshù|kết thúc}了{}。«2虽然{suīrán|mặc dù}»只{zhǐ|chỉ}考{kǎo|thi}三门{sān mén|ba môn}课{kè|môn học}，«2但{dàn|nhưng}»有些{yǒuxiē|một số}课{kè|môn học}只{zhǐ|chỉ}*需要{xūyào|cần}写{xiě|viết}*报告{bàogào|báo cáo}。玛丽{Mǎlì|Mary}的{}考试{kǎoshì|thi}也{yě|cũng}«1快{kuài|sắp}»开始{kāishǐ|bắt đầu}«1了{le|(sắp xảy ra)}»，她{tā|cô ấy}每天{měitiān|mỗi ngày}都{dōu|đều}在{zài|đang}努力{nǔlì|cố gắng}学习{xuéxí|học}，觉得{juéde|thấy}非常{fēicháng|rất}紧张{jǐnzhāng|căng thẳng}。张红{Zhāng Hóng|Trương Hồng}*建议{jiànyì|đề nghị}她{tā|cô ấy}，学习{xuéxí|học}也{yě|cũng}要{yào|nên}*注意{zhùyì|chú ý}休息{xiūxi|nghỉ ngơi}，«12不要{búyào|đừng}»让{ràng|để}自己{zìjǐ|bản thân}太{tài|quá}累{lèi|mệt}了{}。","x":"","g":[9,10,11,2,1,12]},{"t":"考完{kǎowán|thi xong}试{shì|kỳ thi}后{hòu|sau}，玛丽{Mǎlì|Mary}有些{yǒuxiē|hơi}*担心{dānxīn|lo lắng}地{de|(trạng ngữ)}告诉{gàosu|nói với}张红{Zhāng Hóng|Trương Hồng}，她{tā|cô ấy}«13考{kǎo|thi}得{de|(bổ ngữ)}不太好{bú tài hǎo|không tốt lắm}»，时间{shíjiān|thời gian}*不够{búgòu|không đủ}用{yòng|dùng}，还有{hái yǒu|còn có}几个{jǐ ge|mấy}生词{shēngcí|từ mới}不会{búhuì|không biết}写{xiě|viết}，*一道{yí dào|một (lượng từ câu hỏi)}阅读{yuèdú|đọc hiểu}题{tí|bài}也{yě|cũng}没{méi|không}«14做完{zuòwán|làm xong}»。张红{Zhāng Hóng|Trương Hồng}也{yě|cũng}觉得{juéde|thấy}«15对于{duìyú|đối với}»外国{wàiguó|nước ngoài}学生{xuéshēng|học sinh}«15来说{láishuō|mà nói}»，汉字{Hànzì|chữ Hán}*确实{quèshí|quả thật}有{yǒu|có}很多{hěn duō|rất nhiều}*困难{kùnnan|khó khăn}。最后{zuìhòu|cuối cùng}，张红{Zhāng Hóng|Trương Hồng}*推荐{tuījiàn|giới thiệu}了{}她{tā|cô ấy}的{}一本{yì běn|một cuốn}汉字{Hànzì|chữ Hán}*故事书{gùshishū|sách truyện}，*希望{xīwàng|hy vọng}能{néng|có thể}帮助{bāngzhù|giúp}玛丽{Mǎlì|Mary}«16*更{gèng|hơn}好{hǎo|tốt}地{de|(trạng ngữ)}»*记住{jìzhù|nhớ kỹ}汉字{Hànzì|chữ Hán}。玛丽{Mǎlì|Mary}很{hěn|rất}*感谢{gǎnxiè|cảm ơn}张红{Zhāng Hóng|Trương Hồng}的{}帮助{bāngzhù|sự giúp đỡ}。","x":"","g":[13,14,15,16]}],"ex":[["玛丽为什么觉得很紧张？","因为她的考试也快开始了，她每天都在努力学习。"],["张红考完试了没有？","还没有。这个星期还有一门。"],["张红建议玛丽应该注意什么？","学习也要注意休息，不要让自己太累了。"],["玛丽考试考得怎么样？","考得不太好：时间不够用，有几个生词不会写，一道阅读题没做完。"],["对于外国人来说，学习什么最困难？","汉字。"],["为什么张红给玛丽推荐那本汉字故事书？","希望能帮助玛丽更好地记住汉字。"]]}];
+const G={"1":["快 / 快要…了","快 / 快要 + V + 了","Sắp xảy ra: 快放假了, 快要毕业了. Còn 快 + số lượng + 了 là gần đạt tới: 待了快半年了.","<em>快</em>放假<em>了</em>；待了<em>快</em>半年<em>了</em>"],"2":["虽然…但(是)…","虽然 + vế nhượng bộ，但 + vế chính","\"Mặc dù… nhưng…\". Vế sau thường có 但 hoặc 不过. Không dùng 因为 hay 所以 thay cho 虽然.","<em>虽然</em>只考三门课，<em>但</em>有些课只需要写报告。"],"3":["因为…(所以…)","因为 + nguyên nhân","Nêu nguyên nhân. 因为 có thể đứng ở vế sau để bổ sung lý do, và có thể đi với 所以.","大卫打算去旅行，<em>因为</em>他在中国待了快半年了。"],"4":["对…感兴趣","S + 对 + đối tượng + 感兴趣","Hứng thú với điều gì. Đối tượng đặt sau 对, có thể thêm 很/非常 trước 感兴趣.","李军<em>对</em>中国古代历史非常<em>感兴趣</em>。"],"5":["除了…(还/也)…","除了 + A，(S) 还/也 + B","Ngoài A ra còn có B.","<em>除了</em>学习，李军<em>还</em>想着回家。"],"6":["既要…也要…","既要 + A，也要 + B","Vừa phải A, vừa phải B: hai việc cần làm cùng lúc.","<em>既要</em>努力学习，<em>也要</em>多陪陪家人。"],"7":["V一下 / V + V","V + 一下；V + V","Làm nhẹ, làm thử, giọng mềm. 看看, 陪陪 tương đương 看一下, 陪一下.","欣赏<em>一下</em>雪景；<em>看看</em>爸爸妈妈"],"8":["一直 + V","S + 一直 + V","Suốt, luôn luôn không đổi.","他<em>一直</em>在北京。"],"9":["在…期间","在 + danh từ + 期间，…","Trong thời gian…","<em>在</em>考试<em>期间</em>，同学们都很紧张。"],"10":["已经…了 / V了 + số lượng","已经 + V + 了；V + 了 + số lượng","已经…了: việc đã xảy ra. Khi có số lượng, 了 đứng ngay sau động từ.","<em>已经</em>开始考试<em>了</em>；考<em>了</em>两门"],"11":["就","S + 就 + V","Nhấn mạnh sắp xong, chỉ còn một chút: chỉ còn một môn là kết thúc.","这个星期还有一门<em>就</em>结束了。"],"12":["不要让…(太…了)","不要 + V；不要让 + O + adj + 了","不要 là \"đừng\". 让自己太累了 = để bản thân quá mệt.","<em>不要让</em>自己太累了。"],"13":["V得 + bổ ngữ trạng thái","S + V + 得 + adj","Đánh giá việc làm tốt hay xấu. Phủ định: V得不…","她考<em>得</em>不太好。"],"14":["V + 完 (bổ ngữ kết quả)","V + 完；没 + V + 完","Làm xong. Phủ định dùng 没.","一道阅读题也没做<em>完</em>。"],"15":["对于…来说","对于 + đối tượng + 来说，…","Đối với… mà nói, nêu góc nhìn của một nhóm người.","<em>对于</em>外国学生<em>来说</em>，汉字确实有很多困难。"],"16":["更好地 + V","更 + adj + 地 + V","Tính từ + 地 đứng trước động từ làm trạng ngữ. 更好地 là một cách tốt hơn.","希望能<em>更好地</em>记住汉字。"],"101":["因为…所以… / 由于","因为 + nguyên nhân，所以 + kết quả","因为 nêu nguyên nhân, 所以 nêu kết quả. Có thể dùng một vế. 因为 cũng đứng ở vế sau để bổ sung lý do. 由于 trang trọng hơn, đi với 所以 hoặc đứng một mình. Không dùng 虽然 (\"mặc dù\") cho quan hệ nhân quả.","<em>因为</em>手机没电，<em>所以</em>没接电话。","Vì điện thoại hết pin nên không nghe máy."],"102":["V + 了 (hoàn thành)","S + V + 了 + số lượng + O","了 đặt ngay sau động từ để nói hành động đã xảy ra. Khi có thời lượng, phải có 了: 看了一个上午的书, không nói 看一个上午书.","她看<em>了</em>一个上午的书。","Cô ấy đã đọc sách cả buổi sáng."],"103":["没(有) + V","S + 没(有) + V","Phủ định hành động đã xảy ra dùng 没(有), không dùng 不, và bỏ 了. 没接电话 = không nghe máy.","她<em>没有</em>接电话。","Cô ấy không nghe máy."],"104":["快 / 要 + V + 了","快 / 要 + V + 了","Diễn tả việc sắp xảy ra. Cuối câu phải có 了. 快 thường đi với thời điểm gần, 要 nói chung.","圣诞节<em>快</em>到<em>了</em>，新年也<em>要</em>来<em>了</em>。","Giáng sinh sắp đến, năm mới cũng sắp tới."],"105":["在 + V (đang)","S + 在 + V + O","在 đứng trước động từ để nói hành động đang diễn ra.","中村<em>在</em>给朋友写明信片。","中村 đang viết bưu thiếp cho bạn."],"106":["刚 + V (vừa)","S + 刚 + V","刚 đứng sau chủ ngữ, trước động từ, nói việc vừa mới xảy ra.","她<em>刚</em>去买邮票。","Cô ấy vừa đi mua tem."],"107":["请 / 让 + O + V","S + 请/让 + người + V","Người bị nhờ hoặc bị bảo đứng giữa. 请 là mời, rủ (lịch sự). 让 là bảo, để. Sai thường gặp: 请一起玛丽.","大卫<em>请</em>玛丽跟他一起去。","大卫 rủ 玛丽 đi cùng anh."],"108":["跟…一起 + V","S + 跟 + người + 一起 + V","Làm việc gì cùng ai. 跟 + người đứng trước 一起, cả cụm đứng trước động từ.","<em>跟</em>他<em>一起</em>去","Đi cùng anh ấy"],"109":["V + 一下","V + 一下","Làm một chút, làm thử. Giọng nói nhẹ nhàng, thường dùng khi nêu ý định hoặc đề nghị.","考虑<em>一下</em>","Cân nhắc một chút"],"110":["就 (ngay, thì)","S + 就 + V","就 đứng trước động từ, nhấn mạnh việc xảy ra sớm hoặc ngay sau một điều kiện.","下个周末<em>就</em>出发。","Cuối tuần sau là xuất phát ngay."]};
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const W=/(\*?)([\u4e00-\u9fff]+)\{([^|}]*)(?:\|([^}]*))?\}/g;
+const hue=i=>(i*137.5+20)%360,ABC="ABCD",B=$("#B");
+const html=(t,hm)=>t.replace(/«(\d+)/g,(_,d)=>`<span class="g" data-g="${d}" style="--h:${hm[d]}">`).replace(/»/g,"</span>").replace(W,(_,s,h,p,m)=>`<w class="${s?"nw":""}" data-p="${p||""}" data-m="${m||""}">${h}</w>`);
+function para(p,k){
+  const hm={};p.g.forEach((id,i)=>hm[id]=hue(i));
+  const m=new Map();(p.t+p.x).replace(W,(a,s,h,py,mn)=>{if(s&&!m.has(h))m.set(h,[py,mn||""])});
+  const v=[...m].map(([h,[py,mn]])=>`<li tabindex="0" data-h="${h}" data-p="${py}" data-m="${mn}"><b>${h}</b><small>${py}</small><span>${mn}</span></li>`).join("");
+  const g=p.g.map(id=>{const e=G[id];return `<div class="gc" tabindex="0" data-g="${id}" style="--h:${hm[id]}"><h4>${e[0]}</h4><span class="f">${e[1]}</span><p>${e[2]}</p><div class="ex">${e[3]}${e[4]?`<small>${e[4]}</small>`:""}</div></div>`}).join("");
+  return `<section class="para"><h2>Đoạn ${k+1}</h2><div class="main"><div class="box"><div class="T">${html(p.t,hm)}</div><div class="lk">Bấm vào một từ trong đoạn để tra.</div></div><div class="box"><h3>Từ mới</h3><ul class="V">${v}</ul></div></div><div class="box"><h3>Ngữ pháp đoạn ${k+1}</h3><div class="G">${g}</div></div></section>`;
+}
+function show(n){
+  const b=BOOKS[n];
+  $$("#tabs button").forEach((x,k)=>x.classList.toggle("on",k===n));
+  const x=b.ex.map(e=>Array.isArray(e[1])
+    ?`<div><p class="q">${e[0]}</p><div class="opts">${e[1].map((o,k)=>`<button class="opt" ${k===e[2]?'data-ok="1"':""}>${ABC[k]}. ${o}</button>`).join("")}</div></div>`
+    :`<div class="ans" tabindex="0"><p class="q">${e[0]}</p><p class="a">${e[1]}</p></div>`).join("");
+  const audio=`<section class="box"><h3>Nghe bài đọc ${b.n}</h3><audio controls preload="none" style="width:100%" src="audio/bai${b.n}.mp3">Trình duyệt không hỗ trợ phát audio.</audio></section>`;
+  B.innerHTML=audio+b.ps.map(para).join("")+`<section class="box"><h3>Luyện tập: ${b.xt}</h3><div class="X">${x}</div></section>`;
+  scrollTo(0,0);
+}
+const clr=pr=>$$("w.sel,.V li.sel",pr).forEach(x=>x.classList.remove("sel"));
+const look=(pr,h,p,m)=>$(".lk",pr).innerHTML=`<b>${h}</b><i>${p||""}</i>${m||"(hư từ, trợ từ)"}`;
+function pin(pr,id){
+  const c=$(`.gc[data-g="${id}"]`,pr),on=!c.classList.contains("hot");
+  $$(".hot",pr).forEach(x=>x.classList.remove("hot"));
+  if(on){c.classList.add("hot");$$(`.g[data-g="${id}"]`,pr).forEach(x=>x.classList.add("hot"));}
+}
+$("#tabs").innerHTML=BOOKS.map(b=>`<button>Bài đọc ${b.n}</button>`).join("")+`<label><input type="checkbox" id="py"> Hiện pinyin</label>`;
+$$("#tabs button").forEach((b,k)=>b.onclick=()=>show(k));
+$("#py").onchange=e=>document.body.classList.toggle("py",e.target.checked);
+B.addEventListener("click",e=>{
+  const t=e.target,pr=t.closest(".para"),w=t.closest("w"),li=t.closest("li"),g=t.closest(".g"),c=t.closest(".gc"),a=t.closest(".ans"),o=t.closest(".opt");
+  if(pr){
+    if(w){clr(pr);w.classList.add("sel");look(pr,w.textContent,w.dataset.p,w.dataset.m);}
+    if(li){clr(pr);li.classList.add("sel");$$(".T w",pr).forEach(x=>{if(x.textContent===li.dataset.h)x.classList.add("sel")});look(pr,li.dataset.h,li.dataset.p,li.dataset.m);}
+    if(g)pin(pr,g.dataset.g);
+    if(c)pin(pr,c.dataset.g);
+  }
+  if(a)a.classList.toggle("on");
+  if(o){o.parentElement.querySelectorAll(".opt").forEach(x=>x.classList.remove("ok","no"));o.classList.add(o.dataset.ok?"ok":"no");}
+});
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT")return;
+  if(e.key==="Enter"&&e.target.matches("li,.gc,.ans"))e.target.click();
+  const i=$$("#tabs button").findIndex(b=>b.classList.contains("on"));
+  if(e.key==="ArrowRight"&&i<BOOKS.length-1)show(i+1);
+  if(e.key==="ArrowLeft"&&i>0)show(i-1);
+});
+show(0);
+</script>
+</body>
+</html>
