@@ -571,7 +571,8 @@ const TESTS = {
   },
   "book2-unit2": {
     "file": "boya2/Boya2_Bai6-10_Github_GoogleSheets/github-pages/index.html",
-    "label": "KT Bài 6–10"
+    "label": "KT Bài 6–10 · Nghe–Đọc–Viết",
+    "additional": [{"file": "boya2/Boya2_Bai6-10_Tu_dong_100_Github_GoogleSheets/github-pages/Boya2_Bai6-10_Kiem_tra_tu_dong.html", "label": "KT Ngữ pháp bài 6–10 · 30 phút · Tự động"}]
   },
   "book2-unit3": {
     "file": "",
@@ -681,9 +682,9 @@ function buildReviewCard(startN, endN){
   return d;
 }
 
-function buildTestCard(bookKey, unitIndex, startN, endN){
+function buildTestCard(bookKey, unitIndex, startN, endN, item=null){
   const key = bookKey+'-unit'+unitIndex;
-  const t = TESTS[key] || {file:'', label:'KT Bài '+startN+'–'+endN};
+  const t = item || TESTS[key] || {file:'', label:'KT Bài '+startN+'–'+endN};
   const has = !!(t.file && t.file.trim());
   const cardInner = `
     <div class="num">测</div>
@@ -767,6 +768,7 @@ function renderBook(bookKey){
     chunk.forEach(item=> grid.appendChild(buildLessonCard(bookKey, item)));
     grid.appendChild(buildReviewCard(startN, endN));
     grid.appendChild(buildTestCard(bookKey, Math.floor(i/unitSize)+1, startN, endN));
+    (TESTS[bookKey+'-unit'+(Math.floor(i/unitSize)+1)]?.additional || []).forEach(item=>grid.appendChild(buildTestCard(bookKey, Math.floor(i/unitSize)+1, startN, endN, item)));
     unitBlock.appendChild(grid);
     panel.appendChild(unitBlock);
   }
