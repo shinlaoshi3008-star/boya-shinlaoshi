@@ -1,44 +1,42 @@
-# Boya 1 · Bài kiểm tra số 1 — đáp án và hướng dẫn chấm riêng
-30 phút · 35 câu · 100 điểm. Điểm tự động 10; phần còn lại do giáo viên chấm.
-Không đưa tài liệu này lên GitHub công khai.
+# Đáp án riêng · Bài kiểm tra 01 V2
+30 phút · 35 câu · 100 điểm. Không đưa thư mục này lên GitHub công khai.
+Đáp án nghe theo PDF giáo viên cung cấp. Mỗi ô đúng được điểm tương ứng; pinyin nhận dấu thanh hoặc số, thanh nhẹ không dấu/5/0; ü nhận v/u:. Không tự áp dụng biến điệu ngoài đáp án nguồn.
+Câu 1–15: mỗi ô đúng 1 điểm. Câu 16–20: 6 điểm chia đều theo số chữ, làm tròn từng câu đến hai chữ số thập phân. Câu 21–30: mỗi câu đúng 2 điểm. Câu 31–35: mỗi chữ khớp 4 điểm.
+Tô chữ: đúng số nét, thứ tự và hướng; so 32 điểm cách đều trên từng nét. Sai lệch trung bình ≤5,5% cạnh ô, đầu/cuối nét ≤12%, khoảng cách đường mẫu ≤11%. Đây là so đường nét với mẫu, không phải nhận dạng chữ viết tự do; viết đúng nhưng khác mẫu nhiều có thể không được điểm. Giáo viên xem lại nét trên teacher.html.
+Nguồn đếm nét có 5 chữ. 留 (10 nét) chỉ nằm trong trang đáp án, không thêm vào phần đề.
 
-**Chưa có audio nguồn:** không thể xác định đáp án nghe của câu 1–25 chỉ từ PDF. Giáo viên bổ sung file nghe liên tục và đối chiếu trước khi chấm. Không dùng chữ in trong câu hỏi làm lời giải nghe.
-Đếm nét theo thứ tự nhập: 你 7; 师 6; 好 6; 谢 12; 老 6.
-Thứ tự nét chuẩn: 叫: 丨、𠃍、一、𠄌、丨; 什: 丿、丨、一、丨; 么: 丿、𠃋、丶; 名: 丿、㇇、丶、丨、𠃍、一; 字: 丶、丶、㇖、㇇、亅、一。
-Phần nghe: câu 1–15 mỗi câu 2đ; câu 16–20 mỗi câu 6đ; câu 21–25 mỗi câu 2đ. Giáo viên phân bổ điểm theo số vị trí đúng sau khi nghe audio gốc.
-Phần viết nét: mỗi chữ 4đ. Đánh giá đủ nét 1đ, thứ tự/hướng nét 2đ, hình dạng 1đ. Xem phát lại trong teacher.html; giữ đánh giá chuyên môn của giáo viên.
-- Câu 1 (2đ): Chờ đối chiếu audio gốc.
-- Câu 2 (2đ): Chờ đối chiếu audio gốc.
-- Câu 3 (2đ): Chờ đối chiếu audio gốc.
-- Câu 4 (2đ): Chờ đối chiếu audio gốc.
-- Câu 5 (2đ): Chờ đối chiếu audio gốc.
-- Câu 6 (2đ): Chờ đối chiếu audio gốc.
-- Câu 7 (2đ): Chờ đối chiếu audio gốc.
-- Câu 8 (2đ): Chờ đối chiếu audio gốc.
-- Câu 9 (2đ): Chờ đối chiếu audio gốc.
-- Câu 10 (2đ): Chờ đối chiếu audio gốc.
-- Câu 11 (2đ): Chờ đối chiếu audio gốc.
-- Câu 12 (2đ): Chờ đối chiếu audio gốc.
-- Câu 13 (2đ): Chờ đối chiếu audio gốc.
-- Câu 14 (2đ): Chờ đối chiếu audio gốc.
-- Câu 15 (2đ): Chờ đối chiếu audio gốc.
-- Câu 16 (6đ): Chờ đối chiếu audio gốc.
-- Câu 17 (6đ): Chờ đối chiếu audio gốc.
-- Câu 18 (6đ): Chờ đối chiếu audio gốc.
-- Câu 19 (6đ): Chờ đối chiếu audio gốc.
-- Câu 20 (6đ): Chờ đối chiếu audio gốc.
-- Câu 21 (2đ): Giáo viên đối chiếu audio gốc để xác định đáp án.
-- Câu 22 (2đ): Giáo viên đối chiếu audio gốc để xác định đáp án.
-- Câu 23 (2đ): Giáo viên đối chiếu audio gốc để xác định đáp án.
-- Câu 24 (2đ): Giáo viên đối chiếu audio gốc để xác định đáp án.
-- Câu 25 (2đ): Giáo viên đối chiếu audio gốc để xác định đáp án.
-- Câu 26 (2đ): 7
-- Câu 27 (2đ): 6
-- Câu 28 (2đ): 6
-- Câu 29 (2đ): 12
-- Câu 30 (2đ): 6
-- Câu 31 (4đ): Đánh giá thứ tự, hướng và hình dạng từng nét. Không chỉ chấm chữ cuối cùng.
-- Câu 32 (4đ): Đánh giá thứ tự, hướng và hình dạng từng nét. Không chỉ chấm chữ cuối cùng.
-- Câu 33 (4đ): Đánh giá thứ tự, hướng và hình dạng từng nét. Không chỉ chấm chữ cuối cùng.
-- Câu 34 (4đ): Đánh giá thứ tự, hướng và hình dạng từng nét. Không chỉ chấm chữ cuối cùng.
-- Câu 35 (4đ): Đánh giá thứ tự, hướng và hình dạng từng nét. Không chỉ chấm chữ cuối cùng.
+- Câu 1: p / p
+- Câu 2: b / m
+- Câu 3: n / l
+- Câu 4: h / t
+- Câu 5: f / l
+- Câu 6: a3 / o4
+- Câu 7: a4 / o2
+- Câu 8: uo4 / uo5
+- Câu 9: o2 / u4
+- Câu 10: ao2 / ou4
+- Câu 11: 4 / 1
+- Câu 12: 4 / 2
+- Câu 13: 3 / 4
+- Câu 14: 2 / 4
+- Câu 15: 3 / 4
+- Câu 16: ge1 / ge5 / bi3 / di4 / di5 / gao1 / di4 / di5 / bi3 / ge1 / ge5 / ai3
+- Câu 17: ma1 / ma5 / he1 / ka1 / fei1 / ba4 / ba5 / he1 / cha2
+- Câu 18: ta1 / hen3 / xi3 / huan5 / gou3 / he2 / mao1
+- Câu 19: ta1 / jin1 / tian1 / qu4 / yin2 / hang2 / qu3 / qian2 / ming2 / tian1 / qu4 / yi1 / yuan4 / kan4 / bing4
+- Câu 20: zhe4 / shi4 / wo3 / ai4 / ren2 / ta1 / shi4 / jiao4 / shou4 / zhe4 / shi4 / wo3 / er2 / zi5 / ta1 / shi4 / xue2 / sheng5
+- Câu 21: píbāo
+- Câu 22: tǔdì
+- Câu 23: kǎogǔ
+- Câu 24: zhùchù
+- Câu 25: lùnwén
+- Câu 26: 7
+- Câu 27: 6
+- Câu 28: 6
+- Câu 29: 12
+- Câu 30: 6
+- Câu 31: 叫 · Khớp đủ nét, đúng thứ tự/hướng và gần đường mẫu: 4 điểm; chưa khớp: 0 điểm. Đây là chấm thao tác tô chữ, không phải nhận dạng chữ viết tự do.
+- Câu 32: 什 · Khớp đủ nét, đúng thứ tự/hướng và gần đường mẫu: 4 điểm; chưa khớp: 0 điểm. Đây là chấm thao tác tô chữ, không phải nhận dạng chữ viết tự do.
+- Câu 33: 么 · Khớp đủ nét, đúng thứ tự/hướng và gần đường mẫu: 4 điểm; chưa khớp: 0 điểm. Đây là chấm thao tác tô chữ, không phải nhận dạng chữ viết tự do.
+- Câu 34: 名 · Khớp đủ nét, đúng thứ tự/hướng và gần đường mẫu: 4 điểm; chưa khớp: 0 điểm. Đây là chấm thao tác tô chữ, không phải nhận dạng chữ viết tự do.
+- Câu 35: 字 · Khớp đủ nét, đúng thứ tự/hướng và gần đường mẫu: 4 điểm; chưa khớp: 0 điểm. Đây là chấm thao tác tô chữ, không phải nhận dạng chữ viết tự do.

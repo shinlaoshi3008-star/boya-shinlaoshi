@@ -1,30 +1,20 @@
-# Boya 1 · Bài kiểm tra số 1
+# Bài kiểm tra Boya 1 số 01 · V2
 
-## Các file
-- `github-pages/Boya1_KiemTra01.html`: bài thi học viên, có chế độ xem thử.
-- `private-apps-script/Code.gs`: backend riêng của đề 1.
-- `private-apps-script/teacher.html`: trang giáo viên.
-- `private-apps-script/DapAn_HuongDanCham.md`: hướng dẫn chấm.
+## Cập nhật hệ thống hiện tại
+1. Thay HTML học viên bằng `github-pages/Boya1_KiemTra01.html` vào đúng đường dẫn GitHub hiện tại. Endpoint hiện tại đã được giữ sẵn; audio xem thử đã điền. GIF và font được nhúng nên HTML vẫn hiển thị khi mở ngoại tuyến. Thư mục GIF_net_chu chứa 5 GIF riêng để sử dụng thêm.
+2. Trong **dự án Apps Script đang nhận bài kiểm tra 01**, thay nội dung Code.gs bằng file trong private-apps-script. Thay nội dung file HTML tên **teacher** bằng teacher.html cùng thư mục.
+3. Giữ các Script Properties: SHEET_ID, ALLOWED_ORIGIN, EXAM_OPEN, TEACHER_KEY (ít nhất 16 ký tự), AUDIO_URL. AUDIO_URL lấy từ backend khi thi thật; không cần nhập lại nếu đã cấu hình đúng. Không đưa mã giáo viên vào HTML học viên.
+4. Chọn Deploy → Manage deployments → Edit (bút chì) → Version: New version → Deploy. Cập nhật deployment hiện tại để **giữ nguyên URL /exec**, không cần tạo URL mới.
+5. Mở `/exec?page=teacher`, chọn Bản mới V2 hoặc Bản cũ. Bản mới ghi vào tab **BOYA1-TEST-01-V2**; backend vẫn phục vụ BOYA1-TEST-01 và giữ toàn bộ kết quả/chấm tay cũ. Không đổi tên hoặc xóa tab cũ.
+6. Chỉ đưa HTML học viên lên GitHub; không công khai Code.gs, teacher.html hoặc đáp án. Không thay backend của đề kiểm tra 02.
 
-## Cấu hình trước khi cho học viên thi
-1. Tạo một Google Sheet và một dự án Apps Script riêng cho đề này. Hai đề có thể dùng cùng một Google Sheet (mỗi đề một tab) nhưng cần **hai dự án/deployment riêng** vì mỗi backend có ngân hàng riêng. Không thay Code.gs của đề cũ.
-2. Dán Code.gs vào Apps Script. Tạo file HTML tên chính xác **teacher**, dán toàn bộ teacher.html.
-3. Project Settings → Script Properties: thêm `SHEET_ID` (ID Google Sheet), `ALLOWED_ORIGIN` (ví dụ https://shinlaoshi3008-star.github.io; chỉ origin, không kèm đường dẫn hoặc / cuối), `EXAM_OPEN` = `true`, `TEACHER_KEY` (mã riêng tối thiểu 16 ký tự, nên 24 ký tự trở lên).
-4. Thêm `AUDIO_URL` trỏ đến **một file nghe liên tục** gồm ba phần nghe. PDF không kèm audio: chưa có lời giải nghe xác nhận. Backend chặn ghi danh nếu thiếu URL nghe; giáo viên cần nghe thử URL trên thiết bị học viên trước khi mở thi.
-5. Chạy `setup`, cấp quyền. Deploy → New deployment → Web app; execute as Me, truy cập Anyone. Lấy URL kết thúc /exec.
-6. Trong HTML học viên, tìm `window.EXAM_CONFIG`, điền `endpoint` bằng URL /exec của **đúng đề**. Không đưa TEACHER_KEY vào HTML. Có thể điền audioUrl để nghe thử trước ghi danh; khi thi thật lấy AUDIO_URL từ backend.
-7. Đưa **chỉ HTML học viên** vào GitHub Pages. Không đưa thư mục private-apps-script lên repo công khai.
-8. Mở trang giáo viên tại `URL_DEPLOYMENT/exec?page=teacher`, nhập mã. Theo dõi học sinh, lọc lớp, xem ma trận, câu cần ôn; bấm Xem bài / Chấm để nhập điểm phần tự viết/nghe, sau đó Lưu điểm. Mã giáo viên chỉ giữ trong bộ nhớ phiên, đăng xuất xóa mã và dữ liệu hiển thị. Không có chức năng xóa bài nộp.
-9. Học viên bấm Cập nhật kết quả để nhận điểm giáo viên chấm. Câu chờ chấm không bị tính là sai; điểm chưa hoàn tất có nhãn tạm tính.
+## Cách làm
+- Câu 1–5: hai ô thanh mẫu; 6–10: hai ô vận mẫu + số thanh (ao4); 11–15: cặp thanh (2-3). Hướng dẫn xuất hiện ở đầu mỗi nhóm.
+- Câu 16–20: một chữ Hán mỗi ô trên, nhập pinyin vào ô song song ngay dưới; mỗi cặp ô luôn giữ cùng nhau khi xuống dòng trên điện thoại.
+- Câu 26–30: GIF đếm nét, nhập số. Câu 31–35: năm ô có chữ mờ; tô đủ nét, theo đúng thứ tự/hướng; xóa từng nét hoặc xóa hết được.
+- Chấm trên máy chủ sau khi nộp; đáp án không nằm trong trang học viên. Có điểm từng ô và lời giải sau khi máy chủ xác nhận. Không báo đúng/sai trước khi nộp.
+- Tô chữ đối chiếu đường mẫu có dung sai, **không nhận dạng chữ viết tự do**. Mỗi chữ khớp nhận 4 điểm; chưa khớp 0. Tiêu chí chi tiết trong hướng dẫn chấm riêng. Có thể xem và phát lại từng nét trên trang giáo viên.
+- 30 phút dùng chung; lưu nháp trên thiết bị, nộp lặp không tạo kết quả trùng; mất mạng giữ bài đã khóa để gửi lại. JSON sao lưu không chứa token.
 
-## Nối vào index hiện tại
-Thêm link riêng đến `Boya1_KiemTra01.html` ở đúng thư mục bạn đặt file; giữ mọi link bài thi cũ. Chưa sửa index của bạn vì không có file index trong yêu cầu này.
-
-## Kiểm tra thật trước khi phát đề
-Tạo lượt thử, điền bài, nộp; đối chiếu tab BOYA1-TEST-01 trong Sheet và trang teacher. Thử mã giáo viên sai, bộ lọc, CSV, chấm tay, học viên cập nhật điểm. Đã kiểm tra bằng backend mô phỏng và trình duyệt; **chưa kết nối/kiểm tra Google Sheets thật**, vì chưa có URL triển khai.
-
-## Khôi phục và lưu bài
-Bản nháp gắn mã đề và mã lượt, giữ mốc bắt đầu khi tải lại/đổi giao diện; nộp lặp trả bản đã lưu. Khi mất mạng, bài làm khóa trên thiết bị, chưa mở đáp án cho đến khi nhận xác nhận máy chủ; tải JSON bản sao rồi gửi lại. JSON không chứa token. Bản sao không tự nhập vào Sheet.
-
-## Khác biệt bản giấy
-Giữ câu hỏi, trọng số và thời gian nguồn. Không chuyển phần viết thành trắc nghiệm. Đếm nét nhập số; phần thứ tự nét viết bằng tay/chuột trên ô vẽ và lưu thứ tự từng nét. Phần điền thanh ở câu 16–20 nhập lại cả câu pinyin có thanh điệu; câu nghe không tự chấm khi chưa có audio nguồn.
+## Kiểm tra trước khi phát đề
+Đã kiểm tra chấm bằng backend mô phỏng và trình duyệt, gồm giao diện điện thoại. Chưa cập nhật trực tiếp Apps Script/GitHub hoặc gửi vào Google Sheets thật. Sau khi cập nhật deployment, nên tạo một lượt thử, nghe audio, tô nét và nộp rồi kiểm tra kết quả ở teacher. Dùng tên lớp THU_NGHIEM để dễ lọc.
