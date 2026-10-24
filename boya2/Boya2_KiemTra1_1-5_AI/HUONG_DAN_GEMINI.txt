@@ -1,0 +1,83 @@
+HƯỚNG DẪN GEMINI - ĐỀ 1 BOYA 2 BÀI 1-5
+BẢN GEMINI - dùng GEMINI_API_KEY, không dùng khóa của dịch vụ khác.
+
+1. LẤY KHÓA GEMINI
+- Mở https://aistudio.google.com/apikey và đăng nhập tài khoản Google.
+- Tạo khóa API cho dự án đang ở Free Tier.
+- Kiểm tra hạn mức thực của dự án/model trong Google AI Studio.
+- Giữ dự án ở Free Tier, không bật Billing nếu chỉ muốn dùng miễn phí.
+- Không cần gửi khóa API cho người khác.
+
+2. DÁN MÃ VÀ TRANG GIÁO VIÊN
+- Nếu đã triển khai bản AI trước: giữ nguyên Sheet, dự án Apps Script và URL /exec.
+- Thay toàn bộ Code.gs bằng private-apps-script/Code.gs trong bộ ZIP này.
+- Mở file HTML tên teacher trong Apps Script, thay bằng nội dung private-apps-script/teacher.html.
+- Nếu chưa triển khai: tạo Google Sheet, vào Tiện ích mở rộng -> Apps Script; dán Code.gs; bấm + -> HTML, đặt tên teacher rồi dán teacher.html.
+
+3. THUỘC TÍNH TẬP LỆNH
+Apps Script -> Cài đặt dự án -> Thuộc tính tập lệnh -> thêm các mục:
+
+SHEET_ID = Mã của Google Sheet (giữ nguyên nếu đã có)
+ALLOWED_ORIGIN = https://shinlaoshi3008-star.github.io
+EXAM_OPEN = true
+TEACHER_KEY = Mã giáo viên tự đặt, ít nhất 16 ký tự (giữ nguyên mã cũ)
+GEMINI_API_KEY = Dán khóa Gemini từ Google AI Studio
+GEMINI_MODEL = gemini-2.5-flash-lite
+GEMINI_ENABLED = true
+GEMINI_FREE_TIER_CONFIRMED = true
+AI_DAILY_LIMIT = 20
+GEMINI_MIN_INTERVAL_SECONDS = 65
+
+Chú ý:
+- SHEET_ID là đoạn giữa /d/ và /edit trong URL Google Sheet.
+- ALLOWED_ORIGIN không có /boya-shinlaoshi/ hoặc dấu / cuối.
+- Chỉ đặt GEMINI_FREE_TIER_CONFIRMED=true sau khi kiểm tra dự án đang ở Free Tier.
+- Model ví dụ phải có quyền dùng Free Tier trong dự án của bạn. Nếu không có, chọn đúng ID model có Free Tier và hỗ trợ JSON được tài khoản cho phép.
+- AI_DAILY_LIMIT=20 là mức trần do hệ thống tự đặt, không phải cam kết Google cấp 20 lượt/ngày cho mọi tài khoản.
+- Các thuộc tính khóa/model của dịch vụ trước không được bản này sử dụng.
+
+4. KHỞI TẠO VÀ BẬT CHẤM
+- Chọn hàm setup -> Chạy -> cấp quyền.
+- Chọn hàm installAITrigger -> Chạy -> cấp quyền.
+- Mở mục Trình kích hoạt, xác nhận có processAIQueue_ chạy mỗi phút.
+- Chỉ tạo một trigger; chạy installAITrigger lại không tạo trùng.
+
+5. TRIỂN KHAI
+Nếu đã có URL /exec:
+- Triển khai -> Quản lý triển khai -> bút chì -> Phiên bản mới -> Triển khai.
+- Giữ URL cũ và Sheet cũ. Trang học viên cũ vẫn tương thích; không bắt buộc đổi index.
+
+Nếu chưa có URL:
+- Triển khai -> Triển khai mới -> Ứng dụng web.
+- Thực thi dưới quyền Tôi; truy cập Bất kỳ ai.
+- Sao chép URL kết thúc /exec.
+- Trong github-pages/Boya2_KiemTra1_1-5_AI.html, tìm window.EXAM_CONFIG.
+- Thay endpoint:'' bằng endpoint:'URL_EXEC_CUA_BAN'.
+- Chỉ đưa HTML học viên lên GitHub, không đưa Code.gs/teacher.html/đáp án/ZIP lên repo công khai.
+
+6. MỞ TRANG GIÁO VIÊN
+- Mở URL_EXEC_CUA_BAN?page=teacher.
+- Nhập TEACHER_KEY.
+- Phía trên bảng điểm sẽ có bảng Gemini: model, lượt đã dùng, trạng thái hàng chờ.
+- Nếu báo thiếu cấu hình, kiểm tra đúng các thuộc tính ở mục 3.
+- Bài 2 và bài 4 chấm theo HSK3, điểm tự cập nhật; giáo viên có thể sửa và lưu lịch sử.
+- Câu đạt tối đa không giải thích. Câu chưa đạt tối đa có lý do và cách sửa.
+
+7. HẾT HẠN MỨC
+- Bài làm đã lưu vẫn được giữ; không tự cho 0 phần chưa chấm.
+- HTTP 429: chờ rồi tự thử lại, có giãn thời gian.
+- Nếu xác định hết quota ngày: chờ sang ngày Pacific tiếp theo rồi tiếp tục.
+- Chỉ xử lý một học sinh mỗi lần trigger; không bảo đảm toàn lớp có điểm AI ngay lập tức.
+- Lỗi khóa/model/quyền truy cập: sửa cấu hình rồi vào Xem bài -> Đưa lại vào hàng chờ AI.
+- Không tự đổi model, nhà cung cấp hay nâng cấp gói thanh toán.
+
+8. THỬ TRƯỚC KHI DÙNG
+- Ghi danh tên THỬ NGHIỆM / lớp TEST, làm bài và nộp.
+- Xác nhận Sheet lưu bài, bài 2/4 hiện chờ rồi có điểm.
+- Mở teacher, kiểm tra một câu tối đa và một câu bị trừ điểm.
+- Thử sửa điểm rồi cập nhật kết quả bên học sinh.
+
+Mã đã kiểm thử mô phỏng; chưa kiểm tra với khóa Gemini và Google Sheets thật của bạn.
+Miễn phí phụ thuộc dự án, model và hạn mức Google cấp. Mã không tự xác minh billing; nếu bạn bật Billing cho dự án, Google có thể tính phí. Nội dung Free Tier có thể được dùng cải thiện sản phẩm; mã không gửi kèm tên/lớp/token.
+
+Chi tiết thêm: xem HUONG_DAN_GEMINI.md trong cùng thư mục.
